@@ -1,26 +1,59 @@
-.container-form{
-   width: 400px;
-   height: 400px;
-   background-color: lightgray;
-   margin: 0 auto;
-   margin-top: 10%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+.container-form {
+  width: 1280px;
+  height: 720px;
+  background-color: lightgray;
+  margin: 0 auto;
+  /* margin-top: 10%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  }
+
+.title{
+  font-weight: bold;
+  font-size: 32px;
+  position: absolute;
+  top: 120px;
+
 }
 
-.form{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    /*padding: 7rem;*/
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(255, 0, 0);
-    width: 30vw;
-    height: 25vw;
-    
+.form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /*padding: 7rem;*/
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+  width: 30vw;
+  height: 25vw;
+
 }
-.input{
-    
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 200px;
+  height: 200px;
+  flex-wrap: wrap;
+
 }
+
+.input {
+  border: none;
+  border-bottom: 1px solid gray;
+  width: 200px;
+  height: 30px;
+}
+
+.btn{
+  width: 200px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
