@@ -25,17 +25,17 @@ export const Login = () => {
   }
   return (
     <div className="container-form">
-      <h1 className="title">Login</h1>
-      <form className="form">
-        <div className="inputs">
+      <h1>Login</h1>
+      <form>
+        <div>
           <label>
-            <input className="input" onChange={handleChangeEmail} value={email} type="email" placeholder="Email@email.com"></input>
+            <input onChange={handleChangeEmail} value={email} type="email" placeholder="Email@email.com"></input>
           </label>
           <label>
-            <input className="input" onChange={handleChangePassword} value={password} type="password" placeholder="Senha"></input>
+            <input onChange={handleChangePassword} value={password} type="password" placeholder="Senha"></input>
           </label>
         </div>
-        <button className="btn" onClick={handlerClick}>Iniciar sessão</button>
+        <button onClick={handlerClick}>Iniciar sessão</button>
       </form>
     </div>
   )
