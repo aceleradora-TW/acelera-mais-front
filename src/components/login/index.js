@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import './style.css'
 
 export const Login = () => {
   const [email, setEmail] = useState('')
@@ -23,16 +24,16 @@ export const Login = () => {
     })
   }
   return (
-    <form>
-      <label>
-        Email:
-        <input onChange={handleChangeEmail} value={email} type="email" placeholder="email@email.com"></input>
-      </label>
-      <label>
-        Senha:
-        <input onChange={handleChangePassword} value={password} type="password" placeholder="Senha"></input>
-      </label>
-      <button onClick={handlerClick}>Acessar</button>
-    </form>
+    <div className="login-form">
+      <div>
+        <label>
+          <input onChange={handleChangeEmail} value={email} type="email" placeholder="Email@email.com"></input>
+        </label>
+        <label>
+          <input onChange={handleChangePassword} value={password} type="password" placeholder="Senha"></input>
+        </label>
+      </div>
+      <button onClick={handlerClick}>Iniciar sessão</button>
+    </div>
   )
 }

@@ -2,7 +2,8 @@ import { Login } from './components/login'
 
 const App = () => {
   return (
-    <div className="main">
+    <div className="login-page">
+      <h1>AceleraMais</h1>
       <Login />
     </div>
   )
