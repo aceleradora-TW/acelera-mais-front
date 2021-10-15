@@ -1,8 +1,8 @@
 import './button.css'
 
-const Button = () => {
+const Button = ({ onClick, text }) => {
   return (
-      <button className="btn-new-process">Novo processo </button>
+    <button className="btn-new-process" onClick={onClick}>{text}</button>
   )
 }
 
