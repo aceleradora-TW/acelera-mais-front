@@ -1,11 +1,10 @@
-import { Login } from './components/login'
+// import { Login } from './components/login'
+
+import HiringProcessPage from './pages/hiring-process'
 
 const App = () => {
   return (
-    <div className="login-page">
-      <h1>AceleraMais</h1>
-      <Login />
-    </div>
+    <HiringProcessPage />
   )
 }
 

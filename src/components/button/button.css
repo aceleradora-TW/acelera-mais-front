@@ -1,0 +1,9 @@
+.btn-new-process {
+  width: 140px;
+  height: 30px;
+  background-color: rgb(68, 68, 255);
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  font-weight: 300;
+}
