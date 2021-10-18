@@ -1,4 +1,4 @@
-.btn-new-process {
+.button-new-process {
   width: 140px;
   height: 30px;
   background-color: rgb(68, 68, 255);
@@ -6,4 +6,19 @@
   border: 1px solid white;
   border-radius: 15px;
   font-weight: 300;
+}
+
+.button-filter {
+  width: 140px;
+  height: 30px;
+  background-color: white;
+  color: black;
+  border: 1px solid transparent;
+  font-weight: 300px;
+}
+.button-filter:hover {
+  border: none;
+  border-bottom: 1px solid blue;
+  transition: 3ms;
+  font-weight: bold;
 }

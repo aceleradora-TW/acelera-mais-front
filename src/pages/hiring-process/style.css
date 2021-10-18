@@ -3,9 +3,16 @@
 }
 .hiring-page {
   text-align: justify;
+  width: 800px;
+  margin: 0 auto;
 }
 .hiring-page h1 {
   font-size: 40px;
   color: rgb(149, 149, 149);
   font-weight: bold;
+  padding: 30px;
+}
+.hiring-page section {
+  display: flex;
+  justify-content: space-between;
 }
