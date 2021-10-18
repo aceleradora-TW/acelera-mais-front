@@ -1,0 +1,15 @@
+.status-open {
+  width: 30px;
+  padding: 0 15px;
+  background-color: #DCFDD4;
+  border-radius: 20px;
+  color: #4FAC16;
+}
+
+.status-close {
+  width: 30px;
+  padding: 0 15px;
+  background-color: #FAFDD4;
+  border-radius: 20px;
+  color: #AC9D16;
+}

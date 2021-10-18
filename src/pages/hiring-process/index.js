@@ -1,4 +1,5 @@
 import Button from '../../components/button'
+import { Table } from '../../components/table'
 import './style.css'
 
 const HiringProcessPage = () => {
@@ -17,7 +18,7 @@ const HiringProcessPage = () => {
             </div>
             <Button classe={'button-new-process'} text="Novo processo" onClick={handleSubmit}/>
         </section>
-
+        <Table />
     </div>
   )
 }

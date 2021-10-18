@@ -7,6 +7,10 @@
   border-radius: 15px;
   font-weight: 300;
 }
+.button-new-process:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
 
 .button-filter {
   width: 140px;
@@ -21,4 +25,41 @@
   border-bottom: 1px solid blue;
   transition: 3ms;
   font-weight: bold;
+  cursor: pointer;
+}
+
+.button-import {
+  width: 140px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+.button-import:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-edit {
+  width: 70px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+.button-edit:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-expend {
+  width: 120px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+.button-expend:hover {
+  font-weight: bold;
+  cursor: pointer;
 }
