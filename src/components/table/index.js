@@ -20,7 +20,7 @@ export const Table = () => {
   }
 
   return (
-    <div>
+    <div className="table-selective-process">
       <table>
         <thead>
           <tr>
@@ -32,7 +32,7 @@ export const Table = () => {
         <tbody>
           <tr>
             <td>2021/2</td>
-            <td className="status-open">Aberto</td>
+            <td><span>Aberto</span></td>
             <td><Button classe="button-import" text="Importar Dados" onClick={handleImport}/></td>
             <td><Button classe="button-import" text="Exportar tabela" onClick={handleExport} /></td>
             <td><Button classe="button-edit" text="Editar" onClick={handleEdit} /></td>
@@ -40,7 +40,7 @@ export const Table = () => {
           </tr>
           <tr>
             <td>2021/2</td>
-            <td className="status-close">Fechado</td>
+            <td ><span>Fechado</span></td>
             <td><Button classe="button-import" text="Importar Dados" onClick={handleImport}/></td>
             <td><Button classe="button-import" text="Exportar tabela" onClick={handleExport} /></td>
             <td><Button classe="button-edit" text="Editar" onClick={handleEdit} /></td>
