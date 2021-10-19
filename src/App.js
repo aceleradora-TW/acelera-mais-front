@@ -1,10 +1,10 @@
-import { Login } from './components/login'
+// import { Login } from './components/login'
+import { Formulario } from './components/formulario'
 
 const App = () => {
   return (
     <div className="login-page">
-      <h1>AceleraMais</h1>
-      <Login />
+      <Formulario />
     </div>
   )
 }
