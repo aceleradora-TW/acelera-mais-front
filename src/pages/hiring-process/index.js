@@ -1,8 +1,29 @@
 import Button from '../../components/button'
-import { Table } from '../../components/table'
+import { ProcessList } from '../../components/precess-list'
 import './style.css'
 
 const HiringProcessPage = () => {
+  const processes = [
+    {
+      name: '2021.1',
+      startDate: '12/15/2021',
+      endDate: '12/25/2021',
+      description: 'A description'
+    },
+    {
+      name: '2021.2',
+      startDate: '12/15/2021',
+      endDate: undefined,
+      description: 'A description'
+    },
+    {
+      name: '2021.2',
+      startDate: '12/15/2021',
+      endDate: undefined,
+      description: 'A description'
+    }
+  ]
+
   const handleSubmit = () => {
     console.log('fui clicado')
   }
@@ -18,7 +39,7 @@ const HiringProcessPage = () => {
             </div>
             <Button classe={'button-new-process'} text="Novo processo" onClick={handleSubmit}/>
         </section>
-        <Table />
+        <ProcessList processes={processes} />
     </div>
   )
 }
