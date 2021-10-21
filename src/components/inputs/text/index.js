@@ -1,7 +1,7 @@
 import { Input } from '../index'
 // eslint-disable-next-line react/prop-types
-export const InputText = ({ label }) => {
+export const InputText = ({ label, onChange, name }) => {
   return (
-    <Input type="text" label={label} />
+    <Input type="text" name={name} label={label} onChange={onChange} />
   )
 }
