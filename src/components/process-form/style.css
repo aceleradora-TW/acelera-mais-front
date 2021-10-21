@@ -1,0 +1,14 @@
+.processo {
+  text-align: center;
+  background-color: aqua;
+}
+.fundo {
+  background-color: rgb(141, 141, 141);
+  padding: 50px;
+  margin: 150px 450px;
+  text-align: center;
+  border-radius: 0px;
+}
+.center {
+  text-align: justify;
+}
