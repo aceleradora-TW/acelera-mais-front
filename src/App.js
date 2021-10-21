@@ -1,10 +1,10 @@
 // import { Login } from './components/login'
-import { ProcessForm } from './components/formulario'
+import { HiringProcessForm } from './components/hiring-process-form'
 
 const App = () => {
   return (
     <div className="login-page">
-      <ProcessForm />
+      <HiringProcessForm />
     </div>
   )
 }

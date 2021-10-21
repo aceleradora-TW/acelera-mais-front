@@ -1,8 +1,7 @@
 import { InputDate } from '../inputs/date'
 import { InputText } from '../inputs/text'
-import './style.css'
 
-export const ProcessForm = () => {
+export const HiringProcessForm = () => {
   return (
     <form>
       <InputText label="Nome" />
