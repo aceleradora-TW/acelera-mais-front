@@ -6,20 +6,20 @@ const HiringProcessPage = () => {
   const processes = [
     {
       name: '2021.1',
-      startDate: '12/15/2021',
-      endDate: '12/25/2021',
+      startDate: new Date(2021, 12, 15).toString(),
+      endDate: new Date(2021, 10, 21).toString(),
       description: 'A description'
     },
     {
       name: '2021.2',
-      startDate: '12/15/2021',
-      endDate: undefined,
+      startDate: new Date(2021, 10, 22).toString(),
+      endDate: new Date(2022, 10, 27).toString(),
       description: 'A description'
     },
     {
       name: '2021.2',
-      startDate: '12/15/2021',
-      endDate: undefined,
+      startDate: new Date(2021, 10, 18).toString(),
+      endDate: new Date(2021, 10, 19).toString(),
       description: 'A description'
     }
   ]
