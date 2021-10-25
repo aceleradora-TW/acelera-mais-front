@@ -1,6 +1,7 @@
 import Button from '../../components/button'
 import { ProcessList } from '../../components/precess-list'
 import './style.css'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const HiringProcessPage = () => {
   const processes = [
@@ -37,7 +38,7 @@ const HiringProcessPage = () => {
             <Button classe={'button-filter'} text="Abertos" onClick={handleSubmit} />
             <Button classe={'button-filter'} text="Fechados" onClick={handleSubmit} />
             </div>
-            <Button classe={'button-new-process'} text="Novo processo" onClick={handleSubmit}/>
+            <Button icon={faPlus} classe={'button-new-process'} text="Novo processo" onClick={handleSubmit}/>
         </section>
         <ProcessList processes={processes} />
     </div>
