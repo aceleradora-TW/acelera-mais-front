@@ -1,5 +1,5 @@
 // import { Login } from './components/login'
-import { HiringProcessForm } from './components/hiring-process-form'
+import { HiringProcessForm } from './components/form/hiring-process'
 
 const App = () => {
   return (
