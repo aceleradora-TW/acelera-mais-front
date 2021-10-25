@@ -40,12 +40,10 @@ export const ProcessList = ({ processes }) => {
                    endDate={process.endDate}
                 />
               </td>
-              <div>
-                <td><Button classe="button-import" text="Importar Dados" onClick={handleImport}/></td>
-                <td><Button classe="button-import" text="Exportar tabela" onClick={handleExport} /></td>
-                <td><Button classe="button-edit" text="Editar" onClick={handleEdit} /></td>
-                <td><Button classe="button-expend" text="Ver mais" onClick={handleExpand} /></td>
-              </div>
+              <td><Button classe="button-import" text="Importar Dados" onClick={handleImport}/></td>
+              <td><Button classe="button-import" text="Exportar tabela" onClick={handleExport} /></td>
+              <td><Button classe="button-edit" text="Editar" onClick={handleEdit} /></td>
+              <td><Button classe="button-expend" text="Ver mais" onClick={handleExpand} /></td>
             </tr>
           ))}
 

@@ -17,14 +17,10 @@
 }
 
 .table-selective-process td {
-  padding: 15px;
+  padding: 10px;
+  text-align: center;
 }
 .table-selective-process td:first-child {
   text-align: center;
   font-weight: bold;
 }
-.table-selective-process tr > div {
-  display: flex;
-  justify-content: flex-end;
-}
-

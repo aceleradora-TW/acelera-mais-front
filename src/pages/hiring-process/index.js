@@ -5,19 +5,19 @@ import './style.css'
 const HiringProcessPage = () => {
   const processes = [
     {
-      name: '2021.1',
+      name: '2021/1',
       startDate: new Date(2021, 11, 15).toISOString(),
       endDate: new Date(2021, 11, 21).toISOString(),
       description: 'A description'
     },
     {
-      name: '2021.2',
+      name: '2021/2',
       startDate: new Date(2021, 9, 22).toISOString(),
       endDate: new Date(2022, 10, 27).toISOString(),
       description: 'A description'
     },
     {
-      name: '2021.2',
+      name: '2021/2',
       startDate: new Date(2021, 8, 18).toISOString(),
       endDate: new Date(2021, 8, 19).toISOString(),
       description: 'A description'
