@@ -6,8 +6,15 @@
   border-radius: 20px;
   color: #4fac16;
 }
- 
+
 .status-close {
+  padding: 0 15px;
+  text-align: center;
+  background-color: #fdd4d4;
+  border-radius: 20px;
+  color: #ac1616;
+}
+.status-preparation {
   padding: 0 15px;
   text-align: center;
   background-color: #fafdd4;
