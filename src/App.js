@@ -1,10 +1,10 @@
 // import { Login } from './components/login'
-import { HiringProcessForm } from './components/hiring-process-form'
+import { HiringProcess } from './components/hiring-process'
 
 const App = () => {
   return (
     <div className="login-page">
-      <HiringProcessForm />
+      <HiringProcess />
     </div>
   )
 }
