@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { InputDate } from '../../inputs/date'
 import { InputText } from '../../inputs/text'
+import axios from 'axios'
 
-export const HiringProcessForm = () => {
+// eslint-disable-next-line react/prop-types
+export const HiringProcessForm = ({ method, id = '' }) => {
   const [hiringProcess, setHiringProcess] = useState({
     name: '',
     startDate: '',
@@ -19,7 +21,14 @@ export const HiringProcessForm = () => {
   }
 
   const sendHiringProcess = () => {
-    console.log(hiringProcess)
+    const data = hiringProcess
+
+    axios('http://localhost:9000/hiring_process',
+      {
+        method,
+        data
+      })
+      .then(res => console.log(res.data))
   }
 
   return (
