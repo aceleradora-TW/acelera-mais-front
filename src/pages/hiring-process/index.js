@@ -1,5 +1,5 @@
 import Button from '../../components/button'
-import { ProcessList } from '../../components/precess-list'
+import { ProcessList } from '../../components/hiring-process-list'
 import './style.css'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
