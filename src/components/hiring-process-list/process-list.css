@@ -1,0 +1,26 @@
+.table-selective-process {
+  width: 100%;
+  padding: 30px;
+}
+.table-selective-process table {
+  width: 100%;
+  border: 1px solid #ababab;
+}
+.table-selective-process thead {
+  border-bottom: 1px solid #ababab;
+}
+.table-selective-process th {
+  text-align: center;
+  color: #ababab;
+  padding: 10px;
+  font-family: "Roboto";
+}
+
+.table-selective-process td {
+  padding: 10px;
+  text-align: center;
+}
+.table-selective-process td:first-child {
+  text-align: center;
+  font-weight: bold;
+}
