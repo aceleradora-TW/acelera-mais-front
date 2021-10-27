@@ -23,7 +23,7 @@ export const HiringProcessForm = ({ method, id = '' }) => {
   const sendHiringProcess = () => {
     const data = hiringProcess
 
-    client(`/hiring_process/${id}`,
+    client('/hiring_process',
       {
         method,
         data
