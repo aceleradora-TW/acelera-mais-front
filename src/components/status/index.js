@@ -2,7 +2,7 @@ import React from 'react'
 import './status.css'
 
 export const Status = ({ startDate, endDate }) => {
-  let label = 'fechado'
+  let label = 'Fechado'
   let classNameStatus = 'status-close'
   const currentDate = Date.now()
   const startDateTime = new Date(startDate)
@@ -12,11 +12,11 @@ export const Status = ({ startDate, endDate }) => {
   const statusOpened = currentDate >= startDateTime && currentDate < endDateTime
 
   if (statusPreparation) {
-    label = 'em preparação'
+    label = 'Em preparação'
     classNameStatus = 'status-preparation'
   }
   if (statusOpened) {
-    label = 'aberto'
+    label = 'Aberto'
     classNameStatus = 'status-open'
   }
   return (

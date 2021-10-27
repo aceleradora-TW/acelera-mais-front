@@ -26,7 +26,6 @@ const HiringProcessPage = () => {
   ]
 
   const handleSubmit = () => {
-    console.log('fui clicado')
   }
 
   return (

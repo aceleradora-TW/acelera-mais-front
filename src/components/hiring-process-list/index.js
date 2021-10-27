@@ -6,19 +6,15 @@ import { faAngleDown, faDownload, faUpload } from '@fortawesome/free-solid-svg-i
 
 export const ProcessList = ({ processes }) => {
   const handleImport = () => {
-    console.log('Clicado no importar dados')
   }
 
   const handleExport = () => {
-    console.log('clicado no export dados')
   }
 
   const handleEdit = () => {
-    console.log('Clicado no editar')
   }
 
   const handleExpand = () => {
-    console.log('Clicado no veja mais')
   }
 
   return (
@@ -41,7 +37,7 @@ export const ProcessList = ({ processes }) => {
                    endDate={process.endDate}
                 />
               </td>
-              <td><Button icon={faDownload} classe="button-import" text="Importar Dados" onClick={handleImport}/></td>
+              <td><Button icon={faDownload} classe="button-import" text="Importar dados" onClick={handleImport}/></td>
               <td><Button icon={faUpload} classe="button-import" text="Exportar tabela" onClick={handleExport} /></td>
               <td><Button classe="button-edit" text="Editar" onClick={handleEdit} /></td>
               <td><Button icon={faAngleDown} classe="button-expend" text="Ver mais" onClick={handleExpand} /></td>
