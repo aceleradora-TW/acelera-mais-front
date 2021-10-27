@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { InputDate } from '../../inputs/date'
 import { InputText } from '../../inputs/text'
-import { client } from '../../../service/index'
+import axios from 'axios'
 
 // eslint-disable-next-line react/prop-types
 export const HiringProcessForm = ({ method, id = '' }) => {
@@ -23,7 +23,7 @@ export const HiringProcessForm = ({ method, id = '' }) => {
   const sendHiringProcess = () => {
     const data = hiringProcess
 
-    client('/hiring_process',
+    axios(`http://acelera-mais-api.herokuapp.js/hiring_process/${id}`,
       {
         method,
         data
