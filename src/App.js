@@ -1,10 +1,8 @@
-// import { Login } from './components/login'
-
-import HiringProcessPage from './pages/hiring-process'
+import Routes from './routes'
 
 const App = () => {
   return (
-    <HiringProcessPage />
+      <Routes />
   )
 }
 
