@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { InputDate } from '../../inputs/date'
 import { InputText } from '../../inputs/text'
-import { client } from '../../../service'
+import { client } from '../../../service/index'
 
 // eslint-disable-next-line react/prop-types
 export const HiringProcessForm = ({ method, id = '' }) => {
