@@ -1,11 +1,8 @@
-import { Login } from './components/login'
+import Routes from './routes'
 
 const App = () => {
   return (
-    <div className="login-page">
-      <h1>AceleraMais</h1>
-      <Login />
-    </div>
+      <Routes />
   )
 }
 

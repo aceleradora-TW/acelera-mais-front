@@ -1,0 +1,74 @@
+.button-new-process {
+  width: 174px;
+  height: 39px;
+  background-color: rgb(68, 68, 255);
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  font-weight: 300;
+  padding: 10px 25px 10px 25px;
+  font-family: "Open Sans";
+}
+.button-new-process:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-filter {
+  width: 160px;
+  height: 46px;
+  background-color: white;
+  color: black;
+  border: 1px solid transparent;
+  font-weight: 300px;
+  padding: 12px 36px 12px 36px;
+  font-family: "Open Sans";
+}
+.button-filter:hover {
+  border: none;
+  border-bottom: 1px solid blue;
+  transition: 3ms;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-import {
+  width: 140px;
+  height: 23px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  font-family: "Open Sans";
+}
+.button-import:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-edit {
+  width: 70px;
+  height: 23px;
+  background-color: white;
+  color: #003cff;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  font-family: "Open Sans";
+}
+.button-edit:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-expend {
+  width: 100px;
+  height: 23px;
+  color: #003cff;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  font-family: "Open Sans";
+}
+.button-expend:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
