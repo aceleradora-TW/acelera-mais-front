@@ -23,7 +23,7 @@ export const HiringProcessForm = ({ method, id = '' }) => {
   const sendHiringProcess = () => {
     const data = hiringProcess
 
-    axios('http://localhost:9000/hiring_process',
+    axios('https://prod-acelera-mais-api.herokuapp.com/hiring-process',
       {
         method,
         data
