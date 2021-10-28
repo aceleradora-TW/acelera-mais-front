@@ -4,7 +4,7 @@ import { InputText } from '../../inputs/text'
 import axios from 'axios'
 
 // eslint-disable-next-line react/prop-types
-export const HiringProcessForm = ({ method, id = '' }) => {
+export const HiringProcessForm = ({ method = 'POST', id = '' }) => {
   const [hiringProcess, setHiringProcess] = useState({
     name: '',
     startDate: '',
@@ -23,7 +23,7 @@ export const HiringProcessForm = ({ method, id = '' }) => {
   const sendHiringProcess = () => {
     const data = hiringProcess
 
-    axios(`https://acelera-mais-api.herokuapp.js/hiring_process/${id}`,
+    axios(`https://prod-acelera-mais-api.herokuapp.com/hiring_process/${id}`,
       {
         method,
         data
