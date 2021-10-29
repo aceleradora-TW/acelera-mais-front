@@ -1,30 +1,38 @@
-import "./style.css";
+import { useState } from 'react'
+import './style.css'
 
-export const Modal = (props) => {
-  if (!props.show) {
-    return null;
+export const Modal = ({ title, children, className, label }) => {
+  const [show, setShow] = useState(false)
+
+  const onClose = () => setShow(false)
+
+  if (!show) {
+    return <button className={className} onClick={() => setShow(true)}>{label}</button>
   }
   return (
-    <div className="modal" onClick={props.onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-header">
-          <h4 className="modal-title">{props.title}</h4>
-        </div>
-        <div className="modal-body">{props.children}</div>
-        <div className="modal-footer">
-          <div>
-            <button>Excluir</button>
+    <>
+    <button className={className}>{label}</button>
+      <div className="modal" onClick={onClose}>
+        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <div className="modal-header">
+            <h4 className="modal-title">{title}</h4>
           </div>
-          <div>
-            <button onClick={props.onClose} className="button">
-              Cancelar
-            </button>
-            <button className="button">Salvar</button>
+          <div className="modal-body">{children}</div>
+          <div className="modal-footer">
+            <div>
+              <button>Excluir</button>
+            </div>
+            <div>
+              <button onClick={onClose} className="button">
+                Cancelar
+              </button>
+              <button className="button">Salvar</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
+    </>
+  )
+}
 
-export default Modal;
+export default Modal
