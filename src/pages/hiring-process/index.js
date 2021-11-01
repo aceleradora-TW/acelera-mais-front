@@ -8,15 +8,27 @@ import { useEffect, useState } from 'react'
 const HiringProcessPage = () => {
   const [dadosApi, setDadosApi] = useState('')
 
-  useEffect(() => {
-    api
-      .get('hiring_process')
-      .then((response) => response.data)
-      .then((response) => setDadosApi(response))
-      .catch((err) => {
-        console.error('Erro:' + err)
-      })
+  useEffect(async () => {
+    try {
+      const response = await api.get('hiring_process')
+      // const json = await response.json()
+      setDadosApi(response.data.map(item => {
+        return item
+      }))
+    } catch (e) {
+      console.error(e)
+    }
   }, [])
+
+  // useEffect(() => {
+  //   api
+  //     .get('hiring_process')
+  //     .then((response) => response.data)
+  //     .then((response) => setDadosApi(response))
+  //     .catch((err) => {
+  //       console.error('Erro:' + err)
+  //     })
+  // }, [])
 
   console.log(dadosApi)
   // const processes = dadosApi.map((dados) => {
