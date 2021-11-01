@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './style.css'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import Button from '../button'
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons'
 
 export const Modal = ({ title, children, className, label }) => {
   const [show, setShow] = useState(false)
@@ -22,8 +23,8 @@ export const Modal = ({ title, children, className, label }) => {
           <div className="modal-body">{children}</div>
           <div className="modal-footer">
             <div>
-              <button icon={faTrash}
-                classe="button-delete">Excluir</button>
+              <Button icon={faTrashAlt}
+                classe="button-delete">Excluir</Button>
             </div>
             <div className="modal-options">
               <button onClick={onClose}>
