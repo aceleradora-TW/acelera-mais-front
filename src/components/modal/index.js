@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './style.css'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 export const Modal = ({ title, children, className, label }) => {
   const [show, setShow] = useState(false)
@@ -9,9 +10,10 @@ export const Modal = ({ title, children, className, label }) => {
   if (!show) {
     return <button className={className} onClick={() => setShow(true)}>{label}</button>
   }
+
   return (
     <>
-    <button className={className}>{label}</button>
+      <button className={className}>{label}</button>
       <div className="modal" onClick={onClose}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           <div className="modal-header">
@@ -20,13 +22,14 @@ export const Modal = ({ title, children, className, label }) => {
           <div className="modal-body">{children}</div>
           <div className="modal-footer">
             <div>
-              <button>Excluir</button>
+              <button icon={faTrash}
+                classe="button-delete">Excluir</button>
             </div>
-            <div>
-              <button onClick={onClose} className="button">
+            <div className="modal-options">
+              <button onClick={onClose}>
                 Cancelar
               </button>
-              <button className="button">Salvar</button>
+              <button>Salvar</button>
             </div>
           </div>
         </div>
