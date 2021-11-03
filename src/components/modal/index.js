@@ -24,6 +24,27 @@ export const Modal = ({ title, children, className, label, method = 'PATCH', id 
       .then(res => console.log(res.data)).catch((err) => { console.error('Errou' + err) })
   }
 
+  const deleteHiringProcess = () => {
+    const data = { name: '', description: '', startDate: '', endDate: '' }
+
+    axios(`https://prod-acelera-mais-api.herokuapp.com/hiring_process/${id}`,
+      {
+        method,
+        data
+      })
+      .then(res => console.log(res.data)).catch((err) => { console.error('Errou' + err) })
+  }
+
+  /* const confirmDelete = () => {
+    let x
+    let r = confirm('Escolha um valor!')
+    if (r === true) {
+      x = 'você pressionou OK!'
+    } else {
+      x = 'Você pressionou Cancelar!'
+    }
+  } */
+
   return (
     <>
       <button className={className}>{label}</button>
@@ -35,7 +56,7 @@ export const Modal = ({ title, children, className, label, method = 'PATCH', id 
           <div className="modal-body">{children}</div>
           <div className="modal-footer">
             <div>
-              <Button icon={faTrashAlt}
+              <Button onClick={deleteHiringProcess} icon={faTrashAlt}
                 classe="button-delete">Excluir</Button>
             </div>
             <div className="modal-options">
