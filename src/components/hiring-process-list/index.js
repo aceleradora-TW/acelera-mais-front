@@ -2,7 +2,10 @@ import React from 'react'
 import Button from '../button'
 import { Status } from '../status'
 import './process-list.css'
+import { library } from '@fortawesome/fontawesome-svg-core'
 import { faAngleDown, faDownload, faUpload } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faAngleDown, faDownload, faUpload)
 
 export const ProcessList = ({ processes }) => {
   const handleImport = () => {
@@ -37,10 +40,10 @@ export const ProcessList = ({ processes }) => {
                    endDate={process.endDate}
                 />
               </td>
-              <td><Button icon={faDownload} classe="button-import" text="Importar dados" onClick={handleImport}/></td>
-              <td><Button icon={faUpload} classe="button-import" text="Exportar tabela" onClick={handleExport} /></td>
+              <td><Button icon='download' classe="button-import" text="Importar dados" onClick={handleImport}/></td>
+              <td><Button icon='upload' classe="button-import" text="Exportar tabela" onClick={handleExport} /></td>
               <td><Button classe="button-edit" text="Editar" onClick={handleEdit} /></td>
-              <td><Button icon={faAngleDown} classe="button-expend" text="Ver mais" onClick={handleExpand} /></td>
+              <td><Button icon='angle-down' classe="button-expend" text="Ver mais" onClick={handleExpand} /></td>
             </tr>
           ))}
 
