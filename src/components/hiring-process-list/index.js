@@ -7,7 +7,7 @@ import './process-list.css'
 import {
   faAngleDown,
   faDownload,
-  faUpload
+  faUpload, faTrashAlt
 } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
@@ -17,6 +17,13 @@ export const ProcessList = ({ processes }) => {
   const handleExport = () => { }
 
   const handleExpand = () => { }
+
+  // Falta fazer a requisição do delete, passando a id
+
+  const handleDelete = () => {
+    axios.delete('https://prod-acelera-mais-api.herokuapp.com/hiring-process/')
+  }
+
   return (
     <div className="table-selective-process">
       <table>
@@ -71,9 +78,9 @@ export const ProcessList = ({ processes }) => {
                 />
               </td>
               <td>
-                <Button text="excluir" onClick={() => {
-                  axios.delete(`https://prod-acelera-mais-api.herokuapp.com/hiring-process/${id}´)
-                }}
+                <Button icon={faTrashAlt}
+                  classe="button-delete"
+                  onClick={handleDelete} method="DELETE" id={process.id}
                 /></td>
             </tr>
           ))}
