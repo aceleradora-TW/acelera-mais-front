@@ -60,12 +60,12 @@ export const ProcessList = ({ processes }) => {
                   onClick={handleExport}
                 />
               </td>
-              {/*  <td><Button classe="button-edit" text="Editar" onClick={handleEdit} /></td> */}
+
               <td>
                 <Modal
                   label="Editar"
                   title="Editar Processo Seletivo"
-                  className="button-edit">
+                  classe="button-edit">
                   <HiringProcessForm method="PATCH" id={process.id} />
                 </Modal>
               </td>

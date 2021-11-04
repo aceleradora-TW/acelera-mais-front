@@ -45,38 +45,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-.button-delete {
-  border: 1px solid #e9e9ea;
-  border-radius: 15px;
-  color: #ff3d00;
-  height: 28px;
-  width: 40px;
-  cursor: pointer;
-  background-color: #fff;
-  font-size: 16px;
-}
-
-.modal-options button {
-  height: 26px;
-  border-radius: 10px;
-  margin: 3px;
-  font-family: "Open Sans", sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-}
-
-.modal-options button:first-child {
-  background-color: #fff;
-  color: #003cff;
-  border: 1px solid #e9e9ea;
-  width: 80px;
-}
-
-.modal-options button:last-child {
-  background-color: #003cff;
-  color: #fff;
-  width: 66px;
-}

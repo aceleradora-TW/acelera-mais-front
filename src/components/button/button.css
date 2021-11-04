@@ -9,6 +9,7 @@
   padding: 10px 25px 10px 25px;
   font-family: "Open Sans";
 }
+
 .button-new-process:hover {
   font-weight: bold;
   cursor: pointer;
@@ -24,6 +25,7 @@
   padding: 12px 36px 12px 36px;
   font-family: "Open Sans";
 }
+
 .button-filter:hover {
   border: none;
   border-bottom: 1px solid blue;
@@ -40,6 +42,7 @@
   border-radius: 10px;
   font-family: "Open Sans";
 }
+
 .button-import:hover {
   font-weight: bold;
   cursor: pointer;
@@ -68,10 +71,12 @@
   border-radius: 10px;
   font-family: "Open Sans";
 }
+
 .button-expend:hover {
   font-weight: bold;
   cursor: pointer;
 }
+
 .button-delete {
   border: 1px solid #e9e9ea;
   border-radius: 15px;
