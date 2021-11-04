@@ -18,10 +18,9 @@ export const ProcessList = ({ processes }) => {
 
   const handleExpand = () => { }
 
-  // Falta fazer a requisição do delete, passando a id
-
-  const handleDelete = () => {
-    axios.delete('https://prod-acelera-mais-api.herokuapp.com/hiring-process/')
+  const handleDelete = async (id) => {
+    const result = await axios.delete(`https://prod-acelera-mais-api.herokuapp.com/hiring-process/${id}`)
+    console.log(result.data)
   }
 
   return (
@@ -64,7 +63,7 @@ export const ProcessList = ({ processes }) => {
               <td>
                 <Modal
                   label="Editar"
-                  title="Editar Processo Seletivo"
+                  title="Editar processos seletivos"
                   classe="button-edit">
                   <HiringProcessForm method="PATCH" id={process.id} />
                 </Modal>
@@ -80,7 +79,7 @@ export const ProcessList = ({ processes }) => {
               <td>
                 <Button icon={faTrashAlt}
                   classe="button-delete"
-                  onClick={handleDelete} method="DELETE" id={process.id}
+                  onClick={() => handleDelete(process.id)}
                 /></td>
             </tr>
           ))}
