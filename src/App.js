@@ -2,7 +2,7 @@ import Routes from './routes'
 
 const App = () => {
   return (
-      <Routes />
+    <Routes />
   )
 }
 
