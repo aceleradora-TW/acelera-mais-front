@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import './style.css'
 import Button from '../button'
+import {
+  faTimes
+} from '@fortawesome/free-solid-svg-icons'
 
 export const Modal = ({ title, children, label, icon }) => {
   const [show, setShow] = useState(false)
@@ -17,6 +20,10 @@ export const Modal = ({ title, children, label, icon }) => {
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           <div className="modal-header">
             <h4 className="modal-title">{title}</h4>
+            <Button icon={faTimes}
+              classe="button-close"
+              onClick={onClose}
+            />
           </div>
           <div className="modal-body">{children}</div>
           <div className="modal-footer">

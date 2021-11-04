@@ -87,3 +87,22 @@
   background-color: #fff;
   font-size: 16px;
 }
+
+.button-close {
+  color: #aea9bd;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+.button-submit {
+  width: 90px;
+  height: 23px;
+  color: #fff;
+  background-color: #003cff;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  font-family: "Open Sans";
+  cursor: pointer;
+}

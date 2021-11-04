@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { InputDate } from '../../inputs/date'
 import { InputText } from '../../inputs/text'
+import Button from '../../button'
 import axios from 'axios'
 
 // eslint-disable-next-line react/prop-types
@@ -37,9 +38,9 @@ export const HiringProcessForm = ({ method = 'POST', id = '' }) => {
       <InputDate name="startDate" label="Data de Início" onChange={handleChange} />
       <InputDate name="endDate" label="Data de Término" onChange={handleChange} />
       <InputText name="description" label="Descrição" onChange={handleChange} />
-      <button type="button" onClick={sendHiringProcess}>
+      <Button classe='button-submit' type="button" text='Enviar' onClick={sendHiringProcess}>
         Enviar
-      </button>
+      </Button>
     </form>
   )
 }
