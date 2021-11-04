@@ -9,6 +9,7 @@ import {
   faDownload,
   faUpload
 } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
 
 export const ProcessList = ({ processes }) => {
   const handleImport = () => { }
@@ -58,7 +59,7 @@ export const ProcessList = ({ processes }) => {
                   label="Editar"
                   title="Editar Processo Seletivo"
                   className="button-edit">
-                  <HiringProcessForm></HiringProcessForm>
+                  <HiringProcessForm method="PATCH" id={process.id} />
                 </Modal>
               </td>
               <td>
@@ -69,6 +70,11 @@ export const ProcessList = ({ processes }) => {
                   onClick={handleExpand}
                 />
               </td>
+              <td>
+                <Button text="excluir" onClick={() => {
+                  axios.delete(`https://prod-acelera-mais-api.herokuapp.com/hiring-process/${id}´)
+                }}
+                /></td>
             </tr>
           ))}
         </tbody>
