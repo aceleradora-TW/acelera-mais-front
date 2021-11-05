@@ -11,9 +11,7 @@
 }
 
 .modal-content {
-  width: 100%;
-  max-width: 600px;
-  max-height: 458px;
+  min-width: 400px;
   border: 1px solid #aea9bd;
   background-color: #fff;
   box-sizing: border-box;
@@ -34,7 +32,6 @@
 }
 
 .modal-body {
-  max-height: 270px;
   border: 1px solid #aea9bd;
   margin: 10px 40px;
   padding: 20px;

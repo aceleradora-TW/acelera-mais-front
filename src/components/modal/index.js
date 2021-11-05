@@ -16,6 +16,7 @@ export const Modal = ({ title, children, label, icon }) => {
 
   return (
     <>
+      <Button classe="button-edit" text="Editar">{label}</Button>
       <div className="modal" onClick={onClose}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           <div className="modal-header">
