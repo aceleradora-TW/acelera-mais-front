@@ -19,8 +19,12 @@ export const ProcessList = ({ processes }) => {
   const handleExpand = () => { }
 
   const handleDelete = async (id) => {
-    const result = await axios.delete(`https://prod-acelera-mais-api.herokuapp.com/hiring-process/${id}`)
-    console.log(result.data)
+    try {
+      const result = await axios.delete(`https://test-acelera-mais-api.herokuapp.com/hiring_process/${id}`)
+      console.log(result.data)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
