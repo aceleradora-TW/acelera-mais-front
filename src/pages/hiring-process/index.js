@@ -2,31 +2,17 @@ import Button from '../../components/button'
 import { ProcessList } from '../../components/hiring-process-list'
 import './style.css'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { useEffect, useState } from 'react'
+
+const axios = require('axios')
 
 const HiringProcessPage = () => {
-  const processes = [
-    {
-      id: 1,
-      name: '2021/1',
-      startDate: new Date(2021, 11, 15).toISOString(),
-      endDate: new Date(2021, 11, 21).toISOString(),
-      description: 'A description'
-    },
-    {
-      id: 2,
-      name: '2021/2',
-      startDate: new Date(2021, 9, 22).toISOString(),
-      endDate: new Date(2022, 10, 27).toISOString(),
-      description: 'A description'
-    },
-    {
-      id: 3,
-      name: '2021/2',
-      startDate: new Date(2021, 8, 18).toISOString(),
-      endDate: new Date(2021, 8, 19).toISOString(),
-      description: 'A description'
-    }
-  ]
+  const [hiringProcesses, setHiringProcesses] = useState([])
+
+  useEffect(async () => {
+    const response = await axios.get('https://test-acelera-mais-api.herokuapp.com/hiring_process')
+    setHiringProcesses(response.data)
+  }, [])
 
   const handleSubmit = () => {
   }
@@ -42,7 +28,7 @@ const HiringProcessPage = () => {
         </div>
         <Button icon={faPlus} classe={'button-new-process'} text="Novo processo" onClick={handleSubmit} />
       </section>
-      <ProcessList processes={processes} />
+      <ProcessList processes={hiringProcesses} />
     </div>
   )
 }
