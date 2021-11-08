@@ -5,7 +5,7 @@ import Button from '../../button'
 import axios from 'axios'
 
 // eslint-disable-next-line react/prop-types
-export const HiringProcessForm = ({ method = 'POST', id = '' }) => {
+export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {} }) => {
   const [hiringProcess, setHiringProcess] = useState({
     name: '',
     startDate: '',
@@ -29,7 +29,10 @@ export const HiringProcessForm = ({ method = 'POST', id = '' }) => {
         method,
         data
       })
-      .then(res => console.log(res.data))
+      .then(res => {
+        console.log(res.data)
+        callback(res.data)
+      })
   }
 
   return (

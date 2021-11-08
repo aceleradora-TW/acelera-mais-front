@@ -14,7 +14,7 @@ const HiringProcessPage = () => {
   useEffect(async () => {
     const response = await axios.get('https://test-acelera-mais-api.herokuapp.com/hiring_process')
     setHiringProcesses(response.data)
-  }, [])
+  }, [hiringProcesses])
 
   const handleSubmit = () => {
   }
@@ -32,7 +32,7 @@ const HiringProcessPage = () => {
           <HiringProcessForm />
         </Modal>
       </section>
-      <ProcessList processes={hiringProcesses} />
+      <ProcessList processes={hiringProcesses} setHiringProcesses={setHiringProcesses}/>
     </div>
   )
 }
