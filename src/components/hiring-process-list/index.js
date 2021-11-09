@@ -24,7 +24,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   const handleDelete = async (id) => {
     try {
-      const answer = confirm('Deseja excluir o ítem?')
+      const answer = confirm('Deseja excluir o item?')
       if (answer === false) return
       const result = await axios.delete(`https://test-acelera-mais-api.herokuapp.com/hiring_process/${id}`)
       const newProcesses = processes.filter(process => process.id !== id)
