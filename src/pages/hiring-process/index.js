@@ -14,9 +14,10 @@ const HiringProcessPage = () => {
   useEffect(async () => {
     const response = await axios.get('https://test-acelera-mais-api.herokuapp.com/hiring_process')
     setHiringProcesses(response.data)
-  }, [hiringProcesses])
+  }, [])
 
   const handleSubmit = () => {
+    location.reload()
   }
 
   return (
@@ -28,11 +29,11 @@ const HiringProcessPage = () => {
           <Button classe={'button-filter'} text="Abertos" onClick={handleSubmit} />
           <Button classe={'button-filter'} text="Fechados" onClick={handleSubmit} />
         </div>
-        <Modal icon={faPlus} classe={'button-new-process'} text="Novo processo" title="Criar novo processo" onClick={handleSubmit}>
-          <HiringProcessForm />
+        <Modal icon={faPlus} classe={'button-new-process'} text="Novo processo" title="Criar novo processo">
+          <HiringProcessForm callback={handleSubmit} />
         </Modal>
       </section>
-      <ProcessList processes={hiringProcesses} setHiringProcesses={setHiringProcesses}/>
+      <ProcessList processes={hiringProcesses} setHiringProcesses={setHiringProcesses} />
     </div>
   )
 }

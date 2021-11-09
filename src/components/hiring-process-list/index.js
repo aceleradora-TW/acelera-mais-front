@@ -18,25 +18,14 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   const handleExpand = () => { }
 
-  const handleEdit = (response) => {
-    const { hiringProcess } = response
-    const newProcesses = [...processes]
-    if (hiringProcess) {
-      const index = newProcesses.findIndex(process => process.id === hiringProcess.id)
-      if (index) {
-        newProcesses[index] = {
-          name: hiringProcess.name,
-          startDate: new Date(hiringProcess.startDate),
-          endDate: new Date(hiringProcess.endDate),
-          description: hiringProcess.description
-        }
-        setHiringProcesses(newProcesses)
-      }
-    }
+  const handleEdit = async () => {
+    location.reload()
   }
 
   const handleDelete = async (id) => {
     try {
+      const answer = confirm('Deseja excluir o ítem?')
+      if (answer === false) return
       const result = await axios.delete(`https://test-acelera-mais-api.herokuapp.com/hiring_process/${id}`)
       const newProcesses = processes.filter(process => process.id !== id)
       setHiringProcesses(newProcesses)
