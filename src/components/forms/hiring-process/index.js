@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { InputDate } from '../../inputs/date'
 import { InputText } from '../../inputs/text'
 import { client } from '../../../service'
+import Button from '../../button'
+
 
 // eslint-disable-next-line react/prop-types
-export const HiringProcessForm = ({ method = 'POST', id = '' }) => {
+export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {} }) => {
   const [hiringProcess, setHiringProcess] = useState({
     name: '',
     startDate: '',
@@ -23,23 +25,26 @@ export const HiringProcessForm = ({ method = 'POST', id = '' }) => {
   const sendHiringProcess = () => {
     const data = hiringProcess
 
-    client(`/hiring_process/${id}`,
+    client(`/hiring_process/${id}`,  
       {
         method,
         data
       })
-      .then(res => console.log(res.data))
+      .then(res => {
+        console.log(res.data)
+        callback(res.data)
+      })
   }
 
   return (
     <form>
       <InputText name="name" label="Nome" onChange={handleChange} />
-      <InputDate name="startDate" label="Data de Início" onChange={handleChange} />
-      <InputDate name="endDate" label="Data de Término" onChange={handleChange} />
+      <InputDate name="startDate" label="Data de início" onChange={handleChange} />
+      <InputDate name="endDate" label="Data de término" onChange={handleChange} />
       <InputText name="description" label="Descrição" onChange={handleChange} />
-      <button type="button" onClick={sendHiringProcess}>
+      <Button classe='button-submit' type="button" text='Enviar' onClick={sendHiringProcess}>
         Enviar
-      </button>
+      </Button>
     </form>
   )
 }
