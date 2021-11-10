@@ -4,7 +4,6 @@ import { InputText } from '../../inputs/text'
 import { client } from '../../../service'
 import Button from '../../button'
 
-
 // eslint-disable-next-line react/prop-types
 export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {} }) => {
   const [hiringProcess, setHiringProcess] = useState({
@@ -25,7 +24,7 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
   const sendHiringProcess = () => {
     const data = hiringProcess
 
-    client(`/hiring_process/${id}`,  
+    client(`/hiring_process/${id}`,
       {
         method,
         data
