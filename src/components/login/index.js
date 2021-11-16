@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios'
+import { client } from '../../service'
 import './style.css'
 
 export const Login = () => {
@@ -19,7 +19,7 @@ export const Login = () => {
     const user = {
       email, password
     }
-    axios.post('http://localhost:9000/login', user).then(res => {
+    client.post('/login', user).then(res => {
       alert(res.data.message)
     })
   }
