@@ -3,6 +3,7 @@ import Button from '../button'
 import { Status } from '../status'
 import { Modal } from '../modal'
 import { HiringProcessForm } from '../forms/hiring-process'
+import { InputText } from '../inputs/text'
 import './process-list.css'
 import { client } from '../../service'
 import {
@@ -20,6 +21,14 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   const handleEdit = async () => {
     location.reload()
+  }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setHiringProcesses({
+      ...processes,
+      [name]: value
+    })
   }
 
   const handleDelete = async (id) => {
@@ -56,22 +65,23 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 />
               </td>
               <td>
-                <Button
-                  icon={faDownload}
+                <Modal
+                  icon={faUpload}
+                  label="Importar"
+                  title="Importar dados"
                   classe="button-import"
-                  text="Importar dados"
-                  onClick={handleImport}
-                />
+                  text="Importar tabela"
+                  onClick={handleImport}>
+                  <InputText name="name" label="Insira a URL da planilha:" onChange={handleChange} /> </Modal>
               </td>
               <td>
                 <Button
-                  icon={faUpload}
-                  classe="button-import"
-                  text="Exportar tabela"
+                  icon={faDownload}
+                  classe="button-export"
+                  text="Exportar dados"
                   onClick={handleExport}
                 />
               </td>
-
               <td>
                 <Modal
                   label="Editar"
