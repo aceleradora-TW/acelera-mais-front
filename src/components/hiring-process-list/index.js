@@ -68,11 +68,16 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 <Modal
                   icon={faUpload}
                   label="Importar"
-                  title="Importar dados"
+                  title="Importe planilha do processo seletivo"
                   classe="button-import"
                   text="Importar tabela"
                   onClick={handleImport}>
-                  <InputText name="name" label="Insira a URL da planilha:" onChange={handleChange} /> </Modal>
+                  <InputText name="name" label="Insira a URL da planilha:" onChange={handleChange} />
+                  <Button classe='button-submit' type="button" text='Enviar' onClick={handleImport}>
+                  Enviar
+                  </Button>
+                  </Modal>
+
               </td>
               <td>
                 <Button
