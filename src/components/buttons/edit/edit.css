@@ -1,0 +1,12 @@
+.button-default {
+
+  background-color: white;
+  color: #003cff;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  font-family: "Open Sans";
+}
+.button-default:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
