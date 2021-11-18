@@ -1,11 +1,11 @@
-.button-info {
+.button-default {
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 10px;
   font-family: "Open Sans";
 }
 
-.button-info:hover {
+.button-default:hover {
   font-weight: bold;
   cursor: pointer;
 }

@@ -1,16 +1,16 @@
 import Button from '.'
 
 export default {
-  title: 'InfoButton',
+  title: 'DefaultButton',
   component: Button
 }
 
 const Template = args => <Button {...args} />
 
-export const InfoButton = Template.bind({})
+export const DefaultButton = Template.bind({})
 
-InfoButton.args = {
+DefaultButton.args = {
   icon: null,
   onClick: () => { },
-  text: 'Importar dados'
+  text: 'Default Button'
 }

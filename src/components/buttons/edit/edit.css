@@ -1,12 +1,11 @@
-.button-default {
-
+.button-defaul {
   background-color: white;
   color: #003cff;
   border: 1px solid lightgray;
   border-radius: 10px;
   font-family: "Open Sans";
 }
-.button-default:hover {
+.button-defaul:hover {
   font-weight: bold;
   cursor: pointer;
 }
