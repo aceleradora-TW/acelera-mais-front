@@ -1,8 +1,10 @@
-import Routes from './routes'
+// import Routes from './routes'
+import { ToggleRow } from './components/togglerow'
 
 const App = () => {
   return (
-    <Routes />
+    <ToggleRow />
+    // <Routes />
   )
 }
 
