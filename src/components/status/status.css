@@ -1,25 +1,19 @@
-.status-open {
+.status-opened, .status-closed, .status-preparing{
+  display: block;
   padding: 0 15px;
+  text-align: center;
+  font-family: "Open Sans";
+  border-radius: 20px;
+}
+.status-opened {
   background-color: #dcfdd4;
-  text-align: center;
-  border-radius: 20px;
   color: #4fac16;
-  font-family: "Open Sans";
 }
-
-.status-close {
-  padding: 0 15px;
-  text-align: center;
+.status-closed {
   background-color: #fdd4d4;
-  border-radius: 20px;
   color: #ac1616;
-  font-family: "Open Sans";
 }
-.status-preparation {
-  padding: 0 15px;
-  text-align: center;
+.status-preparing {
   background-color: #fafdd4;
-  border-radius: 20px;
   color: #ac9d16;
-  font-family: "Open Sans";
 }

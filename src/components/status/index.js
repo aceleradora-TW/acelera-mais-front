@@ -1,25 +1,15 @@
-import React from 'react'
+import { React } from 'react'
 import './status.css'
 
-export const Status = ({ startDate, endDate }) => {
+export const Status = ({ status }) => {
   let label = 'Fechado'
-  let classNameStatus = 'status-close'
-  const currentDate = Date.now()
-  const startDateTime = new Date(startDate)
-  const endDateTime = new Date(endDate)
-
-  const statusPreparation = currentDate < startDateTime
-  const statusOpened = currentDate >= startDateTime && currentDate < endDateTime
-
-  if (statusPreparation) {
-    label = 'Em preparação'
-    classNameStatus = 'status-preparation'
-  }
-  if (statusOpened) {
+  if (status === 'status-opened') {
     label = 'Aberto'
-    classNameStatus = 'status-open'
+  }
+  if (status === 'status-preparing') {
+    label = 'Em preparação'
   }
   return (
-    <span className={classNameStatus}>{label}</span>
+    <span className={status}>{label}</span>
   )
 }
