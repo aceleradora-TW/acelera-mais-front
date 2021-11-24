@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Energético",
+    "status": "done",
+    "type": "backend",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "candidate": {
+      "id": 1,
+      "name": "Andressa"
+    },
+    "links": {
+      "pdf": "https://drive.google.com/file/d/16G-Va5LZjXd4J0zyXhGBz0qbXCmLndWp/view?usp=sharing",
+      "zip": "https://drive.google.com/file/d/1uFXAVczonk-yTnaelSewTGUIlMPJaeP5/view?usp=sharing",
+      "github": "https://github.com/leonardogomesp/mock-aceleradora"
+    },
+    "evaluation": {
+      "mentorName": "Ju Dantas",
+      "score": 4,
+      "feedback": "Utilizou métodos eficientes"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Layout",
+    "status": "prepairing",
+    "type": "frontend",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "candidate": {
+      "id": 2,
+      "name": "Vanessa"
+    },
+    "links": {
+      "pdf": "https://drive.google.com/file/d/16G-Va5LZjXd4J0zyXhGBz0qbXCmLndWp/view?usp=sharing",
+      "zip": "https://drive.google.com/file/d/1uFXAVczonk-yTnaelSewTGUIlMPJaeP5/view?usp=sharing",
+      "github": "https://github.com/leonardogomesp/mock-aceleradora"
+    },
+    "evaluation": {
+      "mentorName": "Barbara Anger",
+      "score": null,
+      "feedback": null
+    }
+  },
+  {
+    "id": 3,
+    "name": "Biblioteca",
+    "status": "none",
+    "type": "fullstack",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "candidate": {
+      "id": 3,
+      "name": "Junessa"
+    },
+    "links": {
+      "pdf": "https://drive.google.com/file/d/16G-Va5LZjXd4J0zyXhGBz0qbXCmLndWp/view?usp=sharing",
+      "zip": "https://drive.google.com/file/d/1uFXAVczonk-yTnaelSewTGUIlMPJaeP5/view?usp=sharing",
+      "github": "https://github.com/leonardogomesp/mock-aceleradora"
+    },
+    "evaluation": {
+      "mentorName": "",
+      "score": null,
+      "feedback": null
+    }
+  }
+]

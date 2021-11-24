@@ -4,12 +4,12 @@ import { Status } from '../status'
 import { Modal } from '../modal'
 import { HiringProcessForm } from '../forms/hiring-process'
 import './process-list.css'
+import { client } from '../../service'
 import {
   faAngleDown,
   faDownload,
   faUpload, faTrashAlt
 } from '@fortawesome/free-solid-svg-icons'
-import axios from 'axios'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const handleImport = () => { }
@@ -26,7 +26,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
     try {
       const answer = confirm('Deseja excluir o item?')
       if (answer === false) return
-      const result = await axios.delete(`https://test-acelera-mais-api.herokuapp.com/hiring_process/${id}`)
+      const result = await client.delete(`/hiring_process/${id}`)
       const newProcesses = processes.filter(process => process.id !== id)
       setHiringProcesses(newProcesses)
       console.log(result.data)
@@ -51,8 +51,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               <td>{process.name}</td>
               <td>
                 <Status
-                  startDate={process.startDate}
-                  endDate={process.endDate}
+                  status={process.status}
                 />
               </td>
               <td>

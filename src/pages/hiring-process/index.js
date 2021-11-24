@@ -5,14 +5,13 @@ import { ProcessList } from '../../components/hiring-process-list'
 import './style.css'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
-
-const axios = require('axios')
+import { client } from '../../service'
 
 const HiringProcessPage = () => {
   const [hiringProcesses, setHiringProcesses] = useState([])
 
   useEffect(async () => {
-    const response = await axios.get('https://test-acelera-mais-api.herokuapp.com/hiring_process')
+    const response = await client.get('/hiring_process')
     setHiringProcesses(response.data)
   }, [])
 
