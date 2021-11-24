@@ -51,8 +51,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               <td>{process.name}</td>
               <td>
                 <Status
-                  startDate={process.startDate}
-                  endDate={process.endDate}
+                  status={process.status}
                 />
               </td>
               <td>

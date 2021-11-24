@@ -1,0 +1,14 @@
+.button-sucess {
+  background-color: darkgreen;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  font-weight: 300;
+  padding: 10px 25px 10px 25px;
+  font-family: "Open Sans";
+}
+
+.button-sucess:hover {
+  font-weight: bold;
+  cursor: pointer;
+}

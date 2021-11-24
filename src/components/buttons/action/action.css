@@ -1,0 +1,13 @@
+.button-action {
+  background-color: white;
+  color: darkgreen;
+  border: 1px solid rgba(74, 134, 96, 0.349);
+  border-radius: 6px;
+  font-weight: 300;
+  padding: 10px 25px 10px 25px;
+  font-family: "Open Sans";
+}
+
+.button-action:hover {
+  font-weight: bold;
+  cursor:pointer;  }
