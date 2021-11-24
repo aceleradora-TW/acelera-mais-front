@@ -9,6 +9,7 @@
   padding: 10px 25px 10px 25px;
   font-family: "Open Sans";
 }
+
 .button-new-process:hover {
   font-weight: bold;
   cursor: pointer;
@@ -24,6 +25,7 @@
   padding: 12px 36px 12px 36px;
   font-family: "Open Sans";
 }
+
 .button-filter:hover {
   border: none;
   border-bottom: 1px solid blue;
@@ -40,6 +42,7 @@
   border-radius: 10px;
   font-family: "Open Sans";
 }
+
 .button-import:hover {
   font-weight: bold;
   cursor: pointer;
@@ -68,7 +71,38 @@
   border-radius: 10px;
   font-family: "Open Sans";
 }
+
 .button-expend:hover {
   font-weight: bold;
+  cursor: pointer;
+}
+
+.button-delete {
+  border: 1px solid #e9e9ea;
+  border-radius: 15px;
+  color: #ff3d00;
+  height: 28px;
+  width: 40px;
+  cursor: pointer;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.button-close {
+  color: #aea9bd;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+.button-submit {
+  width: 90px;
+  height: 23px;
+  color: #fff;
+  background-color: #003cff;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  font-family: "Open Sans";
   cursor: pointer;
 }

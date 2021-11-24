@@ -1,4 +1,6 @@
 import Button from '../../components/button'
+import { Modal } from '../../components/modal'
+import { HiringProcessForm } from '../../components/forms/hiring-process'
 import { ProcessList } from '../../components/hiring-process-list'
 import './style.css'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -15,6 +17,7 @@ const HiringProcessPage = () => {
   }, [])
 
   const handleSubmit = () => {
+    location.reload()
   }
 
   return (
@@ -26,9 +29,11 @@ const HiringProcessPage = () => {
           <Button classe={'button-filter'} text="Abertos" onClick={handleSubmit} />
           <Button classe={'button-filter'} text="Fechados" onClick={handleSubmit} />
         </div>
-        <Button icon={faPlus} classe={'button-new-process'} text="Novo processo" onClick={handleSubmit} />
+        <Modal icon={faPlus} classe={'button-new-process'} text="Novo processo" title="Criar novo processo">
+          <HiringProcessForm callback={handleSubmit} />
+        </Modal>
       </section>
-      <ProcessList processes={hiringProcesses} />
+      <ProcessList processes={hiringProcesses} setHiringProcesses={setHiringProcesses} />
     </div>
   )
 }
