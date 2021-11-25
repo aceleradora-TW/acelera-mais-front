@@ -4,6 +4,7 @@ import { Route, BrowserRouter } from 'react-router-dom'
 import LoginPage from '../pages/login-page'
 import HiringProcessPage from '../pages/hiring-process'
 import { HiringProcessForm } from '../components/forms/hiring-process'
+import EvaluationChallenge from '../pages/evaluation-challenge'
 
 const Routes = () => {
   return (
@@ -11,6 +12,7 @@ const Routes = () => {
       <Route component={LoginPage} path="/" exact />
       <Route component={HiringProcessPage} path="/hiring-process" exact />
       <Route component={HiringProcessForm} path="/form-create" exact />
+      <Route component={EvaluationChallenge} path="/evaluation-challenge" exact />
     </BrowserRouter>
   )
 }
