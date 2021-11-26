@@ -3,7 +3,7 @@ import { ToggleRow } from './components/togglerow'
 
 const App = () => {
   return (
-    <ToggleRow item={'asdsdadasdadadsadsaasdasdass'} />
+    <ToggleRow item={'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdsdadasdadadsadsaasdasdass'} />
     // <Routes />
   )
 }
