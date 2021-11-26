@@ -13,16 +13,16 @@ export const ToggleRow = ({ item }) => {
   return (
     <table>
 
-      <td className={aberto} onClick={() => setChecked(!checked)}>
+      <td id='botao' className={aberto} onClick={() => setChecked(!checked)}>
         <Icon icon={faAngleUp}/>
       </td>
 
       <td className={fechado}>
         <tr>
-          <strong>Feedback:</strong>
+          <h1>Feedback:</h1>
           <p>{ item }</p>
         </tr>
-      </td>
+        </td>
 
     </table>
   )

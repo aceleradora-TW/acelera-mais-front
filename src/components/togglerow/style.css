@@ -21,7 +21,6 @@
 }
 
 .toggleRows{
-  width: 600px;
   height: 100px;
   background-color: rgb(211, 211, 211);
   border-radius: 3px;
@@ -34,6 +33,17 @@
   -webkit-transform: scale(1, -1);
   -o-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
-  transform: scale(1, -1);
+  transform: scale(1, -1); 
 }
 
+td{
+  max-width: 1065px; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+table{
+  display: flex;
+  flex-direction:column;
+}
