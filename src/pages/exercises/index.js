@@ -1,7 +1,7 @@
-import { ExercicesList } from '../../components/exercices-list'
+import { ExercisesList } from '../../components/exercises-list'
 
-export const ExercicesPages = () => {
+export const ExercisesPage = () => {
   return (
-    <ExercicesList />
+    <ExercisesList />
   )
 }
