@@ -5,12 +5,17 @@ import './style.css'
 export const EvaluationChallenge = () => {
   return (
     <div className="table">
-      <h1>Avaliação</h1>
-      <div className="select">
-        <table>
+      <table>
+        <thead>
+          <tr>
+            <th>Avaliação</th>
+          </tr>
+        </thead>
+        <div className="select">
+
           <tr>
             <td>
-              <label htmlFor='select'>Tipo:</label>
+              <label htmlFor='select'>Tipo: </label>
             </td>
           </tr>
           <tr>
@@ -21,8 +26,8 @@ export const EvaluationChallenge = () => {
               </select>
             </td>
           </tr>
-        </table>
-      </div>
+        </div>
+      </table>
     </div >
   )
 }
