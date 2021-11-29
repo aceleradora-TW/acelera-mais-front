@@ -4,9 +4,16 @@ import ActionButton from '../buttons/action'
 import {
   faPen
 } from '@fortawesome/free-solid-svg-icons'
+
 const listExercises = require('../../mocks/exercise-mock.json')
 
 export const ExercisesList = ({ exercise, setExercises, status }) => {
+  //  padrão / inativo - branco
+  // confirmação / ativo - azul
+  // error / incompleto - vermelho
+  // alterar / finalizado - verde
+  // atenção / aguardar - amarelo
+
   return (
     <div className="table-exercises">
       <table className="table-exercises-content">
@@ -23,14 +30,15 @@ export const ExercisesList = ({ exercise, setExercises, status }) => {
             <tr key={`exercise=${key}`}>
               <td>{exercise.name}</td>
               <td>{exercise.type}</td>
-              <Status className={status}>{exercise.evaluation.mentorName}</Status>
+              <td> <Status
+                status={exercise.status}
+              /></td>
               <td>
                 <ActionButton text='avaliar' icon={faPen} />
               </td>
               <td>{exercise.evaluation.feedback}</td>
             </tr>
           ))}
-
         </tbody>
       </table>
     </div>

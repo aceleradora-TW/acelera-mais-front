@@ -3,11 +3,15 @@ import { ExercisesList } from '../../components/exercises-list'
 export const ExercisesPage = () => {
   return (
     <>
-      <h1>Exercícios</h1>
-
-      <h1>Filtrar:</h1>
-
-      <ExercisesList />
+      <div className="page-container">
+        <h1>Exercícios</h1>
+        <section>
+          <h2>
+            Filtrar:
+          </h2>
+        </section>
+        <ExercisesList />
+      </div>
     </>
   )
 }

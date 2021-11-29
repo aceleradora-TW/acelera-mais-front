@@ -1,8 +1,7 @@
 .table-exercises {
   display: flex;
   justify-content: center;
-  margin: 20px;
-  padding: 15px;
+  margin-top: 20px;
 }
 
 .table-exercises td {

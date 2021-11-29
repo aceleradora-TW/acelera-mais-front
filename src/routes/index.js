@@ -11,7 +11,7 @@ const Routes = () => {
     <BrowserRouter>
       <Route component={LoginPage} path="/" exact />
       <Route component={HiringProcessPage} path="/hiring-process" exact />
-      <Route component={ExercisesPage} path="/exercises" />
+      <Route component={ExercisesPage} path="/exercises/:id" />
       <Route component={HiringProcessForm} path="/form-create" exact />
     </BrowserRouter>
   )
