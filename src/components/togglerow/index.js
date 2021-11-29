@@ -22,6 +22,10 @@ export const ToggleRow = ({ item }) => {
 
   const { evaluation: { feedback } } = item
   const status = getStatus(item)
+
+  const handleClick = () => {
+    setChecked(!checked)
+  }
   return (
     <>
       <tr className='toggle-row-container'>
@@ -32,7 +36,7 @@ export const ToggleRow = ({ item }) => {
           <button disabled={status}>Avaliar</button>
         </td>
         <td>{
-          <button className={botao} disabled={hasFeedback(item)} onClick={() => setChecked(!checked)}><Icon icon={faAngleUp} /></button>
+          <button className={botao} disabled={hasFeedback(item)} onClick={handleClick}><Icon icon={faAngleUp} /></button>
         }</td>
       </tr>
       {status ? <tr><td colSpan='5' className={feedbackLine}>{feedback}</td></tr> : null}
