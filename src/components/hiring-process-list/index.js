@@ -35,13 +35,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
     }
   }
 
-  // const startDate = () => {
-  //   const result = client.get('/hiring_process')
-  //   const filter = processes.filter(process => process.startDate)
-  //   setHiringProcesses(filter)
-  //   console.log(result.startDate)
-  // }
-
   return (
     <div className="table-selective-process">
       <table>
