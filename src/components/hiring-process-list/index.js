@@ -35,6 +35,14 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
     }
   }
 
+  const formatDate = (date) => {
+    const newDate = new Date(date)
+    const day = newDate.getDate()
+    const month = newDate.getMonth() + 1
+    const year = newDate.getFullYear()
+    return `${day}/${month}/${year}`
+  }
+
   return (
     <div className="table-selective-process">
       <table>
@@ -55,7 +63,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   status={process.status}
                 />
               </td>
-              <td>{process.startDate}</td>
+              <td>{formatDate(process.startDate)}</td>
               <td>
                 <Button
                   icon={faDownload}
