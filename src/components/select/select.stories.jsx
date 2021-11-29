@@ -1,16 +1,13 @@
-import Button from '.'
+import Select from '.'
 
 export default {
-  title: 'selectButton',
-  component: Button
+  title: 'Select',
+  component: Select
 }
 
-const Template = args => <Button {...args} />
+const Template = args => <Select {...args} />
 
-export const selectButton = Template.bind({})
+export const select = Template.bind({})
 
-selectButton.args = {
-  icon: null,
-  onClick: () => { },
-  text: 'selectButton'
+select.args = {
 }
