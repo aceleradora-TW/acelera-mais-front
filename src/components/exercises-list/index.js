@@ -7,13 +7,7 @@ import {
 
 const listExercises = require('../../mocks/exercise-mock.json')
 
-export const ExercisesList = ({ exercise, setExercises, status }) => {
-  //  padrão / inativo - branco
-  // confirmação / ativo - azul
-  // error / incompleto - vermelho
-  // alterar / finalizado - verde
-  // atenção / aguardar - amarelo
-
+export const ExercisesList = () => {
   return (
     <div className="table-exercises">
       <table className="table-exercises-content">
