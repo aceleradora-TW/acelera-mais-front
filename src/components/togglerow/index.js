@@ -27,7 +27,7 @@ export const ToggleRow = ({ item }) => {
       <tr className='toggle-row-container'>
         <td>{item.name}</td>
         <td>{item.type}</td>
-        <td colSpan='2'>
+        <td colSpan='2' className='avaliador-colSpan'>
           {item.status !== 'status-opened' ? < Status status={item.status} /> : null}
           <button disabled={status}>Avaliar</button>
         </td>
