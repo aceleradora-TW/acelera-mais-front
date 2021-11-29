@@ -9,6 +9,7 @@ const Template = args => {
   return (
     <table>
       <ToggleRow {...args} />
+      <ToggleRow {...args} />
     </table>
   )
 }

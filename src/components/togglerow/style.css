@@ -1,4 +1,4 @@
-.toggleRow{
+.table-row-btn{
   width: 30px;
   height: 30px;
   background-color: rgb(70, 136, 211);
@@ -11,7 +11,14 @@
   cursor: pointer;
 }
 
-.toggleRowChecked{
+.table-row-btn:disabled{
+  opacity: 0.4 ;
+  cursor: no-drop;
+}
+
+
+
+.table-row-btn-checked{
   background-color: rgb(70, 136, 211);
   -moz-transform: scale(1, -1);
   -webkit-transform: scale(1, -1);
@@ -20,13 +27,13 @@
   transform: scale(1, -1);
 }
 
-.toggleRows{
+.table-row-feedback{
   height: 100px;
   background-color: rgb(211, 211, 211);
   border-radius: 3px;
 }
 
-.toggleRowCheckeds{
+.table-row-feedback-checked{
   background-color: rgb(70, 136, 211);
   display: none;
   -moz-transform: scale(1, -1);
@@ -34,16 +41,4 @@
   -o-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
   transform: scale(1, -1); 
-}
-
-td{
-  max-width: 1065px; 
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-table{
-  display: flex;
-  flex-direction:column;
 }
