@@ -1,10 +1,17 @@
-import Button from '../../button'
 import './select.css'
 
-const selectButton = ({ icon, onClick, text, type }) => {
+const Select = ({ options, onChange, name }) => {
   return (
-    < Button icon={icon} onClick={onClick} text={text} type={type} classe="button-select" />
+    <div>
+      <label> Filtrar:</label>
+      <select id="select" name="select">
+        <option selected disabled hidden>Tipo</option>
+        <option className="filter" value="valor1">Backend</option>
+        <option className="filter" value="valor2">Frontend</option>
+        <option className="filter" value="valor3">Fullstack</option>
+      </select>
+    </div>
   )
 }
 
-export default selectButton
+export default Select
