@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import { client } from '../../service'
+import { useNavigate } from 'react-router'
+import { client, setTokenInHeaders } from '../../service'
 import './style.css'
 
 export const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate()
 
   const handleChangeEmail = ({ target }) => {
     setEmail(target.value)
@@ -14,14 +16,23 @@ export const Login = () => {
     setPassword(target.value)
   }
 
-  const handlerClick = (event) => {
+  const handlerClick = async (event) => {
     event.preventDefault()
     const user = {
       email, password
     }
-    client.post('/login', user).then(res => {
-      alert(res.data.message)
-    })
+    const response = await client.post('/login', user)
+    console.log(response.data)
+
+    const {
+      data: { accessToken }
+    } = response
+
+    if (accessToken) {
+      localStorage.setItem('token', accessToken)
+      setTokenInHeaders(accessToken)
+      navigate('/hiring-process')
+    }
   }
   return (
     <div className="login-form">
