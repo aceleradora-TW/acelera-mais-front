@@ -1,10 +1,8 @@
-// import Routes from './routes'
-import { ToggleRow } from './components/togglerow'
+import Routes from './routes'
 
 const App = () => {
   return (
-    <ToggleRow item={'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdsdadasdadadsadsaasdasdass'} />
-    // <Routes />
+  <Routes />
   )
 }
 

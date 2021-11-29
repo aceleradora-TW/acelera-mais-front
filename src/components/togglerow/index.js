@@ -1,33 +1,33 @@
-import React, { useState } from 'react'
-import Icon from '../icon'
+import { Status } from '../status'
 import './style.css'
-import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
+
+const getStatus = ({ status }) => {
+  if (status === 'status-preparing' || status === 'status-closed') return true
+  return false
+}
+
+const hasFeedback = ({ status }) => {
+  if (status === 'status-preparing' || status === 'status-opened') return true
+  return false
+}
 
 export const ToggleRow = ({ item }) => {
-  if (item.length > 150) {
-    console.log('olá')
-  }
-  const [checked, setChecked] = useState(false)
-
-  const aberto = checked ? 'toggleRow' : 'toggleRow toggleRowChecked'
-
-  const fechado = checked ? 'toggleRows' : 'toggleRows toggleRowCheckeds'
-
+  const { evaluation: { feedback } } = item
+  const status = getStatus(item)
   return (
-    <table>
-      <tbody>
-        <tr>
-          <td id='botao' className={aberto} onClick={() => setChecked(!checked)}>
-            <Icon icon={faAngleUp} />
-          </td>
-        </tr>
-        <tr>
-          <td className={fechado}>
-            Feedback:
-            <p>{item}</p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <>
+    <tr className= 'toggle-row-container'>
+      <td>{item.name}</td>
+      <td>{item.type}</td>
+      <td colSpan='2'>
+        {item.status !== 'status-opened' ? < Status status={item.status} /> : null}
+        <button disabled={status}>Avaliar</button>
+      </td>
+      <td>{
+        <button className='table-row-btn' disabled={hasFeedback(item)}>V</button>
+        }</td>
+    </tr>
+    {status ? <tr><td colSpan='5'>{feedback}</td></tr> : null}
+    </>
   )
 }
