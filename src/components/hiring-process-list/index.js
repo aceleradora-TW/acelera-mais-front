@@ -37,9 +37,10 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
   }
 
   const formatDate = (date) => {
+    const addZero = (number) => number <= 9 ? '0' + number : number
     const newDate = new Date(date)
-    const day = newDate.getDate()
-    const month = newDate.getMonth() + 1
+    const day = addZero(newDate.getUTCDate().toString())
+    const month = addZero((newDate.getMonth() + 1).toString())
     const year = newDate.getFullYear()
     return `${day}/${month}/${year}`
   }
