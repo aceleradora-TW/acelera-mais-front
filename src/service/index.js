@@ -1,10 +1,9 @@
 import axios from 'axios'
 
-const { URL_BACKEND = 'http://localhost:9000/' } =
-  process.env
+const { URL_BACKEND } = process.env
 
 export const client = axios.create({
-  baseURL: URL_BACKEND,
+  baseURL: URL_BACKEND || 'http://localhost:9000',
   headers: {
     common: {
       Authorization: `Bearer ${localStorage.getItem('token') || ''}`
