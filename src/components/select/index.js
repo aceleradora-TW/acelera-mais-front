@@ -1,14 +1,12 @@
 import './select.css'
 
-const Select = ({ options, onChange, name }) => {
+const Select = ({ options, onChange, placeholder, name, label }) => {
   return (
     <div>
-      <label> Filtrar:</label>
-      <select id="select" name="select">
-        <option selected disabled hidden>Tipo</option>
-        <option className="filter" value="valor1">Backend</option>
-        <option className="filter" value="valor2">Frontend</option>
-        <option className="filter" value="valor3">Fullstack</option>
+      <label>{label}</label>
+      <select name={name} onChange={onChange}>
+        <option>{placeholder}</option>
+        {options.map((option, key) => (<option key={key} value={option.value}> {option.label} </option>))}
       </select>
     </div>
   )
