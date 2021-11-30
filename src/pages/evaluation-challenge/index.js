@@ -4,31 +4,22 @@ import './style.css'
 
 export const EvaluationChallenge = () => {
   return (
-    <div className="table">
-      <table>
-        <thead>
-          <tr>
-            <th>Avaliação</th>
-          </tr>
-        </thead>
-        <div className="select">
+    <section className="table">
 
-          <tr>
-            <td>
-              <label htmlFor='select'>Tipo: </label>
-            </td>
-          </tr>
-          <tr>
-            <td>
+          <div className="primeira">
+            <p>Avaliação</p>
+            </div>
+
+             <div className="segunda">
+              <span>Tipo: </span>
               <select name="select" id="select">
                 <option value="BackEnd" selected>BackEnd</option>
                 <option value="FrontEnd">FrontEnd</option>
               </select>
-            </td>
-          </tr>
-        </div>
-      </table>
-    </div >
+              </div>
+
+        </section>
+
   )
 }
 export default EvaluationChallenge
