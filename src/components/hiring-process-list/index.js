@@ -14,7 +14,9 @@ import {
 import { Link } from 'react-router-dom'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
-  const handleImport = () => { }
+  const handleImport = (id) => {
+    return client.post(`candidate/hiring-process/${id}`, processes).then(resp => alert(resp.data))
+  }
 
   const handleExport = () => { }
 
@@ -71,12 +73,13 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   title="Importe planilha do processo seletivo"
                   classe="button-import"
                   text="Importar tabela"
-                  onClick={handleImport}>
+                  onClick={handleImport}
+                >
                   <InputText name="name" label="Insira a URL da planilha:" onChange={handleChange} />
                   <Button classe='button-submit' type="button" text='Enviar' onClick={handleImport}>
-                  Enviar
+                    Enviar
                   </Button>
-                  </Modal>
+                </Modal>
 
               </td>
               <td>
