@@ -3,6 +3,7 @@ import { Route, BrowserRouter } from 'react-router-dom'
 
 import LoginPage from '../pages/login-page'
 import HiringProcessPage from '../pages/hiring-process'
+import { ExercisesPage } from '../pages/exercises'
 import { HiringProcessForm } from '../components/forms/hiring-process'
 
 const Routes = () => {
@@ -10,6 +11,7 @@ const Routes = () => {
     <BrowserRouter>
       <Route component={LoginPage} path="/" exact />
       <Route component={HiringProcessPage} path="/hiring-process" exact />
+      <Route component={ExercisesPage} path="/exercises/:id" />
       <Route component={HiringProcessForm} path="/form-create" exact />
     </BrowserRouter>
   )
