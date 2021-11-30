@@ -40,8 +40,8 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
     const addZero = (number) => number <= 9 ? '0' + number : number
     const newDate = new Date(date)
     const day = addZero(newDate.getUTCDate().toString())
-    const month = addZero((newDate.getMonth() + 1).toString())
-    const year = newDate.getFullYear()
+    const month = addZero((newDate.getUTCMonth() + 1).toString())
+    const year = newDate.getUTCFullYear()
     return `${day}/${month}/${year}`
   }
 
