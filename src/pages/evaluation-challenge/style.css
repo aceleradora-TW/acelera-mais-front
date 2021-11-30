@@ -8,6 +8,9 @@
 }
 .primeira{
   font-weight: bold;
-font-size: 150%;
-
+  font-size: 150%;
+}
+.button{
+position: relative;
+left: 26%;
 }
