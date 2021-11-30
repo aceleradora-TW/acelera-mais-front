@@ -10,6 +10,7 @@ import {
   faDownload,
   faUpload, faTrashAlt
 } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const handleImport = () => { }
@@ -48,7 +49,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
         <tbody>
           {processes.map((process, key) => (
             <tr key={`process-${key}`}>
-              <td>{process.name}</td>
+              <td><Link to={`/exercises/${process.id}`}>{process.name}</Link></td>
               <td>
                 <Status
                   status={process.status}

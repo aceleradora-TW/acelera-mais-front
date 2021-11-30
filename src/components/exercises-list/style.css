@@ -1,0 +1,31 @@
+.table-exercises {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.table-exercises td {
+  text-align: center;
+  padding: 20px;
+}
+
+.table-exercises tr {
+  border-bottom: 2px solid #d3d3d3;
+}
+
+.table-exercises-content {
+  width: 100%;
+  border: 2px solid #d3d3d3;
+}
+
+.table-exercises-head {
+  font-family: "Roboto", sans-serif;
+  color: #2e2e2e;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.table-exercises-head th {
+  text-align: center;
+  padding: 15px;
+}
