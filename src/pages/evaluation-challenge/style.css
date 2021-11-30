@@ -1,16 +1,29 @@
 .table{
-  margin: 50px;
-  background-color: rgb(223, 223, 223);
-  padding: 20px;
-  margin-left: 50px;
+  margin: 30px;
   display: flex;
-  justify-content:space-around; 
+  justify-content:space-between;
+  font-size: 20px;
+   
 }
 .primeira{
   font-weight: bold;
   font-size: 150%;
 }
+
+.segunda select{
+  font-size: 20px;
+  border: 1px solid #ababab;
+  font-weight: 300;
+  padding: 10px 25px 10px 25px;
+  font-family: "Open Sans";
+}
+
 .button{
 position: relative;
-left: 26%;
+left: 5%;
+border: 1px solid #ababab;
+border-radius: 5px;
+width: 100%;
+margin-top: 20px;
+font-size: 15px;
 }

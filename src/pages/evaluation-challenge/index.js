@@ -10,7 +10,6 @@ export const EvaluationChallenge = () => {
       <div className="primeira">
         <p>Avaliação </p>
       </div>
-
       <div className="segunda">
         <span>Tipo: </span>
         <select name="select" id="select">
@@ -19,9 +18,10 @@ export const EvaluationChallenge = () => {
         </select>
       </div>
     </section>
-    <section className="head">
+      <section className="head">
         <div className="button">
           <FontAwesomeIcon icon={faPrint} />
+          <a href="download/acme-doc-2.0.1.txt" download="Acme Documentation (ver. 2.0.1).txt">Download PDF - </a>
         </div>
 
       </section></>
