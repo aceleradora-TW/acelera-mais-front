@@ -1,7 +1,16 @@
 .table-selective-process {
   width: 100%;
-  padding: 30px;
+  margin-top: 20px;
 }
+
+.table-selective-process a {
+  color: #000;
+}
+
+.table-selective-process a:visited {
+  color: #ababab;
+}
+
 .table-selective-process table {
   width: 100%;
   border: 1px solid #ababab;
