@@ -9,10 +9,10 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginPage />} exact />
-        <Route path="/hiring-process" element={<IsAuth />} >
+        <Route path="/hiring-process" element={<IsAuth />}>
           <Route path="/hiring-process" element={<HiringProcessPage />} exact />
         </Route>
-        <Route path="/exercises/:id" element={<IsAuth />} >
+        <Route path="/exercises" element={<IsAuth />}>
           <Route path="/exercises/:id" element={<ExercisesPage />} exact />
         </Route>
       </Routes>
