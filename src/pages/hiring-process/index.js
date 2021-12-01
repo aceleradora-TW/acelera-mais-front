@@ -27,7 +27,7 @@ const HiringProcessPage = () => {
   }
 
   return (
-    <div className="hiring-page">
+    <div className="page-container">
       <h1>Processos seletivos</h1>
       <section>
         <div>

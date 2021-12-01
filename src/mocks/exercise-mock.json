@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Energético",
-    "status": "done",
+    "status": "status-closed",
     "type": "backend",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "candidate": {
@@ -23,7 +23,7 @@
   {
     "id": 2,
     "name": "Layout",
-    "status": "prepairing",
+    "status": "status-preparing",
     "type": "frontend",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "candidate": {
@@ -44,7 +44,7 @@
   {
     "id": 3,
     "name": "Biblioteca",
-    "status": "none",
+    "status": "status-opened",
     "type": "fullstack",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "candidate": {
