@@ -1,1 +1,3 @@
-window.env = { URL_BACKEND: 'https://esther-acelera-mais-api.herokuapp.com' }
+window.env = {
+  "URL_BACKEND": "http://localhost:9000"
+};
