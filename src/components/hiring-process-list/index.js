@@ -20,10 +20,15 @@ const initialDataCandidate = {
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const [dataCandidates, setDataCandidates] = useState(initialDataCandidate)
 
-  const handleImport = (id) => {
-    client.post(`candidate/hiring_process/${id}`, dataCandidates).then(resp => {
+  const handleImport = (e) => {
+    const { id, value } = e.target
+    dataCandidates[id].link = value
+    setDataCandidates({ ...dataCandidates, link: value })
+
+    /*   client.post(`candidate/hiring_process/${id}`, dataCandidates).then(resp => {
       alert(resp.data.message)
     }).catch(error => console.log(error))
+  } */
   }
 
   const handleExport = () => { }
@@ -35,11 +40,13 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
   }
 
   const onChange = (e) => {
-    const { name, value } = e.target
+    console.log(dataCandidates)
+    const { value } = e.target
     setDataCandidates({
       ...dataCandidates,
-      [name]: value
+      link: value
     })
+    console.log(dataCandidates)
   }
 
   const handleDelete = async (id) => {
@@ -82,7 +89,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   classe="button-import"
                   text="Importar tabela"
                 >
-                  <InputText name="name" label="Insira a URL da planilha:" onChange={onChange} />
+                  <InputText id={key} name="name" label="Insira a URL da planilha:" onChange={onChange} />
                   <Button classe='button-submit' type="button" text='Enviar' onClick={handleImport}>
                     Enviar
                   </Button>

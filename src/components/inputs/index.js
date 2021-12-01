@@ -1,10 +1,10 @@
 import './style.css'
-// eslint-disable-next-line react/prop-types
-export const Input = ({ type, label, onChange, name }) => {
+
+export const Input = ({ id, type, label, onChange, name }) => {
   return (
     <label className="input-box">
       <span>{label}</span>
-      <input type={type} name={name} onChange={onChange} />
+      <input id={id} type={type} name={name} onChange={onChange} />
     </label>
   )
 }
