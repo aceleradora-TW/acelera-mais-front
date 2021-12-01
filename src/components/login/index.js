@@ -21,17 +21,25 @@ export const Login = () => {
     const user = {
       email, password
     }
-    const response = await client.post('/login', user)
-    console.log(response.data)
 
-    const {
-      data: { accessToken }
-    } = response
+    if (email === '' || email === undefined || password === '' || password === undefined) {
+      return alert('Preencha o campo de e-mail e senha, por favor! ')
+    }
 
-    if (accessToken) {
-      localStorage.setItem('token', accessToken)
-      setTokenInHeaders(accessToken)
-      navigate('/hiring-process')
+    try {
+      const response = await client.post('/login', user)
+      const {
+        data: { accessToken }
+      } = response
+
+      if (accessToken) {
+        localStorage.setItem('token', accessToken)
+        setTokenInHeaders(accessToken)
+        navigate('/hiring-process')
+      }
+    } catch (error) {
+      console.log(error)
+      alert('Usuário ou senha inválidos!')
     }
   }
   return (
