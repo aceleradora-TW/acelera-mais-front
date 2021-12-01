@@ -1,7 +1,10 @@
 import axios from 'axios'
+import env from 'react-dotenv'
 
-const { URL_BACKEND = 'https://stage-acelera-mais-api.herokuapp.com/' } = process.env
+const getURLBackend = () => {
+  return env ? env.URL_BACKEND : 'http://localhost:9000'
+}
 
 export const client = axios.create({
-  baseURL: URL_BACKEND
+  baseURL: getURLBackend()
 })
