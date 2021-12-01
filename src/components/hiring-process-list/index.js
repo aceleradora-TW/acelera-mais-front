@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '../button'
 import { Status } from '../status'
 import { Modal } from '../modal'
@@ -13,9 +13,17 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
+const initialDataCandidate = {
+  link: ''
+}
+
 export const ProcessList = ({ processes, setHiringProcesses }) => {
+  const [dataCandidates, setDataCandidates] = useState(initialDataCandidate)
+
   const handleImport = (id) => {
-    return client.post(`candidate/hiring-process/${id}`, processes).then(resp => alert(resp.data))
+    client.post(`candidate/hiring_process/${id}`, dataCandidates).then(resp => {
+      alert(resp.data.message)
+    }).catch(error => console.log(error))
   }
 
   const handleExport = () => { }
@@ -26,10 +34,10 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
     location.reload()
   }
 
-  const handleChange = (e) => {
+  const onChange = (e) => {
     const { name, value } = e.target
-    setHiringProcesses({
-      ...processes,
+    setDataCandidates({
+      ...dataCandidates,
       [name]: value
     })
   }
@@ -73,9 +81,8 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   title="Importe planilha do processo seletivo"
                   classe="button-import"
                   text="Importar tabela"
-                  onClick={handleImport}
                 >
-                  <InputText name="name" label="Insira a URL da planilha:" onChange={handleChange} />
+                  <InputText name="name" label="Insira a URL da planilha:" onChange={onChange} />
                   <Button classe='button-submit' type="button" text='Enviar' onClick={handleImport}>
                     Enviar
                   </Button>
