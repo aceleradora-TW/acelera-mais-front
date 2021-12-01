@@ -1,4 +1,4 @@
-.table-row-btn{
+.button-off{
   width: 30px;
   height: 30px;
   background-color: rgb(70, 136, 211);
@@ -10,20 +10,18 @@
   font-size: 20px;
   cursor: pointer;
   border: 1px solid transparent;
-
 }
 
 
 
-.table-row-btn:disabled{
+.button-off:disabled{
   opacity: 0.4 ;
   cursor: no-drop;
 }
 
 
 
-.table-row-btn-checked{
-  background-color: rgb(70, 136, 211);
+.button-on{
   -moz-transform: scale(1, -1);
   -webkit-transform: scale(1, -1);
   -o-transform: scale(1, -1);
@@ -31,13 +29,13 @@
   transform: scale(1, -1);
 }
 
-.table-row-feedback{
+.feedback-off{
   height: 100px;
   border: 2px solid rgb(160, 173, 185);
   border-radius: 3px;
 }
 
-.table-row-feedback-checked{
+.feedback-on{
   background-color: rgb(70, 136, 211);
   display: none;
   -moz-transform: scale(1, -1);

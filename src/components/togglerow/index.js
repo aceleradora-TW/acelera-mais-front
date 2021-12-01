@@ -5,7 +5,7 @@ import { Status } from '../status'
 import './style.css'
 import ActionButton from '../buttons/action'
 
-const getStatus = ({ status }) => {
+const isStatusClosedOrPreparing = ({ status }) => {
   if (status === 'status-preparing' || status === 'status-closed') return true
   return false
 }
@@ -18,11 +18,11 @@ const hasFeedback = ({ status }) => {
 export const ToggleRow = ({ item, key }) => {
   const [checked, setChecked] = useState(false)
 
-  const botao = checked ? 'table-row-btn' : 'table-row-btn table-row-btn-checked'
-  const feedbackLine = checked ? 'table-row-feedback' : 'table-row-feedback table-row-feedback-checked'
+  const button = checked ? 'button-off' : 'button-off button-on'
+  const feedbackLine = checked ? 'feedback-off' : 'feedback-off feedback-on'
 
   const { evaluation: { feedback } } = item
-  const status = getStatus(item)
+  const status = isStatusClosedOrPreparing(item)
 
   const handleClick = () => {
     setChecked(!checked)
@@ -38,7 +38,7 @@ export const ToggleRow = ({ item, key }) => {
         </td>
         <td className='avaliator-col'>{
           <button
-            className={botao}
+            className={button}
             disabled={hasFeedback(item)}
             onClick={handleClick}
           >
