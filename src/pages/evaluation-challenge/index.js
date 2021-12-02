@@ -7,8 +7,10 @@ import Buttons from '../../components/buttons/default'
 import Button from '../../components/buttons/primary'
 import { Modal } from '../../components/modal'
 import { Input } from '../../components/inputs'
+import exercises from '../../mocks/exercise-mock.json'
 
 export const EvaluationChallenge = () => {
+  const exercise = exercises[0]
   return (
     <div className="page-container">
       <section className="head">
@@ -23,13 +25,13 @@ export const EvaluationChallenge = () => {
       </section>
       <div className="download">
         <FontAwesomeIcon icon={faPrint} />
-        <a href="download/acme-doc-2.0.1.txt" download="Acme Documentation (ver. 2.0.1).txt">Download PDF - </a>
+        <a href={exercise.links.pdf}> Download PDF</a>
       </div>
       <div className="answer">
         <h2>Respostas enviadas:</h2>
         <div>
-          <FontAwesomeIcon icon={faLink} />
-          <FontAwesomeIcon icon={faCodeBranch} />
+          <a className="button-default" href={exercise.links.zip}><FontAwesomeIcon icon={faLink} /> download zip</a>
+          <a className="button-default" href={exercise.links.github}><FontAwesomeIcon icon={faCodeBranch} /> link do repositório</a>
         </div>
       </div>
       <div className="buttons">
