@@ -38,4 +38,9 @@
 .answer h2 {
   color: rgb(149, 149, 149);
   font-family: "Roboto";
+  
+}
+
+.buttons{
+  justify-content: space-around;
 }
