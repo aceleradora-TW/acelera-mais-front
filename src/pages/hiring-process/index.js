@@ -5,14 +5,21 @@ import { ProcessList } from '../../components/hiring-process-list'
 import './style.css'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { client } from '../../service'
 
 const HiringProcessPage = () => {
   const [hiringProcesses, setHiringProcesses] = useState([])
+  const navigate = useNavigate()
 
-  useEffect(async () => {
-    const response = await client.get('/hiring_process')
-    setHiringProcesses(response.data)
+  useEffect(() => {
+    client.get('/hiring_process')
+      .then(res => setHiringProcesses(res.data))
+      .catch(err => {
+        console.log(err)
+        setHiringProcesses([])
+        navigate('/')
+      })
   }, [])
 
   const handleSubmit = () => {
