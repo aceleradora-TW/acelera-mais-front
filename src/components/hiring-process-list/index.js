@@ -62,6 +62,15 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
     }
   }
 
+  const formatDate = (date) => {
+    const addZero = (number) => number <= 9 ? '0' + number : number
+    const newDate = new Date(date)
+    const day = addZero(newDate.getUTCDate().toString())
+    const month = addZero((newDate.getUTCMonth() + 1).toString())
+    const year = newDate.getUTCFullYear()
+    return `${day}/${month}/${year}`
+  }
+
   return (
     <div className="table-selective-process">
       <table>
@@ -69,6 +78,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
           <tr>
             <th>Processo</th>
             <th>Status</th>
+            <th>Data de início</th>
             <th colSpan="4">Ações</th>
           </tr>
         </thead>
@@ -81,6 +91,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   status={process.status}
                 />
               </td>
+              <td>{formatDate(process.startDate)}</td>
               <td>
                 <Modal
                   icon={faUpload}
