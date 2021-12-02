@@ -24,8 +24,7 @@ export const EvaluationChallenge = () => {
         </div>
       </section>
       <div className="download">
-        <FontAwesomeIcon icon={faPrint} />
-        <a href={exercise.links.pdf}> Download PDF</a>
+        <a href={exercise.links.pdf}><FontAwesomeIcon icon={faPrint} /> Download PDF</a>
       </div>
       <div className="answer">
         <h2>Respostas enviadas:</h2>
@@ -37,14 +36,16 @@ export const EvaluationChallenge = () => {
       <div className="buttons">
         <Buttons classe={'button-default'} text="cancelar"></Buttons>
         <Modal classe={'button-primary'} text="avaliar" title="Avaliação">
-          <div className="select">
+          <div className="select2">
             <span>Nota: </span>
             <select name="select" id="select">
               <option value="BackEnd" selected>BackEnd</option>
               <option value="FrontEnd">FrontEnd</option>
             </select>
           </div>
-          <Input type="text" name="feedback" label="Feedback:" />
+          <div className="feedback">
+          <Input type="text" className="feedback" label="Feedback:" />
+          </div>
           <Button classe={'button-primary'} text="Enviar avaliação"></Button>
         </Modal>
       </div>
