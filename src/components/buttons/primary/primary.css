@@ -1,12 +1,10 @@
 .button-primary {
-
   background-color: rgb(68, 68, 255);
   color: white;
   border: 1px solid white;
-  border-radius: 15px;
+  border-radius: 5px;
   font-weight: 300;
-  padding: 10px 25px 10px 25px;
-  font-family: "Open Sans";
+  padding: 10px 25px;
 }
 
 .button-primary:hover {

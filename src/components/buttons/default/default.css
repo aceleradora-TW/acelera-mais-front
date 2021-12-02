@@ -1,8 +1,12 @@
 .button-default {
   background-color: white;
   border: 1px solid lightgray;
-  border-radius: 10px;
-  font-family: "Open Sans";
+  border-radius: 5px;
+  padding: 10px 25px;
+}
+
+a.button-default {
+  display: inline-block;
 }
 
 .button-default:hover {
