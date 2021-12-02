@@ -22,11 +22,12 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   const handleImport = (e) => {
     const { id } = e.target
-    console.log('TESTE' + dataCandidates.link + 'ID: => ' + id)
-
     client.post(`candidate/hiring_process/${id}`, dataCandidates).then(resp => {
-      alert(resp.data.message)
-    }).catch(error => console.log('teste Error ', error))
+      alert('Salvo com sucesso! Obs: Para finalizar a integração, compartilhe o e-mail acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com', resp.data)
+      location.reload()
+    }).catch(error => {
+      alert('Não foi possível importar a URL da planilha. Por favor, tente novamente.', error)
+    })
   }
 
   const handleExport = () => { }
@@ -38,13 +39,11 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
   }
 
   const onChange = (e) => {
-    console.log(dataCandidates)
     const { value } = e.target
     setDataCandidates({
       ...dataCandidates,
       link: value
     })
-    console.log(dataCandidates)
   }
 
   const handleDelete = async (id) => {
@@ -84,6 +83,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   icon={faUpload}
                   label="Importar"
                   title="Importe planilha do processo seletivo"
+                  subtitle="Obs: Para finalizar a integração, compartilhe o e-mail acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
                   classe="button-import"
                   text="Importar tabela"
                 >
