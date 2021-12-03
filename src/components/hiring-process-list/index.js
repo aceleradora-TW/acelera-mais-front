@@ -14,6 +14,9 @@ import {
 import { Link } from 'react-router-dom'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
+  const handleImport = () => {
+  }
+
   const handleExport = () => { }
 
   const handleExpand = () => { }
@@ -59,14 +62,13 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   icon={faUpload}
                   label="Importar"
                   title="Importe planilha do processo seletivo"
-                  subtitle="Obs: Para finalizar a integração, compartilhe o e-mail acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
                   classe="button-import"
                   text="Importar tabela"
                 >
                   <ImportGoogleSheet
                     callback={handleImport}
-                    method="POST"
-                    id={process.id} />
+                    id={process.id}
+                  />
                 </Modal>
 
               </td>

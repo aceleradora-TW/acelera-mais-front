@@ -19,8 +19,7 @@ export const ImportGoogleSheet = ({ method = 'POST', id = '', callback = () => {
         data
       })
       .then(resp => {
-        alert(resp.data.message)
-        callback(resp.data)
+        alert('Salvo com sucesso. Obs: Para finalizar a integração, compartilhe o e-mail acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com', resp.data.message)
         location.reload()
       }).catch(error => {
         alert(error.response.data.msg)
@@ -37,7 +36,7 @@ export const ImportGoogleSheet = ({ method = 'POST', id = '', callback = () => {
   return (
     <>
       <InputText name="name" label="Insira a URL da planilha:" onChange={onChange} />
-      <Button id={process.id} classe='button-submit' type="button" text='Enviar' onClick={handleImport}>
+      <Button classe='button-submit' type="button" text='Enviar' onClick={handleImport}>
         Enviar
       </Button>
     </>
