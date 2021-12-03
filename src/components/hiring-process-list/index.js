@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Button from '../button'
 import { Status } from '../status'
 import { Modal } from '../modal'
 import { HiringProcessForm } from '../forms/hiring-process'
-import { InputText } from '../inputs/text'
+import { ImportGoogleSheet } from '../import-google-sheet'
 import './process-list.css'
 import { client } from '../../service'
 import {
@@ -13,37 +13,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
-const initialDataCandidate = {
-  link: ''
-}
-
 export const ProcessList = ({ processes, setHiringProcesses }) => {
-  const [dataCandidates, setDataCandidates] = useState(initialDataCandidate)
-
-  const handleImport = (e) => {
-    const { id } = e.target
-    client.post(`candidate/hiring_process/${id}`, dataCandidates).then(resp => {
-      alert('Salvo com sucesso! Obs: Para finalizar a integração, compartilhe o e-mail acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com', resp.data)
-      location.reload()
-    }).catch(error => {
-      alert('Não foi possível importar a URL da planilha. Por favor, tente novamente.', error)
-    })
-  }
-
   const handleExport = () => { }
 
   const handleExpand = () => { }
 
   const handleEdit = async () => {
     location.reload()
-  }
-
-  const onChange = (e) => {
-    const { value } = e.target
-    setDataCandidates({
-      ...dataCandidates,
-      link: value
-    })
   }
 
   const handleDelete = async (id) => {
@@ -87,10 +63,10 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   classe="button-import"
                   text="Importar tabela"
                 >
-                  <InputText name="name" label="Insira a URL da planilha:" onChange={onChange} />
-                  <Button id={process.id} classe='button-submit' type="button" text='Enviar' onClick={handleImport}>
-                    Enviar
-                  </Button>
+                  <ImportGoogleSheet
+                    callback={handleImport}
+                    method="POST"
+                    id={process.id} />
                 </Modal>
 
               </td>
