@@ -25,6 +25,7 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
     const data = hiringProcess
 
     client(`/hiring_process/${id}`,
+
       {
         method,
         data

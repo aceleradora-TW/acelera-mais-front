@@ -23,9 +23,19 @@
   color: #2e2e2e;
   font-size: 15px;
   font-weight: 700;
+  
 }
 
 .table-exercises-head th {
   text-align: center;
-  padding: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  
+}
+
+.table-exercises-content tbody .avaliator-col {
+  display: flex;
+  justify-content: center;
+
+
 }

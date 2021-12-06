@@ -6,7 +6,6 @@ import { faPrint, faLink, faCodeBranch } from '@fortawesome/free-solid-svg-icons
 import Buttons from '../../components/buttons/default'
 import Button from '../../components/buttons/primary'
 import { Modal } from '../../components/modal'
-import { Input } from '../../components/inputs'
 import exercises from '../../mocks/exercise-mock.json'
 
 export const EvaluationChallenge = () => {
@@ -24,7 +23,8 @@ export const EvaluationChallenge = () => {
         </div>
       </section>
       <div className="download">
-        <a href={exercise.links.pdf}><FontAwesomeIcon icon={faPrint} /> Download PDF</a>
+      <FontAwesomeIcon icon={faPrint} />
+        <a href={exercise.links.pdf}> Download PDF</a>
       </div>
       <div className="answer">
         <h2>Respostas enviadas:</h2>
@@ -43,10 +43,11 @@ export const EvaluationChallenge = () => {
               <option value="FrontEnd">FrontEnd</option>
             </select>
           </div>
-          <div className="feedback">
-          <Input type="text" className="feedback" label="Feedback:" />
-          </div>
+          <div className="form-group">
+            <label htmlFor="message-text" className="col-form-label">Mensagem:</label>
+            <textarea className="form-control" id="message-text"></textarea>
           <Button classe={'button-primary'} text="Enviar avaliação"></Button>
+          </div>
         </Modal>
       </div>
     </div>

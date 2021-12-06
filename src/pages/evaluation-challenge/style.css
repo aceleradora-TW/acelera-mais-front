@@ -55,8 +55,7 @@ text-decoration: none;
 text-align: center;
 
 }
-.feedback{
-  margin-top: 20px;
-  margin: 60px;
-
+.form-group{
+  padding: 30px;
+  text-align: center;
 }
