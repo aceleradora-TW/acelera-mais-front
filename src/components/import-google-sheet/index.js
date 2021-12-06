@@ -7,20 +7,13 @@ const initialDataCandidate = {
   link: ''
 }
 
-export const ImportGoogleSheet = ({ method = 'POST', id = '', callback = () => { } }) => {
+export const ImportGoogleSheet = ({ id = '' }) => {
   const [dataCandidates, setDataCandidates] = useState(initialDataCandidate)
 
-  const handleImport = (e) => {
-    const { id } = e.target
-    const data = dataCandidates
-    client.post(`candidate/hiring_process/${id}`,
-      {
-        method,
-        data
-      })
+  const handleImport = () => {
+    client.post(`candidate/hiring_process/${id}`, dataCandidates)
       .then(resp => {
-        alert('Salvo com sucesso. Obs: Para finalizar a integração, compartilhe o e-mail acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com', resp.data.message)
-        location.reload()
+        alert(resp.data.message + '\n Obs: Para finalizar a integração, compartilhe o \n E-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com')
       }).catch(error => {
         alert(error.response.data.msg)
       })

@@ -14,9 +14,6 @@ import {
 import { Link } from 'react-router-dom'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
-  const handleImport = () => {
-  }
-
   const handleExport = () => { }
 
   const handleExpand = () => { }
@@ -66,7 +63,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   text="Importar tabela"
                 >
                   <ImportGoogleSheet
-                    callback={handleImport}
                     id={process.id}
                   />
                 </Modal>
