@@ -2,7 +2,7 @@ import './select.css'
 
 const Select = ({ options, onChange, placeholder, name, label }) => {
   return (
-    <div>
+    <div className="select-container">
       <label>{label}</label>
       <select name={name} onChange={onChange}>
         <option>{placeholder}</option>

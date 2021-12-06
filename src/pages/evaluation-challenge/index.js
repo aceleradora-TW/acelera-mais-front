@@ -7,6 +7,7 @@ import Buttons from '../../components/buttons/default'
 import Button from '../../components/buttons/primary'
 import { Modal } from '../../components/modal'
 import exercises from '../../mocks/exercise-mock.json'
+import Select from '../../components/select'
 
 export const EvaluationChallenge = () => {
   const exercise = exercises[0]
@@ -14,13 +15,11 @@ export const EvaluationChallenge = () => {
     <div className="page-container">
       <section className="head">
         <h1>Avaliação </h1>
-        <div className="select">
-          <span>Tipo: </span>
-          <select name="select" id="select">
-            <option value="BackEnd" selected>BackEnd</option>
-            <option value="FrontEnd">FrontEnd</option>
-          </select>
-        </div>
+          <Select label="Tipo:" placeholder="Escolha uma opção" options={[
+            { label: 'Backend', value: 0 },
+            { label: 'Frontend', value: 1 },
+            { label: 'Fullstack', value: 2 }
+          ]} ></Select>
       </section>
       <div className="download">
       <FontAwesomeIcon icon={faPrint} />
@@ -36,16 +35,16 @@ export const EvaluationChallenge = () => {
       <div className="buttons">
         <Buttons classe={'button-default'} text="cancelar"></Buttons>
         <Modal classe={'button-primary'} text="avaliar" title="Avaliação">
-          <div className="select2">
-            <span>Nota: </span>
-            <select name="select" id="select">
-              <option value="BackEnd" selected>BackEnd</option>
-              <option value="FrontEnd">FrontEnd</option>
-            </select>
-          </div>
-          <div className="form-group">
-            <label htmlFor="message-text" className="col-form-label">Mensagem:</label>
-            <textarea className="form-control" id="message-text"></textarea>
+        <div className="form-group">
+        <Select label="Nota:" placeholder="Escolha uma opção" options={[
+          { label: 0, value: 0 },
+          { label: 1, value: 1 },
+          { label: 2, value: 2 },
+          { label: 3, value: 3 },
+          { label: 4, value: 4 },
+          { label: 5, value: 5 }
+        ]} ></Select>
+            <textarea label="mensagem" className="form-control" id="message-text"></textarea>
           <Button classe={'button-primary'} text="Enviar avaliação"></Button>
           </div>
         </Modal>

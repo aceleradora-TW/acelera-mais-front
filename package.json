@@ -21,11 +21,7 @@
     "react-router-dom": "^6.0.2",
     "react-dotenv": "^0.1.3",
     "react-scripts": "4.0.3",
-<<<<<<< HEAD
     "storybook": "^6.4.4",
-=======
-    "storybook": "^6.3.12",
->>>>>>> 0eb05d0564e6d5e2480b5f937ebc1429ba96db8d
     "web-vitals": "^1.0.1",
     "yarn": "^1.22.17"
   },
