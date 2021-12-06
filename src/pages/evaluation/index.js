@@ -11,13 +11,18 @@ import Select from '../../components/select'
 
 export const EvaluationChallenge = () => {
   const exercise = exercises[0]
+  // const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
+  // const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
   return (
     <div className="page-container">
 
       <section className="head">
         <h1>Avaliação </h1>
         <div className="">
-          <Select label="Tipo:" placeholder="Escolha uma opção" options={[
+          <Select
+          label="Tipo:"
+          placeholder="Escolha uma opção"
+          options={[
             { label: 'Backend', value: 0 },
             { label: 'Frontend', value: 1 },
             { label: 'Fullstack', value: 2 }
@@ -41,7 +46,10 @@ export const EvaluationChallenge = () => {
         <DefaultButton text="cancelar" />
         <Modal classe={'button-primary'} text="avaliar" title="Avaliação">
           <div className="form-group">
-            <Select label="Nota:" placeholder="Escolha uma opção" options={[
+            <Select
+            label="Nota:"
+            placeholder="Escolha uma opção"
+            options={[
               { label: 0, value: 0 },
               { label: 1, value: 1 },
               { label: 2, value: 2 },
