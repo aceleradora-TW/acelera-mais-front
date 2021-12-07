@@ -6,5 +6,17 @@ const getURLBackend = () => {
 }
 
 export const client = axios.create({
-  baseURL: getURLBackend()
+  baseURL: getURLBackend(),
+  headers: {
+    common: {
+      Authorization: `Bearer ${localStorage.getItem('token') || ''}`
+    }
+  }
 })
+
+export const setTokenInHeaders = (token = '') => {
+  client.defaults.headers.common = {
+    ...client.defaults.headers.common,
+    Authorization: `Bearer ${localStorage.getItem('token') || token}`
+  }
+}
