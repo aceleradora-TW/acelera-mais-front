@@ -58,7 +58,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 <Modal
                   icon={faUpload}
                   label="Importar"
-                  title="Importe planilha do processo seletivo"
+                  title="Importar dados das candidatas"
                   classe="button-import"
                   text="Importar tabela"
                 >
