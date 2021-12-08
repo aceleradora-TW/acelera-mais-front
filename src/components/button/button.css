@@ -36,17 +36,11 @@
 
 .button-import,
 .button-export {
-  width: 140px;
-  height: 23px;
+  padding: 4px 13px;
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 10px;
   font-family: "Open Sans";
-}
-
-.button-import:hover,
-.button-export:hover {
-  font-weight: bold;
   cursor: pointer;
 }
 
