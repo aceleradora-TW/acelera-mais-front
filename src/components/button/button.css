@@ -42,13 +42,14 @@
   border: 1px solid lightgray;
   border-radius: 10px;
   font-family: "Open Sans";
+  cursor: pointer;
 }
 
-.button-import:hover,
+/* .button-import:hover,
 .button-export:hover {
   font-weight: bold;
   cursor: pointer;
-}
+} */
 
 .button-edit {
   width: 70px;
