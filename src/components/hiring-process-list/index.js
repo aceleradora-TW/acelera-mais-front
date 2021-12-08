@@ -3,6 +3,7 @@ import Button from '../button'
 import { Status } from '../status'
 import { Modal } from '../modal'
 import { HiringProcessForm } from '../forms/hiring-process'
+import { ImportGoogleSheet } from '../import-google-sheet'
 import './process-list.css'
 import { client } from '../../service'
 import {
@@ -13,8 +14,6 @@ import {
 import { Link } from 'react-router-dom'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
-  const handleImport = () => { }
-
   const handleExport = () => { }
 
   const handleExpand = () => { }
@@ -67,22 +66,27 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               </td>
               <td>{formatDate(process.startDate)}</td>
               <td>
-                <Button
-                  icon={faDownload}
+                <Modal
+                  icon={faUpload}
+                  label="Importar"
+                  title="Importar dados das candidatas"
                   classe="button-import"
-                  text="Importar dados"
-                  onClick={handleImport}
-                />
+                  text="Importar tabela"
+                >
+                  <ImportGoogleSheet
+                    id={process.id}
+                  />
+                </Modal>
+
               </td>
               <td>
                 <Button
-                  icon={faUpload}
-                  classe="button-import"
-                  text="Exportar tabela"
+                  icon={faDownload}
+                  classe="button-export"
+                  text="Exportar dados"
                   onClick={handleExport}
                 />
               </td>
-
               <td>
                 <Modal
                   label="Editar"
