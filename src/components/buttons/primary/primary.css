@@ -11,3 +11,8 @@
   font-weight: bold;
   cursor: pointer;
 }
+
+.button-primary:disabled{
+  opacity: 0.3;
+  cursor:not-allowed;
+}
