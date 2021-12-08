@@ -17,7 +17,7 @@ const AppRoutes = () => {
           <Route path="/exercises/:id" element={<ExercisesPage />} exact />
         </Route>
         <Route>
-        <Route path="/evaluation" element={<Evaluation />} exact />
+          <Route path="/evaluation" element={<Evaluation />} exact />
         </Route>
       </Routes>
     </BrowserRouter>

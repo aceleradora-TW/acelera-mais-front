@@ -1,9 +1,9 @@
 import Button from '../../button'
 import './primary.css'
 
-const PrimaryButton = ({ icon, onClick, text, type, disabled = false }) => {
+const PrimaryButton = ({ icon, classe, onClick, text, type, disabled = false }) => {
   return (
-    < Button icon={icon} onClick={onClick} text={text} type={type} classe="button-primary" disabled={disabled} />
+    < Button icon={icon} onClick={onClick} text={text} type={type} classe={classe} disabled={disabled} />
   )
 }
 

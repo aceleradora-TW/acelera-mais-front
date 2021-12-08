@@ -34,21 +34,25 @@ export const ToggleRow = ({ item, key }) => {
     setChecked(!checked)
   }
 
+  const handleSubmit = () => {
+    location.replace('/evaluation')
+  }
+
   return (
     <>
       <tr key={key} className='toggle-row-container'>
         <td>{item.name}</td>
         <td>{item.type}</td>
         <td colSpan='2'>
-          { !isOpened(item) ? <Status status={item.status} /> : null }
-          <ActionButton text={'avaliar'} icon={faPen} disabled={status} />
+          {!isOpened(item) ? <Status status={item.status} /> : null}
+          <ActionButton text={'avaliar'} icon={faPen} disabled={status} onClick={handleSubmit} />
         </td>
         <td className='avaliator-col'>{
           <Button
-          classe={`${toggle} feedback-button`}
-          disabled={isPreparingOrOpened(item)}
-          onClick={handleClick}
-          icon={faAngleDown}/>
+            classe={`${toggle} feedback-button`}
+            disabled={isPreparingOrOpened(item)}
+            onClick={handleClick}
+            icon={faAngleDown} />
         }</td>
       </tr>
       {status ? <tr><td colSpan='5' className={toggle}>{feedback}</td></tr> : null}

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPrint, faLink, faCodeBranch } from '@fortawesome/free-solid-svg-icons'
 import DefaultButton from '../../components/buttons/default'
 import PrimaryButton from '../../components/buttons/primary'
+import SucessButton from '../../components/buttons/sucess'
 import { Modal } from '../../components/modal'
 import exercises from '../../mocks/exercise-mock.json'
 import Select from '../../components/select'
@@ -18,7 +19,7 @@ export const EvaluationChallenge = () => {
     <div className="page-container">
       <section className="head">
         <h1>Avaliação </h1>
-        <div>
+        <div className='select-container'>
           <Select
             onChange={() => {
               setExerciseTypeSelected(true)
@@ -32,7 +33,7 @@ export const EvaluationChallenge = () => {
               { label: 'Fullstack', value: 'fullstack' }
             ]} />
           {exerciseTypeSelected
-            ? <PrimaryButton text="Alterar" onClick={() => {
+            ? <SucessButton text="Alterar" onClick={() => {
               setExerciseTypeSelected(false)
               setDisableEvaluationButton(false)
               alert('Alterado com sucesso')
@@ -43,13 +44,13 @@ export const EvaluationChallenge = () => {
 
       <div className="download">
         <FontAwesomeIcon icon={faPrint} />
-        <a href={exercise.links.pdf}> Download PDF</a>
+        <a href={exercise.links.pdf} target='_blank' rel='noreferrer'> Download PDF</a>
       </div>
       <div className="answer">
         <h2>Respostas enviadas:</h2>
         <div>
-          <a className="button-default" href={exercise.links.zip}><FontAwesomeIcon icon={faLink} /> download zip</a>
-          <a className="button-default" href={exercise.links.github}><FontAwesomeIcon icon={faCodeBranch} /> link do repositório</a>
+          <a className="button-default" href={exercise.links.zip} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faLink} /> Download zip</a>
+          <a className="button-default" href={exercise.links.github} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faCodeBranch} /> Link do repositório</a>
         </div>
       </div>
       <div className="buttons">

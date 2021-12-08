@@ -1,3 +1,3 @@
 window.env = {
-  URL_BACKEND: 'https://leo-acelera-mais-api.herokuapp.com/'
-}
+  "URL_BACKEND": "https://leo-acelera-mais-api.herokuapp.com/"
+};
