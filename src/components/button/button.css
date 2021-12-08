@@ -28,7 +28,8 @@
   cursor: pointer;
 }
 
-.button-import {
+.button-import,
+.button-export {
   width: 140px;
   height: 23px;
   background-color: white;
@@ -36,7 +37,9 @@
   border-radius: 5px;
 }
 
-.button-import:hover {
+.button-import:hover,
+.button-export:hover {
+  font-weight: bold;
   cursor: pointer;
 }
 
