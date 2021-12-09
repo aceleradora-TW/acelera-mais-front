@@ -71,7 +71,8 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   icon={faUpload}
                   label="Importar"
                   title="Importar dados das candidatas"
-                  subtitle="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
+                  subtitle="Obs: Para finalizar a integração, compartilhe o e-mail:"
+                  modalAlert="acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
                   classe="button-import"
                   text="Importar candidatas"
                 >
