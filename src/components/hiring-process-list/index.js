@@ -69,9 +69,22 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 <Modal
                   icon={faUpload}
                   label="Importar"
+                  title="Importar desafios das candidatas"
+                  classe="button-import"
+                  text="Importar desafios"
+                >
+                  <ImportGoogleSheet
+                    id={process.id}
+                  />
+                </Modal>
+              </td>
+              <td>
+                <Modal
+                  icon={faUpload}
+                  label="Importar"
                   title="Importar dados das candidatas"
                   classe="button-import"
-                  text="Importar tabela"
+                  text="Importar candidatas"
                 >
                   <ImportGoogleSheet
                     id={process.id}

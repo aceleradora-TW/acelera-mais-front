@@ -30,16 +30,11 @@
 
 .button-import,
 .button-export {
-  width: 140px;
-  height: 23px;
+  padding: 4px 13px;
   background-color: white;
   border: 1px solid lightgray;
-  border-radius: 5px;
-}
-
-.button-import:hover,
-.button-export:hover {
-  font-weight: bold;
+  border-radius: 10px;
+  font-family: "Open Sans";
   cursor: pointer;
 }
 
