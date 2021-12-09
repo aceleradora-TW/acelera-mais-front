@@ -32,6 +32,10 @@
   margin-right: 20px;
 }
 
+.modal-subtitle {
+  margin: 0 45px;
+}
+
 .modal-body {
   border: 1px solid #aea9bd;
   margin: 10px 40px;
