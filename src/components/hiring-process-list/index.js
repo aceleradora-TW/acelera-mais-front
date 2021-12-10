@@ -71,8 +71,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   icon={faUpload}
                   label="Importar"
                   title="Importar dados das candidatas"
-                  subtitle="Obs: Para finalizar a integração, compartilhe o e-mail:"
-                  modalAlert="acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
+                  reminder="Obs: Para finalizar a integração, compartilhe o e-mail acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
                   classe="button-import"
                   text="Importar candidatas"
                 >
@@ -87,7 +86,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   icon={faUpload}
                   label="Importar"
                   title="Importar desafios das candidatas"
-                  subtitle="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
+                  reminder="Obs: Para finalizar a integração, compartilhe o e-mail acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
                   classe="button-import"
                   text="Importar desafios"
                 >
@@ -135,6 +134,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
           ))}
         </tbody>
       </table>
-    </div>
+    </div >
   )
 }
