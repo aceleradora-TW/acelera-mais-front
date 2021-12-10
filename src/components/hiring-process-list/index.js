@@ -14,6 +14,9 @@ import {
 import { Link } from 'react-router-dom'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
+  const role = localStorage.getItem('role')
+  const admin = role === 'admin'
+
   const handleExport = () => { }
 
   const handleExpand = () => { }
@@ -66,7 +69,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               </td>
               <td>{formatDate(process.startDate)}</td>
               <td>
-                <Modal
+                {admin && <Modal
                   icon={faUpload}
                   label="Importar"
                   title="Importar desafios das candidatas"
@@ -76,10 +79,10 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   <ImportGoogleSheet
                     id={process.id}
                   />
-                </Modal>
+                </Modal>}
               </td>
               <td>
-                <Modal
+                {admin && <Modal
                   icon={faUpload}
                   label="Importar"
                   title="Importar dados das candidatas"
@@ -89,19 +92,19 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   <ImportGoogleSheet
                     id={process.id}
                   />
-                </Modal>
+                </Modal>}
 
               </td>
               <td>
-                <Button
+                {admin && <Button
                   icon={faDownload}
                   classe="button-export"
                   text="Exportar dados"
                   onClick={handleExport}
-                />
+                />}
               </td>
               <td>
-                <Modal
+                {admin && <Modal
                   label="Editar"
                   title="Editar processos seletivos"
                   classe="button-edit"
@@ -110,7 +113,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     callback={handleEdit}
                     method="PATCH"
                     id={process.id} />
-                </Modal>
+                </Modal>}
               </td>
               <td>
                 <Button
@@ -121,10 +124,11 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 />
               </td>
               <td>
-                <Button icon={faTrashAlt}
+                {admin && <Button icon={faTrashAlt}
                   classe="button-delete"
                   onClick={() => handleDelete(process.id)}
-                /></td>
+                />}
+              </td>
             </tr>
           ))}
         </tbody>
