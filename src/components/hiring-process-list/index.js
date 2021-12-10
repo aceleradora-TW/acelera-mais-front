@@ -68,8 +68,8 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 />
               </td>
               <td>{formatDate(process.startDate)}</td>
-              <td>
-                {admin && <Modal
+              {admin && <td>
+                <Modal
                   icon={faUpload}
                   label="Importar"
                   title="Importar desafios das candidatas"
@@ -79,10 +79,10 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   <ImportGoogleSheet
                     id={process.id}
                   />
-                </Modal>}
-              </td>
-              <td>
-                {admin && <Modal
+                </Modal>
+              </td>}
+              {admin && <td>
+                <Modal
                   icon={faUpload}
                   label="Importar"
                   title="Importar dados das candidatas"
@@ -92,19 +92,19 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   <ImportGoogleSheet
                     id={process.id}
                   />
-                </Modal>}
+                </Modal>
 
-              </td>
-              <td>
-                {admin && <Button
+              </td>}
+              {admin && <td>
+                <Button
                   icon={faDownload}
                   classe="button-export"
                   text="Exportar dados"
                   onClick={handleExport}
-                />}
-              </td>
-              <td>
-                {admin && <Modal
+                />
+              </td>}
+              {admin && <td>
+                <Modal
                   label="Editar"
                   title="Editar processos seletivos"
                   classe="button-edit"
@@ -113,8 +113,8 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     callback={handleEdit}
                     method="PATCH"
                     id={process.id} />
-                </Modal>}
-              </td>
+                </Modal>
+              </td>}
               <td>
                 <Button
                   icon={faAngleDown}
@@ -123,12 +123,12 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   onClick={handleExpand}
                 />
               </td>
-              <td>
-                {admin && <Button icon={faTrashAlt}
+              {admin && <td>
+                <Button icon={faTrashAlt}
                   classe="button-delete"
                   onClick={() => handleDelete(process.id)}
-                />}
-              </td>
+                />
+              </td>}
             </tr>
           ))}
         </tbody>
