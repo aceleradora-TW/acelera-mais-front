@@ -29,7 +29,7 @@ export const Login = () => {
     try {
       const response = await client.post('/login', user)
       const { data: { accessToken, user: { role } } } = response
-      console.log(response)
+
       if (accessToken) {
         localStorage.setItem('token', accessToken)
         localStorage.setItem('role', role)
