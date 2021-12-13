@@ -7,11 +7,11 @@ const initialDataGoogleSheet = {
   link: ''
 }
 
-export const ImportGoogleSheet = ({ id = '', url = '' }) => {
+export const ImportGoogleSheet = ({ id = '', endpoint = '' }) => {
   const [dataGoogleSheet, setDataGoogleSheet] = useState(initialDataGoogleSheet)
 
   const handleImport = () => {
-    client.post(`${url}/${id}`, dataGoogleSheet)
+    client.post(`${endpoint}/hiring_process/${id}`, dataGoogleSheet)
       .then(resp => {
         alert(resp.data.message)
       }).catch(error => {

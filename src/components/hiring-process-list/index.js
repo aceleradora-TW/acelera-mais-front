@@ -77,7 +77,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 >
                   <ImportGoogleSheet
                     id={process.id}
-                    url={'/candidate/hiring_process'}
+                    endpoint="candidate"
                   />
                 </Modal>
               </td>
@@ -92,7 +92,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 >
                   <ImportGoogleSheet
                     id={process.id}
-                    url={'/exercise/hiring_process'}
+                    endpoint="exercise"
                   />
                 </Modal>
               </td>
