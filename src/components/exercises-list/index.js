@@ -1,9 +1,22 @@
 import './style.css'
 import { ToggleRow } from '../togglerow'
-
-const listExercises = require('../../mocks/exercise-mock.json')
+import { useEffect, useState } from 'react'
+import { client } from '../../service'
 
 export const ExercisesList = () => {
+  const [exercises, setExercises] = useState([])
+
+  useEffect(() => {
+    const id = window.location.pathname.split('/').pop()
+    client.get(`/exercise?hiringProcessId=${id}`)
+      .then(res => setExercises(res.data.data.result))
+      .catch(err => {
+        console.log(err)
+        setExercises([])
+        // navigate('/')
+      })
+  }, [])
+
   return (
     <div className="table-exercises">
       <table className="table-exercises-content">
@@ -16,7 +29,7 @@ export const ExercisesList = () => {
           </tr>
         </thead>
         <tbody className="table-body">
-          {listExercises.map((exercise, key) => (
+          {exercises.map((exercise, key) => (
             <ToggleRow key={key} item={exercise} />
           ))}
         </tbody>

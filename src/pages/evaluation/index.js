@@ -10,7 +10,7 @@ import { Modal } from '../../components/modal'
 import exercises from '../../mocks/exercise-mock.json'
 import Select from '../../components/select'
 
-export const EvaluationChallenge = () => {
+export const EvaluationChallenge = ({ exerciseId }) => {
   const exercise = exercises[0]
   const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
   const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
@@ -36,7 +36,7 @@ export const EvaluationChallenge = () => {
             ? <SucessButton text="Alterar" onClick={() => {
               setExerciseTypeSelected(false)
               setDisableEvaluationButton(false)
-              alert('Alterado com sucesso')
+              alert('Alterado com sucesso!')
             }} />
             : null}
         </div>
