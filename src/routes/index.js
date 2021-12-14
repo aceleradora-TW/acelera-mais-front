@@ -14,10 +14,10 @@ const AppRoutes = () => {
           <Route path="/hiring-process" element={<HiringProcessPage />} exact />
         </Route>
         <Route path="/exercises" element={<IsAuth />}>
-          <Route path="/exercises/:id" element={<ExercisesPage />} exact />
+          <Route path="/exercises/hiring-process/:id" element={<ExercisesPage />} exact />
         </Route>
         <Route>
-          <Route path="/evaluation/:id" element={<Evaluation />} exact />
+          <Route path="/exercise/:id/hiring-process/:id" element={<Evaluation />} exact />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -45,7 +45,8 @@ export const ToggleRow = ({ item, key }) => {
   }
 
   const handleSubmit = () => {
-    location.replace(`/evaluation/${item.id}`)
+    const id = window.location.pathname.split('/').pop()
+    location.replace(`/exercise/${item.id}/hiring-process/${id}`)
   }
 
   return (

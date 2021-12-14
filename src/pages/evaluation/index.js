@@ -18,9 +18,8 @@ const EvaluationChallenge = () => {
   const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
 
   useEffect(() => {
-    const id = window.location.pathname.split('/').pop()
-    // const idHiringProcess = this.props.id
-    client.get(`/exercise/${id}?hiringProcessId=1`)
+    const id = window.location.pathname.split('/')[2]
+    client.get(`/exercise/${id}`)
       .then(res => (res.data))
       .then(res => setExercise(res))
       .catch(err => {
@@ -28,11 +27,8 @@ const EvaluationChallenge = () => {
       })
   }, [])
 
-  useEffect(() => {
-    console.log(exercise)
-  }, [exercise])
-
   if (!exercise) return null
+
   return (
     <div className="page-container">
       <section className="head">

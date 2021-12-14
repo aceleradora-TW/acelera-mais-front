@@ -8,6 +8,7 @@ export const ExercisesList = () => {
 
   useEffect(() => {
     const id = window.location.pathname.split('/').pop()
+    console.log(id)
     client.get(`/exercise?hiringProcessId=${id}`)
       .then(res => setExercises(res.data.data.result))
       .catch(err => {
