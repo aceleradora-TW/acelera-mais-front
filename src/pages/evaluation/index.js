@@ -1,5 +1,5 @@
 
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPrint, faLink, faCodeBranch } from '@fortawesome/free-solid-svg-icons'
@@ -9,11 +9,24 @@ import SucessButton from '../../components/buttons/sucess'
 import { Modal } from '../../components/modal'
 import exercises from '../../mocks/exercise-mock.json'
 import Select from '../../components/select'
+import { client } from '../../service'
 
-export const EvaluationChallenge = ({ exerciseId }) => {
-  const exercise = exercises[0]
+const EvaluationChallenge = () => {
+  const exercisePDF = exercises[0]
+  const [exercise, setExercise] = useState({})
   const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
   const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
+
+  useEffect(() => {
+    const id = window.location.pathname.split('/').pop()
+    client.get(`/exercise/${id}`)
+      .then(res => console.log(res.data))
+      .then(res => setExercise(res))
+      .catch(err => {
+        console.log(err)
+        setExercise()
+      })
+  }, [])
 
   return (
     <div className="page-container">
@@ -44,13 +57,13 @@ export const EvaluationChallenge = ({ exerciseId }) => {
 
       <div className="download">
         <FontAwesomeIcon icon={faPrint} />
-        <a href={exercise.links.pdf} target='_blank' rel='noreferrer'> Download PDF</a>
+        <a href={exercise} target='_blank' rel='noreferrer'> Download PDF</a>
       </div>
       <div className="answer">
         <h2>Respostas enviadas:</h2>
         <div>
-          <a className="button-default" href={exercise.links.zip} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faLink} /> Download zip</a>
-          <a className="button-default" href={exercise.links.github} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faCodeBranch} /> Link do repositório</a>
+          <a className="button-default" href={exercisePDF.links.zip} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faLink} /> Download zip</a>
+          <a className="button-default" href={exercisePDF.links.github} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faCodeBranch} /> Link do repositório</a>
         </div>
       </div>
       <div className="buttons">

@@ -1,10 +1,10 @@
 import { faAngleDown, faPen } from '@fortawesome/free-solid-svg-icons'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Status } from '../status'
 import './style.css'
 import ActionButton from '../buttons/action'
 import Button from '../button'
-import { client } from '../../service'
+// import { client } from '../../service'
 
 const statusEnum = {
   PREPARING: 'status-preparing',
@@ -33,7 +33,7 @@ const isOpened = ({ status }) => {
   return status === statusEnum.OPENED
 }
 
-export const ToggleRow = ({ item, key }) => {
+export const ToggleRow = ({ item, key, exerciseId }) => {
   const [checked, setChecked] = useState(false)
   const toggle = checked ? 'toggle-on' : 'toggle-off'
   const { evaluation: { feedback } } = item
@@ -43,30 +43,18 @@ export const ToggleRow = ({ item, key }) => {
     setChecked(!checked)
   }
 
-  const [evaluation, setEvaluation] = useState([])
-
   const handleSubmit = () => {
-    useEffect(() => {
-      const id = window.location.pathname.split('/').pop()
-      console.log(id)
-      client.get(`/exercise/${id}`)
-        .then(res => setEvaluation(res.data.data.result))
-        .catch(err => {
-          console.log(err)
-          setEvaluation([])
-          // navigate('/')
-        })
-    }, [])
+    location.replace(`/evaluation/${item.id}`)
   }
 
   return (
     <>
       <tr key={key} className='toggle-row-container'>
-        <td>{item.name}</td>
+        <td>{item.exercise}</td>
         <td>{item.type ? item.type : 'Não definido'}</td>
         <td colSpan='2'>
           {!isOpened(item) ? <Status status={getStatus(item)} /> : null}
-          <ActionButton text={'avaliar'} icon={faPen} disabled={status} onClick={handleSubmit(evaluation)} />
+          <ActionButton text={'Avaliar'} icon={faPen} disabled={status} onClick={() => handleSubmit()} />
         </td>
         <td className='avaliator-col'>{
           <Button
