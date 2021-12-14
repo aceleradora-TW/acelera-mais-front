@@ -33,7 +33,7 @@ const isOpened = ({ status }) => {
   return status === statusEnum.OPENED
 }
 
-export const ToggleRow = ({ item, key, exerciseId }) => {
+export const ToggleRow = ({ item, key }) => {
   const [checked, setChecked] = useState(false)
   const toggle = checked ? 'toggle-on' : 'toggle-off'
   const { evaluation: { feedback } } = item
@@ -41,6 +41,7 @@ export const ToggleRow = ({ item, key, exerciseId }) => {
 
   const handleClick = () => {
     setChecked(!checked)
+    console.log(item)
   }
 
   const handleSubmit = () => {

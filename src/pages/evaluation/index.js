@@ -13,21 +13,26 @@ import { client } from '../../service'
 
 const EvaluationChallenge = () => {
   const exercisePDF = exercises[0]
-  const [exercise, setExercise] = useState({})
+  const [exercise, setExercise] = useState(null)
   const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
   const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
 
   useEffect(() => {
     const id = window.location.pathname.split('/').pop()
-    client.get(`/exercise/${id}`)
-      .then(res => console.log(res.data))
+    // const idHiringProcess = this.props.id
+    client.get(`/exercise/${id}?hiringProcessId=1`)
+      .then(res => (res.data))
       .then(res => setExercise(res))
       .catch(err => {
         console.log(err)
-        setExercise()
       })
   }, [])
 
+  useEffect(() => {
+    console.log(exercise)
+  }, [exercise])
+
+  if (!exercise) return null
   return (
     <div className="page-container">
       <section className="head">
@@ -57,13 +62,13 @@ const EvaluationChallenge = () => {
 
       <div className="download">
         <FontAwesomeIcon icon={faPrint} />
-        <a href={exercise} target='_blank' rel='noreferrer'> Download PDF</a>
+        <a href={exercisePDF.links.pdf} target='_blank' rel='noreferrer'> Download PDF</a>
       </div>
       <div className="answer">
         <h2>Respostas enviadas:</h2>
         <div>
-          <a className="button-default" href={exercisePDF.links.zip} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faLink} /> Download zip</a>
-          <a className="button-default" href={exercisePDF.links.github} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faCodeBranch} /> Link do repositório</a>
+          <a className="button-default" href={exercise.zip} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faLink} /> Download zip</a>
+          <a className="button-default" href={exercise.github} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faCodeBranch} /> Link do repositório</a>
         </div>
       </div>
       <div className="buttons">
@@ -89,4 +94,5 @@ const EvaluationChallenge = () => {
     </div >
   )
 }
+
 export default EvaluationChallenge
