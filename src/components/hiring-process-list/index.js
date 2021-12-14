@@ -7,7 +7,7 @@ import { ImportGoogleSheet } from '../import-google-sheet'
 import './process-list.css'
 import { client } from '../../service'
 import {
-  faAngleDown,
+  /*  faAngleDown, */
   faDownload,
   faUpload, faTrashAlt
 } from '@fortawesome/free-solid-svg-icons'
@@ -16,8 +16,8 @@ import { Link } from 'react-router-dom'
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const handleExport = () => { }
 
-  const handleExpand = () => { }
-
+  /*  const handleExpand = () => { }
+ */
   const handleEdit = async () => {
     location.reload()
   }
@@ -117,14 +117,14 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     id={process.id} />
                 </Modal>
               </td>
-              <td>
+              {/* <td>
                 <Button
                   icon={faAngleDown}
                   classe="button-expend"
                   text="Ver mais"
                   onClick={handleExpand}
                 />
-              </td>
+              </td> */}
               <td>
                 <Button icon={faTrashAlt}
                   classe="button-delete"
