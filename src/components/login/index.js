@@ -28,12 +28,11 @@ export const Login = () => {
 
     try {
       const response = await client.post('/login', user)
-      const {
-        data: { accessToken }
-      } = response
+      const { data: { accessToken, user: { role } } } = response
 
       if (accessToken) {
         localStorage.setItem('token', accessToken)
+        localStorage.setItem('role', role)
         setTokenInHeaders(accessToken)
         navigate('/hiring-process')
       }

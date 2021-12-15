@@ -12,13 +12,14 @@ import {
   faUpload, faTrashAlt
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+import parse from 'html-react-parser'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const [csv, setCSV] = useState('')
 
   const handleExport = (id) => {
     return async () => {
-      const result = await client.get('/exercise?hiringProcessId=${id}')
+      const result = await client.get(`/exercise?hiringProcessId=${id}`)
       const hiringProcessResume = result.data.data.result
       console.log({ x: hiringProcessResume[0] })
       const hiringProcessResult = hiringProcessResume.map(h => ({
@@ -28,6 +29,8 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
       setCSV(parse(hiringProcessResult))
     }
   }
+  const role = localStorage.getItem('role')
+  const admin = role === 'admin'
 
   const handleExpand = () => { }
 
@@ -78,8 +81,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 />
               </td>
               <td>{formatDate(process.startDate)}</td>
-              <td>
-
+              {admin && <td>
                 <Modal
                   icon={faUpload}
                   label="Importar"
@@ -93,8 +95,8 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     endpoint="candidate"
                   />
                 </Modal>
-              </td>
-              <td>
+              </td>}
+              {admin && <td>
                 <Modal
                   icon={faUpload}
                   label="Importar"
@@ -108,15 +110,13 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     endpoint="exercise"
                   />
                 </Modal>
-              </td>
-
-              <td>
+              </td>}
+              {admin && <><td>
                 <Button
                   icon={faDownload}
                   classe="button-export"
                   text="Exportar dados"
-                  onClick={handleExport}
-                />
+                  onClick={handleExport} />
                 <Modal
                   icon={faDownload}
                   label="copie seu csv"
@@ -127,8 +127,9 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
                   {csv}
                 </Modal>
-              </td>
-              <td>
+              </td><td>
+                </td></>}
+              {admin && <td>
                 <Modal
                   label="Editar"
                   title="Editar processos seletivos"
@@ -139,7 +140,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     method="PATCH"
                     id={process.id} />
                 </Modal>
-              </td>
+              </td>}
               <td>
                 <Button
                   icon={faAngleDown}
@@ -148,11 +149,12 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   onClick={handleExpand}
                 />
               </td>
-              <td>
+              {admin && <td>
                 <Button icon={faTrashAlt}
                   classe="button-delete"
                   onClick={() => handleDelete(process.id)}
-                /></td>
+                />
+              </td>}
             </tr>
           ))}
         </tbody>
