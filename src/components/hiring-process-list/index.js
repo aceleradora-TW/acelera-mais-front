@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '../button'
 import { Status } from '../status'
 import { Modal } from '../modal'
@@ -14,7 +14,20 @@ import {
 import { Link } from 'react-router-dom'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
-  const handleExport = () => { }
+  const [csv, setCSV] = useState('')
+
+  const handleExport = (id) => {
+    return async () => {
+      const result = await client.get('/exercise?hiringProcessId=${id}')
+      const hiringProcessResume = result.data.data.result
+      console.log({ x: hiringProcessResume[0] })
+      const hiringProcessResult = hiringProcessResume.map(h => ({
+        name: h.candidate.name,
+        email: h.addressEmail
+      }))
+      setCSV(parse(hiringProcessResult))
+    }
+  }
 
   const handleExpand = () => { }
 
@@ -104,6 +117,16 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   text="Exportar dados"
                   onClick={handleExport}
                 />
+                <Modal
+                  icon={faDownload}
+                  label="copie seu csv"
+                  title="Copie seu CSV"
+                  classe="button-export"
+                  text="Exportar Dados">
+                  callback={handleExport(process.id)}
+
+                  {csv}
+                </Modal>
               </td>
               <td>
                 <Modal
