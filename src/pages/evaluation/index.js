@@ -16,6 +16,7 @@ const EvaluationChallenge = () => {
   const [exercise, setExercise] = useState(null)
   const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
   const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
+  const [exerciseType, setExerciseType] = useState()
 
   useEffect(() => {
     const id = window.location.pathname.split('/')[2]
@@ -27,6 +28,11 @@ const EvaluationChallenge = () => {
       })
   }, [])
 
+  useEffect(() => {
+    setExerciseTypeSelected(true)
+    console.log(exerciseType)
+  }, [exerciseType])
+
   if (!exercise) return null
 
   return (
@@ -35,10 +41,7 @@ const EvaluationChallenge = () => {
         <h1>Avaliação </h1>
         <div className='select-container'>
           <Select
-            onChange={() => {
-              setExerciseTypeSelected(true)
-            }
-            }
+            onChange={({ target }) => setExerciseType(target.value)}
             label="Tipo:"
             placeholder="Escolha uma opção"
             options={[
@@ -63,17 +66,17 @@ const EvaluationChallenge = () => {
       <div className="answer">
         <h2>Respostas enviadas:</h2>
         <div>
-          <a className="button-default" href={exercise.zip} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faLink} /> Download zip</a>
-          <a className="button-default" href={exercise.github} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faCodeBranch} /> Link do repositório</a>
+          {exercise.zip && <a className="button-default" href={exercise.zip} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faLink} /> Download zip</a>}
+          {exercise.github && <a className="button-default" href={exercise.github} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faCodeBranch} /> Link do repositório</a>}
         </div>
       </div>
       <div className="buttons">
-        <DefaultButton text="cancelar" />
+        <DefaultButton text="Cancelar" />
         <Modal classe={'button-primary'} text="Avaliar" title="Avaliação" disabled={disableEvaluationButton} >
           <div className="form-group">
             <Select
               label="Nota:"
-              placeholder="Escolha uma opção"
+              placeholder="Escolha uma nota"
               options={[
                 { label: 0, value: 0 },
                 { label: 1, value: 1 },
