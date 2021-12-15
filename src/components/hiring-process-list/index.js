@@ -14,6 +14,9 @@ import {
 import { Link } from 'react-router-dom'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
+  const role = localStorage.getItem('role')
+  const admin = role === 'admin'
+
   const handleExport = () => { }
 
   /*  const handleExpand = () => { }
@@ -65,8 +68,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 />
               </td>
               <td>{formatDate(process.startDate)}</td>
-              <td>
-
+              {admin && <td>
                 <Modal
                   icon={faUpload}
                   label="Importar"
@@ -80,8 +82,8 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     endpoint="candidate"
                   />
                 </Modal>
-              </td>
-              <td>
+              </td>}
+              {admin && <td>
                 <Modal
                   icon={faUpload}
                   label="Importar"
@@ -95,17 +97,16 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     endpoint="exercise"
                   />
                 </Modal>
-              </td>
-
-              <td>
+              </td>}
+              {admin && <td>
                 <Button
                   icon={faDownload}
                   classe="button-export"
                   text="Exportar dados"
                   onClick={handleExport}
                 />
-              </td>
-              <td>
+              </td>}
+              {admin && <td>
                 <Modal
                   label="Editar"
                   title="Editar processos seletivos"
@@ -116,7 +117,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     method="PATCH"
                     id={process.id} />
                 </Modal>
-              </td>
+              </td>}
               {/* <td>
                 <Button
                   icon={faAngleDown}
@@ -125,11 +126,12 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   onClick={handleExpand}
                 />
               </td> */}
-              <td>
+              {admin && <td>
                 <Button icon={faTrashAlt}
                   classe="button-delete"
                   onClick={() => handleDelete(process.id)}
-                /></td>
+                />
+              </td>}
             </tr>
           ))}
         </tbody>
