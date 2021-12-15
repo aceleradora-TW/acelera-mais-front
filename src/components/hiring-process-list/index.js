@@ -12,7 +12,7 @@ import {
   faUpload, faTrashAlt
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
-import parse from 'html-react-parser'
+import parse from 'json2csv'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const [csv, setCSV] = useState('')
