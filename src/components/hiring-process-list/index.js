@@ -72,12 +72,14 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 <Modal
                   icon={faUpload}
                   label="Importar"
-                  title="Importar desafios das candidatas"
+                  title="Importar dados das candidatas"
+                  reminder="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
                   classe="button-import"
-                  text="Importar desafios"
+                  text="Importar candidatas"
                 >
                   <ImportGoogleSheet
                     id={process.id}
+                    endpoint="candidate"
                   />
                 </Modal>
               </td>}
@@ -85,15 +87,16 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 <Modal
                   icon={faUpload}
                   label="Importar"
-                  title="Importar dados das candidatas"
+                  title="Importar desafios das candidatas"
+                  reminder="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
                   classe="button-import"
-                  text="Importar candidatas"
+                  text="Importar desafios"
                 >
                   <ImportGoogleSheet
                     id={process.id}
+                    endpoint="exercise"
                   />
                 </Modal>
-
               </td>}
               {admin && <td>
                 <Button
@@ -133,6 +136,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
           ))}
         </tbody>
       </table>
-    </div>
+    </div >
   )
 }

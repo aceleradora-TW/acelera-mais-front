@@ -3,17 +3,17 @@ import { InputText } from '../inputs/text'
 import Button from '../button'
 import { client } from '../../service'
 
-const initialDataCandidate = {
+const initialDataGoogleSheet = {
   link: ''
 }
 
-export const ImportGoogleSheet = ({ id = '' }) => {
-  const [dataCandidates, setDataCandidates] = useState(initialDataCandidate)
+export const ImportGoogleSheet = ({ id = '', endpoint = '' }) => {
+  const [dataGoogleSheet, setDataGoogleSheet] = useState(initialDataGoogleSheet)
 
   const handleImport = () => {
-    client.post(`candidate/hiring_process/${id}`, dataCandidates)
+    client.post(`${endpoint}/hiring_process/${id}`, dataGoogleSheet)
       .then(resp => {
-        alert(resp.data.message + '\n Obs: Para finalizar a integração, compartilhe o \n E-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com')
+        alert(resp.data.message)
       }).catch(error => {
         alert(error.response.data.msg)
       })
@@ -21,8 +21,8 @@ export const ImportGoogleSheet = ({ id = '' }) => {
 
   const onChange = (e) => {
     const { value } = e.target
-    setDataCandidates({
-      ...dataCandidates,
+    setDataGoogleSheet({
+      ...dataGoogleSheet,
       link: value
     })
   }
