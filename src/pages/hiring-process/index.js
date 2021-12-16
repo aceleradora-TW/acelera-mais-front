@@ -33,7 +33,7 @@ const HiringProcessPage = () => {
     <div className="page-container">
       <h1>Processos seletivos</h1>
       <section>
-        <div>
+        <div className="page-filters">
           <Button classe={'button-filter'} text="Todos" onClick={handleSubmit} />
           <Button classe={'button-filter'} text="Abertos" onClick={handleSubmit} />
           <Button classe={'button-filter'} text="Fechados" onClick={handleSubmit} />

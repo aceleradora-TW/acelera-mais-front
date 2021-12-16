@@ -7,7 +7,7 @@ import { ImportGoogleSheet } from '../import-google-sheet'
 import './process-list.css'
 import { client } from '../../service'
 import {
-  /*  faAngleDown, */
+  faAngleDown,
   faDownload,
   faUpload, faTrashAlt
 } from '@fortawesome/free-solid-svg-icons'
@@ -19,8 +19,8 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   const handleExport = () => { }
 
-  /*  const handleExpand = () => { }
- */
+  const handleExpand = () => { }
+
   const handleEdit = async () => {
     location.reload()
   }
@@ -118,14 +118,14 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     id={process.id} />
                 </Modal>
               </td>}
-              {/* <td>
+              <td id="column-hidden" >
                 <Button
                   icon={faAngleDown}
                   classe="button-expend"
                   text="Ver mais"
                   onClick={handleExpand}
                 />
-              </td> */}
+              </td>
               {admin && <td>
                 <Button icon={faTrashAlt}
                   classe="button-delete"
