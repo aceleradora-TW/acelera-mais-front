@@ -4,6 +4,7 @@ import './style.css'
 import ActionButton from '../buttons/action'
 import Button from '../button'
 import { MentorNameStatus } from '../mentor-name-status'
+import { client } from '../../service'
 
 const statusEnum = {
   PREPARING: 'status-preparing',
@@ -12,7 +13,7 @@ const statusEnum = {
 }
 
 const getStatus = ({ evaluation }) => {
-  const { feedback, mentorName = localStorage.getItem('mentorName') } = evaluation
+  const { feedback, mentorName } = evaluation
   if (feedback && mentorName) return 'status-closed'
   if (mentorName) return 'status-preparing'
   return 'status-opened'
@@ -32,19 +33,25 @@ const isOpened = ({ status }) => {
   return status === statusEnum.OPENED
 }
 
+const isClosed = ({ status }) => {
+  if (status === statusEnum.CLOSED) return true
+  return false
+}
+
 export const ToggleRow = ({ item, key }) => {
   const [checked, setChecked] = useState(false)
+  const [mentorNameLocal] = useState(localStorage.getItem('mentorName'))
   const toggle = checked ? 'toggle-on' : 'toggle-off'
   const { evaluation: { feedback } } = item
   const status = isClosedOrPreparing({ status: getStatus(item) })
 
   const handleClick = () => {
     setChecked(!checked)
-    console.log(item)
   }
 
   const handleSubmit = () => {
     const id = window.location.pathname.split('/').pop()
+    client.patch(`evaluation/${item.evaluation.id}`, { mentorName: mentorNameLocal })
     location.replace(`/exercise/${item.id}/hiring-process/${id}`)
   }
 
@@ -54,8 +61,8 @@ export const ToggleRow = ({ item, key }) => {
         <td>{item.exercise}</td>
         <td>{item.type ? item.type : 'Não definido'}</td>
         <td colSpan='2'>
-          {!isOpened(item) ? <MentorNameStatus status={getStatus(item)} /> : null}
-          <ActionButton text={'Avaliar'} icon={faPen} disabled={status} onClick={() => handleSubmit()} />
+          {!isOpened(item) ? <MentorNameStatus status={getStatus(item)} options={{ opened: 'Aberto', closed: item.evaluation.mentorName, prepairing: item.evaluation.mentorName }} /> : null}
+          <ActionButton text={'Avaliar'} icon={faPen} disabled={isClosed({ status: getStatus(item) })} onClick={() => handleSubmit()} />
         </td>
         <td className='avaliator-col'>{
           <Button

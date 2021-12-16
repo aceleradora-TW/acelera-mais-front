@@ -31,8 +31,6 @@ const EvaluationChallenge = () => {
       })
   }, [])
 
-  const mentorName = localStorage.getItem('mentorName')
-
   const handleTextArea = (event) => {
     setFeedback(event.target.value)
   }
@@ -42,7 +40,6 @@ const EvaluationChallenge = () => {
   }
 
   const evaluation = {
-    mentorName,
     feedback,
     score
   }
@@ -56,7 +53,6 @@ const EvaluationChallenge = () => {
 
   const handleTypeSubmit = () => {
     client.patch(`exercise/${id}`, { type: exerciseType })
-    console.log(exerciseType)
   }
 
   if (!exercise) return null
