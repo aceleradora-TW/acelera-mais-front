@@ -51,7 +51,7 @@ export const ToggleRow = ({ item, key }) => {
 
   const handleSubmit = () => {
     const id = window.location.pathname.split('/').pop()
-    client.patch(`evaluation/${item.evaluation.id}`, { mentorName: mentorNameLocal })
+    client.patch(`/evaluation/${item.evaluation.id}`, { mentorName: mentorNameLocal })
     location.replace(`/exercise/${item.id}/hiring-process/${id}`)
   }
 
