@@ -12,7 +12,7 @@ import {
   faUpload, faTrashAlt
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
-import parse from 'json2csv'
+import { parse } from 'json2csv'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const [csv, setCSV] = useState('')
@@ -21,14 +21,14 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
     return async () => {
       const result = await client.get(`/exercise?hiringProcessId=${id}`)
       const hiringProcessResume = result.data.data.result
-      console.log({ x: hiringProcessResume[0] })
+      // console.log({ x: hiringProcessResume[0] })
       const hiringProcessResult = hiringProcessResume.map(h => ({
-        name: h.candidate.name,
+        name: h.name,
         email: h.addressEmail,
         phone: h.phone,
         birthDate: h.birthDate,
         genre: h.genre,
-        skin_color: h.skinColor,
+        skinColor: h.skinColor,
         instituitionName: h.instituitionName,
         courseName: h.courseName,
         milestone: h.milestone,
@@ -36,10 +36,19 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
         expectations: h.expectation,
         motivation: h.motivation,
         curriculum: h.curriculum,
-        okCI: h.okCI
+        okCI: h.okCI,
+        exercise: h.exercise,
+        fileType: h.fileType,
+        zip: h.zip,
+        github: h.github,
+        haveComputer: h.haveComputer,
+        haveInternet: h.haveInternet,
+        haveWebcam: h.haveWebcam,
+        canUseWebcam: h.canUseWebcam,
+        cityState: h.cityState
       }))
-      console.log(hiringProcessResult)
-      setCSV(parse(hiringProcessResult))
+      // console.log(hiringProcessResult)
+      setCSV(console.log({ csv: parse(hiringProcessResult) }))
     }
   }
   const role = localStorage.getItem('role')
