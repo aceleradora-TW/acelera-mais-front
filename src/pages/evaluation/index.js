@@ -17,9 +17,12 @@ const EvaluationChallenge = () => {
   const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
   const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
   const [exerciseType, setExerciseType] = useState()
+  const [score, setScore] = useState('')
+  const [feedback, setFeedback] = useState('')
+
+  const id = window.location.pathname.split('/')[2]
 
   useEffect(() => {
-    const id = window.location.pathname.split('/')[2]
     client.get(`/exercise/${id}`)
       .then(res => (res.data))
       .then(res => setExercise(res))
@@ -28,10 +31,33 @@ const EvaluationChallenge = () => {
       })
   }, [])
 
-  useEffect(() => {
-    setExerciseTypeSelected(true)
+  const mentorName = localStorage.getItem('mentorName')
+
+  const handleTextArea = (event) => {
+    setFeedback(event.target.value)
+  }
+
+  const handleScore = (event) => {
+    setScore(event.target.value)
+  }
+
+  const evaluation = {
+    mentorName,
+    feedback,
+    score
+  }
+
+  const handleSubmit = () => {
+    const id = exercise.evaluation.id
+    client.patch(`evaluation/${id}`, evaluation)
+    alert('Atualizado com sucesso!')
+    history.back()
+  }
+
+  const handleTypeSubmit = () => {
+    client.patch(`exercise/${id}`, { type: exerciseType })
     console.log(exerciseType)
-  }, [exerciseType])
+  }
 
   if (!exercise) return null
 
@@ -41,18 +67,23 @@ const EvaluationChallenge = () => {
         <h1>Avaliação </h1>
         <div className='select-container'>
           <Select
-            onChange={({ target }) => setExerciseType(target.value)}
+            onChange={({ target }) => {
+              setExerciseType(target.value)
+              setExerciseTypeSelected(true)
+              console.log(exercise)
+            }}
             label="Tipo:"
             placeholder="Escolha uma opção"
             options={[
-              { label: 'Backend', value: 'backend' },
-              { label: 'Frontend', value: 'frontend' },
-              { label: 'Fullstack', value: 'fullstack' }
+              { label: 'Backend', value: 'Backend' },
+              { label: 'Frontend', value: 'Frontend' },
+              { label: 'Fullstack', value: 'Fullstack' }
             ]} />
           {exerciseTypeSelected
             ? <SucessButton text="Alterar" onClick={() => {
               setExerciseTypeSelected(false)
               setDisableEvaluationButton(false)
+              handleTypeSubmit()
               alert('Alterado com sucesso!')
             }} />
             : null}
@@ -77,6 +108,7 @@ const EvaluationChallenge = () => {
             <Select
               label="Nota:"
               placeholder="Escolha uma nota"
+              onChange={handleScore}
               options={[
                 { label: 0, value: 0 },
                 { label: 1, value: 1 },
@@ -85,8 +117,8 @@ const EvaluationChallenge = () => {
                 { label: 4, value: 4 },
                 { label: 5, value: 5 }
               ]} ></Select>
-            <textarea label="mensagem" className="form-control" id="message-text"></textarea>
-            <PrimaryButton text="Enviar avaliação" />
+            <textarea label="mensagem" className="form-control" id="message-text" onChange={handleTextArea} ></textarea>
+            <PrimaryButton text="Enviar avaliação" onClick={handleSubmit} />
           </div>
         </Modal>
       </div>

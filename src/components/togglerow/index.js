@@ -1,10 +1,9 @@
 import { faAngleDown, faPen } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
-import { Status } from '../status'
 import './style.css'
 import ActionButton from '../buttons/action'
 import Button from '../button'
-// import { client } from '../../service'
+import { MentorNameStatus } from '../mentor-name-status'
 
 const statusEnum = {
   PREPARING: 'status-preparing',
@@ -13,7 +12,7 @@ const statusEnum = {
 }
 
 const getStatus = ({ evaluation }) => {
-  const { feedback, mentorName } = evaluation
+  const { feedback, mentorName = localStorage.getItem('mentorName') } = evaluation
   if (feedback && mentorName) return 'status-closed'
   if (mentorName) return 'status-preparing'
   return 'status-opened'
@@ -55,7 +54,7 @@ export const ToggleRow = ({ item, key }) => {
         <td>{item.exercise}</td>
         <td>{item.type ? item.type : 'Não definido'}</td>
         <td colSpan='2'>
-          {!isOpened(item) ? <Status status={getStatus(item)} /> : null}
+          {!isOpened(item) ? <MentorNameStatus status={getStatus(item)} /> : null}
           <ActionButton text={'Avaliar'} icon={faPen} disabled={status} onClick={() => handleSubmit()} />
         </td>
         <td className='avaliator-col'>{
