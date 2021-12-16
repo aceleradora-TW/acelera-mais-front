@@ -31,6 +31,7 @@ const HiringProcessPage = () => {
 
   return (
     <div className="page-container">
+
       <h1>Processos seletivos</h1>
       <section>
         <div>

@@ -6,6 +6,7 @@ import './style.css'
 export const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [mentorName, setMentorName] = useState('')
   const navigate = useNavigate()
 
   const handleChangeEmail = ({ target }) => {
@@ -14,6 +15,11 @@ export const Login = () => {
 
   const handleChangePassword = ({ target }) => {
     setPassword(target.value)
+  }
+
+  const handleChangeMentorName = ({ target }) => {
+    setMentorName(target.value)
+    localStorage.setItem('mentorName', mentorName)
   }
 
   const handlerClick = async (event) => {
@@ -49,6 +55,9 @@ export const Login = () => {
         </label>
         <label>
           <input onChange={handleChangePassword} value={password} type="password" placeholder="Senha"></input>
+        </label>
+        <label>
+          <input onChange={handleChangeMentorName} value={mentorName} type="text" placeholder="Nome da mentora especialista"></input>
         </label>
       </div>
       <button onClick={handlerClick}>Iniciar sessão</button>

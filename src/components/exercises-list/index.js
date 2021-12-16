@@ -8,13 +8,10 @@ export const ExercisesList = () => {
 
   useEffect(() => {
     const id = window.location.pathname.split('/').pop()
-    console.log(id)
     client.get(`/exercise?hiringProcessId=${id}`)
       .then(res => setExercises(res.data.data.result))
       .catch(err => {
         console.log(err)
-        setExercises([])
-        // navigate('/')
       })
   }, [])
 
@@ -31,7 +28,7 @@ export const ExercisesList = () => {
         </thead>
         <tbody className="table-body">
           {exercises.map((exercise, key) => {
-            return <ToggleRow key={key} item={exercise} exerciseId={exercise.id} />
+            return <ToggleRow key={key} item={exercise} />
           })}
         </tbody>
       </table>
