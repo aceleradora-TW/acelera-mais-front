@@ -24,8 +24,21 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
       console.log({ x: hiringProcessResume[0] })
       const hiringProcessResult = hiringProcessResume.map(h => ({
         name: h.candidate.name,
-        email: h.addressEmail
+        email: h.addressEmail,
+        phone: h.phone,
+        birthDate: h.birthDate,
+        genre: h.genre,
+        skin_color: h.skinColor,
+        instituitionName: h.instituitionName,
+        courseName: h.courseName,
+        milestone: h.milestone,
+        howFound: h.howFound,
+        expectations: h.expectation,
+        motivation: h.motivation,
+        curriculum: h.curriculum,
+        okCI: h.okCI
       }))
+      console.log(hiringProcessResult)
       setCSV(parse(hiringProcessResult))
     }
   }
@@ -112,19 +125,14 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 </Modal>
               </td>}
               {admin && <><td>
-                <Button
-                  icon={faDownload}
-                  classe="button-export"
-                  text="Exportar dados"
-                  onClick={handleExport} />
                 <Modal
                   icon={faDownload}
                   label="copie seu csv"
                   title="Copie seu CSV"
                   classe="button-export"
-                  text="Exportar Dados">
+                  text="Exportar Dados"
                   callback={handleExport(process.id)}
-
+                >
                   {csv}
                 </Modal>
               </td><td>
