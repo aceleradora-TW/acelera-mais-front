@@ -19,7 +19,7 @@ export const Login = () => {
 
   const handleChangeMentorName = ({ target }) => {
     setMentorName(target.value)
-    localStorage.setItem('mentorName', mentorName)
+    localStorage.setItem('mentorName', target.value)
   }
 
   const handlerClick = async (event) => {
@@ -47,6 +47,7 @@ export const Login = () => {
       alert('Usuário ou senha inválidos!')
     }
   }
+  console.log(mentorName)
   return (
     <div className="login-form">
       <div>
