@@ -5,6 +5,7 @@ import ActionButton from '../buttons/action'
 import Button from '../button'
 import { MentorNameStatus } from '../mentor-name-status'
 import { client } from '../../service'
+import { useNavigate } from 'react-router-dom'
 
 const statusEnum = {
   PREPARING: 'status-preparing',
@@ -38,8 +39,9 @@ const isClosed = ({ status }) => {
   return false
 }
 
-export const ToggleRow = ({ item, key }) => {
+export const ToggleRow = ({ item }) => {
   const [checked, setChecked] = useState(false)
+  const navigate = useNavigate()
   const [mentorNameLocal] = useState(localStorage.getItem('mentorName'))
   const toggle = checked ? 'toggle-on' : 'toggle-off'
   const { evaluation: { feedback } } = item
@@ -52,17 +54,22 @@ export const ToggleRow = ({ item, key }) => {
   const handleSubmit = () => {
     const id = window.location.pathname.split('/').pop()
     client.patch(`/evaluation/${item.evaluation.id}`, { mentorName: mentorNameLocal })
-    location.replace(`/exercise/${item.id}/hiring-process/${id}`)
+    // location.replace(`/exercise/${item.id}/hiring-process/${id}`)
+    navigate(`/exercises/${item.id}/hiring-process/${id}`)
   }
 
   return (
     <>
-      <tr key={key} className='toggle-row-container'>
+      <tr className='toggle-row-container'>
         <td>{item.exercise}</td>
         <td>{item.type ? item.type : 'Não definido'}</td>
         <td colSpan='2'>
           {!isOpened(item) ? <MentorNameStatus status={getStatus(item)} options={{ opened: 'Aberto', closed: item.evaluation.mentorName, prepairing: item.evaluation.mentorName }} /> : null}
-          <ActionButton text={'Avaliar'} icon={faPen} disabled={isClosed({ status: getStatus(item) })} onClick={() => handleSubmit()} />
+          <ActionButton
+            text={'Avaliar'}
+            icon={faPen}
+            disabled={isClosed({ status: getStatus(item) })}
+            onClick={handleSubmit} />
         </td>
         <td className='avaliator-col'>{
           <Button

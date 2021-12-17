@@ -15,9 +15,7 @@ const AppRoutes = () => {
         </Route>
         <Route path="/exercises" element={<IsAuth />}>
           <Route path="/exercises/hiring-process/:id" element={<ExercisesPage />} exact />
-        </Route>
-        <Route>
-          <Route path="/exercise/:id/hiring-process/:id" element={<Evaluation />} exact />
+          <Route path="/exercises/:id/hiring-process/:id" element={<Evaluation />} exact />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -28,7 +28,7 @@ export const ExercisesList = () => {
         </thead>
         <tbody className="table-body">
           {exercises.map((exercise, key) => {
-            return <ToggleRow key={key} item={exercise} />
+            return <ToggleRow key={`${key}-test`} item={exercise} />
           })}
         </tbody>
       </table>
