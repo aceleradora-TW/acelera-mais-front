@@ -21,7 +21,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
     return async () => {
       const result = await client.get(`/exercise?hiringProcessId=${id}`)
       const hiringProcessResume = result.data.data.result
-      // console.log({ x: hiringProcessResume[0] })
+      console.log({ x: hiringProcessResume[0] })
       const hiringProcessResult = hiringProcessResume.map(h => ({
         name: h.name,
         email: h.addressEmail,
@@ -48,7 +48,9 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
         cityState: h.cityState
       }))
       // console.log(hiringProcessResult)
-      setCSV(console.log({ csv: parse(hiringProcessResult) }))
+      const csv = parse(hiringProcessResult)
+      setCSV('donwload...')
+      window.open('data:text/csv;charset=utf-8,' + escape(csv))
     }
   }
   const role = localStorage.getItem('role')
