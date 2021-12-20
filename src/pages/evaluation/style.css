@@ -45,14 +45,21 @@
   justify-content: right;
   margin-top: 20px;
 }
-a.button-default{
-background-color: #dddcdc;
-color: black;
-margin: 1%;
-text-decoration: none;
+a.button-default {
+  background-color: #dddcdc;
+  color: black;
+  margin: 1%;
+  text-decoration: none;
 }
 
-.select-container{
+.select-container {
   display: flex;
   flex-direction: column;
+}
+
+textarea#message-text {
+  display: block;
+  margin: 20px 0 !important;
+  width: 100%;
+  height: 80px;
 }

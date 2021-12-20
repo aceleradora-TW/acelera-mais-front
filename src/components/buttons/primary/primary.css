@@ -5,14 +5,10 @@
   border-radius: 5px;
   font-weight: 300;
   padding: 10px 25px;
-}
-
-.button-primary:hover {
-  font-weight: bold;
   cursor: pointer;
 }
 
-.button-primary:disabled{
+.button-primary:disabled {
   opacity: 0.3;
-  cursor:not-allowed;
+  cursor: not-allowed;
 }

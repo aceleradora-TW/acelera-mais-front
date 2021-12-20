@@ -10,7 +10,7 @@
 }
 .page-container section {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .page-filters {
