@@ -25,7 +25,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
         name: h.name,
         email: h.addressEmail,
         phone: h.phone,
-        birthDate: h.candidate.birthDate || '',
+        birthDate: h.candidate.birthDate,
         genre: h.candidate.genre || '',
         skinColor: h.candidate.skinColor || '',
         instituitionName: h.candidate.instituitionName || '',
