@@ -164,7 +164,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     id={process.id} />
                 </Modal>
               </td>}
-              <td>
+              <td id="column-hidden" >
                 <Button
                   icon={faAngleDown}
                   classe="button-expend"
