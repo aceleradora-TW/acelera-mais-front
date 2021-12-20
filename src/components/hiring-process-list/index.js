@@ -141,8 +141,8 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               {admin && <><td>
                 <Modal
                   icon={faDownload}
-                  label="copie seu csv"
-                  title="Copie seu CSV"
+                  label="Download arquivo csv"
+                  title="Download arquivo csv"
                   classe="button-export"
                   text="Exportar Dados"
                   callback={handleExport(process.id)}
