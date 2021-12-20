@@ -51,7 +51,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
         score: h.evaluation.score || '',
         updateAt: h.evaluation.updateAt || ''
       }))
-      // console.log(hiringProcessResult)
       const csv = parse(hiringProcessResult)
       setCSV('donwload...')
       window.open('data:text/csv;charset=utf-8,' + escape(csv))
