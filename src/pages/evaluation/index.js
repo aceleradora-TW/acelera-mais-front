@@ -66,7 +66,6 @@ const EvaluationChallenge = () => {
             onChange={({ target }) => {
               setExerciseType(target.value)
               setExerciseTypeSelected(true)
-              console.log(exercise)
             }}
             label="Tipo:"
             placeholder="Escolha uma opção"

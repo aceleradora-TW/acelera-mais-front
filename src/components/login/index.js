@@ -47,7 +47,7 @@ export const Login = () => {
       alert('Usuário ou senha inválidos!')
     }
   }
-  console.log(mentorName)
+
   return (
     <div className="login-form">
       <div>

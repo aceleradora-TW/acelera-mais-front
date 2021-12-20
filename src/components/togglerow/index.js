@@ -40,6 +40,11 @@ const isClosed = ({ status }) => {
   return false
 }
 
+const isPreparing = ({ status }, mentorName, mentorNameLocal) => {
+  if (status === statusEnum.PREPARING && mentorName !== mentorNameLocal) return true
+  return false
+}
+
 export const ToggleRow = ({ item }) => {
   const [checked, setChecked] = useState(false)
   const navigate = useNavigate()
@@ -65,11 +70,19 @@ export const ToggleRow = ({ item }) => {
         <td>{item.exercise}</td>
         <td>{item.type ? item.type : 'Não definido'}</td>
         <td colSpan='2'>
-          {!isOpened(item) ? <MentorNameStatus status={getStatus(item)} options={{ opened: 'Aberto', closed: item.evaluation.mentorName, prepairing: item.evaluation.mentorName }} /> : null}
+          {!isOpened(item)
+            ? <MentorNameStatus
+              status={getStatus(item)}
+              options={{
+                opened: 'Aberto',
+                closed: `Fechado por: ${item.evaluation.mentorName}`,
+                prepairing: `Em preparação por: ${item.evaluation.mentorName}`
+              }} />
+            : null}
           <ActionButton
             text={'Avaliar'}
             icon={faPen}
-            disabled={isClosed({ status: getStatus(item) })}
+            disabled={isClosed({ status: getStatus(item) }) || isPreparing({ status: getStatus(item) }, item.evaluation.mentorName, mentorNameLocal)}
             onClick={handleSubmit} />
         </td>
         <td className='avaliator-col'>{
