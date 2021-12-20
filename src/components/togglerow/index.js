@@ -13,8 +13,9 @@ const statusEnum = {
   OPENED: 'status-opened'
 }
 
-const getStatus = ({ evaluation }) => {
-  const { feedback, mentorName } = evaluation
+const getStatus = (item) => {
+  if (!item.evaluation) return 'status-opened'
+  const { feedback, mentorName } = item.evaluation
   if (feedback && mentorName) return 'status-closed'
   if (mentorName) return 'status-preparing'
   return 'status-opened'
@@ -44,7 +45,7 @@ export const ToggleRow = ({ item }) => {
   const navigate = useNavigate()
   const [mentorNameLocal] = useState(localStorage.getItem('mentorName'))
   const toggle = checked ? 'toggle-on' : 'toggle-off'
-  const { evaluation: { feedback } } = item
+  const feedback = item?.evaluation?.feedback || ''
   const status = isClosedOrPreparing({ status: getStatus(item) })
 
   const handleClick = () => {
@@ -79,7 +80,7 @@ export const ToggleRow = ({ item }) => {
             icon={faAngleDown} />
         }</td>
       </tr>
-      {status ? <tr><td colSpan='5' className={toggle}>{feedback}</td></tr> : null}
+      {status && feedback !== '' ? <tr><td colSpan='5' className={toggle}>{feedback}</td></tr> : null}
     </>
   )
 }
