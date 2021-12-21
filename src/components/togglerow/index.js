@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './style.css'
 import ActionButton from '../buttons/action'
 import Button from '../button'
-import { MentorNameStatus } from '../mentor-name-status'
+import { Status } from '../status'
 import { client } from '../../service'
 import { useNavigate } from 'react-router-dom'
 
@@ -14,11 +14,12 @@ const statusEnum = {
 }
 
 const getStatus = (item) => {
-  if (!item.evaluation) return 'status-opened'
+  if (!item.evaluation) return statusEnum.OPENED
   const { feedback, mentorName } = item.evaluation
-  if (feedback && mentorName) return 'status-closed'
-  if (mentorName) return 'status-preparing'
-  return 'status-opened'
+  if (mentorName === 'cancelado') return statusEnum.OPENED
+  if (feedback && mentorName) return statusEnum.CLOSED
+  if (mentorName) return statusEnum.PREPARING
+  return statusEnum.OPENED
 }
 
 const isClosedOrPreparing = ({ status }) => {
@@ -60,7 +61,6 @@ export const ToggleRow = ({ item }) => {
   const handleSubmit = () => {
     const id = window.location.pathname.split('/').pop()
     client.patch(`/evaluation/${item.evaluation.id}`, { mentorName: mentorNameLocal })
-    // location.replace(`/exercise/${item.id}/hiring-process/${id}`)
     navigate(`/exercises/${item.id}/hiring-process/${id}`)
   }
 
@@ -71,7 +71,7 @@ export const ToggleRow = ({ item }) => {
         <td>{item.type ? item.type : 'Não definido'}</td>
         <td colSpan='2'>
           {!isOpened(item)
-            ? <MentorNameStatus
+            ? <Status
               status={getStatus(item)}
               options={{
                 opened: 'Aberto',

@@ -11,7 +11,9 @@ export const ExercisesList = () => {
     client.get(`/exercise?hiringProcessId=${id}`)
       .then(res => setExercises(res.data.data.result))
       .catch(err => {
+        alert('Não foi possível carregar a lista de exercícios.')
         console.log(err)
+        history.back()
       })
   }, [])
 

@@ -55,6 +55,11 @@ const EvaluationChallenge = () => {
     client.patch(`exercise/${id}`, { type: exerciseType })
   }
 
+  const handleCancel = () => {
+    client.patch(`evaluation/${exercise.evaluation.id}`, { mentorName: 'cancelado' })
+    history.back()
+  }
+
   if (!exercise) return null
 
   return (
@@ -97,7 +102,7 @@ const EvaluationChallenge = () => {
         </div>
       </div>
       <div className="buttons">
-        <DefaultButton text="Cancelar" />
+        <DefaultButton text="Cancelar" onClick={handleCancel} />
         <Modal classe={'button-primary'} text="Avaliar" title="Avaliação" disabled={disableEvaluationButton} >
           <div className="form-group">
             <Select
