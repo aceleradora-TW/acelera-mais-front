@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '../button'
 import { Status } from '../status'
 import { Modal } from '../modal'
@@ -12,12 +12,52 @@ import {
   faUpload, faTrashAlt
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+import { parse } from 'json2csv'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
+  const [csv, setCSV] = useState('')
+
+  const handleExport = (id) => {
+    return async () => {
+      const result = await client.get(`/exercise?hiringProcessId=${id}`)
+      const hiringProcessResume = result.data.data.result
+      const hiringProcessResult = hiringProcessResume.map(h => ({
+        name: h.name,
+        email: h.addressEmail,
+        phone: h.phone,
+        birthDate: h.candidate.birthDate,
+        genre: h.candidate.genre || '',
+        skinColor: h.candidate.skinColor || '',
+        instituitionName: h.candidate.instituitionName || '',
+        courseName: h.candidate.courseName || '',
+        milestone: h.candidate.milestone || '',
+        howFound: h.candidate.howFound || '',
+        expectation: h.candidate.expectation || '',
+        motivation: h.candidate.motivation || '',
+        curriculum: h.candidate.curriculum || '',
+        okCI: h.candidate.okCI || '',
+        exercise: h.exercise,
+        fileType: h.fileType,
+        zip: h.zip,
+        github: h.github,
+        haveComputer: h.haveComputer,
+        haveInternet: h.haveInternet,
+        haveWebcam: h.haveWebcam,
+        canUseWebcam: h.canUseWebcam,
+        cityState: h.cityState,
+        createdAt: h.evaluation.createdAt,
+        feedback: h.evaluation.feedback || '',
+        mentorName: h.evaluation.mentorName || '',
+        score: h.evaluation.score || '',
+        updateAt: h.evaluation.updateAt || ''
+      }))
+      const csv = parse(hiringProcessResult)
+      setCSV('donwload...')
+      window.open('data:text/csv;charset=utf-8,' + escape(csv))
+    }
+  }
   const role = localStorage.getItem('role')
   const admin = role === 'admin'
-
-  const handleExport = () => { }
 
   const handleExpand = () => { }
 
@@ -98,14 +138,19 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   />
                 </Modal>
               </td>}
-              {admin && <td>
-                <Button
+              {admin && <><td>
+                <Modal
                   icon={faDownload}
+                  label="Download arquivo csv"
+                  title="Download arquivo csv"
                   classe="button-export"
-                  text="Exportar dados"
-                  onClick={handleExport}
-                />
-              </td>}
+                  text="Exportar Dados"
+                  callback={handleExport(process.id)}
+                >
+                  {csv}
+                </Modal>
+              </td><td>
+                </td></>}
               {admin && <td>
                 <Modal
                   label="Editar"

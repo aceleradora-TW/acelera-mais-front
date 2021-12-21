@@ -5,10 +5,15 @@ import {
   faTimes
 } from '@fortawesome/free-solid-svg-icons'
 
-export const Modal = ({ title, children, label, icon, classe, text, reminder }) => {
+export const Modal = ({ title, children, label, callback, icon, classe, text, reminder }) => {
   const [show, setShow] = useState(false)
 
-  const onClose = () => setShow(false)
+  const onClose = () => {
+    setShow(false)
+    if (callback) {
+      callback()
+    }
+  }
 
   if (!show) {
     return <Button icon={icon} classe={classe} text={text} onClick={() => setShow(true)}>{label}</Button>
