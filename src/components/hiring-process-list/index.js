@@ -101,7 +101,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
         <tbody>
           {processes.map((process, key) => (
             <tr key={`process-${key}`}>
-              <td><Link to={`/exercises/${process.id}`}>{process.name}</Link></td>
+              <td><Link to={`/exercises/hiring-process/${process.id}`}>{process.name}</Link></td>
               <td>
                 <Status
                   status={process.status}

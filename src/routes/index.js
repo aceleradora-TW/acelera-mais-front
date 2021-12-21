@@ -3,6 +3,7 @@ import LoginPage from '../pages/login-page/index.js'
 import HiringProcessPage from '../pages/hiring-process'
 import { IsAuth } from '../pages/protected-route/index.js'
 import { ExercisesPage } from '../pages/exercises'
+import Evaluation from '../pages/evaluation'
 
 const AppRoutes = () => {
   return (
@@ -13,7 +14,8 @@ const AppRoutes = () => {
           <Route path="/hiring-process" element={<HiringProcessPage />} exact />
         </Route>
         <Route path="/exercises" element={<IsAuth />}>
-          <Route path="/exercises/:id" element={<ExercisesPage />} exact />
+          <Route path="/exercises/hiring-process/:id" element={<ExercisesPage />} exact />
+          <Route path="/exercises/:id/hiring-process/:id" element={<Evaluation />} exact />
         </Route>
       </Routes>
     </BrowserRouter>

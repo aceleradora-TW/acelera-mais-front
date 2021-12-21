@@ -1,9 +1,22 @@
 import './style.css'
 import { ToggleRow } from '../togglerow'
-
-const listExercises = require('../../mocks/exercise-mock.json')
+import { useEffect, useState } from 'react'
+import { client } from '../../service'
 
 export const ExercisesList = () => {
+  const [exercises, setExercises] = useState([])
+
+  useEffect(() => {
+    const id = window.location.pathname.split('/').pop()
+    client.get(`/exercise?hiringProcessId=${id}`)
+      .then(res => setExercises(res.data.data.result))
+      .catch(err => {
+        alert('Não foi possível carregar a lista de exercícios.')
+        console.log(err)
+        history.back()
+      })
+  }, [])
+
   return (
     <div className="table-exercises">
       <table className="table-exercises-content">
@@ -16,9 +29,9 @@ export const ExercisesList = () => {
           </tr>
         </thead>
         <tbody className="table-body">
-          {listExercises.map((exercise, key) => (
-            <ToggleRow key={key} item={exercise} />
-          ))}
+          {exercises.map((exercise, key) => {
+            return <ToggleRow key={`${key}-test`} item={exercise} />
+          })}
         </tbody>
       </table>
     </div>
