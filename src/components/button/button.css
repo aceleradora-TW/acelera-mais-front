@@ -1,17 +1,13 @@
 .button-new-process {
-  width: 174px;
-  height: 39px;
   background-color: rgb(68, 68, 255);
   color: white;
   border: 1px solid white;
-  border-radius: 15px;
+  border-radius: 5px;
   font-weight: 300;
-  padding: 10px 25px 10px 25px;
-  font-family: "Open Sans";
+  padding: 10px 25px;
 }
 
 .button-new-process:hover {
-  font-weight: bold;
   cursor: pointer;
 }
 
@@ -23,14 +19,12 @@
   border: 1px solid transparent;
   font-weight: 300px;
   padding: 12px 36px 12px 36px;
-  font-family: "Open Sans";
 }
 
 .button-filter:hover {
   border: none;
   border-bottom: 1px solid blue;
   transition: 3ms;
-  font-weight: bold;
   cursor: pointer;
 }
 
@@ -50,11 +44,9 @@
   background-color: white;
   color: #003cff;
   border: 1px solid lightgray;
-  border-radius: 10px;
-  font-family: "Open Sans";
+  border-radius: 5px;
 }
 .button-edit:hover {
-  font-weight: bold;
   cursor: pointer;
 }
 
@@ -64,18 +56,16 @@
   color: #003cff;
   background-color: white;
   border: 1px solid lightgray;
-  border-radius: 10px;
-  font-family: "Open Sans";
+  border-radius: 5px;
 }
 
 .button-expend:hover {
-  font-weight: bold;
   cursor: pointer;
 }
 
 .button-delete {
   border: 1px solid #e9e9ea;
-  border-radius: 15px;
+  border-radius: 5px;
   color: #ff3d00;
   height: 28px;
   width: 40px;
@@ -98,7 +88,6 @@
   color: #fff;
   background-color: #003cff;
   border: 1px solid lightgray;
-  border-radius: 10px;
-  font-family: "Open Sans";
+  border-radius: 5px;
   cursor: pointer;
 }

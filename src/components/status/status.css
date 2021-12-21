@@ -1,9 +1,11 @@
-.status-opened, .status-closed, .status-preparing{
+.status-opened,
+.status-closed,
+.status-preparing {
   display: inline-block;
-  padding: 0 15px;
+  padding: 10px 15px;
   text-align: center;
-  font-family: "Open Sans";
-  border-radius: 20px;
+  font-family: 'Open Sans';
+  border-radius: 5px;
 }
 .status-opened {
   background-color: #dcfdd4;
