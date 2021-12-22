@@ -13,7 +13,8 @@ export const ImportGoogleSheet = ({ id = '', endpoint = '' }) => {
   const handleImport = () => {
     client.post(`${endpoint}/hiring_process/${id}`, dataGoogleSheet)
       .then(resp => {
-        alert(resp.data.message)
+        const message = `Salvo com sucesso! Quantidade de importações: ${resp.data.data.count}.`
+        alert(message)
       }).catch(error => {
         alert(error.response.data.msg)
       })
