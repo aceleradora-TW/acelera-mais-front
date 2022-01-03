@@ -12,7 +12,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-.page-filters {
-  visibility: hidden;
-}
