@@ -13,6 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { parse } from 'json2csv'
+import showFeature from '../../feature-toggle'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const [csv, setCSV] = useState('')
@@ -163,14 +164,16 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     id={process.id} />
                 </Modal>
               </td>}
-              <td>
-                <Button
-                  icon={faAngleDown}
-                  classe="button-expend"
-                  text="Ver mais"
-                  onClick={handleExpand}
-                />
-              </td>
+              {showFeature()
+                ? (<td>
+                  <Button
+                    icon={faAngleDown}
+                    classe="button-expend"
+                    text="Ver mais"
+                    onClick={handleExpand}
+                  />
+                </td>)
+                : null}
               {admin && <td>
                 <Button icon={faTrashAlt}
                   classe="button-delete"
