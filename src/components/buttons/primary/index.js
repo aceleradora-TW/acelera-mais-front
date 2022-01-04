@@ -1,4 +1,4 @@
-import Button from '../../button'
+import Button from '../button'
 import './primary.css'
 
 const PrimaryButton = ({ icon, onClick, text, type, disabled = false }) => {

@@ -1,4 +1,4 @@
-import Button from '../../button'
+import Button from '../button'
 import './action.css'
 
 const ActionButton = ({ icon, onClick, text, type, disabled = false }) => {

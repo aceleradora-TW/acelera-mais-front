@@ -1,4 +1,4 @@
-import Button from '../../components/button'
+import Button from '../../components/buttons/button'
 import { Modal } from '../../components/modal'
 import { HiringProcessForm } from '../../components/forms/hiring-process'
 import { ProcessList } from '../../components/hiring-process-list'

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { InputText } from '../inputs/text'
-import Button from '../button'
+import Button from '../buttons/button'
 import { client } from '../../service'
 
 const initialDataGoogleSheet = {

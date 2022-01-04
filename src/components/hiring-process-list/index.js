@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Button from '../button'
+import Button from '../buttons/button'
 import { Status } from '../status'
 import { Modal } from '../modal'
 import { HiringProcessForm } from '../forms/hiring-process'

@@ -1,4 +1,4 @@
-import Button from '../../button'
+import Button from '../button'
 import './info.css'
 
 const info = ({ icon, onClick, text, type }) => {

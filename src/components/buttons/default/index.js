@@ -1,4 +1,4 @@
-import Button from '../../button'
+import Button from '../button'
 import './default.css'
 
 const DefaultButton = ({ icon, onClick, text, type }) => {
