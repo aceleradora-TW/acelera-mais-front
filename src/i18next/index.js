@@ -1,4 +1,4 @@
-import i18next from 'i18next';
+import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import PTBR from './languages/pt/common.json'
 import ENUS from './languages/en/common.json'
