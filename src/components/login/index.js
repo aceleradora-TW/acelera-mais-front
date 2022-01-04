@@ -5,7 +5,7 @@ import './style.css'
 import { useTranslation } from 'react-i18next'
 
 export const Login = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('common')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [mentorName, setMentorName] = useState('')
@@ -63,7 +63,7 @@ export const Login = () => {
           <input onChange={handleChangeMentorName} value={mentorName} type="text" placeholder="Nome da mentora especialista"></input>
         </label>
       </div>
-      <button onClick={handlerClick}>{t('Iniciar sessao')}</button>
+      <button onClick={handlerClick}>{t('login.label')}</button>
     </div>
   )
 }
