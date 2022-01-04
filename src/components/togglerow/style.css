@@ -30,3 +30,8 @@ td.toggle-on{
 td.toggle-off{
   display: none;
 }
+
+.avaliator-col {
+  display: flex;
+  justify-content: center;
+}
