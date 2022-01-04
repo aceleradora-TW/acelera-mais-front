@@ -8,16 +8,15 @@ import PrimaryButton from '../../components/buttons/primary'
 import SucessButton from '../../components/buttons/sucess'
 import { Modal } from '../../components/modal'
 import exercises from '../../mocks/exercise-mock.json'
-import Select from '../../components/select'
 import { client } from '../../service'
 
 const EvaluationChallenge = () => {
   const exercisePDF = exercises[0]
   const [exercise, setExercise] = useState(null)
+  const [score, setScore] = useState('')
   const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
   const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
   const [exerciseType, setExerciseType] = useState()
-  const [score, setScore] = useState('')
   const [feedback, setFeedback] = useState('')
 
   const id = window.location.pathname.split('/')[2]
@@ -67,7 +66,7 @@ const EvaluationChallenge = () => {
       <section className="head">
         <h1>Avaliação </h1>
         <div className='select-container'>
-          <Select
+          {/* <Select
             onChange={({ target }) => {
               setExerciseType(target.value)
               setExerciseTypeSelected(true)
@@ -86,7 +85,7 @@ const EvaluationChallenge = () => {
               handleTypeSubmit()
               alert('Alterado com sucesso!')
             }} />
-            : null}
+            : null} */}
         </div>
       </section >
 
@@ -105,18 +104,19 @@ const EvaluationChallenge = () => {
         <DefaultButton text="Cancelar" onClick={handleCancel} />
         <Modal classe={'button-primary'} text="Avaliar" title="Avaliação" disabled={disableEvaluationButton} >
           <div className="form-group">
-            <Select
-              label="Nota:"
-              placeholder="Escolha uma nota"
-              onChange={handleScore}
-              options={[
-                { label: 0, value: 0 },
-                { label: 1, value: 1 },
-                { label: 2, value: 2 },
-                { label: 3, value: 3 },
-                { label: 4, value: 4 },
-                { label: 5, value: 5 }
-              ]} ></Select>
+            {/* < Select
+  label="Nota:"
+  placeholder="Escolha uma nota"
+  onChange={handleScore}
+  options={
+    [
+      { label: 0, value: 0 },
+      { label: 1, value: 1 },
+      { label: 2, value: 2 },
+      { label: 3, value: 3 },
+      { label: 4, value: 4 },
+      { label: 5, value: 5 }
+    ]} ></Select > */}
             <textarea label="mensagem" className="form-control" id="message-text" onChange={handleTextArea} ></textarea>
             <PrimaryButton text="Enviar avaliação" onClick={handleSubmit} />
           </div>
