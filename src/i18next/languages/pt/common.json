@@ -1,5 +1,8 @@
 {
-  "login": {
-    "label": "Iniciar sessão"
+  "translation": {
+    "login": {
+      "label": "Iniciar sessão",
+      "alert": "Preencha o campo de e-mail e senha, por favor! "
+    }
   }
 }

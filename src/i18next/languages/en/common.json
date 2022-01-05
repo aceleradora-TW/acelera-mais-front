@@ -1,5 +1,8 @@
 {
-  "login": {
-    "label": "Login"
+  "translation": {
+    "login": {
+      "label": "Login",
+      "alert": "Fill in the email and password field, please! "
+    }
   }
 }

@@ -5,7 +5,7 @@ import './style.css'
 import { useTranslation } from 'react-i18next'
 
 export const Login = () => {
-  const { t } = useTranslation('common')
+  const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [mentorName, setMentorName] = useState('')
@@ -31,7 +31,7 @@ export const Login = () => {
     }
 
     if (email === '' || email === undefined || password === '' || password === undefined) {
-      return alert('Preencha o campo de e-mail e senha, por favor! ')
+      return alert(t('login.alert'))
     }
 
     try {
