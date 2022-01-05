@@ -31,7 +31,7 @@ export const Login = () => {
     }
 
     if (email === '' || email === undefined || password === '' || password === undefined) {
-      return alert(t('login.alert'))
+      return alert(t('login.fillAlert'))
     }
 
     try {
@@ -46,7 +46,7 @@ export const Login = () => {
       }
     } catch (error) {
       console.log(error)
-      alert('Usuário ou senha inválidos!')
+      alert(t('login.userPwdAlert'))
     }
   }
 
@@ -57,13 +57,13 @@ export const Login = () => {
           <input onChange={handleChangeEmail} value={email} type="email" placeholder="Email@email.com"></input>
         </label>
         <label>
-          <input onChange={handleChangePassword} value={password} type="password" placeholder="Senha"></input>
+          <input onChange={handleChangePassword} value={password} type="password" placeholder={t('login.password')}></input>
         </label>
         <label>
-          <input onChange={handleChangeMentorName} value={mentorName} type="text" placeholder="Nome da mentora especialista"></input>
+          <input onChange={handleChangeMentorName} value={mentorName} type="text" placeholder={t('login.mentorName')}></input>
         </label>
       </div>
-      <button onClick={handlerClick}>{t('login.label')}</button>
+      <button onClick={handlerClick}>{t('login.loginButton')}</button>
     </div>
   )
 }

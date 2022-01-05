@@ -1,8 +1,11 @@
 {
   "translation": {
     "login": {
-      "label": "Login",
-      "alert": "Fill in the email and password field, please! "
+      "password": "Password",
+      "mentorName": "Expert Mentor Name",
+      "userPwdAlert":"Username or password is invalid!",
+      "loginButton": "Login",
+      "fillAlert": "Fill in the email and password field, please! "
     }
   }
 }
