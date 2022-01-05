@@ -1,10 +1,19 @@
 import { React, useState } from 'react'
 import Select from '../../../../components/select'
+import { client } from '../../../../service'
+import PrimaryButton from '../../../../components/buttons/primary'
 
-export const Score = () => {
-  // const score = {
-  //   score
-  // }
+export const Score = (exercise) => {
+  const [feedback] = useState('')
+  const [score] = useState('')
+
+  const evaluation = {
+    feedback,
+    score
+  }
+
+  const [setFeedback] = useState('')
+
   const handleSubmit = () => {
     const id = exercise.evaluation.id
     client.patch(`evaluation/${id}`, evaluation)

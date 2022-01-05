@@ -5,8 +5,8 @@ import SucessButton from '../../../../components/buttons/sucess'
 
 export const Type = () => {
   const [exerciseType, setExerciseType] = useState()
+  const [, setDisableEvaluationButton] = useState(true)
   const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
-  const [setDisableEvaluationButton] = useState(true)
 
   const id = window.location.pathname.split('/')[2]
 

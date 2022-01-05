@@ -4,7 +4,7 @@ import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPrint } from '@fortawesome/free-solid-svg-icons'
 import DefaultButton from '../../components/buttons/default'
-import PrimaryButton from '../../components/buttons/primary'
+// import PrimaryButton from '../../components/buttons/primary'
 // import SucessButton from '../../components/buttons/sucess'
 import { Modal } from '../../components/modal'
 import exercises from '../../mocks/exercise-mock.json'
@@ -17,11 +17,11 @@ import { Score } from './components/select-note/select-note'
 const EvaluationChallenge = () => {
   const exercisePDF = exercises[0]
   const [exercise, setExercise] = useState(null)
-  const [score] = useState('')
+  // const [score] = useState('')
   // const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
   const [disableEvaluationButton] = useState(true)
   // const [exerciseType] = useState()
-  const [feedback, setFeedback] = useState('')
+  // const [feedback] = useState('')
 
   const id = window.location.pathname.split('/')[2]
 
@@ -34,25 +34,25 @@ const EvaluationChallenge = () => {
       })
   }, [])
 
-  const handleTextArea = (event) => {
-    setFeedback(event.target.value)
-  }
+  // const handleTextArea = (event) => {
+  //   setFeedback(event.target.value)
+  // }
 
   // const handleScore = (event) => {
   //   setScore(event.target.value)
   // }
 
-  const evaluation = {
-    feedback,
-    score
-  }
+  // const evaluation = {
+  //   feedback,
+  //   score
+  // }
 
-  const handleSubmit = () => {
-    const id = exercise.evaluation.id
-    client.patch(`evaluation/${id}`, evaluation)
-    alert('Atualizado com sucesso!')
-    history.back()
-  }
+  // const handleSubmit = () => {
+  //   const id = exercise.evaluation.id
+  //   client.patch(`evaluation/${id}`, evaluation)
+  //   alert('Atualizado com sucesso!')
+  //   history.back()
+  // }
 
   // const handleTypeSubmit = () => {
   //   client.patch(`exercise/${id}`, { type: exerciseType })
@@ -98,6 +98,9 @@ const EvaluationChallenge = () => {
             <textarea label="mensagem" className="form-control" id="message-text" onChange={handleTextArea} ></textarea>
             <PrimaryButton text="Enviar avaliação" onClick={handleSubmit} />
           </div> */}
+
+          <Score />
+
         </Modal>
       </div>
     </div >
