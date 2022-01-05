@@ -10,9 +10,5 @@
 }
 .page-container section {
   display: flex;
-  justify-content: space-between;
-}
-
-.page-filters {
-  visibility: hidden;
+  justify-content: flex-end;
 }
