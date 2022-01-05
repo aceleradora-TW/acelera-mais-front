@@ -2,13 +2,19 @@
   text-align: justify;
   padding: 30px;
 }
+
 .page-container h1 {
   font-size: 40px;
   color: rgb(149, 149, 149);
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* obs: A classe .page-container está sendo usada na pages/exercises e na pages/hiring-process,
+ existe a utilização do feature-toggle que está escondendo os botões de filtragem dos processos seletivos, 
+ logo o "space-between" não está sendo devidamente utilizado na página dos processos seletivos */
+
 .page-container section {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }

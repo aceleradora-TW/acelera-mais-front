@@ -3,7 +3,7 @@ import './info.css'
 
 const info = ({ icon, onClick, text, type }) => {
   return (
-    <Button classe="button-info" type={type} onClick={onClick} text={text} icon={icon} />
+    <Button classe="button info" type={type} onClick={onClick} text={text} icon={icon} />
   )
 }
 

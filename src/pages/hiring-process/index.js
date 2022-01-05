@@ -42,7 +42,7 @@ const HiringProcessPage = () => {
             <Button classe={'button-filter'} text="Fechados" onClick={handleSubmit} />
           </div>)
           : null}
-        {admin && <Modal icon={faPlus} classe={'button button-new-process'} text="Novo processo" title="Criar novo processo">
+        {admin && <Modal icon={faPlus} classe={'button new-process'} text="Novo processo" title="Criar novo processo">
           <HiringProcessForm callback={handleSubmit} />
         </Modal>}
       </section>

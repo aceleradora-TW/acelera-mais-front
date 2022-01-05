@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { InputDate } from '../../../../components/inputs/date'
 import { InputText } from '../../../../components/inputs/text'
 import { client } from '../../../../service'
-import Button from '../../../../components/button'
+import Button from '../../../../components/buttons/button'
 
 export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => { } }) => {
   const [hiringProcess, setHiringProcess] = useState({
