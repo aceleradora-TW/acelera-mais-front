@@ -1,7 +1,7 @@
 import './style.css'
-import { ToggleRow } from '../togglerow'
+import { ToggleRow } from '../toggle-row'
 import { useEffect, useState } from 'react'
-import { client } from '../../service'
+import { client } from '../../../../service'
 
 export const ExercisesList = () => {
   const [exercises, setExercises] = useState([])
