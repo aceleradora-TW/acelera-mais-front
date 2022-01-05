@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import Button from '../button'
-import { Status } from '../status'
-import { Modal } from '../modal'
-import { HiringProcessForm } from '../forms/hiring-process'
-import { ImportGoogleSheet } from '../import-google-sheet'
+import Button from '../../../../components/button'
+import { Status } from '../../../../components/status'
+import { Modal } from '../../../../components/modal'
+import { HiringProcessForm } from '../../forms/hiring-process'
+import { ImportGoogleSheet } from '../../../../components/import-google-sheet'
 import './process-list.css'
-import { client } from '../../service'
+import { client } from '../../../../service'
 import {
   faAngleDown,
   faDownload,
