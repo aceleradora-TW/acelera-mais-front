@@ -19,7 +19,7 @@ const EvaluationChallenge = () => {
   const [exercise, setExercise] = useState(null)
   // const [score] = useState('')
   // const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
-  const [disableEvaluationButton] = useState(true)
+  const [disableEvaluationButton] = useState(false)
   // const [exerciseType] = useState()
   // const [feedback] = useState('')
 
@@ -99,7 +99,7 @@ const EvaluationChallenge = () => {
             <PrimaryButton text="Enviar avaliação" onClick={handleSubmit} />
           </div> */}
 
-          <Score />
+          <Score exercise={exercise} />
 
         </Modal>
       </div>

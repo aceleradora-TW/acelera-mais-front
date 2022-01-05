@@ -4,9 +4,9 @@ import { client } from '../../../../service'
 import SucessButton from '../../../../components/buttons/sucess'
 
 export const Type = () => {
-  const [exerciseType, setExerciseType] = useState()
   const [, setDisableEvaluationButton] = useState(true)
   const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
+  const [exerciseType, setExerciseType] = useState()
 
   const id = window.location.pathname.split('/')[2]
 
@@ -32,10 +32,10 @@ export const Type = () => {
 
       {exerciseTypeSelected
         ? <SucessButton text="Alterar" onClick={() => {
+          setDisableEvaluationButton(true)
           setExerciseTypeSelected(false)
-          setDisableEvaluationButton(false)
           handleTypeSubmit()
-          alert('Alterado com sucesso!')
+          alert('yaaay')
         }} />
         : null}
     </div>

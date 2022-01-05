@@ -3,16 +3,22 @@ import Select from '../../../../components/select'
 import { client } from '../../../../service'
 import PrimaryButton from '../../../../components/buttons/primary'
 
-export const Score = (exercise) => {
-  const [feedback] = useState('')
-  const [score] = useState('')
+export const Score = ({ exercise }) => {
+  const [feedback, setFeedback] = useState('')
+  const [score, setScore] = useState('')
 
   const evaluation = {
     feedback,
     score
   }
 
-  const [setFeedback] = useState('')
+  const handleTextArea = (event) => {
+    setFeedback(event.target.value)
+  }
+
+  const handleScore = (event) => {
+    setScore(event.target.value)
+  }
 
   const handleSubmit = () => {
     const id = exercise.evaluation.id
@@ -21,18 +27,9 @@ export const Score = (exercise) => {
     history.back()
   }
 
-  const handleTextArea = (event) => {
-    setFeedback(event.target.value)
-  }
-
-  const [setScore] = useState('')
-  const handleScore = (event) => {
-    setScore(event.target.value)
-  }
-
   return (
     <div className="form-group">
-      < Select
+      <Select
         label="Nota:"
         placeholder="Escolha uma nota"
         onChange={handleScore}
