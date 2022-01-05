@@ -60,8 +60,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
   const role = localStorage.getItem('role')
   const admin = role === 'admin'
 
-  const handleExpand = () => { }
-
   const handleEdit = async () => {
     location.reload()
   }
@@ -170,7 +168,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     icon={faAngleDown}
                     classe="button-expend"
                     text="Ver mais"
-                    onClick={handleExpand}
                   />
                 </td>)
                 : null}
