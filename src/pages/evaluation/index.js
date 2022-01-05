@@ -11,12 +11,13 @@ import exercises from '../../mocks/exercise-mock.json'
 import { client } from '../../service'
 import { Answer } from './components/answer/answer'
 import { Header } from './components/header/header.js'
-import Select from '../../components/select'
+// import Select from '../../components/select'
+import { Score } from './components/select-note/select-note'
 
 const EvaluationChallenge = () => {
   const exercisePDF = exercises[0]
   const [exercise, setExercise] = useState(null)
-  const [score, setScore] = useState('')
+  const [score] = useState('')
   // const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
   const [disableEvaluationButton] = useState(true)
   // const [exerciseType] = useState()
@@ -37,9 +38,9 @@ const EvaluationChallenge = () => {
     setFeedback(event.target.value)
   }
 
-  const handleScore = (event) => {
-    setScore(event.target.value)
-  }
+  // const handleScore = (event) => {
+  //   setScore(event.target.value)
+  // }
 
   const evaluation = {
     feedback,
@@ -79,7 +80,7 @@ const EvaluationChallenge = () => {
       <div className="buttons">
         <DefaultButton text="Cancelar" onClick={handleCancel} />
         <Modal classe={'button-primary'} text="Avaliar" title="Avaliação" disabled={disableEvaluationButton} >
-          <div className="form-group">
+          {/* <div className="form-group">
             < Select
               label="Nota:"
               placeholder="Escolha uma nota"
@@ -93,9 +94,10 @@ const EvaluationChallenge = () => {
                   { label: 4, value: 4 },
                   { label: 5, value: 5 }
                 ]} ></Select >
+
             <textarea label="mensagem" className="form-control" id="message-text" onChange={handleTextArea} ></textarea>
             <PrimaryButton text="Enviar avaliação" onClick={handleSubmit} />
-          </div>
+          </div> */}
         </Modal>
       </div>
     </div >
