@@ -17,9 +17,9 @@ import { Score } from './components/select-note/select-note'
 const EvaluationChallenge = () => {
   const exercisePDF = exercises[0]
   const [exercise, setExercise] = useState(null)
+  const [disableEvaluationButton] = useState(true)
   // const [score] = useState('')
   // const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
-  const [disableEvaluationButton] = useState(false)
   // const [exerciseType] = useState()
   // const [feedback] = useState('')
 
@@ -80,28 +80,11 @@ const EvaluationChallenge = () => {
       <div className="buttons">
         <DefaultButton text="Cancelar" onClick={handleCancel} />
         <Modal classe={'button-primary'} text="Avaliar" title="Avaliação" disabled={disableEvaluationButton} >
-          {/* <div className="form-group">
-            < Select
-              label="Nota:"
-              placeholder="Escolha uma nota"
-              onChange={handleScore}
-              options={
-                [
-                  { label: 0, value: 0 },
-                  { label: 1, value: 1 },
-                  { label: 2, value: 2 },
-                  { label: 3, value: 3 },
-                  { label: 4, value: 4 },
-                  { label: 5, value: 5 }
-                ]} ></Select >
-
-            <textarea label="mensagem" className="form-control" id="message-text" onChange={handleTextArea} ></textarea>
-            <PrimaryButton text="Enviar avaliação" onClick={handleSubmit} />
-          </div> */}
 
           <Score exercise={exercise} />
 
         </Modal>
+
       </div>
     </div >
   )

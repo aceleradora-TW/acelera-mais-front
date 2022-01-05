@@ -29,7 +29,7 @@ export const Score = ({ exercise }) => {
 
   return (
     <div className="form-group">
-      <Select
+      < Select
         label="Nota:"
         placeholder="Escolha uma nota"
         onChange={handleScore}

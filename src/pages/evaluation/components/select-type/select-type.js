@@ -32,7 +32,7 @@ export const Type = () => {
 
       {exerciseTypeSelected
         ? <SucessButton text="Alterar" onClick={() => {
-          setDisableEvaluationButton(true)
+          setDisableEvaluationButton(false)
           setExerciseTypeSelected(false)
           handleTypeSubmit()
           alert('yaaay')
