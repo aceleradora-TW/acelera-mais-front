@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import Button from '../buttons/button'
-import { Status } from '../status'
-import { Modal } from '../modal'
-import { HiringProcessForm } from '../forms/hiring-process'
-import { ImportGoogleSheet } from '../import-google-sheet'
+import Button from '../../../../components/button'
+import { Status } from '../../../../components/status'
+import { Modal } from '../../../../components/modal'
+import { HiringProcessForm } from '../../forms/hiring-process'
+import { ImportGoogleSheet } from '../../../../components/import-google-sheet'
 import './process-list.css'
-import { client } from '../../service'
+import { client } from '../../../../service'
 import {
   faAngleDown,
   faDownload,
@@ -13,7 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { parse } from 'json2csv'
-import showFeature from '../../feature-toggle'
+import showFeature from '../../../../feature-toggle'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const [csv, setCSV] = useState('')
@@ -59,8 +59,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
   }
   const role = localStorage.getItem('role')
   const admin = role === 'admin'
-
-  const handleExpand = () => { }
 
   const handleEdit = async () => {
     location.reload()
@@ -170,7 +168,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     icon={faAngleDown}
                     classe="button button-expend"
                     text="Ver mais"
-                    onClick={handleExpand}
                   />
                 </td>)
                 : null}

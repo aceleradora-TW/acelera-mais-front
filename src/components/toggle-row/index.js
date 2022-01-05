@@ -1,10 +1,10 @@
 import { faAngleDown, faPen } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 import './style.css'
-import ActionButton from '../buttons/action'
-import Button from '../buttons/button'
-import { Status } from '../status'
-import { client } from '../../service'
+import ActionButton from '../../../../components/buttons/action'
+import Button from '../../../../components/button'
+import { Status } from '../../../../components/status'
+import { client } from '../../../../service'
 import { useNavigate } from 'react-router-dom'
 
 const statusEnum = {

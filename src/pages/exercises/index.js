@@ -1,4 +1,4 @@
-import { ExercisesList } from '../../components/exercises-list'
+import { ExercisesList } from '../../pages/exercises/components/exercises-list'
 import Select from '../../components/select'
 import showFeature from '../../feature-toggle'
 
