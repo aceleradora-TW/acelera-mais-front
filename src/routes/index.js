@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import LoginPage from '../authentication/index.js'
+import LoginPage from '../pages/authentication/index'
 import HiringProcessPage from '../pages/hiring-process'
 import { IsAuth } from '../components/is-auth/index.js'
 import { ExercisesPage } from '../pages/exercises'
