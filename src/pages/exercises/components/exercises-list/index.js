@@ -1,9 +1,5 @@
 import './style.css'
-<<<<<<< HEAD:src/components/exercises-list/index.js
 import { ToggleRow } from '../toggle-row'
-=======
-import { ToggleRow } from '../../../exercises/components/toggle-row'
->>>>>>> 0d3d87d02d1cb0aa16b438e080246b1e3552a320:src/pages/exercises/components/exercises-list/index.js
 import { useEffect, useState } from 'react'
 import { client } from '../../../../service'
 
