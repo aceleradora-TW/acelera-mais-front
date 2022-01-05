@@ -41,7 +41,7 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
       <InputDate name="startDate" label="Data de início" onChange={handleChange} />
       <InputDate name="endDate" label="Data de término" onChange={handleChange} />
       <InputText name="description" label="Descrição" onChange={handleChange} />
-      <Button classe='button-submit' type="button" text='Enviar' onClick={sendHiringProcess}>
+      <Button classe='button button-submit' type="button" text='Enviar' onClick={sendHiringProcess}>
         Enviar
       </Button>
     </form>

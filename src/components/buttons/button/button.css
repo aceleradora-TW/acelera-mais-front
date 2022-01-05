@@ -1,104 +1,59 @@
-.button-new-process {
-  background-color: rgb(68, 68, 255);
-  color: white;
-  border: 1px solid white;
+.button {
+  border: 1px solid #d3d3d3;
   border-radius: 5px;
-  font-weight: 300;
   padding: 10px 25px;
+  font-family: "Open Sans";
+  font-weight: 300px;
+  font-size: 16px;
 }
 
-.button-new-process:hover {
+.button:hover {
   cursor: pointer;
   opacity: 0.7;
 }
 
+.button-new-process {
+  background-color: #4444ff;
+  color: #fff;
+}
+
 .button-filter {
-  width: 160px;
-  height: 46px;
-  background-color: white;
-  color: black;
-  border: 1px solid transparent;
-  font-weight: 300px;
-  padding: 12px 36px 12px 36px;
+  color: #000;
+  padding: 12px 36px;
 }
 
 .button-filter:hover {
   border: none;
-  border-bottom: 1px solid blue;
+  border-bottom: 1px solid #0000ff;
   transition: 3ms;
-  cursor: pointer;
-  opacity: 0.7;
 }
 
 .button-import,
-.button-export {
-  padding: 4px 13px;
-  background-color: white;
-  border: 1px solid lightgray;
-  border-radius: 10px;
-  font-family: "Open Sans";
-}
-.button-import:hover,
-.button-export:hover {
-  cursor: pointer;
-  opacity: 0.7;
+.button-export,
+.button-edit,
+.button-expend,
+.button-delete,
+.button-close,
+.button-filter {
+  background-color: #fff;
 }
 
-.button-edit {
-  width: 70px;
-  height: 23px;
-  background-color: white;
-  color: #003cff;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-}
-.button-edit:hover {
-  cursor: pointer;
-  opacity: 0.7;
-}
-
+.button-edit,
 .button-expend {
-  width: 100px;
-  height: 23px;
   color: #003cff;
-  background-color: white;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-}
-
-.button-expend:hover {
-  cursor: pointer;
-  opacity: 0.7;
 }
 
 .button-delete {
-  border: 1px solid #e9e9ea;
-  border-radius: 5px;
   color: #ff3d00;
-  height: 28px;
-  width: 40px;
-  background-color: #fff;
-  font-size: 16px;
-}
-.button-delete:hover {
-  cursor: pointer;
-  opacity: 0.7;
 }
 
 .button-close {
   color: #aea9bd;
   border: none;
   cursor: pointer;
-  font-size: 16px;
-  background-color: #fff;
 }
 
 .button-submit {
-  width: 90px;
-  height: 23px;
   color: #fff;
   background-color: #003cff;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  cursor: pointer;
 }
