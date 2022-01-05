@@ -1,10 +1,11 @@
 import { React, useState } from 'react'
-import SucessButton from '../../components/buttons/sucess'
-import Select from '../../components/select'
-import { client } from '../../service'
+import SucessButton from '../../../../components/buttons/sucess'
+// import Select from '../../../../components/select'
+import { client } from '../../../../service'
+import { Type } from '../select-type/select-type'
 
 export const Header = () => {
-  const [exerciseType, setExerciseType] = useState()
+  const [exerciseType] = useState()
   const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
   const [setDisableEvaluationButton] = useState(true)
 
@@ -17,18 +18,9 @@ export const Header = () => {
   return (<section className="head">
     <h1>Avaliação </h1>
     <div className='select-container'>
-      <Select
-        onChange={({ target }) => {
-          setExerciseType(target.value)
-          setExerciseTypeSelected(true)
-        }}
-        label="Tipo:"
-        placeholder="Escolha uma opção"
-        options={[
-          { label: 'Backend', value: 'Backend' },
-          { label: 'Frontend', value: 'Frontend' },
-          { label: 'Fullstack', value: 'Fullstack' }
-        ]} />
+
+      <Type />
+
       {exerciseTypeSelected
         ? <SucessButton text="Alterar" onClick={() => {
           setExerciseTypeSelected(false)
