@@ -1,5 +1,5 @@
 import './style.css'
-import { ToggleRow } from '../../../exercises/components/toggle-row'
+import { ToggleRow } from '../toggle-row'
 import { useEffect, useState } from 'react'
 import { client } from '../../../../service'
 
