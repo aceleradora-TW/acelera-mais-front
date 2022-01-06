@@ -17,7 +17,7 @@ import { Score } from './components/select-note/select-note'
 const EvaluationChallenge = () => {
   const exercisePDF = exercises[0]
   const [exercise, setExercise] = useState(null)
-  const [disableEvaluationButton] = useState(true)
+  const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
   // const [score] = useState('')
   // const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
   // const [exerciseType] = useState()
@@ -68,7 +68,7 @@ const EvaluationChallenge = () => {
   return (
     <div className="page-container">
 
-      <Header />
+      <Header setDisableEvaluationButton={setDisableEvaluationButton} />
 
       <div className="download">
         <FontAwesomeIcon icon={faPrint} />

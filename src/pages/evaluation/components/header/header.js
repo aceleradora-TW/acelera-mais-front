@@ -4,7 +4,7 @@ import { React } from 'react'
 // import { client } from '../../../../service'
 import { Type } from '../select-type/select-type'
 
-export const Header = () => {
+export const Header = ({ setDisableEvaluationButton }) => {
   // const [exerciseType] = useState()
   // const [setExerciseTypeSelected] = useState(false)
   // const [setDisableEvaluationButton] = useState(true)
@@ -19,7 +19,7 @@ export const Header = () => {
     <section className="head">
       <h1>Avaliação </h1>
 
-      <Type />
+      <Type setDisableEvaluationButton={setDisableEvaluationButton} />
 
     </section >
   )
