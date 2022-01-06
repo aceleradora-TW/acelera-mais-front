@@ -1,15 +1,6 @@
-.button-action {
+.action {
   background-color: white;
   color: darkgreen;
-  border: 1px solid rgba(74, 134, 96, 0.349);
-  border-radius: 5px;
-  font-weight: 300;
-  padding: 10px 25px;
-  cursor: pointer;
+  border-color: rgba(74, 134, 96, 0.349);
   margin-left: 20px;
-}
-
-.button-action:disabled {
-  opacity: 0.4;
-  cursor: no-drop;
 }

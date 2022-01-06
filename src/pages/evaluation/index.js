@@ -97,13 +97,13 @@ const EvaluationChallenge = () => {
       <div className="answer">
         <h2>Respostas enviadas:</h2>
         <div>
-          {exercise.zip && <a className="button-default" href={exercise.zip} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faLink} /> Download zip</a>}
-          {exercise.github && <a className="button-default" href={exercise.github} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faCodeBranch} /> Link do repositório</a>}
+          {exercise.zip && <a className="button default" href={exercise.zip} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faLink} /> Download zip</a>}
+          {exercise.github && <a className="button default" href={exercise.github} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faCodeBranch} /> Link do repositório</a>}
         </div>
       </div>
       <div className="buttons">
         <DefaultButton text="Cancelar" onClick={handleCancel} />
-        <Modal classe={'button-primary'} text="Avaliar" title="Avaliação" disabled={disableEvaluationButton} >
+        <Modal classe={'button primary'} text="Avaliar" title="Avaliação" disabled={disableEvaluationButton} >
           <div className="form-group">
             <Select
               label="Nota:"
