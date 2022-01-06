@@ -3,8 +3,7 @@ import Select from '../../../../components/select'
 import { client } from '../../../../service'
 import SucessButton from '../../../../components/buttons/sucess'
 
-export const Type = () => {
-  const [, setDisableEvaluationButton] = useState(true)
+export const Type = ({ setDisableEvaluationButton }) => {
   const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
   const [exerciseType, setExerciseType] = useState()
 
@@ -35,7 +34,7 @@ export const Type = () => {
           setDisableEvaluationButton(false)
           setExerciseTypeSelected(false)
           handleTypeSubmit()
-          alert('yaaay')
+          alert('Alterado com sucesso!')
         }} />
         : null}
     </div>
