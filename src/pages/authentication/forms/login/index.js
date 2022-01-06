@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
-import { client, setTokenInHeaders } from '../../service'
+import { client, setTokenInHeaders } from '../../../../service'
 import './style.css'
 
 export const Login = () => {

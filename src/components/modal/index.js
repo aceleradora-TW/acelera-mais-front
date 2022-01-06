@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './style.css'
-import Button from '../button'
+import Button from '../buttons/button'
 import {
   faTimes
 } from '@fortawesome/free-solid-svg-icons'

@@ -1,11 +1,4 @@
-.button-info {
+.info {
   background-color: white;
   color: #003cff;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  padding: 10px 25px;
-}
-.button-info:hover {
-  font-weight: bold;
-  cursor: pointer;
 }
