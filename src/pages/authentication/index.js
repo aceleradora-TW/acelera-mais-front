@@ -1,12 +1,12 @@
 import { Login } from './forms/login'
-import { LoginDivPage } from './forms/login/styles'
+import { Container } from './forms/login/styles'
 
 const LoginPage = () => {
   return (
-    <LoginDivPage>
+    <Container>
       <h1>AceleraMais</h1>
       <Login />
-    </LoginDivPage>
+    </Container>
   )
 }
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const LoginDivPage = styled.div`
+export const Container = styled.div`
   width: 100%;
   height: 100vh;
   background-color: lightgray;
@@ -17,7 +17,7 @@ export const LoginDivPage = styled.div`
   }
 `
 
-export const LoginDivForm = styled.div`
+export const LoginForm = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
