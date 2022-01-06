@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { client, setTokenInHeaders } from '../../../../service'
 import { LoginDivForm } from './styles'
-// import './style.css'
 
 export const Login = () => {
   const [email, setEmail] = useState('')
