@@ -4,7 +4,6 @@ import { client } from '../../../../service'
 import SucessButton from '../../../../components/buttons/sucess'
 
 export const Type = ({ setDisableEvaluationButton }) => {
-  // const [, setDisableEvaluationButton] = useState(true)
   const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
   const [exerciseType, setExerciseType] = useState()
 
