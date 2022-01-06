@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { InputDate } from '../../../../components/inputs/date'
 import { InputText } from '../../../../components/inputs/text'
 import { client } from '../../../../service'
-import Button from '../../../../components/buttons/button'
+import PrimaryButton from '../../../../components/buttons/primary'
 
 export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => { } }) => {
   const [hiringProcess, setHiringProcess] = useState({
@@ -41,9 +41,13 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
       <InputDate name="startDate" label="Data de início" onChange={handleChange} />
       <InputDate name="endDate" label="Data de término" onChange={handleChange} />
       <InputText name="description" label="Descrição" onChange={handleChange} />
+<<<<<<< HEAD
       <Button classe='button submit' type="button" text='Enviar' onClick={sendHiringProcess}>
+=======
+      <PrimaryButton text='Enviar' onClick={sendHiringProcess}>
+>>>>>>> b51fa9b3eb1061fdc346b416f80c046dea6bf03e
         Enviar
-      </Button>
+      </PrimaryButton>
     </form>
   )
 }

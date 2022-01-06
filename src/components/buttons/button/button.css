@@ -16,48 +16,12 @@
   cursor: no-drop;
 }
 
-.new-process {
-  background-color: #4444ff;
-  color: #fff;
-}
-
-.button-filter {
-  color: #000;
-  padding: 12px 36px;
-}
-
-.button-filter:hover {
-  border: none;
-  border-bottom: 1px solid #0000ff;
-  transition: 3ms;
-}
-
-.import,
-.export,
-.edit,
-.expend,
-.delete,
-.close,
-.button-filter {
-  background-color: #fff;
-}
-
-.edit,
-.expend {
-  color: #003cff;
-}
-
 .delete {
+  background-color: #fff;
   color: #ff3d00;
 }
 
 .close {
   color: #aea9bd;
-  border: none;
-  cursor: pointer;
-}
-
-.submit {
-  color: #fff;
-  background-color: #003cff;
+  border: 1px solid transparent;
 }
