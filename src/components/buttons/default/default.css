@@ -1,15 +1,7 @@
-.button-default {
+.default {
   background-color: white;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  padding: 10px 25px;
 }
 
-a.button-default {
+a.default {
   display: inline-block;
-}
-
-.button-default:hover {
-  font-weight: bold;
-  cursor: pointer;
 }

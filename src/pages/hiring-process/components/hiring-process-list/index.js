@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Button from '../../../../components/button'
+import Button from '../../../../components/buttons/button'
 import { Status } from '../../../../components/status'
 import { Modal } from '../../../../components/modal'
 import { HiringProcessForm } from '../../forms/hiring-process'
@@ -113,7 +113,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   label="Importar"
                   title="Importar dados das candidatas"
                   reminder="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
-                  classe="button-import"
+                  classe="button default"
                   text="Importar candidatas"
                 >
                   <ImportGoogleSheet
@@ -128,7 +128,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   label="Importar"
                   title="Importar desafios das candidatas"
                   reminder="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
-                  classe="button-import"
+                  classe="button default"
                   text="Importar desafios"
                 >
                   <ImportGoogleSheet
@@ -142,7 +142,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   icon={faDownload}
                   label="Download arquivo csv"
                   title="Download arquivo csv"
-                  classe="button-export"
+                  classe="button default"
                   text="Exportar Dados"
                   callback={handleExport(process.id)}
                 >
@@ -154,7 +154,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 <Modal
                   label="Editar"
                   title="Editar processos seletivos"
-                  classe="button-edit"
+                  classe="button default"
                   text="Editar">
                   <HiringProcessForm
                     callback={handleEdit}
@@ -166,14 +166,14 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 ? (<td>
                   <Button
                     icon={faAngleDown}
-                    classe="button-expend"
+                    classe="button default"
                     text="Ver mais"
                   />
                 </td>)
                 : null}
               {admin && <td>
                 <Button icon={faTrashAlt}
-                  classe="button-delete"
+                  classe="button delete"
                   onClick={() => handleDelete(process.id)}
                 />
               </td>}
