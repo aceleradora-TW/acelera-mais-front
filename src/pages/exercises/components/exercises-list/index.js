@@ -1,4 +1,4 @@
-import { ToggleRow } from '../togglerow'
+import { ToggleRow } from '../toggle-row'
 import { useEffect, useState } from 'react'
 import { client } from '../../service'
 import styled from 'styled-components'
