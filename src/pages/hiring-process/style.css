@@ -10,7 +10,17 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.page-container-section {
+.page-container section {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+.button-filter:hover {
+  border: none;
+  border-bottom: 1px solid #0000ff;
+  transition: 3ms;
+}
+
+.button-filter {
+  background-color: #fff;
 }
