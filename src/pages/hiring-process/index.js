@@ -34,7 +34,7 @@ const HiringProcessPage = () => {
     <div className="page-container">
 
       <h1>Processos seletivos</h1>
-      <section>
+      <section className='page-container-section'>
         {showFeature()
           ? (<div>
             <Button classe={'button-filter'} text="Todos" onClick={handleSubmit} />

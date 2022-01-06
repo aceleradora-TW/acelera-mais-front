@@ -10,11 +10,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* obs: A classe .page-container está sendo usada na pages/exercises e na pages/hiring-process,
- existe a utilização do feature-toggle que está escondendo os botões de filtragem dos processos seletivos, 
- logo o "space-between" não está sendo devidamente utilizado na página dos processos seletivos */
-
-.page-container section {
+.page-container-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
