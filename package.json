@@ -36,7 +36,8 @@
     "build-storybook": "build-storybook -s public"
   },
   "resolutions": {
-    "babel-loader": "8.1.0"
+    "babel-loader": "8.1.0",
+    "styled-components": "^5"
   },
   "eslintConfig": {
     "extends": [
