@@ -4,8 +4,6 @@ import { Status } from '../../../../components/status'
 import { Modal } from '../../../../components/modal'
 import { HiringProcessForm } from '../../forms/hiring-process'
 import { ImportGoogleSheet } from '../../../../components/import-google-sheet'
-// import './process-list.css'
-import { ProcessTable } from '../../styles'
 import { client } from '../../../../service'
 import {
   faAngleDown,
@@ -15,6 +13,46 @@ import {
 import { Link } from 'react-router-dom'
 import { parse } from 'json2csv'
 import showFeature from '../../../../feature-toggle'
+import styled from 'styled-components'
+
+const ProcessTable = styled.div`
+width: 100%;
+margin-top: 20px;
+
+a {
+  color: #000;
+}
+
+a:visited, th {
+  color: #ababab;
+}
+
+table {
+  width: 100%;
+  border: 1px solid #ababab;
+}
+
+thead {
+  border-bottom: 1px solid #ababab;
+}
+
+th, td, td:first-child {
+  text-align: center;
+}
+
+td, th {
+  padding: 10px;
+}
+
+th {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+td:first-child {
+  font-weight: bold;
+}
+
+`
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const [csv, setCSV] = useState('')
