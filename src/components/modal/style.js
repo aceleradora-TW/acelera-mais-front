@@ -1,4 +1,6 @@
-.modal {
+import style from 'styled-components'
+
+export const Container = style.div`
   position: fixed;
   left: 0;
   top: 0;
@@ -8,46 +10,42 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.modal-content {
+`
+export const Content = style.div`
   min-width: 500px;
   border: 1px solid #aea9bd;
   background-color: #fff;
   box-sizing: border-box;
-}
+`
 
-.modal-header {
+export const Header = style.div`
   display: flex;
   justify-content: space-between;
   margin: 20px 40px;
-}
-
-.modal-title {
-  color: #aea9bd;
-  font-size: 20px;
-  text-align: left;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  margin-right: 20px;
-}
-
-.modal-reminder {
+`
+export const Reminder = style.p`
   margin: 0 45px;
   color: #000;
   font-size: 12px;
   font-family: "Roboto", sans-serif;
-}
-
-.modal-body {
+`
+export const ModalBody = style.div`
   border: 1px solid #aea9bd;
   margin: 10px 40px;
   padding: 20px;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
-}
+`
+export const Title = style.h4`
+  color: #aea9bd;
+  font-size: 20px;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  margin-right: 20px;
+`
 
-.modal-footer {
+export const Footer = style.div`
   padding: 20px;
-}
+`
