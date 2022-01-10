@@ -13,7 +13,7 @@ import {
 import { Link } from 'react-router-dom'
 import { parse } from 'json2csv'
 import showFeature from '../../../../feature-toggle'
-import { ProcessTable } from './styles'
+import { Container, Table, Thead } from './styles'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const [csv, setCSV] = useState('')
@@ -87,102 +87,106 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
   }
 
   return (
-    <ProcessTable>
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Processo</th>
-              <th>Status</th>
-              <th>Data de início</th>
-              <th colSpan="4">Ações</th>
+    <Container>
+      {/* <div> */}
+      {/* <table>  */}
+      <Table>
+        <Thead>
+          {/* <thead> */}
+          <tr>
+            <th>Processo</th>
+            <th>Status</th>
+            <th>Data de início</th>
+            <th colSpan="4">Ações</th>
+          </tr>
+          {/* </thead> */}
+        </Thead>
+        <tbody>
+          {processes.map((process, key) => (
+            <tr key={`process-${key}`}>
+              <td><Link to={`/exercises/hiring-process/${process.id}`}>{process.name}</Link></td>
+              <td>
+                <Status
+                  status={process.status}
+                />
+              </td>
+              <td>{formatDate(process.startDate)}</td>
+              {admin && <td>
+                <Modal
+                  icon={faUpload}
+                  label="Importar"
+                  title="Importar dados das candidatas"
+                  reminder="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
+                  classe="button default"
+                  text="Importar candidatas"
+                >
+                  <ImportGoogleSheet
+                    id={process.id}
+                    endpoint="candidate"
+                  />
+                </Modal>
+              </td>}
+              {admin && <td>
+                <Modal
+                  icon={faUpload}
+                  label="Importar"
+                  title="Importar desafios das candidatas"
+                  reminder="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
+                  classe="button default"
+                  text="Importar desafios"
+                >
+                  <ImportGoogleSheet
+                    id={process.id}
+                    endpoint="exercise"
+                  />
+                </Modal>
+              </td>}
+              {admin && <><td>
+                <Modal
+                  icon={faDownload}
+                  label="Download arquivo csv"
+                  title="Download arquivo csv"
+                  classe="button default"
+                  text="Exportar Dados"
+                  callback={handleExport(process.id)}
+                >
+                  {csv}
+                </Modal>
+              </td><td>
+                </td></>}
+              {admin && <td>
+                <Modal
+                  label="Editar"
+                  title="Editar processos seletivos"
+                  classe="button default"
+                  text="Editar">
+                  <HiringProcessForm
+                    callback={handleEdit}
+                    method="PATCH"
+                    id={process.id} />
+                </Modal>
+              </td>}
+              {showFeature()
+                ? (<td>
+                  <Button
+                    icon={faAngleDown}
+                    classe="button default"
+                    text="Ver mais"
+                  />
+                </td>)
+                : null}
+              {admin && <td>
+                <Button icon={faTrashAlt}
+                  classe="button delete"
+                  onClick={() => handleDelete(process.id)}
+                />
+              </td>}
             </tr>
-          </thead>
-          <tbody>
-            {processes.map((process, key) => (
-              <tr key={`process-${key}`}>
-                <td><Link to={`/exercises/hiring-process/${process.id}`}>{process.name}</Link></td>
-                <td>
-                  <Status
-                    status={process.status}
-                  />
-                </td>
-                <td>{formatDate(process.startDate)}</td>
-                {admin && <td>
-                  <Modal
-                    icon={faUpload}
-                    label="Importar"
-                    title="Importar dados das candidatas"
-                    reminder="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
-                    classe="button default"
-                    text="Importar candidatas"
-                  >
-                    <ImportGoogleSheet
-                      id={process.id}
-                      endpoint="candidate"
-                    />
-                  </Modal>
-                </td>}
-                {admin && <td>
-                  <Modal
-                    icon={faUpload}
-                    label="Importar"
-                    title="Importar desafios das candidatas"
-                    reminder="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
-                    classe="button default"
-                    text="Importar desafios"
-                  >
-                    <ImportGoogleSheet
-                      id={process.id}
-                      endpoint="exercise"
-                    />
-                  </Modal>
-                </td>}
-                {admin && <><td>
-                  <Modal
-                    icon={faDownload}
-                    label="Download arquivo csv"
-                    title="Download arquivo csv"
-                    classe="button default"
-                    text="Exportar Dados"
-                    callback={handleExport(process.id)}
-                  >
-                    {csv}
-                  </Modal>
-                </td><td>
-                  </td></>}
-                {admin && <td>
-                  <Modal
-                    label="Editar"
-                    title="Editar processos seletivos"
-                    classe="button default"
-                    text="Editar">
-                    <HiringProcessForm
-                      callback={handleEdit}
-                      method="PATCH"
-                      id={process.id} />
-                  </Modal>
-                </td>}
-                {showFeature()
-                  ? (<td>
-                    <Button
-                      icon={faAngleDown}
-                      classe="button default"
-                      text="Ver mais"
-                    />
-                  </td>)
-                  : null}
-                {admin && <td>
-                  <Button icon={faTrashAlt}
-                    classe="button delete"
-                    onClick={() => handleDelete(process.id)}
-                  />
-                </td>}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div >
-    </ProcessTable>
+          ))}
+        </tbody>
+      </Table>
+      {/* </table> */}
+      {/* </div > */}
+    </Container>
   )
 }
