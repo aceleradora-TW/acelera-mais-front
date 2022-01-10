@@ -13,14 +13,14 @@ export const StyledSpan = styled(StatusSpan)`
   font-family: 'Open Sans';
   border-radius: 5px;
   
-  .status-opened {
+  &.status-opened {
     background-color: #dcfdd4;
     color: #4fac16;
   }
-  .status-closed {
+  &.status-closed {
     background-color: #fdd4d4;
     color: #ac1616;
   }
-  .status-preparing {
+  &.status-preparing {
     background-color: #fafdd4;
     color: #ac9d16;}`
