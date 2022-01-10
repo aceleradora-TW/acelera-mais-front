@@ -1,11 +1,12 @@
 import { Login } from './forms/login'
+import { Container } from './forms/login/styles'
 
 const LoginPage = () => {
   return (
-    <div className="login-page">
+    <Container>
       <h1>AceleraMais</h1>
       <Login />
-    </div>
+    </Container>
   )
 }
 

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { client, setTokenInHeaders } from '../../../../service'
-import './style.css'
+import { LoginForm } from './styles'
 
 export const Login = () => {
   const [email, setEmail] = useState('')
@@ -49,7 +49,7 @@ export const Login = () => {
   }
 
   return (
-    <div className="login-form">
+    <LoginForm>
       <div>
         <label>
           <input onChange={handleChangeEmail} value={email} type="email" placeholder="Email@email.com"></input>
@@ -62,6 +62,6 @@ export const Login = () => {
         </label>
       </div>
       <button onClick={handlerClick}>Iniciar sessão</button>
-    </div>
+    </LoginForm>
   )
 }
