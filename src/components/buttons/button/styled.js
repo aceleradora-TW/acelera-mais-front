@@ -32,4 +32,12 @@ export const ButtonComponent = styled.button`
     color: darkgreen;
     border-color: rgba(74, 134, 96, 0.349);
   }
+
+  &.default {
+    background-color: white;
+  }
+  
+  a.default {
+    display: inline-block;
+  }
 `
