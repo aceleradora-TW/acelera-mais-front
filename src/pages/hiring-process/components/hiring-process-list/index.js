@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import Button from '../button'
-import { Status } from '../status'
-import { Modal } from '../modal'
-import { HiringProcessForm } from '../forms/hiring-process'
-import { ImportGoogleSheet } from '../import-google-sheet'
+import Button from '../../../../components/buttons/button'
+import { Status } from '../../../../components/status'
+import { Modal } from '../../../../components/modal'
+import { HiringProcessForm } from '../../forms/hiring-process'
+import { ImportGoogleSheet } from '../../../../components/import-google-sheet'
 import './process-list.css'
-import { client } from '../../service'
+import { client } from '../../../../service'
 import {
   faAngleDown,
   faDownload,
@@ -13,6 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { parse } from 'json2csv'
+import showFeature from '../../../../feature-toggle'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const [csv, setCSV] = useState('')
@@ -58,8 +59,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
   }
   const role = localStorage.getItem('role')
   const admin = role === 'admin'
-
-  const handleExpand = () => { }
 
   const handleEdit = async () => {
     location.reload()
@@ -114,7 +113,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   label="Importar"
                   title="Importar dados das candidatas"
                   reminder="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
-                  classe="button-import"
+                  classe="button default"
                   text="Importar candidatas"
                 >
                   <ImportGoogleSheet
@@ -129,7 +128,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   label="Importar"
                   title="Importar desafios das candidatas"
                   reminder="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
-                  classe="button-import"
+                  classe="button default"
                   text="Importar desafios"
                 >
                   <ImportGoogleSheet
@@ -143,7 +142,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   icon={faDownload}
                   label="Download arquivo csv"
                   title="Download arquivo csv"
-                  classe="button-export"
+                  classe="button default"
                   text="Exportar Dados"
                   callback={handleExport(process.id)}
                 >
@@ -155,7 +154,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 <Modal
                   label="Editar"
                   title="Editar processos seletivos"
-                  classe="button-edit"
+                  classe="button default"
                   text="Editar">
                   <HiringProcessForm
                     callback={handleEdit}
@@ -163,17 +162,18 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     id={process.id} />
                 </Modal>
               </td>}
-              <td id="column-hidden" >
-                <Button
-                  icon={faAngleDown}
-                  classe="button-expend"
-                  text="Ver mais"
-                  onClick={handleExpand}
-                />
-              </td>
+              {showFeature()
+                ? (<td>
+                  <Button
+                    icon={faAngleDown}
+                    classe="button default"
+                    text="Ver mais"
+                  />
+                </td>)
+                : null}
               {admin && <td>
                 <Button icon={faTrashAlt}
-                  classe="button-delete"
+                  classe="button delete"
                   onClick={() => handleDelete(process.id)}
                 />
               </td>}

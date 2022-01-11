@@ -2,17 +2,25 @@
   text-align: justify;
   padding: 30px;
 }
+
 .page-container h1 {
   font-size: 40px;
   color: rgb(149, 149, 149);
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .page-container section {
   display: flex;
   justify-content: space-between;
 }
 
-.page-filters {
-  visibility: hidden;
+.button-filter:hover {
+  border: none;
+  border-bottom: 1px solid #0000ff;
+  transition: 3ms;
+}
+
+.button-filter {
+  background-color: #fff;
 }
