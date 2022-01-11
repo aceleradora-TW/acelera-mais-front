@@ -30,7 +30,7 @@ export const ImportGoogleSheet = ({ id = '', endpoint = '' }) => {
   return (
     <>
       <InputText name="name" label="Insira a URL da planilha:" onChange={onChange} />
-      <Button classe='button button-submit' type="button" text='Enviar' onClick={handleImport}>
+      <Button classe='button submit' type="button" text='Enviar' onClick={handleImport}>
         Enviar
       </Button>
     </>

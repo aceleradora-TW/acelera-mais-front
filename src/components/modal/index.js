@@ -28,7 +28,7 @@ export const Modal = ({ title, children, label, callback, icon, classe, text, re
             <h4 className="modal-title">{title}</h4>
 
             <Button icon={faTimes}
-              classe="button-close"
+              classe="close"
               onClick={onClose}
             />
           </div>
