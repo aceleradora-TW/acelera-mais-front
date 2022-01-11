@@ -23,8 +23,8 @@ export const ButtonComponent = styled.button`
   }
 
   &.close {
-    color: #aea9bd;
-    border: 1px solid transparent;
+    color: #ac1616;
+    border: 1px solid #ac1616;
   }
 
   &.action {
