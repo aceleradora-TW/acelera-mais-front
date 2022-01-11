@@ -17,12 +17,12 @@ export const ButtonComponent = styled.button`
     cursor: no-drop;
   }
 
-  .delete {
+  &.delete {
     background-color: #fff;
     color: #ff3d00;
   }
 
-  .close {
+  &.close {
     color: #aea9bd;
     border: 1px solid transparent;
   }
