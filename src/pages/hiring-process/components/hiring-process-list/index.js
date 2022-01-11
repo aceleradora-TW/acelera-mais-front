@@ -154,7 +154,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 <Modal
                   label="Editar"
                   title="Editar processos seletivos"
-                  classe="button default"
+                  classe="button action"
                   text="Editar">
                   <HiringProcessForm
                     callback={handleEdit}
