@@ -88,18 +88,14 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   return (
     <Container>
-      {/* <div> */}
-      {/* <table>  */}
       <Table>
         <Thead>
-          {/* <thead> */}
           <tr>
             <th>Processo</th>
             <th>Status</th>
             <th>Data de início</th>
             <th colSpan="4">Ações</th>
           </tr>
-          {/* </thead> */}
         </Thead>
         <Tbody>
           {processes.map((process, key) => (
@@ -185,8 +181,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
           ))}
         </Tbody>
       </Table>
-      {/* </table> */}
-      {/* </div > */}
     </Container>
   )
 }
