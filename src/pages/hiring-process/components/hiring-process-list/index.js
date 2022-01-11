@@ -94,7 +94,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
             <th>Processo</th>
             <th>Status</th>
             <th>Data de início</th>
-            <th colSpan="4">Ações</th>
+            <th colSpan="6">Ações</th>
           </tr>
         </Thead>
         <Tbody>

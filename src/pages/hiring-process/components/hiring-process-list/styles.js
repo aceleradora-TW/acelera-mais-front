@@ -36,6 +36,7 @@ export const Tbody = styled.tbody`
 td {
   text-align: center;
   padding: 10px; 
+  vertical-align: middle;
 }
 
 td:first-child {
