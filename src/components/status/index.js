@@ -1,5 +1,5 @@
 import { React } from 'react'
-import './status.css'
+import { StyledSpan } from './styles'
 
 export const Status = ({
   status, options = {
@@ -18,6 +18,6 @@ export const Status = ({
     label = options.prepairing
   }
   return (
-    <span className={status}>{label}</span>
+    <StyledSpan className={status}>{label}</StyledSpan>
   )
 }
