@@ -40,4 +40,9 @@ export const ButtonComponent = styled.button`
   a.default {
     display: inline-block;
   }
+
+  &.info {
+    background-color: white;
+    color: #003cff;
+  }
 `
