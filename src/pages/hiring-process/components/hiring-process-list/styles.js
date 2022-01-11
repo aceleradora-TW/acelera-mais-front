@@ -28,6 +28,7 @@ th {
   text-align: center;
   color: #ababab;
   padding: 10px;
+  vertical-align: middle;
 }
 
 `
