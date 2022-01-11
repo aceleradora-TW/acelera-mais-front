@@ -45,4 +45,20 @@ export const ButtonComponent = styled.button`
     background-color: white;
     color: #003cff;
   }
+
+  &.primary {
+    background-color: rgb(68, 68, 255);
+    color: white;
+    border: 1px solid white;
+  }
+  
+  &.primary:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+  
+  &.sucess {
+    background-color: darkgreen;
+    color: white;
+  }
 `
