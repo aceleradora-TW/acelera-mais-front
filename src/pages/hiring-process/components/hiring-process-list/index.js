@@ -13,7 +13,7 @@ import {
 import { Link } from 'react-router-dom'
 import { parse } from 'json2csv'
 import showFeature from '../../../../feature-toggle'
-import { Container, Table, Thead } from './styles'
+import { Container, Table, Thead, Tbody } from './styles'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const [csv, setCSV] = useState('')
@@ -101,7 +101,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
           </tr>
           {/* </thead> */}
         </Thead>
-        <tbody>
+        <Tbody>
           {processes.map((process, key) => (
             <tr key={`process-${key}`}>
               <td><Link to={`/exercises/hiring-process/${process.id}`}>{process.name}</Link></td>
@@ -183,7 +183,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               </td>}
             </tr>
           ))}
-        </tbody>
+        </Tbody>
       </Table>
       {/* </table> */}
       {/* </div > */}
