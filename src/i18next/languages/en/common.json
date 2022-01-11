@@ -1,0 +1,11 @@
+{
+  "translation": {
+    "login": {
+      "password": "Password",
+      "mentorName": "Expert mentor name",
+      "userPwdAlert": "Username or password is invalid!",
+      "loginButton": "Login",
+      "fillAlert": "Fill in the email and password field, please! "
+    }
+  }
+}
