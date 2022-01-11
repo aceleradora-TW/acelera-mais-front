@@ -1,13 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
-<<<<<<< HEAD:src/components/login/index.js
-import { client, setTokenInHeaders } from '../../service'
-import './style.css'
 import { useTranslation } from 'react-i18next'
-=======
 import { client, setTokenInHeaders } from '../../../../service'
 import { LoginForm } from './styles'
->>>>>>> 3621e032082340d9aef97a46415a8aca64ed0729:src/pages/authentication/forms/login/index.js
 
 export const Login = () => {
   const { t } = useTranslation()
@@ -68,12 +63,7 @@ export const Login = () => {
           <input onChange={handleChangeMentorName} value={mentorName} type="text" placeholder={t('login.mentorName')}></input>
         </label>
       </div>
-<<<<<<< HEAD:src/components/login/index.js
       <button onClick={handlerClick}>{t('login.loginButton')}</button>
-    </div>
-=======
-      <button onClick={handlerClick}>Iniciar sessão</button>
-    </LoginForm>
->>>>>>> 3621e032082340d9aef97a46415a8aca64ed0729:src/pages/authentication/forms/login/index.js
+    </LoginForm >
   )
 }
