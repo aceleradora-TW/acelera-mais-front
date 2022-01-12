@@ -1,7 +1,6 @@
 
 const getValueByParams = (name) => {
-  const url = new URL(window.location.href)
-  return url.searchParams.get(name)
+  return localStorage.getItem(name)
 }
 
 const showFeature = () => {
