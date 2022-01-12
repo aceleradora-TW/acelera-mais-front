@@ -25,6 +25,13 @@ export const Download = styled.div`
   margin-top: 20px;
   padding: 10px;
   font-family: Arial, Helvetica, sans-serif;
+
+a {
+  background-color: #dddcdc;
+  color: black;
+  margin: 1%;
+  text-decoration: none;
+  }
 `
 export const StyledAnswer = styled.div`
   border: 1px solid #ababab;
@@ -43,4 +50,15 @@ export const Buttons = styled.div`
   display: flex;
   justify-content: right;
   margin-top: 20px;
+`
+export const SelectContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+textarea#message-text {
+  display: block;
+  margin: 20px 0 !important;
+  width: 100%;
+  height: 80px;
+}
 `
