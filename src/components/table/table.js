@@ -4,45 +4,26 @@ export const Table = styled.table`
   width: 100%;
   font-family: Arial, sans-serif;
   border: 1px solid #ababab;
+  border-spacing: 0;
+  border-radius: 3px;
 
   th, td {
     padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
   }
 
+  tr:last-child td {
+    border: none;
+  }
+  
   thead {
-    font-size: 16px;
+    column-span: none;
+    background: #fbfbfb;
     th {
+      text-transform: uppercase;
       border-bottom: 1px solid #ababab;
     }
   }
-
-  tbody {
-    font-size: 14px;
-    text-align: center;
-  }
 `
-
-export const TableContainer = () => {
-  return (<Table>
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Idade</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Fulana</td>
-        <td>16</td>
-      </tr>
-      <tr>
-        <td>Fulana</td>
-        <td>16</td>
-      </tr>
-      <tr>
-        <td>Fulana</td>
-        <td>16</td>
-      </tr>
-    </tbody>
-  </Table>)
-}

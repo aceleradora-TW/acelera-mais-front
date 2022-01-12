@@ -1,13 +1,39 @@
-import { TableContainer } from './table'
+import { Table } from './table'
+import PrimaryButton from '../buttons/primary'
 
 export default {
   title: 'Table',
-  component: TableContainer
+  component: Table
 }
 
-const Template = args => <TableContainer {...args} />
+const Template = args => (<Table {...args}>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fulana</td>
+      <td>16</td>
+      <td><PrimaryButton text="Enviar" /></td>
+    </tr>
+    <tr>
+      <td>Fulana</td>
+      <td>16</td>
+      <td><PrimaryButton text="Enviar" /></td>
+    </tr>
+    <tr>
+      <td>Fulana</td>
+      <td>16</td>
+      <td><PrimaryButton text="Enviar" /></td>
+    </tr>
+  </tbody>
+</Table>)
 
-export const Table = Template.bind({})
+export const TableComponent = Template.bind({})
 
-Table.args = {
+TableComponent.args = {
 }
