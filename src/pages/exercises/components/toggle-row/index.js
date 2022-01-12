@@ -1,11 +1,11 @@
 import { faAngleDown, faPen } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
-import './style.css'
 import ActionButton from '../../../../components/buttons/action'
 import Button from '../../../../components/buttons/button'
 import { Status } from '../../../../components/status'
 import { client } from '../../../../service'
 import { useNavigate } from 'react-router-dom'
+import { Tr } from './styled'
 
 const statusEnum = {
   PREPARING: 'status-preparing',
@@ -66,10 +66,10 @@ export const ToggleRow = ({ item }) => {
 
   return (
     <>
-      <tr className='toggle-row-container'>
+      <Tr>
         <td>{item.exercise}</td>
         <td>{item.type ? item.type : 'Não definido'}</td>
-        <td colSpan='2'>
+        <td className='options' colSpan='2'>
           {!isOpened(item)
             ? <Status
               status={getStatus(item)}
@@ -87,12 +87,12 @@ export const ToggleRow = ({ item }) => {
         </td>
         <td className='avaliator-col'>{
           <Button
-            classe={`${toggle} feedback-button`}
+            classe={`${toggle} primary`}
             disabled={isPreparingOrOpened({ status: getStatus(item) })}
             onClick={handleClick}
             icon={faAngleDown} />
         }</td>
-      </tr>
+      </Tr>
       {status && feedback !== '' ? <tr><td colSpan='5' className={toggle}>{feedback}</td></tr> : null}
     </>
   )
