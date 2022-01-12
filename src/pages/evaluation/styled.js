@@ -56,6 +56,7 @@ export const StyledType = styled.div`
   flex-direction: column;
 `
 export const StyledScore = styled.div`
+
 textarea#message-text {
   display: block;
   margin: 20px 0 !important;

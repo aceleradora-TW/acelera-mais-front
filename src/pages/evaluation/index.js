@@ -1,6 +1,5 @@
 
 import { React, useState, useEffect } from 'react'
-import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPrint } from '@fortawesome/free-solid-svg-icons'
 import DefaultButton from '../../components/buttons/default'
@@ -36,21 +35,22 @@ const EvaluationChallenge = () => {
   if (!exercise) return null
 
   return (
-    // <div className="page-container">
+
     <StyledContainer>
 
       <Header setDisableEvaluationButton={setDisableEvaluationButton} />
 
       <StyledDownload>
-        {/* <div> */}
+
         <FontAwesomeIcon icon={faPrint} />
         <a href={exercisePDF.links.pdf} target='_blank' rel='noreferrer'> Download PDF</a>
-        {/* </div> */}
+
       </StyledDownload>
+
       <Answer exercise={exercise} />
 
       <StyledButtons>
-        {/* <div> */}
+
         <DefaultButton text="Cancelar" onClick={handleCancel} />
         <Modal classe={'button-primary'} text="Avaliar" title="Avaliação" disabled={disableEvaluationButton} >
 
@@ -58,10 +58,9 @@ const EvaluationChallenge = () => {
 
         </Modal>
 
-        {/* </div> */}
       </StyledButtons>
+
     </StyledContainer >
-    // </div >
   )
 }
 

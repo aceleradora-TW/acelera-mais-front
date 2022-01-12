@@ -17,7 +17,7 @@ export const Type = ({ setDisableEvaluationButton }) => {
   return (
 
     <StyledType>
-      {/* // <div className='select-container'> */}
+
       <Select
         onChange={({ target }) => {
           setExerciseType(target.value)
@@ -41,7 +41,7 @@ export const Type = ({ setDisableEvaluationButton }) => {
           }} />
           : null
       }
+
     </StyledType>
-    // </div >
   )
 }

@@ -5,9 +5,11 @@ import { StyledHeader } from '../../styled'
 export const Header = ({ setDisableEvaluationButton }) => {
   return (
     <StyledHeader>
+
       <h1>Avaliação </h1>
 
       <Type setDisableEvaluationButton={setDisableEvaluationButton} />
+
     </StyledHeader>
   )
 }
