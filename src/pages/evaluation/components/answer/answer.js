@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink, faCodeBranch } from '@fortawesome/free-solid-svg-icons'
-import { StyledAnswer } from '../../styled'
+import { AnswerContainer } from '../../styled'
 
 export const Answer = ({ exercise }) => {
   return (
-    <StyledAnswer>
+    <AnswerContainer>
 
       <h2>Respostas enviadas:</h2>
       <div>
@@ -12,6 +12,6 @@ export const Answer = ({ exercise }) => {
         {exercise.github && <a className="button-default" href={exercise.github} target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faCodeBranch} /> Link do repositório</a>}
       </div>
 
-    </StyledAnswer >
+    </AnswerContainer>
   )
 }

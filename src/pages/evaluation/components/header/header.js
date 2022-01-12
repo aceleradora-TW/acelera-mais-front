@@ -1,15 +1,15 @@
 import { React } from 'react'
 import { Type } from '../select-type/select-type'
-import { StyledHeader } from '../../styled'
+import { HeaderContainer } from '../../styled'
 
 export const Header = ({ setDisableEvaluationButton }) => {
   return (
-    <StyledHeader>
+    <HeaderContainer>
 
       <h1>Avaliação </h1>
 
       <Type setDisableEvaluationButton={setDisableEvaluationButton} />
 
-    </StyledHeader>
+    </HeaderContainer>
   )
 }

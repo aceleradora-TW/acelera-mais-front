@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-export const StyledContainer = styled.div`
+export const Container = styled.div`
   text-align: justify;
   padding: 30px;
   width: 100%;
   margin-top: 20px;
 `
-export const StyledHeader = styled.section`
+export const HeaderContainer = styled.section`
   display: flex;
   justify-content: space-between;
 
@@ -18,7 +18,7 @@ h1 {
 } 
 `
 
-export const StyledDownload = styled.div`
+export const Download = styled.div`
   border: 1px solid #ababab;
   border-radius: 5px;
   width: 100%;
@@ -33,7 +33,7 @@ a.default {
   text-decoration: none;
   }
 `
-export const StyledAnswer = styled.div`
+export const AnswerContainer = styled.div`
   border: 1px solid #ababab;
   border-radius: 5px;
   width: 100%;
@@ -46,16 +46,16 @@ h2 {
   font-family: Arial, Helvetica, sans-serif;
 }
 `
-export const StyledButtons = styled.div`
+export const Buttons = styled.div`
   display: flex;
   justify-content: right;
   margin-top: 20px;
 `
-export const StyledType = styled.div`
+export const TypeContainer = styled.div`
   display: flex;
   flex-direction: column;
 `
-export const StyledScore = styled.div`
+export const ScoreContainer = styled.div`
 
 textarea#message-text {
   display: block;

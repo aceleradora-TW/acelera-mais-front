@@ -2,7 +2,7 @@ import { React, useState } from 'react'
 import Select from '../../../../components/select'
 import { client } from '../../../../service'
 import PrimaryButton from '../../../../components/buttons/primary'
-import { StyledScore } from '../../styled'
+import { ScoreContainer } from '../../styled'
 
 export const Score = ({ exercise }) => {
   const [feedback, setFeedback] = useState('')
@@ -29,7 +29,7 @@ export const Score = ({ exercise }) => {
   }
 
   return (
-    <StyledScore>
+    <ScoreContainer>
 
       < Select
         label="Nota:"
@@ -48,6 +48,6 @@ export const Score = ({ exercise }) => {
       <textarea label="mensagem" className="form-control" id="message-text" onChange={handleTextArea} ></textarea>
       <PrimaryButton text="Enviar avaliação" onClick={handleSubmit} />
 
-    </StyledScore>
+    </ScoreContainer>
   )
 }
