@@ -2,6 +2,7 @@ import { React, useState } from 'react'
 import Select from '../../../../components/select'
 import { client } from '../../../../service'
 import SucessButton from '../../../../components/buttons/sucess'
+// import { SelectContainer } from '../../styled'
 
 export const Type = ({ setDisableEvaluationButton }) => {
   const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
@@ -15,6 +16,7 @@ export const Type = ({ setDisableEvaluationButton }) => {
 
   return (
 
+    // <SelectContainer>
     <div className='select-container'>
       <Select
         onChange={({ target }) => {
@@ -37,7 +39,7 @@ export const Type = ({ setDisableEvaluationButton }) => {
           alert('Alterado com sucesso!')
         }} />
         : null}
+      {/* </SelectContainer> */}
     </div>
-
   )
 }

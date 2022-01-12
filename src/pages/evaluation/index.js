@@ -10,7 +10,7 @@ import { client } from '../../service'
 import { Answer } from './components/answer/answer'
 import { Header } from './components/header/header.js'
 import { Score } from './components/select-note/select-note'
-import { Container, Download } from './styled'
+import { Container, Download, Buttons } from './styled'
 
 const EvaluationChallenge = () => {
   const exercisePDF = exercises[0]
@@ -42,15 +42,15 @@ const EvaluationChallenge = () => {
       <Header setDisableEvaluationButton={setDisableEvaluationButton} />
 
       <Download>
-        {/* <div className="download"> */}
+        {/* <div> */}
         <FontAwesomeIcon icon={faPrint} />
         <a href={exercisePDF.links.pdf} target='_blank' rel='noreferrer'> Download PDF</a>
         {/* </div> */}
       </Download>
       <Answer exercise={exercise} />
 
-      {/* <Buttons> */}
-      <div className="buttons">
+      <Buttons>
+        {/* <div> */}
         <DefaultButton text="Cancelar" onClick={handleCancel} />
         <Modal classe={'button-primary'} text="Avaliar" title="Avaliação" disabled={disableEvaluationButton} >
 
@@ -58,8 +58,8 @@ const EvaluationChallenge = () => {
 
         </Modal>
 
-      </div>
-      {/* </Buttons> */}
+        {/* </div> */}
+      </Buttons>
     </Container >
     // </div >
   )

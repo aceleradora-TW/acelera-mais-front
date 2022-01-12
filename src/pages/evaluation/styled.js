@@ -26,7 +26,7 @@ export const Download = styled.div`
   padding: 10px;
   font-family: Arial, Helvetica, sans-serif;
 
-a {
+a.default {
   background-color: #dddcdc;
   color: black;
   margin: 1%;
