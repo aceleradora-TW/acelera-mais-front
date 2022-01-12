@@ -2,7 +2,7 @@ import { React, useState } from 'react'
 import Select from '../../../../components/select'
 import { client } from '../../../../service'
 import SucessButton from '../../../../components/buttons/sucess'
-import { SelectContainer } from '../../styled'
+import { StyledType } from '../../styled'
 
 export const Type = ({ setDisableEvaluationButton }) => {
   const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
@@ -16,7 +16,7 @@ export const Type = ({ setDisableEvaluationButton }) => {
 
   return (
 
-    <SelectContainer>
+    <StyledType>
       {/* // <div className='select-container'> */}
       <Select
         onChange={({ target }) => {
@@ -41,7 +41,7 @@ export const Type = ({ setDisableEvaluationButton }) => {
           }} />
           : null
       }
-    </SelectContainer>
+    </StyledType>
     // </div >
   )
 }

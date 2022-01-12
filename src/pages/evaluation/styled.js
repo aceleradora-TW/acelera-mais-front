@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const StyledContainer = styled.div`
   text-align: justify;
   padding: 30px;
   width: 100%;
@@ -18,7 +18,7 @@ h1 {
 } 
 `
 
-export const Download = styled.div`
+export const StyledDownload = styled.div`
   border: 1px solid #ababab;
   border-radius: 5px;
   width: 100%;
@@ -46,15 +46,16 @@ h2 {
   font-family: Arial, Helvetica, sans-serif;
 }
 `
-export const Buttons = styled.div`
+export const StyledButtons = styled.div`
   display: flex;
   justify-content: right;
   margin-top: 20px;
 `
-export const SelectContainer = styled.div`
+export const StyledType = styled.div`
   display: flex;
   flex-direction: column;
-
+`
+export const StyledScore = styled.div`
 textarea#message-text {
   display: block;
   margin: 20px 0 !important;
