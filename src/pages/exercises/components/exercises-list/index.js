@@ -4,18 +4,9 @@ import { client } from '../../../../service'
 import styled from 'styled-components'
 
 const Table = styled.table`
-  width: 100%;
-  border: 2px solid #d3d3d3;
+width: 100%;
+border: 2px solid #d3d3d3;
 
-  td.toggle-on{
-    background-color: #f8f8f8;
-    padding: 20px;
-    border: 2px solid rgb(160, 173, 185);
-  }
-
-  td.toggle-off{
-    display: none;
-  }
 `
 const Container = styled.div`
   display: flex;
@@ -33,9 +24,10 @@ const Container = styled.div`
   `
 
 const Thead = styled.thead`
+  font - family: Arial, Helvetica, sans - serif;
   color: #2e2e2e;
-  font-size: 15px;
-  font-weight 700;
+  font - size: 15px;
+  font - weight 700;
 
   th {
     text-align: center;

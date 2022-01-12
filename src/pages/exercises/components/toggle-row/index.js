@@ -1,30 +1,12 @@
 import { faAngleDown, faPen } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
+// import './style.css'
 import ActionButton from '../../../../components/buttons/action'
 import Button from '../../../../components/buttons/button'
 import { Status } from '../../../../components/status'
 import { client } from '../../../../service'
 import { useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
-
-const Tr = styled.tr`
-  button.toggle-off:disabled{
-    opacity: 0.4 ;
-    cursor: no-drop;
-  }
-
-  button.toggle-on{
-    -moz-transform: scale(1, -1);
-    -webkit-transform: scale(1, -1);
-    -o-transform: scale(1, -1);
-    -ms-transform: scale(1, -1);
-    transform: scale(1, -1);
-  }
-
-  .options button{
-    margin-left: 20px;
-  }
-`
+import { Container } from './styled'
 
 const statusEnum = {
   PREPARING: 'status-preparing',
@@ -84,11 +66,11 @@ export const ToggleRow = ({ item }) => {
   }
 
   return (
-    <>
-      <Tr>
+    <Container>
+      <tr className='toggle-row-container'>
         <td>{item.exercise}</td>
         <td>{item.type ? item.type : 'Não definido'}</td>
-        <td className='options' colSpan='2'>
+        <td colSpan='2'>
           {!isOpened(item)
             ? <Status
               status={getStatus(item)}
@@ -106,13 +88,13 @@ export const ToggleRow = ({ item }) => {
         </td>
         <td className='avaliator-col'>{
           <Button
-            classe={`${toggle} primary`}
+            classe={`${toggle} feedback-button`}
             disabled={isPreparingOrOpened({ status: getStatus(item) })}
             onClick={handleClick}
             icon={faAngleDown} />
         }</td>
-      </Tr>
+      </tr>
       {status && feedback !== '' ? <tr><td colSpan='5' className={toggle}>{feedback}</td></tr> : null}
-    </>
+    </Container>
   )
 }
