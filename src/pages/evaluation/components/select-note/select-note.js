@@ -29,7 +29,7 @@ export const Score = ({ exercise }) => {
   }
 
   return (
-    <div className="form-group">
+    <div>
       {/* <SelectContainer> */}
       < Select
         label="Nota:"
