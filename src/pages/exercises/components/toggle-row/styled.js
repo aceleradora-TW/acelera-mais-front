@@ -17,4 +17,8 @@ export const Tr = styled.tr`
   .options button{
     margin-left: 20px;
   }
+
+  .primary {
+    padding: 5px 10px;
+  }
 `
