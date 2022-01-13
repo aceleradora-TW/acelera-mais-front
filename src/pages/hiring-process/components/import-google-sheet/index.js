@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { InputText } from '../inputs/text'
-import PrimaryButton from '../buttons/primary'
-import { client } from '../../service'
+import { InputText } from '../../../../components/inputs/text'
+import PrimaryButton from '../../../../components/buttons/primary'
+import { client } from '../../../../service'
 
 const initialDataGoogleSheet = {
   link: ''

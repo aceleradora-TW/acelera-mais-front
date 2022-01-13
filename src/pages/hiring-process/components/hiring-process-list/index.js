@@ -4,7 +4,7 @@ import DefaultButton from '../../../../components/buttons/default'
 import { Status } from '../../../../components/status'
 import { Modal } from '../../../../components/modal'
 import { HiringProcessForm } from '../../forms/hiring-process'
-import { ImportGoogleSheet } from '../../../../components/import-google-sheet'
+import { ImportGoogleSheet } from '../import-google-sheet'
 import { client } from '../../../../service'
 import {
   faAngleDown,
