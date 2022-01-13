@@ -4,7 +4,6 @@ import { Status } from '../../../../components/status'
 import { Modal } from '../../../../components/modal'
 import { HiringProcessForm } from '../../forms/hiring-process'
 import { ImportGoogleSheet } from '../../../../components/import-google-sheet'
-import './process-list.css'
 import { client } from '../../../../service'
 import {
   faAngleDown,
@@ -14,6 +13,7 @@ import {
 import { Link } from 'react-router-dom'
 import { parse } from 'json2csv'
 import showFeature from '../../../../feature-toggle'
+import { Container, Table, Thead, Tbody } from './styles'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const [csv, setCSV] = useState('')
@@ -87,17 +87,17 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
   }
 
   return (
-    <div className="table-selective-process">
-      <table>
-        <thead>
+    <Container>
+      <Table>
+        <Thead>
           <tr>
             <th>Processo</th>
             <th>Status</th>
             <th>Data de início</th>
-            <th colSpan="4">Ações</th>
+            <th colSpan="6">Ações</th>
           </tr>
-        </thead>
-        <tbody>
+        </Thead>
+        <Tbody>
           {processes.map((process, key) => (
             <tr key={`process-${key}`}>
               <td><Link to={`/exercises/hiring-process/${process.id}`}>{process.name}</Link></td>
@@ -154,7 +154,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 <Modal
                   label="Editar"
                   title="Editar processos seletivos"
-                  classe="button default"
+                  classe="button action"
                   text="Editar">
                   <HiringProcessForm
                     callback={handleEdit}
@@ -179,8 +179,8 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               </td>}
             </tr>
           ))}
-        </tbody>
-      </table>
-    </div >
+        </Tbody>
+      </Table>
+    </Container>
   )
 }

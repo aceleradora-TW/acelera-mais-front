@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+import { useTranslation } from 'react-i18next'
 import { client, setTokenInHeaders } from '../../../../service'
-import './style.css'
+import { LoginForm } from './styles'
 
 export const Login = () => {
+  const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [mentorName, setMentorName] = useState('')
@@ -29,7 +31,7 @@ export const Login = () => {
     }
 
     if (email === '' || email === undefined || password === '' || password === undefined) {
-      return alert('Preencha o campo de e-mail e senha, por favor! ')
+      return alert(t('login.fillAlert'))
     }
 
     try {
@@ -44,24 +46,24 @@ export const Login = () => {
       }
     } catch (error) {
       console.log(error)
-      alert('Usuário ou senha inválidos!')
+      alert(t('login.userPwdAlert'))
     }
   }
 
   return (
-    <div className="login-form">
+    <LoginForm>
       <div>
         <label>
           <input onChange={handleChangeEmail} value={email} type="email" placeholder="Email@email.com"></input>
         </label>
         <label>
-          <input onChange={handleChangePassword} value={password} type="password" placeholder="Senha"></input>
+          <input onChange={handleChangePassword} value={password} type="password" placeholder={t('login.password')}></input>
         </label>
         <label>
-          <input onChange={handleChangeMentorName} value={mentorName} type="text" placeholder="Nome da mentora especialista"></input>
+          <input onChange={handleChangeMentorName} value={mentorName} type="text" placeholder={t('login.mentorName')}></input>
         </label>
       </div>
-      <button onClick={handlerClick}>Iniciar sessão</button>
-    </div>
+      <button onClick={handlerClick}>{t('login.loginButton')}</button>
+    </LoginForm >
   )
 }

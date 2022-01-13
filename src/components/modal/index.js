@@ -36,7 +36,7 @@ export const Modal = ({ title, children, label, callback, icon, classe, text, re
             <Title>{title}</Title>
 
             <Button icon={faTimes}
-              classe="button-close"
+              classe="close"
               onClick={onClose}
             />
           </Header>
