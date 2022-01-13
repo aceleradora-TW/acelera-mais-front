@@ -2,6 +2,7 @@ import { React, useState } from 'react'
 import Select from '../../../../components/select'
 import { client } from '../../../../service'
 import SucessButton from '../../../../components/buttons/sucess'
+import { TypeContainer } from '../../styled'
 
 export const Type = ({ setDisableEvaluationButton }) => {
   const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
@@ -15,7 +16,8 @@ export const Type = ({ setDisableEvaluationButton }) => {
 
   return (
 
-    <div className='select-container'>
+    <TypeContainer>
+
       <Select
         onChange={({ target }) => {
           setExerciseType(target.value)
@@ -29,15 +31,17 @@ export const Type = ({ setDisableEvaluationButton }) => {
           { label: 'Fullstack', value: 'Fullstack' }
         ]} />
 
-      {exerciseTypeSelected
-        ? <SucessButton text="Alterar" onClick={() => {
-          setDisableEvaluationButton(false)
-          setExerciseTypeSelected(false)
-          handleTypeSubmit()
-          alert('Alterado com sucesso!')
-        }} />
-        : null}
-    </div>
+      {
+        exerciseTypeSelected
+          ? <SucessButton text="Alterar" onClick={() => {
+            setDisableEvaluationButton(false)
+            setExerciseTypeSelected(false)
+            handleTypeSubmit()
+            alert('Alterado com sucesso!')
+          }} />
+          : null
+      }
 
+    </TypeContainer>
   )
 }
