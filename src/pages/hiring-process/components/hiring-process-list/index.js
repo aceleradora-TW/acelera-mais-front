@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Button from '../../../../components/buttons/button'
+import DefaultButton from '../../../../components/buttons/default'
 import { Status } from '../../../../components/status'
 import { Modal } from '../../../../components/modal'
 import { HiringProcessForm } from '../../forms/hiring-process'
@@ -135,7 +136,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               </td>}
               {showFeature()
                 ? (<td>
-                  <Button
+                  <DefaultButton
                     icon={faAngleDown}
                     classe="button default"
                     text="Ver mais"
