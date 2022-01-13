@@ -27,21 +27,18 @@ export const Reminder = style.p`
   margin: 0 45px;
   color: #000;
   font-size: 12px;
-  font-family: "Roboto", sans-serif;
 `
 export const ModalBody = style.div`
   border: 1px solid #aea9bd;
   margin: 10px 40px;
   padding: 20px;
   font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
 `
 export const Title = style.h4`
   color: #aea9bd;
   font-size: 20px;
   text-align: left;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   margin-right: 20px;
 `

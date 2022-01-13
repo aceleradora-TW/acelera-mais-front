@@ -14,7 +14,6 @@
   font-size: 40px;
   color: rgb(149, 149, 149);
   font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .download {
@@ -23,7 +22,6 @@
   width: 100%;
   margin-top: 20px;
   padding: 10px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .answer {
@@ -32,12 +30,10 @@
   width: 100%;
   margin-top: 20px;
   padding: 10px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .answer h2 {
   color: rgb(149, 149, 149);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .buttons {
