@@ -13,8 +13,7 @@ import {
 import { Link } from 'react-router-dom'
 import { parse } from 'json2csv'
 import showFeature from '../../../../feature-toggle'
-import { Container } from './styles'
-import { Table } from '../../../../components/table/table'
+import { Container, HiringProcessTable } from './styles'
 import { hiringProcessAdapter } from '../../adapter/hiring-process-adapter'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
@@ -60,7 +59,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   return (
     <Container>
-      <Table>
+      <HiringProcessTable>
         <thead>
           <tr>
             <th>Processo</th>
@@ -152,7 +151,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
             </tr>
           ))}
         </tbody>
-      </Table>
+      </HiringProcessTable>
     </Container>
   )
 }
