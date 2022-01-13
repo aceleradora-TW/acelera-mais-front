@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { InputText } from '../inputs/text'
-import Button from '../buttons/button'
+import PrimaryButton from '../buttons/primary'
 import { client } from '../../service'
 
 const initialDataGoogleSheet = {
@@ -30,9 +30,9 @@ export const ImportGoogleSheet = ({ id = '', endpoint = '' }) => {
   return (
     <>
       <InputText name="name" label="Insira a URL da planilha:" onChange={onChange} />
-      <Button classe='button submit' type="button" text='Enviar' onClick={handleImport}>
+      <PrimaryButton text='Enviar' onClick={handleImport}>
         Enviar
-      </Button>
+      </PrimaryButton>
     </>
   )
 }
