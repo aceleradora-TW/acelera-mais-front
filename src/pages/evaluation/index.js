@@ -10,6 +10,7 @@ import { client } from '../../service'
 import { Answer } from './components/answer/answer'
 import { Header } from './components/header/header.js'
 import { Score } from './components/select-note/select-note'
+import { Anchor } from './styled'
 
 const EvaluationChallenge = () => {
   const exercisePDF = exercises[0]
@@ -40,8 +41,10 @@ const EvaluationChallenge = () => {
       <Header setDisableEvaluationButton={setDisableEvaluationButton} />
 
       <div className="download">
-        <FontAwesomeIcon icon={faPrint} />
-        <a href={exercisePDF.links.pdf} target='_blank' rel='noreferrer'> Download PDF</a>
+        <Anchor href={exercisePDF.links.pdf} target='_blank' rel='noreferrer'>
+          <FontAwesomeIcon icon={faPrint} />
+          Download PDF
+        </Anchor>
       </div>
 
       <Answer exercise={exercise} />
