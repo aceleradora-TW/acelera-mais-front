@@ -7,7 +7,8 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { client } from '../../service'
-import showFeature from '../../feature-toggle'
+import showFeature from '../../utils/feature-toggle'
+import { isAdmin } from '../../utils/isAdmin'
 
 const HiringProcessPage = () => {
   const [hiringProcesses, setHiringProcesses] = useState([])
@@ -27,21 +28,18 @@ const HiringProcessPage = () => {
     location.reload()
   }
 
-  const role = localStorage.getItem('role')
-  const admin = role === 'admin'
-
   return (
     <div className="page-container">
       <section>
         <h1>Processos seletivos</h1>
         {showFeature()
           ? (<div>
-            <Button classe='button-filter' text="Todos" onClick={handleSubmit} />
-            <Button classe='button-filter' text="Abertos" onClick={handleSubmit} />
-            <Button classe='button-filter' text="Fechados" onClick={handleSubmit} />
+            <Button classe="button-filter" text="Todos" onClick={handleSubmit} />
+            <Button classe="button-filter" text="Abertos" onClick={handleSubmit} />
+            <Button classe="button-filter" text="Fechados" onClick={handleSubmit} />
           </div>)
           : null}
-        {admin && <Modal icon={faPlus} classe='button primary' text="Novo processo" title="Criar novo processo">
+        {isAdmin() && <Modal icon={faPlus} classe='button primary' text="Novo processo" title="Criar novo processo">
           <HiringProcessForm callback={handleSubmit} />
         </Modal>}
       </section>

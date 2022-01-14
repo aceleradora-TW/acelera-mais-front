@@ -13,9 +13,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { parse } from 'json2csv'
-import showFeature from '../../../../feature-toggle'
+import showFeature from '../../../../utils/feature-toggle'
 import { Container, HiringProcessTable } from './styles'
 import { hiringProcessAdapter } from '../../adapter/hiring-process-adapter'
+import { isAdmin } from '../../../../utils/isAdmin'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const [csv, setCSV] = useState('')
@@ -30,8 +31,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
       window.open('data:text/csv;charset=utf-8,' + escape(csv))
     }
   }
-  const role = localStorage.getItem('role')
-  const isAdmin = role === 'admin'
 
   const handleEdit = async () => {
     location.reload()
@@ -79,7 +78,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 />
               </td>
               <td>{formatDate(process.startDate)}</td>
-              {isAdmin && <td>
+              {isAdmin() && <td>
                 <Modal
                   icon={faUpload}
                   label="Importar"
@@ -94,7 +93,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   />
                 </Modal>
               </td>}
-              {isAdmin && <td>
+              {isAdmin() && <td>
                 <Modal
                   icon={faUpload}
                   label="Importar"
@@ -109,7 +108,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   />
                 </Modal>
               </td>}
-              {isAdmin && <><td>
+              {isAdmin() && <><td>
                 <Modal
                   icon={faDownload}
                   label="Download arquivo csv"
@@ -122,7 +121,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 </Modal>
               </td><td>
                 </td></>}
-              {isAdmin && <td>
+              {isAdmin() && <td>
                 <Modal
                   label="Editar"
                   title="Editar processos seletivos"
@@ -143,7 +142,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   />
                 </td>)
                 : null}
-              {isAdmin && <td>
+              {isAdmin() && <td>
                 <Button icon={faTrashAlt}
                   classe="button delete"
                   onClick={() => handleDelete(process.id)}
