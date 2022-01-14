@@ -14,13 +14,8 @@ h1 {
   font-size: 40px;
   color: rgb(149, 149, 149);
   font-weight: bold;
-<<<<<<< HEAD:src/pages/evaluation/style.css
 }
-=======
-  font-family: Arial, Helvetica, sans-serif;
-} 
 `
->>>>>>> 9b9734775239850bea0b16da14c7e7ed279ac742:src/pages/evaluation/styled.js
 
 export const Download = styled.div`
   border: 1px solid #ababab;
@@ -28,11 +23,7 @@ export const Download = styled.div`
   width: 100%;
   margin-top: 20px;
   padding: 10px;
-<<<<<<< HEAD:src/pages/evaluation/style.css
 }
-=======
-  font-family: Arial, Helvetica, sans-serif;
->>>>>>> 9b9734775239850bea0b16da14c7e7ed279ac742:src/pages/evaluation/styled.js
 
 a.default {
   background-color: #dddcdc;
@@ -47,11 +38,7 @@ export const AnswerContainer = styled.div`
   width: 100%;
   margin-top: 20px;
   padding: 10px;
-<<<<<<< HEAD:src/pages/evaluation/style.css
 }
-=======
-  font-family: Arial, Helvetica, sans-serif;
->>>>>>> 9b9734775239850bea0b16da14c7e7ed279ac742:src/pages/evaluation/styled.js
 
 h2 {
   color: rgb(149, 149, 149);
