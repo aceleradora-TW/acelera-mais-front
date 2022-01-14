@@ -1,48 +1,7 @@
-import { ToggleRow } from '../toggle-row'
 import { useEffect, useState } from 'react'
 import { client } from '../../../../service'
-import styled from 'styled-components'
-
-const Table = styled.table`
-  width: 100%;
-  border: 2px solid #d3d3d3;
-
-  td.toggle-on{
-    background-color: #f8f8f8;
-    padding: 20px;
-    border: 2px solid rgb(160, 173, 185);
-  }
-
-  td.toggle-off{
-    display: none;
-  }
-`
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-
-  td {
-    text-align: center;
-    padding: 20px;
-  }
-
-  tr {
-    border-bottom: 2px solid #d3d3d3;
-  }
-  `
-
-const Thead = styled.thead`
-  color: #2e2e2e;
-  font-size: 15px;
-  font-weight 700;
-
-  th {
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-`
+import { ToggleRow } from '../toggle-row'
+import { ExerciseTable, Container } from './styled'
 
 export const ExercisesList = () => {
   const [exercises, setExercises] = useState([])
@@ -60,21 +19,21 @@ export const ExercisesList = () => {
 
   return (
     <Container>
-      <Table>
-        <Thead>
+      <ExerciseTable>
+        <thead>
           <tr>
             <th>Nome </th>
             <th>Tipo </th>
-            <th colSpan='2'>Avaliador </th>
+            <th colSpan='2'>Avaliador</th>
             <th>Feedbacks </th>
           </tr>
-        </Thead>
+        </thead>
         <tbody>
           {exercises.map((exercise, key) => {
             return <ToggleRow key={`${key}-test`} item={exercise} />
           })}
         </tbody>
-      </Table>
+      </ExerciseTable>
     </Container>
   )
 }

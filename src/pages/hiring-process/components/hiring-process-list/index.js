@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import Button from '../../../../components/buttons/button'
+import DefaultButton from '../../../../components/buttons/default'
 import { Status } from '../../../../components/status'
 import { Modal } from '../../../../components/modal'
 import { HiringProcessForm } from '../../forms/hiring-process'
-import { ImportGoogleSheet } from '../../../../components/import-google-sheet'
+import { ImportGoogleSheet } from '../import-google-sheet'
 import { client } from '../../../../service'
 import {
   faAngleDown,
@@ -12,8 +13,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { parse } from 'json2csv'
-import showFeature from '../../../../feature-toggle'
-import { Container, Table, Thead, Tbody } from './styles'
+import showFeature from '../../../../utils/feature-toggle'
+import { Container, HiringProcessTable } from './styles'
+import { hiringProcessAdapter } from '../../adapter/hiring-process-adapter'
+import { isAdmin } from '../../../../utils/isAdmin'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const [csv, setCSV] = useState('')
@@ -22,43 +25,12 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
     return async () => {
       const result = await client.get(`/exercise?hiringProcessId=${id}`)
       const hiringProcessResume = result.data.data.result
-      const hiringProcessResult = hiringProcessResume.map(h => ({
-        name: h.name,
-        email: h.addressEmail,
-        phone: h.phone,
-        birthDate: h.candidate.birthDate,
-        genre: h.candidate.genre || '',
-        skinColor: h.candidate.skinColor || '',
-        instituitionName: h.candidate.instituitionName || '',
-        courseName: h.candidate.courseName || '',
-        milestone: h.candidate.milestone || '',
-        howFound: h.candidate.howFound || '',
-        expectation: h.candidate.expectation || '',
-        motivation: h.candidate.motivation || '',
-        curriculum: h.candidate.curriculum || '',
-        okCI: h.candidate.okCI || '',
-        exercise: h.exercise,
-        fileType: h.fileType,
-        zip: h.zip,
-        github: h.github,
-        haveComputer: h.haveComputer,
-        haveInternet: h.haveInternet,
-        haveWebcam: h.haveWebcam,
-        canUseWebcam: h.canUseWebcam,
-        cityState: h.cityState,
-        createdAt: h.evaluation.createdAt,
-        feedback: h.evaluation.feedback || '',
-        mentorName: h.evaluation.mentorName || '',
-        score: h.evaluation.score || '',
-        updateAt: h.evaluation.updateAt || ''
-      }))
+      const hiringProcessResult = hiringProcessAdapter(hiringProcessResume)
       const csv = parse(hiringProcessResult)
       setCSV('donwload...')
       window.open('data:text/csv;charset=utf-8,' + escape(csv))
     }
   }
-  const role = localStorage.getItem('role')
-  const admin = role === 'admin'
 
   const handleEdit = async () => {
     location.reload()
@@ -68,10 +40,9 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
     try {
       const answer = confirm('Deseja excluir o item?')
       if (answer === false) return
-      const result = await client.delete(`/hiring_process/${id}`)
+      client.delete(`/hiring_process/${id}`)
       const newProcesses = processes.filter(process => process.id !== id)
       setHiringProcesses(newProcesses)
-      console.log(result.data)
     } catch (error) {
       console.error(error)
     }
@@ -88,16 +59,16 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   return (
     <Container>
-      <Table>
-        <Thead>
+      <HiringProcessTable>
+        <thead>
           <tr>
             <th>Processo</th>
             <th>Status</th>
             <th>Data de início</th>
             <th colSpan="6">Ações</th>
           </tr>
-        </Thead>
-        <Tbody>
+        </thead>
+        <tbody>
           {processes.map((process, key) => (
             <tr key={`process-${key}`}>
               <td><Link to={`/exercises/hiring-process/${process.id}`}>{process.name}</Link></td>
@@ -107,7 +78,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 />
               </td>
               <td>{formatDate(process.startDate)}</td>
-              {admin && <td>
+              {isAdmin() && <td>
                 <Modal
                   icon={faUpload}
                   label="Importar"
@@ -122,7 +93,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   />
                 </Modal>
               </td>}
-              {admin && <td>
+              {isAdmin() && <td>
                 <Modal
                   icon={faUpload}
                   label="Importar"
@@ -137,7 +108,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   />
                 </Modal>
               </td>}
-              {admin && <><td>
+              {isAdmin() && <><td>
                 <Modal
                   icon={faDownload}
                   label="Download arquivo csv"
@@ -150,7 +121,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 </Modal>
               </td><td>
                 </td></>}
-              {admin && <td>
+              {isAdmin() && <td>
                 <Modal
                   label="Editar"
                   title="Editar processos seletivos"
@@ -164,14 +135,14 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               </td>}
               {showFeature()
                 ? (<td>
-                  <Button
+                  <DefaultButton
                     icon={faAngleDown}
                     classe="button default"
                     text="Ver mais"
                   />
                 </td>)
                 : null}
-              {admin && <td>
+              {isAdmin() && <td>
                 <Button icon={faTrashAlt}
                   classe="button delete"
                   onClick={() => handleDelete(process.id)}
@@ -179,8 +150,8 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               </td>}
             </tr>
           ))}
-        </Tbody>
-      </Table>
+        </tbody>
+      </HiringProcessTable>
     </Container>
   )
 }
