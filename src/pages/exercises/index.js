@@ -1,6 +1,6 @@
 import { ExercisesList } from '../../pages/exercises/components/exercises-list'
 import Select from '../../components/select'
-import showFeature from '../../feature-toggle'
+import showFeature from '../../utils/feature-toggle'
 
 export const ExercisesPage = () => {
   return (
