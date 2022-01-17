@@ -31,12 +31,11 @@ export const HeaderContainer = styled.section`
   display: flex;
   justify-content: space-between;
 
-  h1 {
-    font-size: 40px;
-    color: rgb(149, 149, 149);
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-  } 
+h1 {
+  font-size: 40px;
+  color: rgb(149, 149, 149);
+  font-weight: bold;
+}
 `
 
 export const Download = styled.div`
@@ -45,7 +44,7 @@ export const Download = styled.div`
   width: 100%;
   margin-top: 20px;
   padding: 10px;
-  font-family: Arial, Helvetica, sans-serif;
+}
 
   a.default {
     background-color: #dddcdc;
@@ -60,12 +59,11 @@ export const AnswerContainer = styled.div`
   width: 100%;
   margin-top: 20px;
   padding: 10px;
-  font-family: Arial, Helvetica, sans-serif;
+}
 
-  h2 {
-    color: rgb(149, 149, 149);
-    font-family: Arial, Helvetica, sans-serif;
-  }
+h2 {
+  color: rgb(149, 149, 149);
+}
 `
 export const Buttons = styled.div`
   display: flex;

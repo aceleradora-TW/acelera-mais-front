@@ -1,6 +1,14 @@
 import { useState } from 'react'
-import './style.css'
 import Button from '../buttons/button'
+import {
+  Title,
+  Header,
+  Container,
+  Content,
+  Reminder,
+  ModalBody,
+  Footer
+} from './style'
 import {
   faTimes
 } from '@fortawesome/free-solid-svg-icons'
@@ -22,22 +30,21 @@ export const Modal = ({ title, children, label, callback, icon, classe, text, re
   return (
     <>
       <Button icon={icon} classe={classe} text={text}>{label}</Button>
-      <div className="modal" onClick={onClose}>
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <div className="modal-header">
-            <h4 className="modal-title">{title}</h4>
+      <Container onClick={onClose}>
+        <Content onClick={(e) => e.stopPropagation()}>
+          <Header>
+            <Title>{title}</Title>
 
             <Button icon={faTimes}
               classe="close"
               onClick={onClose}
             />
-          </div>
-          <p className="modal-reminder">{reminder}</p>
-          <div className="modal-body">{children}</div>
-          <div className="modal-footer">
-          </div>
-        </div>
-      </div>
+          </Header>
+          <Reminder>{reminder}</ Reminder>
+          <ModalBody>{children}</ModalBody>
+          <Footer></Footer>
+        </Content>
+      </Container>
     </>
   )
 }
