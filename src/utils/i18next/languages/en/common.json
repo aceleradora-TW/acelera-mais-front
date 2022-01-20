@@ -6,6 +6,18 @@
       "userPwdAlert": "Username or password is invalid!",
       "loginButton": "Login",
       "fillAlert": "Fill in the email and password field, please! "
+    },
+    "hiring-process": {
+      "title": "Hiring Processes",
+      "filter-button": {
+        "all": "All",
+        "open": "Open",
+        "closed": "Closed"
+      },
+      "new-process-modal": {
+        "text": "New Process",
+        "title": "Create new process"
+      }
     }
   }
 }

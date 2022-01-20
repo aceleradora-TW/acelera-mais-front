@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { client } from '../../service'
 import showFeature from '../../utils/feature-toggle'
 import { isAdmin } from '../../utils/isAdmin'
+import { useTranslation } from 'react-i18next'
 
 const HiringProcessPage = () => {
   const [hiringProcesses, setHiringProcesses] = useState([])
@@ -34,7 +35,7 @@ const HiringProcessPage = () => {
         <h1>Processos seletivos</h1>
         {showFeature()
           ? (<div>
-            <Button classe="button-filter" text="Todos" onClick={handleSubmit} />
+            <Button classe="button-filter" text={useTranslation('hiring-process.filter-button.all')} onClick={handleSubmit} />
             <Button classe="button-filter" text="Abertos" onClick={handleSubmit} />
             <Button classe="button-filter" text="Fechados" onClick={handleSubmit} />
           </div>)
