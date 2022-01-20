@@ -72,7 +72,7 @@ export const Buttons = styled.div`
 `
 export const TypeContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 `
 export const ScoreContainer = styled.div`
   textarea#message-text {

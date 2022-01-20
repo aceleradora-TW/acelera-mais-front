@@ -50,7 +50,7 @@ const EvaluationChallenge = () => {
       <Buttons>
 
         <DefaultButton text="Cancelar" onClick={handleCancel} />
-        <Modal classe={'button-primary'} text="Avaliar" title="Avaliação" disabled={disableEvaluationButton} >
+        <Modal classe={'primary'} text="Avaliar" title="Avaliação" disabled={disableEvaluationButton} >
 
           <Score exercise={exercise} />
 
