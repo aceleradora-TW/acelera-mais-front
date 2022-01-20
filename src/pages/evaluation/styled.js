@@ -69,10 +69,19 @@ export const Buttons = styled.div`
   display: flex;
   justify-content: right;
   margin-top: 20px;
+  
+  .primary {
+    margin-left: 10px;
+  }
 `
 export const TypeContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
+
+  Select {
+    margin-right: 10px;
+  }  
 `
 export const ScoreContainer = styled.div`
   textarea#message-text {
