@@ -65,12 +65,12 @@ h2 {
   color: rgb(149, 149, 149);
 }
 `
-export const Buttons = styled.div`
+export const ContainerButtons = styled.div`
   display: flex;
   justify-content: right;
   margin-top: 20px;
   
-  .primary {
+  & > .primary {
     margin-left: 10px;
   }
 `
@@ -78,11 +78,12 @@ export const TypeContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-
-  Select {
-    margin-right: 10px;
-  }  
+  
+  & > .sucess {
+    margin-left: 10px;
+  }
 `
+
 export const ScoreContainer = styled.div`
   textarea#message-text {
     display: block;

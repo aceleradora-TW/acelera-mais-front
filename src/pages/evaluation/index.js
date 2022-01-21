@@ -8,7 +8,7 @@ import { client } from '../../service'
 import { Answer } from './components/answer/answer'
 import { Header } from './components/header/header.js'
 import { Score } from './components/select-note/select-note'
-import { Container, Download, Buttons, Anchor } from './styled'
+import { Container, Download, ContainerButtons, Anchor } from './styled'
 
 const EvaluationChallenge = () => {
   const [exercise, setExercise] = useState(null)
@@ -47,7 +47,7 @@ const EvaluationChallenge = () => {
 
       <Answer exercise={exercise} />
 
-      <Buttons>
+      <ContainerButtons>
 
         <DefaultButton text="Cancelar" onClick={handleCancel} />
         <Modal classe={'primary'} text="Avaliar" title="Avaliação" disabled={disableEvaluationButton} >
@@ -56,7 +56,7 @@ const EvaluationChallenge = () => {
 
         </Modal>
 
-      </Buttons>
+      </ContainerButtons>
 
     </Container >
   )
