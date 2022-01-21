@@ -6,6 +6,14 @@
       "userPwdAlert": "Username or password is invalid!",
       "loginButton": "Login",
       "fillAlert": "Fill in the email and password field, please! "
+    },
+    "hiringProcess": {
+      "importGoogleSheet": {
+        "name": "Name",
+        "sendButton": "Send",
+        "putUrl": "Enter the spreadsheet URL",
+        "saveMensage": "Saved successfully! Quantity of imports: {{value}}"
+      }
     }
   }
 }

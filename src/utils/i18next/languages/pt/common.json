@@ -6,6 +6,14 @@
       "userPwdAlert": "Usuário ou senha inválidos!",
       "loginButton": "Iniciar sessão",
       "fillAlert": "Preencha o campo de e-mail e senha, por favor! "
+    },
+    "hiringProcess": {
+      "importGoogleSheet":{
+        "name": "Nome",
+        "sendButton": "Enviar",
+        "putUrl": "Insira a URL da planilha",
+        "saveMensage": "Salvo com sucesso! Quantidade de importações: {{value}}"
+      }
     }
   }
 }
