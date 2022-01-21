@@ -41,7 +41,7 @@ const HiringProcessPage = () => {
             <Button classe="button-filter" text={t('hiring-process.filter.closed')} onClick={handleSubmit} />
           </div>)
           : null}
-        {isAdmin() && <Modal icon={faPlus} classe='button primary' text={t('hiring-process.modal.text')} title={t('hiring-process.modal.title')}>
+        {isAdmin() && <Modal icon={faPlus} classe='button primary' text={t('hiring-process.new-process.text')} title={t('hiring-process.new-process.title')}>
           <HiringProcessForm callback={handleSubmit} />
         </Modal>}
       </section>

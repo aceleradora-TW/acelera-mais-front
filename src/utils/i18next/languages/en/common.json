@@ -14,9 +14,35 @@
         "open": "Open",
         "closed": "Closed"
       },
-      "modal": {
+      "new-process": {
         "text": "New process",
         "title": "Create new process"
+      },
+      "import": {
+        "candidates": {
+          "label": "Import",
+          "title": "Import candidates data",
+          "reminder": "Obs: To finish the integration, share the email: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com",
+          "text": "Import candidates"
+        },
+        "challenges": {
+          "label": "Import",
+          "title": "Import candidates challenges",
+          "reminder": "Obs: To finish the integration, share the email: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com",
+          "text": "Import challenges"
+        }
+      },
+      "export": {
+        "download": "Download csv file",
+        "text": "Export data"
+      },
+      "list": {
+        "thead": {
+          "title": "Process",
+          "start": "Start Date",
+          "actions": "Actions"
+        },
+        "delete": "Are you sure you want to delete this item?"
       }
     }
   }

@@ -17,8 +17,10 @@ import showFeature from '../../../../utils/feature-toggle'
 import { Container, HiringProcessTable } from './styles'
 import { hiringProcessAdapter } from '../../adapter/hiring-process-adapter'
 import { isAdmin } from '../../../../utils/isAdmin'
+import { useTranslation } from 'react-i18next'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
+  const { t } = useTranslation()
   const [csv, setCSV] = useState('')
 
   const handleExport = (id) => {
@@ -38,7 +40,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   const handleDelete = async (id) => {
     try {
-      const answer = confirm('Deseja excluir o item?')
+      const answer = confirm(t('hiring-process.list.delete'))
       if (answer === false) return
       client.delete(`/hiring_process/${id}`)
       const newProcesses = processes.filter(process => process.id !== id)
@@ -62,10 +64,10 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
       <HiringProcessTable>
         <thead>
           <tr>
-            <th>Processo</th>
+            <th>{t('hiring-process.list.thead.title')}</th>
             <th>Status</th>
-            <th>Data de início</th>
-            <th colSpan="6">Ações</th>
+            <th>{t('hiring-process.list.thead.start')}</th>
+            <th colSpan="6">{t('hiring-process.list.thead.actions')}</th>
           </tr>
         </thead>
         <tbody>
@@ -81,11 +83,11 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               {isAdmin() && <td>
                 <Modal
                   icon={faUpload}
-                  label="Importar"
-                  title="Importar dados das candidatas"
-                  reminder="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
+                  label={t('hiring-process.import.candidates.label')}
+                  title={t('hiring-process.import.candidates.title')}
+                  reminder={t('hiring-process.import.candidates.reminder')}
                   classe="button default"
-                  text="Importar candidatas"
+                  text={t('hiring-process.import.candidates.text')}
                 >
                   <ImportGoogleSheet
                     id={process.id}
@@ -96,11 +98,11 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               {isAdmin() && <td>
                 <Modal
                   icon={faUpload}
-                  label="Importar"
-                  title="Importar desafios das candidatas"
-                  reminder="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
+                  label={t('hiring-process.import.challenges.label')}
+                  title={t('hiring-process.import.challenges.title')}
+                  reminder={t('hiring-process.import.challenges.reminder')}
                   classe="button default"
-                  text="Importar desafios"
+                  text={t('hiring-process.import.challenges.text')}
                 >
                   <ImportGoogleSheet
                     id={process.id}
@@ -111,10 +113,10 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               {isAdmin() && <><td>
                 <Modal
                   icon={faDownload}
-                  label="Download arquivo csv"
-                  title="Download arquivo csv"
+                  label={t('hiring-process.export.download')}
+                  title={t('hiring-process.export.download')}
                   classe="button default"
-                  text="Exportar Dados"
+                  text={t('hiring-process.export.text')}
                   callback={handleExport(process.id)}
                 >
                   {csv}

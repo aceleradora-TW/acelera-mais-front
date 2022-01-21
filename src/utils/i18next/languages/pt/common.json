@@ -14,9 +14,35 @@
         "open": "Abertos",
         "closed": "Fechados"
       },
-      "modal": {
+      "new-process": {
         "text": "Novo processo",
         "title": "Criar novo processo"
+      },
+      "import": {
+        "candidates": {
+          "label": "Importar",
+          "title": "Importar dados das candidatas",
+          "reminder": "Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com",
+          "text": "Importar candidatas"
+        },
+        "challenges": {
+          "label": "Importar",
+          "title": "Importar desafios das candidatas",
+          "reminder": "Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com",
+          "text": "Importar desafios"
+        }
+      },
+      "export": {
+        "download": "Download arquivo csv",
+        "text": "Exportar dados"
+      },
+      "list": {
+        "delete": "Deseja excluir o item?",
+        "thead": {
+          "title": "Processo",
+          "start": "Data de início",
+          "actions": "Ações"
+        }
       }
     }
   }
