@@ -3,7 +3,11 @@ import { StyledSpan } from './styles'
 import { useTranslation } from 'react-i18next'
 
 export const Status = ({
-  status
+  status, options = {
+    opened: 'Aberto',
+    closed: 'Fechado',
+    prepairing: 'Em preparação'
+  }
 }) => {
   const { t } = useTranslation()
 
