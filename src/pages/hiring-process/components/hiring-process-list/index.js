@@ -40,7 +40,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   const handleDelete = async (id) => {
     try {
-      const answer = confirm(t('hiring-process.list.delete'))
+      const answer = confirm(t('hiringProcess.delete'))
       if (answer === false) return
       client.delete(`/hiring_process/${id}`)
       const newProcesses = processes.filter(process => process.id !== id)
@@ -64,10 +64,10 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
       <HiringProcessTable>
         <thead>
           <tr>
-            <th>{t('hiring-process.list.thead.title')}</th>
+            <th>{t('hiringProcess.thead.title')}</th>
             <th>Status</th>
-            <th>{t('hiring-process.list.thead.start')}</th>
-            <th colSpan="6">{t('hiring-process.list.thead.actions')}</th>
+            <th>{t('hiringProcess.thead.start')}</th>
+            <th colSpan="6">{t('hiringProcess.thead.actions')}</th>
           </tr>
         </thead>
         <tbody>
@@ -83,11 +83,11 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               {isAdmin() && <td>
                 <Modal
                   icon={faUpload}
-                  label={t('hiring-process.import.candidates.label')}
-                  title={t('hiring-process.import.candidates.title')}
-                  reminder={t('hiring-process.import.candidates.reminder')}
+                  label="Importar"
+                  title={t('hiringProcess.import.candidates.title')}
+                  reminder={t('hiringProcess.import.candidates.reminder')}
                   classe="button default"
-                  text={t('hiring-process.import.candidates.text')}
+                  text={t('hiringProcess.import.candidates.text')}
                 >
                   <ImportGoogleSheet
                     id={process.id}
@@ -98,11 +98,11 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               {isAdmin() && <td>
                 <Modal
                   icon={faUpload}
-                  label={t('hiring-process.import.challenges.label')}
-                  title={t('hiring-process.import.challenges.title')}
-                  reminder={t('hiring-process.import.challenges.reminder')}
+                  label="Importar"
+                  title={t('hiringProcess.import.challenges.title')}
+                  reminder={t('hiringProcess.import.challenges.reminder')}
                   classe="button default"
-                  text={t('hiring-process.import.challenges.text')}
+                  text={t('hiringProcess.import.challenges.text')}
                 >
                   <ImportGoogleSheet
                     id={process.id}
@@ -113,10 +113,10 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               {isAdmin() && <><td>
                 <Modal
                   icon={faDownload}
-                  label={t('hiring-process.export.download')}
-                  title={t('hiring-process.export.download')}
+                  label="Download arquivo csv"
+                  title={t('hiringProcess.export.download')}
                   classe="button default"
-                  text={t('hiring-process.export.text')}
+                  text={t('hiringProcess.export.text')}
                   callback={handleExport(process.id)}
                 >
                   {csv}
@@ -126,9 +126,9 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               {isAdmin() && <td>
                 <Modal
                   label="Editar"
-                  title="Editar processos seletivos"
+                  title={t('hiringProcess.edit.title')}
                   classe="button action"
-                  text="Editar">
+                  text={t('hiringProcess.edit.text')}>
                   <HiringProcessForm
                     callback={handleEdit}
                     method="PATCH"
@@ -140,7 +140,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   <DefaultButton
                     icon={faAngleDown}
                     classe="button default"
-                    text="Ver mais"
+                    text={t('hiringProcess.show-more')}
                   />
                 </td>)
                 : null}

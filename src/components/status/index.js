@@ -1,21 +1,20 @@
 import { React } from 'react'
 import { StyledSpan } from './styles'
+import { useTranslation } from 'react-i18next'
 
 export const Status = ({
-  status, options = {
-    opened: 'Aberto',
-    closed: 'Fechado',
-    prepairing: 'Em preparação'
-  }
+  status
 }) => {
-  let label = options.closed
+  const { t } = useTranslation()
+
+  let label = t('hiringProcess.status.closed')
 
   if (status === 'status-opened') {
-    label = options.opened
+    label = t('hiringProcess.status.open')
   }
 
   if (status === 'status-preparing') {
-    label = options.prepairing
+    label = t('hiringProcess.status.preparing')
   }
   return (
     <StyledSpan className={status}>{label}</StyledSpan>

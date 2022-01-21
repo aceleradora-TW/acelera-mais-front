@@ -7,8 +7,15 @@
       "loginButton": "Iniciar sessão",
       "fillAlert": "Preencha o campo de e-mail e senha, por favor! "
     },
-    "hiring-process": {
+    "hiringProcess": {
       "title": "Processos seletivos",
+      "form": {
+        "name": "Nome",
+        "startDate": "Data de início",
+        "endDate": "Data de término",
+        "description": "Descrição",
+        "submitButton": "Enviar"
+      },
       "filter": {
         "all": "Todos",
         "open": "Abertos",
@@ -18,15 +25,23 @@
         "text": "Novo processo",
         "title": "Criar novo processo"
       },
+      "thead": {
+        "title": "Processo",
+        "start": "Data de início",
+        "actions": "Ações"
+      },
+      "status": {
+        "open": "Aberto",
+        "closed": "Fechado",
+        "preparing": "Em preparação"
+      },
       "import": {
         "candidates": {
-          "label": "Importar",
           "title": "Importar dados das candidatas",
           "reminder": "Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com",
           "text": "Importar candidatas"
         },
         "challenges": {
-          "label": "Importar",
           "title": "Importar desafios das candidatas",
           "reminder": "Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com",
           "text": "Importar desafios"
@@ -36,14 +51,12 @@
         "download": "Download arquivo csv",
         "text": "Exportar dados"
       },
-      "list": {
-        "delete": "Deseja excluir o item?",
-        "thead": {
-          "title": "Processo",
-          "start": "Data de início",
-          "actions": "Ações"
-        }
-      }
+      "edit": {
+        "text": "Editar",
+        "title": "Editar processo seletivo"
+      },
+      "showMore": "Ver mais",
+      "delete": "Deseja excluir o item?"
     }
   }
 }

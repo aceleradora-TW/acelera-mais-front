@@ -7,8 +7,15 @@
       "loginButton": "Login",
       "fillAlert": "Fill in the email and password field, please! "
     },
-    "hiring-process": {
-      "title": "Hiring Processes",
+    "hiringProcess": {
+      "title": "Hiring processes",
+      "form": {
+        "name": "Name",
+        "startDate": "Start date",
+        "endDate": "End date",
+        "description": "Description",
+        "submitButton": "Send"
+      },
       "filter": {
         "all": "All",
         "open": "Open",
@@ -18,32 +25,38 @@
         "text": "New process",
         "title": "Create new process"
       },
+      "thead": {
+        "title": "Process",
+        "start": "Start date",
+        "actions": "Actions"
+      },
+      "status": {
+        "open": "Open",
+        "closed": "Closed",
+        "preparing": "Preparing"
+      },
       "import": {
         "candidates": {
-          "label": "Import",
+          "text": "Import candidates",
           "title": "Import candidates data",
-          "reminder": "Obs: To finish the integration, share the email: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com",
-          "text": "Import candidates"
+          "reminder": "Obs: To finish the integration, share the email: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
         },
         "challenges": {
-          "label": "Import",
+          "text": "Import challenges",
           "title": "Import candidates challenges",
-          "reminder": "Obs: To finish the integration, share the email: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com",
-          "text": "Import challenges"
+          "reminder": "Obs: To finish the integration, share the email: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
         }
       },
       "export": {
         "download": "Download csv file",
         "text": "Export data"
       },
-      "list": {
-        "thead": {
-          "title": "Process",
-          "start": "Start Date",
-          "actions": "Actions"
-        },
-        "delete": "Are you sure you want to delete this item?"
-      }
+      "edit": {
+        "text": "Edit",
+        "title": "Edit hiring process"
+      },
+      "showMore": "Show more",
+      "delete": "Are you sure you want to delete this item?"
     }
   }
 }
