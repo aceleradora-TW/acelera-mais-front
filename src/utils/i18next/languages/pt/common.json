@@ -8,8 +8,7 @@
       "fillAlert": "Preencha o campo de e-mail e senha, por favor! "
     },
     "hiringProcess": {
-      "importGoogleSheet":{
-        "name": "Nome",
+      "importGoogleSheet": {
         "sendButton": "Enviar",
         "putUrl": "Insira a URL da planilha",
         "saveMensage": "Salvo com sucesso! Quantidade de importações: {{value}}"

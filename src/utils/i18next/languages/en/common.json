@@ -9,7 +9,6 @@
     },
     "hiringProcess": {
       "importGoogleSheet": {
-        "name": "Name",
         "sendButton": "Send",
         "putUrl": "Enter the spreadsheet URL",
         "saveMensage": "Saved successfully! Quantity of imports: {{value}}"
