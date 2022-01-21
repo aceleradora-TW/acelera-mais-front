@@ -7,14 +7,14 @@ export const Status = ({
 }) => {
   const { t } = useTranslation()
 
-  let label = t('hiringProcess.status.closed')
+  let label = t('status.closed')
 
   if (status === 'status-opened') {
-    label = t('hiringProcess.status.open')
+    label = t('status.open')
   }
 
   if (status === 'status-preparing') {
-    label = t('hiringProcess.status.preparing')
+    label = t('status.preparing')
   }
   return (
     <StyledSpan className={status}>{label}</StyledSpan>
