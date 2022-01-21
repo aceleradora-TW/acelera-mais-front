@@ -12,6 +12,7 @@ import { isAdmin } from '../../utils/isAdmin'
 import { useTranslation } from 'react-i18next'
 
 const HiringProcessPage = () => {
+  const { t } = useTranslation()
   const [hiringProcesses, setHiringProcesses] = useState([])
   const navigate = useNavigate()
 
@@ -35,12 +36,12 @@ const HiringProcessPage = () => {
         <h1>Processos seletivos</h1>
         {showFeature()
           ? (<div>
-            <Button classe="button-filter" text={useTranslation('hiring-process.filter-button.all')} onClick={handleSubmit} />
-            <Button classe="button-filter" text="Abertos" onClick={handleSubmit} />
-            <Button classe="button-filter" text="Fechados" onClick={handleSubmit} />
+            <Button classe="button-filter" text={t('hiring-process.filter.all')} onClick={handleSubmit} />
+            <Button classe="button-filter" text={t('hiring-process.filter.open')} onClick={handleSubmit} />
+            <Button classe="button-filter" text={t('hiring-process.filter.closed')} onClick={handleSubmit} />
           </div>)
           : null}
-        {isAdmin() && <Modal icon={faPlus} classe='button primary' text="Novo processo" title="Criar novo processo">
+        {isAdmin() && <Modal icon={faPlus} classe='button primary' text={t('hiring-process.modal.text')} title={t('hiring-process.modal.title')}>
           <HiringProcessForm callback={handleSubmit} />
         </Modal>}
       </section>

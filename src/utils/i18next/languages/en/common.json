@@ -9,13 +9,13 @@
     },
     "hiring-process": {
       "title": "Hiring Processes",
-      "filter-button": {
+      "filter": {
         "all": "All",
         "open": "Open",
         "closed": "Closed"
       },
-      "new-process-modal": {
-        "text": "New Process",
+      "modal": {
+        "text": "New process",
         "title": "Create new process"
       }
     }

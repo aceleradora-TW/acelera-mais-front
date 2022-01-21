@@ -9,12 +9,12 @@
     },
     "hiring-process": {
       "title": "Processos seletivos",
-      "filter-button": {
+      "filter": {
         "all": "Todos",
         "open": "Abertos",
         "closed": "Fechados"
       },
-      "new-process-modal": {
+      "modal": {
         "text": "Novo processo",
         "title": "Criar novo processo"
       }
