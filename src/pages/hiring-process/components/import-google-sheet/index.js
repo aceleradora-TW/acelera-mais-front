@@ -29,9 +29,8 @@ export const ImportGoogleSheet = ({ id = '', endpoint = '' }) => {
   }
   return (
     <>
-      <InputText name="name" label="Insira a URL da planilha:" onChange={onChange} />
-      <PrimaryButton text='Enviar' onClick={handleImport}>{t('hiringProcess.sendButton')}
-      </PrimaryButton>
+      <InputText name="name" label={t('hiringProcess.importGoogleSheet.putUrl')} onChange={onChange} />
+      <PrimaryButton text={t('hiringProcess.importGoogleSheet.sendButton')} onClick={handleImport} />
     </>
   )
 }
