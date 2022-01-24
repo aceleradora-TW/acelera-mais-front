@@ -8,6 +8,11 @@
       "fillAlert": "Fill in the email and password field, please! "
     },
     "hiringProcess": {
+      "importGoogleSheet": {
+        "sendButton": "Send",
+        "putUrl": "Enter the spreadsheet URL",
+        "saveMensage": "Saved successfully! Quantity of imports: {{value}}"
+      },
       "title": "Hiring processes",
       "form": {
         "name": "Name",
@@ -57,11 +62,6 @@
       "open": "Open",
       "closed": "Closed",
       "preparing": "Preparing"
-    },
-    "importGoogleSheet": {
-      "sendButton": "Send",
-      "putUrl": "Enter the spreadsheet URL",
-      "saveMensage": "Saved successfully! Quantity of imports: {{value}}"
     }
   }
 }
