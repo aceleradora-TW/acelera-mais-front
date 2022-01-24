@@ -57,6 +57,11 @@
       "open": "Open",
       "closed": "Closed",
       "preparing": "Preparing"
+    },
+    "importGoogleSheet": {
+      "sendButton": "Send",
+      "putUrl": "Enter the spreadsheet URL",
+      "saveMensage": "Saved successfully! Quantity of imports: {{value}}"
     }
   }
 }
