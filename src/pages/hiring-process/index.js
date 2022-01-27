@@ -9,8 +9,10 @@ import { useNavigate } from 'react-router-dom'
 import { client } from '../../service'
 import showFeature from '../../utils/feature-toggle'
 import { isAdmin } from '../../utils/isAdmin'
+import { useTranslation } from 'react-i18next'
 
 const HiringProcessPage = () => {
+  const { t } = useTranslation()
   const [hiringProcesses, setHiringProcesses] = useState([])
   const navigate = useNavigate()
 
@@ -31,15 +33,15 @@ const HiringProcessPage = () => {
   return (
     <div className="page-container">
       <section>
-        <h1>Processos seletivos</h1>
+        <h1>{t('hiringProcess.title')}</h1>
         {showFeature()
           ? (<div>
-            <Button classe="button-filter" text="Todos" onClick={handleSubmit} />
-            <Button classe="button-filter" text="Abertos" onClick={handleSubmit} />
-            <Button classe="button-filter" text="Fechados" onClick={handleSubmit} />
+            <Button classe="button-filter" text={t('hiringProcess.filter.all')} onClick={handleSubmit} />
+            <Button classe="button-filter" text={t('hiringProcess.filter.open')} onClick={handleSubmit} />
+            <Button classe="button-filter" text={t('hiringProcess.filter.closed')} onClick={handleSubmit} />
           </div>)
           : null}
-        {isAdmin() && <Modal icon={faPlus} classe='button primary' text="Novo processo" title="Criar novo processo">
+        {isAdmin() && <Modal icon={faPlus} classe='button primary' text={t('hiringProcess.new-process.text')} title={t('hiringProcess.new-process.title')}>
           <HiringProcessForm callback={handleSubmit} />
         </Modal>}
       </section>

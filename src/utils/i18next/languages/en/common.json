@@ -12,7 +12,56 @@
         "sendButton": "Send",
         "putUrl": "Enter the spreadsheet URL",
         "saveMensage": "Saved successfully! Quantity of imports: {{value}}"
-      }
+      },
+      "title": "Hiring processes",
+      "form": {
+        "name": "Name",
+        "startDate": "Start date",
+        "endDate": "End date",
+        "description": "Description",
+        "submitButton": "Send"
+      },
+      "filter": {
+        "all": "All",
+        "open": "Open",
+        "closed": "Closed"
+      },
+      "new-process": {
+        "text": "New process",
+        "title": "Create new process"
+      },
+      "thead": {
+        "title": "Process",
+        "start": "Start date",
+        "actions": "Actions"
+      },
+      "import": {
+        "candidates": {
+          "text": "Import candidates",
+          "title": "Import candidates data",
+          "reminder": "Obs: To finish the integration, share the email: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
+        },
+        "challenges": {
+          "text": "Import challenges",
+          "title": "Import candidates challenges",
+          "reminder": "Obs: To finish the integration, share the email: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
+        }
+      },
+      "export": {
+        "download": "Download csv file",
+        "text": "Export data"
+      },
+      "edit": {
+        "text": "Edit",
+        "title": "Edit hiring process"
+      },
+      "showMore": "Show more",
+      "delete": "Are you sure you want to delete this item?"
+    },
+    "status": {
+      "open": "Open",
+      "closed": "Closed",
+      "preparing": "Preparing"
     }
   }
 }

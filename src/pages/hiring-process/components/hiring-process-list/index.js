@@ -17,8 +17,10 @@ import showFeature from '../../../../utils/feature-toggle'
 import { Container, HiringProcessTable } from './styles'
 import { hiringProcessAdapter } from '../../adapter/hiring-process-adapter'
 import { isAdmin } from '../../../../utils/isAdmin'
+import { useTranslation } from 'react-i18next'
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
+  const { t } = useTranslation()
   const [csv, setCSV] = useState('')
 
   const handleExport = (id) => {
@@ -38,7 +40,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   const handleDelete = async (id) => {
     try {
-      const answer = confirm('Deseja excluir o item?')
+      const answer = confirm(t('hiringProcess.delete'))
       if (answer === false) return
       client.delete(`/hiring_process/${id}`)
       const newProcesses = processes.filter(process => process.id !== id)
@@ -62,10 +64,10 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
       <HiringProcessTable>
         <thead>
           <tr>
-            <th>Processo</th>
+            <th>{t('hiringProcess.thead.title')}</th>
             <th>Status</th>
-            <th>Data de início</th>
-            <th colSpan="6">Ações</th>
+            <th>{t('hiringProcess.thead.start')}</th>
+            <th colSpan="6">{t('hiringProcess.thead.actions')}</th>
           </tr>
         </thead>
         <tbody>
@@ -82,10 +84,10 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 <Modal
                   icon={faUpload}
                   label="Importar"
-                  title="Importar dados das candidatas"
-                  reminder="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
+                  title={t('hiringProcess.import.candidates.title')}
+                  reminder={t('hiringProcess.import.candidates.reminder')}
                   classe="button default"
-                  text="Importar candidatas"
+                  text={t('hiringProcess.import.candidates.text')}
                 >
                   <ImportGoogleSheet
                     id={process.id}
@@ -97,10 +99,10 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 <Modal
                   icon={faUpload}
                   label="Importar"
-                  title="Importar desafios das candidatas"
-                  reminder="Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com"
+                  title={t('hiringProcess.import.challenges.title')}
+                  reminder={t('hiringProcess.import.challenges.reminder')}
                   classe="button default"
-                  text="Importar desafios"
+                  text={t('hiringProcess.import.challenges.text')}
                 >
                   <ImportGoogleSheet
                     id={process.id}
@@ -112,9 +114,9 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 <Modal
                   icon={faDownload}
                   label="Download arquivo csv"
-                  title="Download arquivo csv"
+                  title={t('hiringProcess.export.download')}
                   classe="button default"
-                  text="Exportar Dados"
+                  text={t('hiringProcess.export.text')}
                   callback={handleExport(process.id)}
                 >
                   {csv}
@@ -124,9 +126,9 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               {isAdmin() && <td>
                 <Modal
                   label="Editar"
-                  title="Editar processos seletivos"
+                  title={t('hiringProcess.edit.title')}
                   classe="button action"
-                  text="Editar">
+                  text={t('hiringProcess.edit.text')}>
                   <HiringProcessForm
                     callback={handleEdit}
                     method="PATCH"
@@ -138,7 +140,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   <DefaultButton
                     icon={faAngleDown}
                     classe="button default"
-                    text="Ver mais"
+                    text={t('hiringProcess.show-more')}
                   />
                 </td>)
                 : null}

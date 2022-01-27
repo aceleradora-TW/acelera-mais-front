@@ -8,11 +8,60 @@
       "fillAlert": "Preencha o campo de e-mail e senha, por favor! "
     },
     "hiringProcess": {
-      "importGoogleSheet": {
-        "sendButton": "Enviar",
-        "putUrl": "Insira a URL da planilha",
-        "saveMensage": "Salvo com sucesso! Quantidade de importações: {{value}}"
-      }
+      "title": "Processos seletivos",
+      "form": {
+        "name": "Nome",
+        "startDate": "Data de início",
+        "endDate": "Data de término",
+        "description": "Descrição",
+        "submitButton": "Enviar"
+      },
+      "filter": {
+        "all": "Todos",
+        "open": "Abertos",
+        "closed": "Fechados"
+      },
+      "new-process": {
+        "text": "Novo processo",
+        "title": "Criar novo processo"
+      },
+      "thead": {
+        "title": "Processo",
+        "start": "Data de início",
+        "actions": "Ações"
+      },
+      "import": {
+        "candidates": {
+          "title": "Importar dados das candidatas",
+          "reminder": "Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com",
+          "text": "Importar candidatas"
+        },
+        "challenges": {
+          "title": "Importar desafios das candidatas",
+          "reminder": "Obs: Para finalizar a integração, compartilhe o e-mail: acelera-mais@aceleradora-agil-331516.iam.gserviceaccount.com",
+          "text": "Importar desafios"
+        }
+      },
+      "export": {
+        "download": "Download arquivo csv",
+        "text": "Exportar dados"
+      },
+      "edit": {
+        "text": "Editar",
+        "title": "Editar processo seletivo"
+      },
+      "showMore": "Ver mais",
+      "delete": "Deseja excluir o item?"
+    },
+    "status": {
+      "open": "Aberto",
+      "closed": "Fechado",
+      "preparing": "Em preparação"
+    },
+    "importGoogleSheet": {
+      "sendButton": "Enviar",
+      "putUrl": "Insira a URL da planilha",
+      "saveMensage": "Salvo com sucesso! Quantidade de importações: {{value}}"
     }
   }
 }
