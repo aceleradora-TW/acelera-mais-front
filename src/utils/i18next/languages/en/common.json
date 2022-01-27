@@ -62,6 +62,12 @@
       "open": "Open",
       "closed": "Closed",
       "preparing": "Preparing"
+    },
+    "exercise":{
+      "toggle-row" :{
+        "evaluate" : "Evaluate",
+        "type" : "Undefined"
+      }
     }
   }
 }

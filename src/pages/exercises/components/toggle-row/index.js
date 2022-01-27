@@ -6,6 +6,7 @@ import { Status } from '../../../../components/status'
 import { client } from '../../../../service'
 import { useNavigate } from 'react-router-dom'
 import { Tr } from './styled'
+import { useTranslation } from 'react-i18next'
 
 const statusEnum = {
   PREPARING: 'status-preparing',
@@ -47,6 +48,7 @@ const isPreparing = ({ status }, mentorName, mentorNameLocal) => {
 }
 
 export const ToggleRow = ({ item }) => {
+  const { t } = useTranslation()
   const [checked, setChecked] = useState(false)
   const navigate = useNavigate()
   const [mentorNameLocal] = useState(localStorage.getItem('mentorName'))
@@ -68,7 +70,7 @@ export const ToggleRow = ({ item }) => {
     <>
       <Tr>
         <td>{item.exercise}</td>
-        <td>{item.type ? item.type : 'Não definido'}</td>
+        <td>{item.type ? item.type : t('exercise.toggle-row.type')}</td>
         <td className='options' colSpan='2'>
           {!isOpened(item)
             ? <Status
@@ -80,7 +82,7 @@ export const ToggleRow = ({ item }) => {
               }} />
             : null}
           <ActionButton
-            text={'Avaliar'}
+            text={t('exercise.toggle-row.evaluate')}
             icon={faPen}
             disabled={isClosed({ status: getStatus(item) }) || isPreparing({ status: getStatus(item) }, item.evaluation.mentorName, mentorNameLocal)}
             onClick={handleSubmit} />
