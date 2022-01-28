@@ -23,6 +23,8 @@ const getStatus = (item) => {
   return statusEnum.OPENED
 }
 
+const isPrepared = ({ status }) => status === statusEnum.PREPARING
+
 const isClosedOrPreparing = ({ status }) => {
   if (status === statusEnum.PREPARING || status === statusEnum.CLOSED) return true
   return false
@@ -42,10 +44,8 @@ const isClosed = ({ status }) => {
   return false
 }
 
-const isPreparing = ({ status }, mentorName, mentorNameLocal) => {
-  if (status === statusEnum.PREPARING && mentorName !== mentorNameLocal) return true
-  return false
-}
+const isPreparing = ({ status, currentMentor, actualMentor }) =>
+  isPrepared({ status }) && currentMentor !== actualMentor
 
 export const ToggleRow = ({ item }) => {
   const { t } = useTranslation()
@@ -92,7 +92,11 @@ export const ToggleRow = ({ item }) => {
           <ActionButton
             text={t('exercise.toggleRow.evaluate')}
             icon={faPen}
-            disabled={isClosed({ status: getStatus(item) }) || isPreparing({ status: getStatus(item) }, item.evaluation.mentorName, mentorNameLocal)}
+            disabled={isClosed({ status: getStatus(item) }) || isPreparing({
+              status: getStatus(item),
+              currentMentor: item.evaluation.mentorName,
+              actualMentor: mentorNameLocal
+            })}
             onClick={handleSubmit} />
         </td>
         <td className='avaliator-col'>{
