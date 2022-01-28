@@ -62,6 +62,16 @@
       "open": "Open",
       "closed": "Closed",
       "preparing": "Preparing"
+    },
+    "evaluation": {
+      "tittle" : "Evaluation",
+      "answer" : "Submitted answers:",
+      "cancel" : "Cancel",
+      "evaluate" : "Evaluate",
+      "score" : {
+        "tittle" : "Note",
+        "placeholder" : ""
+      }
     }
   }
 }

@@ -8,10 +8,12 @@ import { Answer } from './components/answer/answer'
 import { Header } from './components/header/header.js'
 import { Score } from './components/select-note/select-note'
 import { Container, Download, ContainerButtons, Anchor } from './styled'
+import { useTranslation } from 'react-i18next'
 
 const EvaluationChallenge = () => {
   const [exercise, setExercise] = useState(null)
   const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
+  const { t } = useTranslation()
 
   const id = window.location.pathname.split('/')[2]
 
@@ -48,8 +50,8 @@ const EvaluationChallenge = () => {
 
       <ContainerButtons>
 
-        <DefaultButton text="Cancelar" onClick={handleCancel} />
-        <Modal classe={'primary'} text="Avaliar" title="Avaliação" disabled={disableEvaluationButton} >
+        <DefaultButton text={t('evaluation.cancel')} onClick={handleCancel} />
+        <Modal classe={'primary'} text={t('evaluation.evaluate')} title="Avaliação" disabled={disableEvaluationButton} >
 
           <Score exercise={exercise} />
 

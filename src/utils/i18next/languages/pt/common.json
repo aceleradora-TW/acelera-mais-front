@@ -62,6 +62,16 @@
       "sendButton": "Enviar",
       "putUrl": "Insira a URL da planilha",
       "saveMensage": "Salvo com sucesso! Quantidade de importações: {{value}}"
+    },
+    "evaluation": {
+      "tittle" : "Avaliação",
+      "answer" : "Respostas enviadas:",
+      "cancel" : "Cancelar",
+      "evaluate" : "Avaliar",
+      "score" : {
+        "tittle" : "Note",
+        "placeholder" : ""
+      }
     }
   }
 }

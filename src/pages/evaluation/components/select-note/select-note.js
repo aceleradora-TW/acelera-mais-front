@@ -3,10 +3,12 @@ import Select from '../../../../components/select'
 import { client } from '../../../../service'
 import PrimaryButton from '../../../../components/buttons/primary'
 import { ScoreContainer } from '../../styled'
+import { useTranslation } from 'react-i18next'
 
 export const Score = ({ exercise }) => {
   const [feedback, setFeedback] = useState('')
   const [score, setScore] = useState('')
+  const { t } = useTranslation()
 
   const evaluation = {
     feedback,
@@ -32,8 +34,8 @@ export const Score = ({ exercise }) => {
     <ScoreContainer>
 
       < Select
-        label="Nota:"
-        placeholder="Escolha uma nota"
+        label={t('evaluation.score.tittle')}
+        placeholder={t('evaluation.placeholder')}
         onChange={handleScore}
         options={
           [
