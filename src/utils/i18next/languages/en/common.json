@@ -59,14 +59,18 @@
       "delete": "Are you sure you want to delete this item?"
     },
     "status": {
-      "open": "Open",
+      "opened": "Open",
       "closed": "Closed",
       "preparing": "Preparing"
     },
     "exercise":{
-      "toggle-row" :{
+      "toggleRow" :{
         "evaluate" : "Evaluate",
-        "type" : "Undefined"
+        "type" : "Not defined",
+        "status" : {
+          "closed": "Closed by {{mentor}}",
+          "preparing": "Preparing by {{mentor}}"
+        }
       }
     }
   }

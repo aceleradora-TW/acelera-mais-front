@@ -70,19 +70,27 @@ export const ToggleRow = ({ item }) => {
     <>
       <Tr>
         <td>{item.exercise}</td>
-        <td>{item.type ? item.type : t('exercise.toggle-row.type')}</td>
+        <td>{item.type ? item.type : t('exercise.toggleRow.type')}</td>
         <td className='options' colSpan='2'>
           {!isOpened(item)
             ? <Status
               status={getStatus(item)}
               options={{
-                opened: 'Aberto',
-                closed: `Fechado por: ${item.evaluation.mentorName}`,
-                prepairing: `Em preparação por: ${item.evaluation.mentorName}`
+                opened: 'status.opened',
+                closed:
+                  t(
+                    'exercise.toggleRow.status.closed',
+                    { mentor: item.evaluation.mentorName }
+                  ),
+                preparing:
+                  t(
+                    'exercise.toggleRow.status.preparing',
+                    { mentor: item.evaluation.mentorName }
+                  )
               }} />
             : null}
           <ActionButton
-            text={t('exercise.toggle-row.evaluate')}
+            text={t('exercise.toggleRow.evaluate')}
             icon={faPen}
             disabled={isClosed({ status: getStatus(item) }) || isPreparing({ status: getStatus(item) }, item.evaluation.mentorName, mentorNameLocal)}
             onClick={handleSubmit} />

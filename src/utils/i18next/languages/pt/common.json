@@ -54,7 +54,7 @@
       "delete": "Deseja excluir o item?"
     },
     "status": {
-      "open": "Aberto",
+      "opened": "Aberto",
       "closed": "Fechado",
       "preparing": "Em preparação"
     },
@@ -64,9 +64,13 @@
       "saveMensage": "Salvo com sucesso! Quantidade de importações: {{value}}"
     },
     "exercise": {
-      "toggle-row" : {
+      "toggleRow" : {
         "evaluate" : "Avaliação",
-        "type" : "Não definido"
+        "type" : "Não definido",
+        "status" : {
+          "closed": "Fechado por {{mentor}}",
+          "preparing": "Em preparação por {{mentor}}"
+        }
       }
     }
   }
