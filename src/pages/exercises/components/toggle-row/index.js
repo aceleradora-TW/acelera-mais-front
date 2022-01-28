@@ -25,13 +25,13 @@ const getStatus = (item) => {
 
 const isPrepared = ({ status }) => status === statusEnum.PREPARING
 
-const isClosedOrPreparing = ({ status }) => isPrepared({ status }) || status === statusEnum.CLOSED
-
-const isPreparingOrOpened = ({ status }) => isPrepared({ status }) || status === statusEnum.OPENED
-
 const isOpened = ({ status }) => status === statusEnum.OPENED
 
 const isClosed = ({ status }) => status === statusEnum.CLOSED
+
+const isPreparingOrOpened = ({ status }) => isPrepared({ status }) || isOpened({ status })
+
+const isClosedOrPreparing = ({ status }) => isPrepared({ status }) || isClosed({ status })
 
 const isPreparing = ({ status, currentMentor, actualMentor }) =>
   isPrepared({ status }) && currentMentor !== actualMentor
