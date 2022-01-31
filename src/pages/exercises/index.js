@@ -16,7 +16,7 @@ export const ExercisesPage = () => {
                 { value: 'backend', label: 'Backend' },
                 { value: 'frontend', label: 'Frontend' },
                 { value: 'fullstack', label: 'Fullstack' }
-              ]} placeholder="Tipo" label="Filtrar:" name="type" onChange={() => { }} />
+              ]} placeholder={t('exercise.placeholder')} label="Filtrar:" name="type" onChange={() => { }} />
             </section>)
           : null}
         <ExercisesList />

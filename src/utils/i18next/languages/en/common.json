@@ -65,6 +65,13 @@
     },
     "exercise": {
       "title": "Exercise",
+      "placeholder": "Type",
+      "alert": "Could not load exercise list.",
+      "thead": {
+        "name": "Name",
+        "type": "Type",
+        "evaluator": "Evaluator"
+      },
       "toggleRow": {
         "evaluate": "Evaluate",
         "type": "Not defined",
