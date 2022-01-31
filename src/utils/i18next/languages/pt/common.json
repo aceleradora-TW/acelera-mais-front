@@ -64,6 +64,7 @@
       "preparing": "Em preparação"
     },
     "exercise": {
+      "title": "Exercícios",
       "toggleRow" : {
         "evaluate" : "Avaliação",
         "type" : "Não definido",

@@ -1,12 +1,14 @@
 import { ExercisesList } from '../../pages/exercises/components/exercises-list'
 import Select from '../../components/select'
 import showFeature from '../../utils/feature-toggle'
+import { useTranslation } from 'react-i18next'
 
 export const ExercisesPage = () => {
+  const { t } = useTranslation()
   return (
     <>
       <div className="page-container">
-        <h1>Exercícios</h1>
+        <h1>{t('exercise.title')}</h1>
         {showFeature()
           ? (
             <section>

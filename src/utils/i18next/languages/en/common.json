@@ -63,11 +63,12 @@
       "closed": "Closed",
       "preparing": "Preparing"
     },
-    "exercise":{
-      "toggleRow" :{
-        "evaluate" : "Evaluate",
-        "type" : "Not defined",
-        "status" : {
+    "exercise": {
+      "title": "Exercise",
+      "toggleRow": {
+        "evaluate": "Evaluate",
+        "type": "Not defined",
+        "status": {
           "closed": "Closed by {{mentor}}",
           "preparing": "Preparing by {{mentor}}"
         }
