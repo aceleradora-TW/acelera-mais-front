@@ -72,7 +72,8 @@
         "title": "Nota",
         "placeholder": "Escolha uma Nota",
         "sendButton": "Enviar Avaliação",
-        "alert": "Atualizado com sucesso!"
+        "alert": "Atualizado com sucesso!",
+        "placeholderTextarea": "Deixe aqui seu feedback."
       },
       "type": {
         "title": "Tipo",

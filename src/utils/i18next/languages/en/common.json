@@ -72,7 +72,8 @@
         "title": "Note",
         "placeholder": "Select a Note",
         "sendButton": "Send Evaluation",
-        "alert": "Successfully updated!"
+        "alert": "Successfully updated!",
+        "placeholderTextarea": "Leave your feedback here."
       },
       "type": {
         "title": "Type",

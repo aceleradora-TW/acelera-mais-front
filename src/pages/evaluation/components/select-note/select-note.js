@@ -47,7 +47,7 @@ export const Score = ({ exercise }) => {
             { label: 5, value: 5 }
           ]} ></Select >
 
-      <textarea label="mensagem" className="form-control" id="message-text" onChange={handleTextArea} ></textarea>
+      <textarea placeholder={t('evaluation.score.placeholderTextarea')} className="form-control" id="message-text" onChange={handleTextArea} ></textarea>
       <PrimaryButton text={t('evaluation.score.sendButton')} onClick={handleSubmit} />
 
     </ScoreContainer>
