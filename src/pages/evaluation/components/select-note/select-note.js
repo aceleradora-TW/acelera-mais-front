@@ -3,10 +3,12 @@ import Select from '../../../../components/select'
 import { client } from '../../../../service'
 import PrimaryButton from '../../../../components/buttons/primary'
 import { ScoreContainer } from '../../styled'
+import { useTranslation } from 'react-i18next'
 
 export const Score = ({ exercise }) => {
   const [feedback, setFeedback] = useState('')
   const [score, setScore] = useState('')
+  const { t } = useTranslation()
 
   const evaluation = {
     feedback,
@@ -24,7 +26,7 @@ export const Score = ({ exercise }) => {
   const handleSubmit = () => {
     const id = exercise.evaluation.id
     client.patch(`evaluation/${id}`, evaluation)
-    alert('Atualizado com sucesso!')
+    alert(t('evaluation.score.alert'))
     history.back()
   }
 
@@ -32,8 +34,8 @@ export const Score = ({ exercise }) => {
     <ScoreContainer>
 
       < Select
-        label="Nota:"
-        placeholder="Escolha uma nota"
+        label={t('evaluation.score.title')}
+        placeholder={t('evaluation.score.placeholder')}
         onChange={handleScore}
         options={
           [
@@ -45,8 +47,8 @@ export const Score = ({ exercise }) => {
             { label: 5, value: 5 }
           ]} ></Select >
 
-      <textarea label="mensagem" className="form-control" id="message-text" onChange={handleTextArea} ></textarea>
-      <PrimaryButton text="Enviar avaliação" onClick={handleSubmit} />
+      <textarea placeholder={t('evaluation.score.placeholderTextarea')} className="form-control" id="message-text" onChange={handleTextArea} ></textarea>
+      <PrimaryButton text={t('evaluation.score.sendButton')} onClick={handleSubmit} />
 
     </ScoreContainer>
   )

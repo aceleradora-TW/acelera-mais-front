@@ -3,10 +3,12 @@ import Select from '../../../../components/select'
 import { client } from '../../../../service'
 import SucessButton from '../../../../components/buttons/sucess'
 import { TypeContainer } from '../../styled'
+import { useTranslation } from 'react-i18next'
 
 export const Type = ({ setDisableEvaluationButton }) => {
   const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
   const [exerciseType, setExerciseType] = useState()
+  const { t } = useTranslation()
 
   const id = window.location.pathname.split('/')[2]
 
@@ -23,8 +25,8 @@ export const Type = ({ setDisableEvaluationButton }) => {
           setExerciseType(target.value)
           setExerciseTypeSelected(true)
         }}
-        label="Tipo:"
-        placeholder="Escolha uma opção"
+        label={t('evaluation.type.title')}
+        placeholder={t('evaluation.type.placeholder')}
         options={[
           { label: 'Backend', value: 'Backend' },
           { label: 'Frontend', value: 'Frontend' },
@@ -33,11 +35,11 @@ export const Type = ({ setDisableEvaluationButton }) => {
 
       {
         exerciseTypeSelected
-          ? <SucessButton text="Alterar" onClick={() => {
+          ? <SucessButton text={t('evaluation.type.changeButton')} onClick={() => {
             setDisableEvaluationButton(false)
             setExerciseTypeSelected(false)
             handleTypeSubmit()
-            alert('Alterado com sucesso!')
+            alert(t('evaluation.type.alert'))
           }} />
           : null
       }

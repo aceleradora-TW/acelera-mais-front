@@ -72,6 +72,25 @@
           "preparing": "Preparing by {{mentor}}"
         }
       }
+    },
+    "evaluation": {
+      "title": "Evaluation",
+      "answer": "Submitted answers:",
+      "cancel": "Cancel",
+      "evaluate": "Evaluate",
+      "score": {
+        "title": "Note",
+        "placeholder": "Select a Note",
+        "sendButton": "Send Evaluation",
+        "alert": "Successfully updated!",
+        "placeholderTextarea": "Leave your feedback here."
+      },
+      "type": {
+        "title": "Type",
+        "placeholder": "Select an Option",
+        "alert": "Successfully updated!",
+        "changeButton": "Change"
+      }
     }
   }
 }

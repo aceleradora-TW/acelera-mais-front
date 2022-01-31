@@ -8,6 +8,11 @@
       "fillAlert": "Preencha o campo de e-mail e senha, por favor! "
     },
     "hiringProcess": {
+      "importGoogleSheet": {
+        "sendButton": "Enviar",
+        "putUrl": "Insira a URL da planilha",
+        "saveMensage": "Salvo com sucesso! Quantidade de importações: {{value}}"
+      },
       "title": "Processos seletivos",
       "form": {
         "name": "Nome",
@@ -58,11 +63,6 @@
       "closed": "Fechado",
       "preparing": "Em preparação"
     },
-    "importGoogleSheet": {
-      "sendButton": "Enviar",
-      "putUrl": "Insira a URL da planilha",
-      "saveMensage": "Salvo com sucesso! Quantidade de importações: {{value}}"
-    },
     "exercise": {
       "toggleRow" : {
         "evaluate" : "Avaliação",
@@ -71,6 +71,25 @@
           "closed": "Fechado por {{mentor}}",
           "preparing": "Em preparação por {{mentor}}"
         }
+      }
+    },
+    "evaluation": {
+      "title": "Avaliação",
+      "answer": "Respostas enviadas:",
+      "cancel": "Cancelar",
+      "evaluate": "Avaliar",
+      "score": {
+        "title": "Nota",
+        "placeholder": "Escolha uma Nota",
+        "sendButton": "Enviar Avaliação",
+        "alert": "Atualizado com sucesso!",
+        "placeholderTextarea": "Deixe aqui seu feedback."
+      },
+      "type": {
+        "title": "Tipo",
+        "placeholder": "Escolha uma opção",
+        "alert": "Atualizado com sucesso!",
+        "changeButton": "Alterar"
       }
     }
   }
