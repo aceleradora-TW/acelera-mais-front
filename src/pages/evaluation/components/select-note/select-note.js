@@ -26,7 +26,7 @@ export const Score = ({ exercise }) => {
   const handleSubmit = () => {
     const id = exercise.evaluation.id
     client.patch(`evaluation/${id}`, evaluation)
-    alert('Atualizado com sucesso!')
+    alert(t('evaluation.score.alert'))
     history.back()
   }
 
@@ -34,8 +34,8 @@ export const Score = ({ exercise }) => {
     <ScoreContainer>
 
       < Select
-        label={t('evaluation.score.tittle')}
-        placeholder={t('evaluation.placeholder')}
+        label={t('evaluation.score.title')}
+        placeholder={t('evaluation.score.placeholder')}
         onChange={handleScore}
         options={
           [
@@ -48,7 +48,7 @@ export const Score = ({ exercise }) => {
           ]} ></Select >
 
       <textarea label="mensagem" className="form-control" id="message-text" onChange={handleTextArea} ></textarea>
-      <PrimaryButton text="Enviar avaliação" onClick={handleSubmit} />
+      <PrimaryButton text={t('evaluation.score.sendButton')} onClick={handleSubmit} />
 
     </ScoreContainer>
   )

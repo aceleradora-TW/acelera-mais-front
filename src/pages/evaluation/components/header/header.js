@@ -9,7 +9,7 @@ export const Header = ({ setDisableEvaluationButton }) => {
   return (
     <HeaderContainer>
 
-      <h1>{t('evaluation.tittle')}</h1>
+      <h1>{t('evaluation.title')}</h1>
 
       <Type setDisableEvaluationButton={setDisableEvaluationButton} />
 

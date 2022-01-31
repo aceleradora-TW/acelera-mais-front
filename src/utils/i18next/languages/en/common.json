@@ -64,13 +64,21 @@
       "preparing": "Preparing"
     },
     "evaluation": {
-      "tittle" : "Evaluation",
-      "answer" : "Submitted answers:",
-      "cancel" : "Cancel",
-      "evaluate" : "Evaluate",
-      "score" : {
-        "tittle" : "Note",
-        "placeholder" : ""
+      "title": "Evaluation",
+      "answer": "Submitted answers:",
+      "cancel": "Cancel",
+      "evaluate": "Evaluate",
+      "score": {
+        "title": "Note",
+        "placeholder": "Select a Note",
+        "sendButton": "Send Evaluation",
+        "alert": "Successfully updated!"
+      },
+      "type": {
+        "title": "Type",
+        "placeholder": "Select an Option",
+        "alert": "Successfully updated!",
+        "changeButton": "Change"
       }
     }
   }

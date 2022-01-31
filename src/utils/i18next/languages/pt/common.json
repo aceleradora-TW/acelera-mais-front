@@ -64,13 +64,21 @@
       "saveMensage": "Salvo com sucesso! Quantidade de importações: {{value}}"
     },
     "evaluation": {
-      "tittle" : "Avaliação",
-      "answer" : "Respostas enviadas:",
-      "cancel" : "Cancelar",
-      "evaluate" : "Avaliar",
-      "score" : {
-        "tittle" : "Note",
-        "placeholder" : ""
+      "title": "Avaliação",
+      "answer": "Respostas enviadas:",
+      "cancel": "Cancelar",
+      "evaluate": "Avaliar",
+      "score": {
+        "title": "Nota",
+        "placeholder": "Escolha uma Nota",
+        "sendButton": "Enviar Avaliação",
+        "alert": "Atualizado com sucesso!"
+      },
+      "type": {
+        "title": "Tipo",
+        "placeholder": "Escolha uma opção",
+        "alert": "Atualizado com sucesso!",
+        "changeButton": "Alterar"
       }
     }
   }
