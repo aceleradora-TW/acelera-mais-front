@@ -54,7 +54,7 @@
       "delete": "Deseja excluir o item?"
     },
     "status": {
-      "open": "Aberto",
+      "opened": "Aberto",
       "closed": "Fechado",
       "preparing": "Em preparação"
     },
@@ -62,6 +62,16 @@
       "sendButton": "Enviar",
       "putUrl": "Insira a URL da planilha",
       "saveMensage": "Salvo com sucesso! Quantidade de importações: {{value}}"
+    },
+    "exercise": {
+      "toggleRow" : {
+        "evaluate" : "Avaliação",
+        "type" : "Não definido",
+        "status" : {
+          "closed": "Fechado por {{mentor}}",
+          "preparing": "Em preparação por {{mentor}}"
+        }
+      }
     }
   }
 }

@@ -6,6 +6,7 @@ import { Status } from '../../../../components/status'
 import { client } from '../../../../service'
 import { useNavigate } from 'react-router-dom'
 import { Tr } from './styled'
+import { useTranslation } from 'react-i18next'
 
 const statusEnum = {
   PREPARING: 'status-preparing',
@@ -22,31 +23,21 @@ const getStatus = (item) => {
   return statusEnum.OPENED
 }
 
-const isClosedOrPreparing = ({ status }) => {
-  if (status === statusEnum.PREPARING || status === statusEnum.CLOSED) return true
-  return false
-}
+const isPrepared = ({ status }) => status === statusEnum.PREPARING
 
-const isPreparingOrOpened = ({ status }) => {
-  if (status === statusEnum.PREPARING || status === statusEnum.OPENED) return true
-  return false
-}
+const isOpened = ({ status }) => status === statusEnum.OPENED
 
-const isOpened = ({ status }) => {
-  return status === statusEnum.OPENED
-}
+const isClosed = ({ status }) => status === statusEnum.CLOSED
 
-const isClosed = ({ status }) => {
-  if (status === statusEnum.CLOSED) return true
-  return false
-}
+const isPreparingOrOpened = ({ status }) => isPrepared({ status }) || isOpened({ status })
 
-const isPreparing = ({ status }, mentorName, mentorNameLocal) => {
-  if (status === statusEnum.PREPARING && mentorName !== mentorNameLocal) return true
-  return false
-}
+const isClosedOrPreparing = ({ status }) => isPrepared({ status }) || isClosed({ status })
+
+const isPreparing = ({ status, currentMentor, actualMentor }) =>
+  isPrepared({ status }) && currentMentor !== actualMentor
 
 export const ToggleRow = ({ item }) => {
+  const { t } = useTranslation()
   const [checked, setChecked] = useState(false)
   const navigate = useNavigate()
   const [mentorNameLocal] = useState(localStorage.getItem('mentorName'))
@@ -68,21 +59,33 @@ export const ToggleRow = ({ item }) => {
     <>
       <Tr>
         <td>{item.exercise}</td>
-        <td>{item.type ? item.type : 'Não definido'}</td>
+        <td>{item.type ? item.type : t('exercise.toggleRow.type')}</td>
         <td className='options' colSpan='2'>
           {!isOpened(item)
             ? <Status
               status={getStatus(item)}
               options={{
-                opened: 'Aberto',
-                closed: `Fechado por: ${item.evaluation.mentorName}`,
-                prepairing: `Em preparação por: ${item.evaluation.mentorName}`
+                opened: 'status.opened',
+                closed:
+                  t(
+                    'exercise.toggleRow.status.closed',
+                    { mentor: item.evaluation.mentorName }
+                  ),
+                preparing:
+                  t(
+                    'exercise.toggleRow.status.preparing',
+                    { mentor: item.evaluation.mentorName }
+                  )
               }} />
             : null}
           <ActionButton
-            text={'Avaliar'}
+            text={t('exercise.toggleRow.evaluate')}
             icon={faPen}
-            disabled={isClosed({ status: getStatus(item) }) || isPreparing({ status: getStatus(item) }, item.evaluation.mentorName, mentorNameLocal)}
+            disabled={isClosed({ status: getStatus(item) }) || isPreparing({
+              status: getStatus(item),
+              currentMentor: item.evaluation.mentorName,
+              actualMentor: mentorNameLocal
+            })}
             onClick={handleSubmit} />
         </td>
         <td className='avaliator-col'>{
