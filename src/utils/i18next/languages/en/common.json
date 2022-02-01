@@ -65,7 +65,10 @@
     },
     "exercise": {
       "title": "Exercise",
-      "placeholder": "Type",
+      "select" : {
+        "placeholder": "Type",
+        "label" : "Filter:"
+      },
       "alert": "Could not load exercise list.",
       "thead": {
         "name": "Name",

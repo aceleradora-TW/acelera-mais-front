@@ -65,7 +65,10 @@
     },
     "exercise": {
       "title": "Exercícios",
-      "placeholder": "Tipo",
+      "select" :{
+        "placeholder": "Tipo",
+        "label" : "Filtrar:"
+      },
       "alert": "Não foi possível carregar a lista de exercícios.",
       "thead": {
         "name": "Nome",
