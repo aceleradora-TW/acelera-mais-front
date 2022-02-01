@@ -22,7 +22,10 @@ export const Content = style.div`
 export const Header = style.div`
   display: flex;
   justify-content: space-between;
-  margin: 20px 40px;
+  align-items: center;
+  height: 50px;
+  padding: 0 0 0 40px;
+  background-color: gray;
 `
 export const Reminder = style.p`
   margin: 0 45px;
