@@ -16,6 +16,7 @@ export const Content = style.div`
   border: 1px solid #aea9bd;
   background-color: #fff;
   box-sizing: border-box;
+  border-radius: 10px;
 `
 
 export const Header = style.div`
