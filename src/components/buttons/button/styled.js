@@ -23,9 +23,8 @@ export const ButtonComponent = styled.button`
   }
 
   &.close {
-    color: #ac1616;
-    border: 1px solid #ac1616;
-    padding: 5px 10px;
+    color: #626262;
+    border: none;
     background: none;
   }
 
