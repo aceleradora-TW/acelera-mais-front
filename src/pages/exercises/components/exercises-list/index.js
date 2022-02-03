@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react'
 import { client } from '../../../../service'
 import { ToggleRow } from '../toggle-row'
 import { ExerciseTable, Container } from './styled'
+import { useTranslation } from 'react-i18next'
 
 export const ExercisesList = () => {
+  const { t } = useTranslation()
   const [exercises, setExercises] = useState([])
 
   useEffect(() => {
@@ -11,7 +13,7 @@ export const ExercisesList = () => {
     client.get(`/exercise?hiringProcessId=${id}`)
       .then(res => setExercises(res.data.data.result))
       .catch(err => {
-        alert('Não foi possível carregar a lista de exercícios.')
+        alert(t('exercise.alert'))
         console.log(err)
         history.back()
       })
@@ -22,10 +24,10 @@ export const ExercisesList = () => {
       <ExerciseTable>
         <thead>
           <tr>
-            <th>Nome </th>
-            <th>Tipo </th>
-            <th colSpan='2'>Avaliador</th>
-            <th>Feedbacks </th>
+            <th>{t('exercise.thead.name')} </th>
+            <th>{t('exercise.thead.type')}</th>
+            <th colSpan='2'>{t('exercise.thead.evaluator')}</th>
+            <th>Feedbacks</th>
           </tr>
         </thead>
         <tbody>

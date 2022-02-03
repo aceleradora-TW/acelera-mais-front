@@ -64,10 +64,21 @@
       "preparing": "Em preparação"
     },
     "exercise": {
-      "toggleRow" : {
-        "evaluate" : "Avaliação",
-        "type" : "Não definido",
-        "status" : {
+      "title": "Exercícios",
+      "select" :{
+        "placeholder": "Tipo",
+        "label" : "Filtrar:"
+      },
+      "alert": "Não foi possível carregar a lista de exercícios.",
+      "thead": {
+        "name": "Nome",
+        "type": "Tipo",
+        "evaluator": "Avaliador"
+      },
+      "toggleRow": {
+        "evaluate": "Avaliação",
+        "type": "Não definido",
+        "status": {
           "closed": "Fechado por {{mentor}}",
           "preparing": "Em preparação por {{mentor}}"
         }
