@@ -106,7 +106,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 >
                   <ImportGoogleSheet
                     id={process.id}
-                    endpoint="exercise"
+                    endpoint="challenge"
                   />
                 </Modal>
               </td>}

@@ -6,14 +6,14 @@ import { TypeContainer } from '../../styled'
 import { useTranslation } from 'react-i18next'
 
 export const Type = ({ setDisableEvaluationButton }) => {
-  const [exerciseTypeSelected, setExerciseTypeSelected] = useState(false)
-  const [exerciseType, setExerciseType] = useState()
+  const [challengeTypeSelected, setChallengeTypeSelected] = useState(false)
+  const [challengeType, setChallengeType] = useState()
   const { t } = useTranslation()
 
   const id = window.location.pathname.split('/')[2]
 
   const handleTypeSubmit = () => {
-    client.patch(`exercise/${id}`, { type: exerciseType })
+    client.patch(`challenge/${id}`, { type: challengeType })
   }
 
   return (
@@ -22,8 +22,8 @@ export const Type = ({ setDisableEvaluationButton }) => {
 
       <Select
         onChange={({ target }) => {
-          setExerciseType(target.value)
-          setExerciseTypeSelected(true)
+          setChallengeType(target.value)
+          setChallengeTypeSelected(true)
         }}
         label={t('evaluation.type.title')}
         placeholder={t('evaluation.type.placeholder')}
@@ -34,10 +34,10 @@ export const Type = ({ setDisableEvaluationButton }) => {
         ]} />
 
       {
-        exerciseTypeSelected
+        challengeTypeSelected
           ? <SucessButton text={t('evaluation.type.changeButton')} onClick={() => {
             setDisableEvaluationButton(false)
-            setExerciseTypeSelected(false)
+            setChallengeTypeSelected(false)
             handleTypeSubmit()
             alert(t('evaluation.type.alert'))
           }} />

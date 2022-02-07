@@ -2,7 +2,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import LoginPage from '../pages/authentication/index'
 import HiringProcessPage from '../pages/hiring-process'
 import { IsAuth } from '../components/is-auth/index.js'
-import { ChallengePage } from '../pages/exercises'
+import { ChallengePage } from '../pages/challenges'
 import Evaluation from '../pages/evaluation'
 
 const AppRoutes = () => {

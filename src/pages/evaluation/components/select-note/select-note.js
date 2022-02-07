@@ -5,7 +5,7 @@ import PrimaryButton from '../../../../components/buttons/primary'
 import { ScoreContainer } from '../../styled'
 import { useTranslation } from 'react-i18next'
 
-export const Score = ({ exercise }) => {
+export const Score = ({ challenge }) => {
   const [feedback, setFeedback] = useState('')
   const [score, setScore] = useState('')
   const { t } = useTranslation()
@@ -24,7 +24,7 @@ export const Score = ({ exercise }) => {
   }
 
   const handleSubmit = () => {
-    const id = exercise.evaluation.id
+    const id = challenge.evaluation.id
     client.patch(`evaluation/${id}`, evaluation)
     alert(t('evaluation.score.alert'))
     history.back()
