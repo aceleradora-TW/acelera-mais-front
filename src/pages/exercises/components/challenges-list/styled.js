@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Table } from '../../../../components/table/table'
 
-export const ExerciseTable = styled(Table)`
+export const ChallengeTable = styled(Table)`
   td {
     border-bottom: 1px dotted #ababab;
 

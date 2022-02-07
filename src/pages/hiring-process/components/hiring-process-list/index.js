@@ -25,7 +25,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   const handleExport = (id) => {
     return async () => {
-      const result = await client.get(`/exercise?hiringProcessId=${id}`)
+      const result = await client.get(`/challenge?hiringProcessId=${id}`)
       const hiringProcessResume = result.data.data.result
       const hiringProcessResult = hiringProcessAdapter(hiringProcessResume)
       const csv = parse(hiringProcessResult)
@@ -73,7 +73,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
         <tbody>
           {processes.map((process, key) => (
             <tr key={`process-${key}`}>
-              <td><Link to={`/exercises/hiring-process/${process.id}`}>{process.name}</Link></td>
+              <td><Link to={`/challenges/hiring-process/${process.id}`}>{process.name}</Link></td>
               <td>
                 <Status
                   status={process.status}

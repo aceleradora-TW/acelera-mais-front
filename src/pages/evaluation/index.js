@@ -18,7 +18,7 @@ const EvaluationChallenge = () => {
   const id = window.location.pathname.split('/')[2]
 
   useEffect(() => {
-    client.get(`/exercise/${id}`)
+    client.get(`/challenge/${id}`)
       .then(res => (res.data))
       .then(res => setExercise(res))
       .catch(err => {

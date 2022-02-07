@@ -52,7 +52,7 @@ export const ToggleRow = ({ item }) => {
   const handleSubmit = () => {
     const id = window.location.pathname.split('/').pop()
     client.patch(`/evaluation/${item.evaluation.id}`, { mentorName: mentorNameLocal })
-    navigate(`/exercises/${item.id}/hiring-process/${id}`)
+    navigate(`/challenges/${item.id}/hiring-process/${id}`)
   }
 
   return (
