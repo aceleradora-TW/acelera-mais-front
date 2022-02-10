@@ -52,14 +52,14 @@ export const ToggleRow = ({ item }) => {
   const handleSubmit = () => {
     const id = window.location.pathname.split('/').pop()
     client.patch(`/evaluation/${item.evaluation.id}`, { mentorName: mentorNameLocal })
-    navigate(`/exercises/${item.id}/hiring-process/${id}`)
+    navigate(`/challenges/${item.id}/hiring-process/${id}`)
   }
 
   return (
     <>
       <Tr>
-        <td>{item.exercise}</td>
-        <td>{item.type ? item.type : t('exercise.toggleRow.type')}</td>
+        <td>{item.challenge}</td>
+        <td>{item.type ? item.type : t('challenge.toggleRow.type')}</td>
         <td className='options' colSpan='2'>
           {!isOpened(item)
             ? <Status
@@ -68,18 +68,18 @@ export const ToggleRow = ({ item }) => {
                 opened: 'status.opened',
                 closed:
                   t(
-                    'exercise.toggleRow.status.closed',
+                    'challenge.toggleRow.status.closed',
                     { mentor: item.evaluation.mentorName }
                   ),
                 preparing:
                   t(
-                    'exercise.toggleRow.status.preparing',
+                    'challenge.toggleRow.status.preparing',
                     { mentor: item.evaluation.mentorName }
                   )
               }} />
             : null}
           <ActionButton
-            text={t('exercise.toggleRow.evaluate')}
+            text={t('challenge.toggleRow.evaluate')}
             icon={faPen}
             disabled={isClosed({ status: getStatus(item) }) || isPreparing({
               status: getStatus(item),

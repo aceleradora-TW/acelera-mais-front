@@ -1,14 +1,14 @@
-import { ExercisesList } from '../../pages/exercises/components/exercises-list'
+import { ChallengeList } from './components/challenges-list'
 import Select from '../../components/select'
 import showFeature from '../../utils/feature-toggle'
 import { useTranslation } from 'react-i18next'
 
-export const ExercisesPage = () => {
+export const ChallengePage = () => {
   const { t } = useTranslation()
   return (
     <>
       <div className="page-container">
-        <h1>{t('exercise.title')}</h1>
+        <h1>{t('challenge.title')}</h1>
         {showFeature()
           ? (
             <section>
@@ -16,10 +16,10 @@ export const ExercisesPage = () => {
                 { value: 'backend', label: 'Backend' },
                 { value: 'frontend', label: 'Frontend' },
                 { value: 'fullstack', label: 'Fullstack' }
-              ]} placeholder={t('exercise.select.placeholder')} label={t('exercise.select.label')} name="type" onChange={() => { }} />
+              ]} placeholder={t('challenge.select.placeholder')} label={t('challenge.select.label')} name="type" onChange={() => { }} />
             </section>)
           : null}
-        <ExercisesList />
+        <ChallengeList />
       </div>
     </>
   )

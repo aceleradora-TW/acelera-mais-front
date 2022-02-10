@@ -63,13 +63,13 @@
       "closed": "Closed",
       "preparing": "Preparing"
     },
-    "exercise": {
-      "title": "Exercise",
-      "select" : {
+    "challenge": {
+      "title": "Challenges",
+      "select": {
         "placeholder": "Type",
-        "label" : "Filter:"
+        "label": "Filter:"
       },
-      "alert": "Could not load exercise list.",
+      "alert": "Could not load challenge list.",
       "thead": {
         "name": "Name",
         "type": "Type",

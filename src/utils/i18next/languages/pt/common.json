@@ -63,13 +63,13 @@
       "closed": "Fechado",
       "preparing": "Em preparação"
     },
-    "exercise": {
-      "title": "Exercícios",
-      "select" :{
+    "challenge": {
+      "title": "Desafios",
+      "select": {
         "placeholder": "Tipo",
-        "label" : "Filtrar:"
+        "label": "Filtrar:"
       },
-      "alert": "Não foi possível carregar a lista de exercícios.",
+      "alert": "Não foi possível carregar a lista de desafios.",
       "thead": {
         "name": "Nome",
         "type": "Tipo",

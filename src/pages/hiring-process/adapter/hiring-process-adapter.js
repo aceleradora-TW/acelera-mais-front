@@ -14,7 +14,7 @@ export const hiringProcessAdapter = (hiringProcesses) => {
     motivation: h.candidate.motivation || '',
     curriculum: h.candidate.curriculum || '',
     okCI: h.candidate.okCI || '',
-    exercise: h.exercise,
+    challenge: h.challenge,
     fileType: h.fileType,
     zip: h.zip,
     github: h.github,

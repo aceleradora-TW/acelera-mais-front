@@ -11,27 +11,27 @@ import { Container, Download, ContainerButtons, Anchor } from './styled'
 import { useTranslation } from 'react-i18next'
 
 const EvaluationChallenge = () => {
-  const [exercise, setExercise] = useState(null)
+  const [challenge, setChallenge] = useState(null)
   const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
   const { t } = useTranslation()
 
   const id = window.location.pathname.split('/')[2]
 
   useEffect(() => {
-    client.get(`/exercise/${id}`)
+    client.get(`/challenge/${id}`)
       .then(res => (res.data))
-      .then(res => setExercise(res))
+      .then(res => setChallenge(res))
       .catch(err => {
         console.log(err)
       })
   }, [])
 
   const handleCancel = () => {
-    client.patch(`evaluation/${exercise.evaluation.id}`, { mentorName: 'cancelado' })
+    client.patch(`evaluation/${challenge.evaluation.id}`, { mentorName: 'cancelado' })
     history.back()
   }
 
-  if (!exercise) return null
+  if (!challenge) return null
 
   return (
 
@@ -42,18 +42,18 @@ const EvaluationChallenge = () => {
       <Download>
         <Anchor href="#" target='_blank' rel='noreferrer'>
           <FontAwesomeIcon icon={faPrint} />
-          Download: {exercise.exercise}
+          Download: {challenge.challenge}
         </Anchor>
       </Download>
 
-      <Answer exercise={exercise} />
+      <Answer challenge={challenge} />
 
       <ContainerButtons>
 
         <DefaultButton text={t('evaluation.cancel')} onClick={handleCancel} />
         <Modal classe={'primary'} text={t('evaluation.evaluate')} title={t('evaluation.title')} disabled={disableEvaluationButton} >
 
-          <Score exercise={exercise} />
+          <Score challenge={challenge} />
 
         </Modal>
 
