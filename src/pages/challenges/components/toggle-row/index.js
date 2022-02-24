@@ -14,9 +14,9 @@ const statusEnum = {
   OPENED: 'status-opened'
 }
 
-const getStatus = (item) => {
-  if (!item.evaluation) return statusEnum.OPENED
-  const { feedback, mentorName } = item.evaluation
+const getStatus = (evaluation) => {
+  if (!evaluation) return statusEnum.OPENED
+  const { feedback, mentorName } = evaluation
   if (mentorName === 'cancelado') return statusEnum.OPENED
   if (feedback && mentorName) return statusEnum.CLOSED
   if (mentorName) return statusEnum.PREPARING
@@ -49,44 +49,48 @@ export const ToggleRow = ({ item }) => {
     setChecked(!checked)
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (evaluation) => {
     const id = window.location.pathname.split('/').pop()
-    client.patch(`/evaluation/${item.evaluation.id}`, { mentorName: mentorNameLocal })
-    navigate(`/challenges/${item.id}/hiring-process/${id}`)
+    client.patch(`/evaluation/${evaluation.id}`, { mentorName: mentorNameLocal })
+    navigate(`/challenges/${id}/hiring-process/${id}`)
   }
 
   return (
     <>
       <Tr>
         <td>{item.challenge}</td>
-        <td>{item.type ? item.type : t('challenge.toggleRow.type')}</td>
+        <td>{item.type || t('challenge.toggleRow.type')}</td>
         <td className='options' colSpan='2'>
-          {!isOpened(item)
-            ? <Status
-              status={getStatus(item)}
-              options={{
-                opened: 'status.opened',
-                closed:
-                  t(
-                    'challenge.toggleRow.status.closed',
-                    { mentor: item.evaluation.mentorName }
-                  ),
-                preparing:
-                  t(
-                    'challenge.toggleRow.status.preparing',
-                    { mentor: item.evaluation.mentorName }
-                  )
-              }} />
-            : null}
-          <ActionButton
-            text={t('challenge.toggleRow.evaluate')}
-            icon={faPen}
-            disabled={isClosed({ status: getStatus(item) }) || isPreparing({
-              status: getStatus(item),
-              currentMentor: item.evaluation.mentorName,
-              actualMentor: mentorNameLocal
-            })}
-            onClick={handleSubmit} />
+          {item.exercises.map((evaluation, index) => {
+            return (
+              <span key={index}>
+                <Status
+                  status={getStatus(evaluation)}
+                  options={{
+                    opened: 'status.opened',
+                    closed:
+                      t(
+                        'challenge.toggleRow.status.closed',
+                        { mentor: evaluation.mentorName || '' }
+                      ),
+                    preparing:
+                      t(
+                        'challenge.toggleRow.status.preparing',
+                        { mentor: evaluation.mentorName || '' }
+                      )
+                  }} />
+                <ActionButton
+                  text={t('challenge.toggleRow.evaluate')}
+                  icon={faPen}
+                  disabled={isClosed({ status: getStatus(evaluation) }) || isPreparing({
+                    status: getStatus(evaluation),
+                    currentMentor: evaluation.mentorName || '',
+                    actualMentor: mentorNameLocal
+                  })}
+                  onClick={handleSubmit} />
+              </span>)
+          }
+          )}
         </td>
         <td className='avaliator-col'>{
           <Button

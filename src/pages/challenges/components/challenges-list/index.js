@@ -32,7 +32,7 @@ export const ChallengeList = () => {
         </thead>
         <tbody>
           {challenges.map((challenge, key) => {
-            return <ToggleRow key={`${key}-test`} item={challenge} />
+            return challenge.exercises.length > 0 ? <ToggleRow key={`${key}-test`} item={challenge} /> : null
           })}
         </tbody>
       </ChallengeTable>
