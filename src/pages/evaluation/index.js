@@ -15,10 +15,10 @@ const EvaluationChallenge = () => {
   const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
   const { t } = useTranslation()
 
-  const id = window.location.pathname.split('/')[2]
+  const challengeId = window.location.pathname.split('/')[2]
 
   useEffect(() => {
-    client.get(`/challenge/${id}`)
+    client.get(`/challenge/${challengeId}`)
       .then(res => (res.data))
       .then(res => setChallenge(res))
       .catch(err => {
@@ -34,32 +34,38 @@ const EvaluationChallenge = () => {
   if (!challenge) return null
 
   return (
+    <>
+      {challenge.exercises.map((exercise) => {
+        return (
+          <Container key={exercise.id}>
 
-    <Container>
+            <Header setDisableEvaluationButton={setDisableEvaluationButton} />
 
-      <Header setDisableEvaluationButton={setDisableEvaluationButton} />
+            <Download>
+              <Anchor href="#" target='_blank' rel='noreferrer'>
+                <FontAwesomeIcon icon={faPrint} />
+                Download: {exercise.name}
+              </Anchor>
+            </Download>
 
-      <Download>
-        <Anchor href="#" target='_blank' rel='noreferrer'>
-          <FontAwesomeIcon icon={faPrint} />
-          Download: {challenge.challenge}
-        </Anchor>
-      </Download>
+            <Answer exercise={exercise} />
 
-      <Answer challenge={challenge} />
+            <ContainerButtons>
 
-      <ContainerButtons>
+              <DefaultButton text={t('evaluation.cancel')} onClick={handleCancel} />
+              <Modal classe={'primary'} text={t('evaluation.evaluate')} title={t('evaluation.title')} disabled={disableEvaluationButton} >
 
-        <DefaultButton text={t('evaluation.cancel')} onClick={handleCancel} />
-        <Modal classe={'primary'} text={t('evaluation.evaluate')} title={t('evaluation.title')} disabled={disableEvaluationButton} >
+                <Score exercise={exercise} />
 
-          <Score challenge={challenge} />
+              </Modal>
 
-        </Modal>
+            </ContainerButtons>
 
-      </ContainerButtons>
-
-    </Container >
+          </Container >
+        )
+      })
+      }
+    </>
   )
 }
 
