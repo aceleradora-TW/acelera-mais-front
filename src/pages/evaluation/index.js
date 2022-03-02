@@ -27,8 +27,12 @@ const EvaluationChallenge = () => {
   }, [])
 
   const handleCancel = () => {
-    client.patch(`evaluation/${challenge.evaluation.id}`, { mentorName: 'cancelado' })
-    history.back()
+    challenge.exercises.map((exercise) => {
+      return (
+        client.patch(`evaluation/${exercise.id}`, { mentorName: 'cancelado' }),
+        history.back()
+      )
+    })
   }
 
   if (!challenge) return null
@@ -53,7 +57,7 @@ const EvaluationChallenge = () => {
             <ContainerButtons>
 
               <DefaultButton text={t('evaluation.cancel')} onClick={handleCancel} />
-              <Modal classe={'primary'} text={t('evaluation.evaluate')} title={t('evaluation.title')} disabled={disableEvaluationButton} >
+              <Modal classe={'primary'} text={t('evaluation.evaluate')} title={`${t('evaluation.title')} ${exercise.name}`} disabled={disableEvaluationButton} >
 
                 <Score exercise={exercise} />
 
