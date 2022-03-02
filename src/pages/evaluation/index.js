@@ -39,36 +39,37 @@ const EvaluationChallenge = () => {
 
   return (
     <>
-      {challenge.exercises.map((exercise) => {
-        return (
-          <Container key={exercise.id}>
+      <Container >
+        <h1>{t('evaluation.title')}</h1>
+        {challenge.exercises.map((exercise) => {
+          return (
+            <div key={exercise.id}>
+              <Header setDisableEvaluationButton={setDisableEvaluationButton} />
 
-            <Header setDisableEvaluationButton={setDisableEvaluationButton} />
+              <Download>
+                <Anchor href="#" target='_blank' rel='noreferrer'>
+                  <FontAwesomeIcon icon={faPrint} />
+                  Download: {exercise.name}
+                </Anchor>
+              </Download>
 
-            <Download>
-              <Anchor href="#" target='_blank' rel='noreferrer'>
-                <FontAwesomeIcon icon={faPrint} />
-                Download: {exercise.name}
-              </Anchor>
-            </Download>
+              <Answer exercise={exercise} />
 
-            <Answer exercise={exercise} />
+              <ContainerButtons>
 
-            <ContainerButtons>
+                <DefaultButton text={t('evaluation.cancel')} onClick={handleCancel} />
+                <Modal classe={'primary'} text={t('evaluation.evaluate')} title={`${t('evaluation.title')} ${exercise.name}`} disabled={disableEvaluationButton} >
 
-              <DefaultButton text={t('evaluation.cancel')} onClick={handleCancel} />
-              <Modal classe={'primary'} text={t('evaluation.evaluate')} title={`${t('evaluation.title')} ${exercise.name}`} disabled={disableEvaluationButton} >
+                  <Score exercise={exercise} />
 
-                <Score exercise={exercise} />
+                </Modal>
 
-              </Modal>
-
-            </ContainerButtons>
-
-          </Container >
-        )
-      })
-      }
+              </ContainerButtons>
+            </div>
+          )
+        })
+        }
+      </Container >
     </>
   )
 }
