@@ -37,11 +37,6 @@ export const HeaderContainer = styled.section`
   display: flex;
   justify-content: right;  
 
-h1 {
-  font-size: 40px;
-  color: rgb(149, 149, 149);
-  font-weight: bold;
-}
 `
 
 export const Download = styled.div`
