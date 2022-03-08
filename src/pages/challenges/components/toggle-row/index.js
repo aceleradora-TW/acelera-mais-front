@@ -23,10 +23,10 @@ const hasMentorName = (challenge) => {
 }
 
 const wasCanceled = (challenge) => {
-  if (challenge.exercises.find(name => name.evaluation.mentorName === 'cancelado')) {
-    return true
+  if (!challenge.exercises) {
+    return false
   }
-  /* return false */
+  return challenge.exercises.find((name) => name.mentorName === 'cancelado')
 }
 
 const getStatus = (challenge) => {
