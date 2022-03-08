@@ -14,7 +14,30 @@ const statusEnum = {
   OPENED: 'status-opened'
 }
 
-const getStatus = (evaluation) => {
+const hasFeedback = (challenge) => {
+  return true
+}
+
+const hasMentorName = (challenge) => {
+  return true
+}
+
+const wasCanceled = (challenge) => {
+  if (challenge.exercises.find(name => name.evaluation.mentorName === 'cancelado')) {
+    return true
+  }
+  /* return false */
+}
+
+const getStatus = (challenge) => {
+  if (!challenge) return statusEnum.OPENED
+  if (wasCanceled(challenge)) return statusEnum.OPENED
+  if (hasFeedback(challenge) && hasMentorName(challenge)) return statusEnum.CLOSED
+  if (hasMentorName(challenge)) return statusEnum.PREPARING
+  return statusEnum.OPENED
+}
+
+const getStatus2 = (evaluation) => {
   if (!evaluation) return statusEnum.OPENED
   const { feedback, mentorName } = evaluation
   if (mentorName === 'cancelado') return statusEnum.OPENED
@@ -76,10 +99,11 @@ export const ToggleRow = ({ item }) => {
       <Tr>
         <td>{item.challenge}</td>
         <td>{item.type || t('challenge.toggleRow.type')}</td>
+        <td>numero</td>
         <td className='options' colSpan='2'>
           {item.exercises.map((excercise) => {
             return (<Status key={excercise.id}
-              status={getStatus(excercise.evaluation)}
+              status={getStatus2(excercise.evaluation)}
               options={{
                 opened: 'status.opened',
                 closed:
@@ -96,13 +120,11 @@ export const ToggleRow = ({ item }) => {
             )
           }
           )}
-
           < ActionButton
             text={t('challenge.toggleRow.evaluate')}
             icon={faPen}
             disabled={isClosedChallenge(item.exercises) || isPreparedChallenge(item.exercises, mentorNameLocal)}
             onClick={handleSubmit} />
-
         </td>
         <td className='avaliator-col'>{
           <Button
@@ -112,7 +134,7 @@ export const ToggleRow = ({ item }) => {
             icon={faAngleDown} />
         }</td>
       </Tr>
-      {status && feedback !== '' ? <tr><td colSpan='5' className={toggle}>{feedback}</td></tr> : null}
+      {status && hasFeedback(item) ? <tr><td colSpan='5' className={toggle}>{feedback}</td></tr> : null}
     </>
   )
 }
