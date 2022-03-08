@@ -15,11 +15,17 @@ const statusEnum = {
 }
 
 const hasFeedback = (challenge) => {
-  return true
+  if (!challenge.exercises) {
+    return false
+  }
+  return challenge.exercises.find((feed) => feed.feedback !== null)
 }
 
 const hasMentorName = (challenge) => {
-  return true
+  if (!challenge.exercises) {
+    return false
+  }
+  return challenge.exercises.find((nameMentor) => nameMentor.mentorName !== null)
 }
 
 const wasCanceled = (challenge) => {
@@ -37,7 +43,7 @@ const getStatus = (challenge) => {
   return statusEnum.OPENED
 }
 
-const getStatus2 = (evaluation) => {
+const getStatusEvaluation = (evaluation) => {
   if (!evaluation) return statusEnum.OPENED
   const { feedback, mentorName } = evaluation
   if (mentorName === 'cancelado') return statusEnum.OPENED
@@ -47,13 +53,13 @@ const getStatus2 = (evaluation) => {
 }
 
 const isClosedChallenge = (exercises) => {
-  return exercises.filter((ex) => getStatus(ex.evaluation) !== statusEnum.CLOSED).length === 0
+  return exercises.filter((ex) => getStatusEvaluation(ex.evaluation) !== statusEnum.CLOSED).length === 0
 }
 
 const isPreparedChallenge = (exercises, mentorNameLocal) => {
   return exercises.some((ex) => {
     return isPreparing({
-      status: getStatus(ex.evaluation),
+      status: getStatusEvaluation(ex.evaluation),
       currentMentor: ex.evaluation.mentorName || '',
       actualMentor: mentorNameLocal
     }) === true
@@ -103,7 +109,7 @@ export const ToggleRow = ({ item }) => {
         <td className='options' colSpan='2'>
           {item.exercises.map((excercise) => {
             return (<Status key={excercise.id}
-              status={getStatus2(excercise.evaluation)}
+              status={getStatusEvaluation(excercise.evaluation)}
               options={{
                 opened: 'status.opened',
                 closed:
