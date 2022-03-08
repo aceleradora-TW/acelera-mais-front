@@ -26,16 +26,17 @@ export const Container = styled.div`
   padding: 30px;
   width: 100%;
   margin-top: 20px;
+
+  h1 {
+    font-size: 40px;
+    color: rgb(149, 149, 149);
+    font-weight: bold;
+  }
 `
 export const HeaderContainer = styled.section`
   display: flex;
-  justify-content: space-between;
+  justify-content: right;  
 
-h1 {
-  font-size: 40px;
-  color: rgb(149, 149, 149);
-  font-weight: bold;
-}
 `
 
 export const Download = styled.div`
@@ -68,7 +69,7 @@ h2 {
 export const ContainerButtons = styled.div`
   display: flex;
   justify-content: right;
-  margin-top: 20px;
+  margin: 20px 0;
   
   & > .primary {
     margin-left: 10px;
@@ -78,6 +79,7 @@ export const TypeContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 20px;
   
   & > .sucess {
     margin-left: 10px;
