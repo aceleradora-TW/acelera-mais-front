@@ -79,13 +79,25 @@ const isClosedOrPreparing = ({ status }) => isPrepared({ status }) || isClosed({
 const isPreparing = ({ status, currentMentor, actualMentor }) =>
   isPrepared({ status }) && currentMentor !== actualMentor
 
+const getFeedback = (exercises, toggle) => {
+  const feedbacks = []
+  for (let index = 0; index < 3; index++) {
+    const feed = exercises[index] ? exercises[index].evaluation.feedback : null
+    feedbacks.push({ id: index, name: exercises.name, feedback: feed })
+  }
+  return (
+    <tr>
+      {feedbacks.map(feed => <td key={feed.id} colSpan='2' className={toggle}>{feed.name}{feed.feedback} </td>)}
+    </tr>
+  )
+}
+
 export const ToggleRow = ({ item }) => {
   const { t } = useTranslation()
   const [checked, setChecked] = useState(false)
   const navigate = useNavigate()
   const [mentorNameLocal] = useState(localStorage.getItem('mentorName'))
   const toggle = checked ? 'toggle-on' : 'toggle-off'
-  const feedback = item?.evaluation?.feedback || ''
   const status = isClosedOrPreparing({ status: getStatus(item) })
 
   const handleClick = () => {
@@ -140,7 +152,7 @@ export const ToggleRow = ({ item }) => {
             icon={faAngleDown} />
         }</td>
       </Tr>
-      {status && hasFeedback(item) ? <tr><td colSpan='5' className={toggle}>{feedback}</td></tr> : null}
+      {status && hasFeedback(item) ? getFeedback(item.exercises, toggle) : null}
     </>
   )
 }
