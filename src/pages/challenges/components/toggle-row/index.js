@@ -83,7 +83,7 @@ const getFeedback = (exercises, toggle) => {
   const feedbacks = exercises.filter(exercise => exercise.evaluation.feedback)
   return (
     <tr>
-      <td colSpan="5" className={toggle}>
+      <td colSpan="6" className={toggle}>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           {feedbacks.map((feedback, index) => (
             <div key={index}>
@@ -106,6 +106,8 @@ export const ToggleRow = ({ item }) => {
   const toggle = checked ? 'toggle-on' : 'toggle-off'
   const status = isClosedOrPreparing({ status: getStatus(item) })
 
+  console.log(item)
+
   const handleClick = () => {
     setChecked(!checked)
   }
@@ -118,32 +120,37 @@ export const ToggleRow = ({ item }) => {
     navigate(`/challenges/${item.id}/hiring-process/${id}`)
   }
 
+  console.log(item)
+
   return (
     <>
       <Tr>
         <td>{item.challenge}</td>
         <td>{item.type || t('challenge.toggleRow.type')}</td>
         <td>numero</td>
-        <td className='options' colSpan='2'>
-          {item.exercises.map((excercise) => {
-            return (<Status key={excercise.id}
-              status={getStatusEvaluation(excercise.evaluation)}
-              options={{
-                opened: 'status.opened',
-                closed:
-                  t(
-                    'challenge.toggleRow.status.closed',
-                    { mentor: excercise.evaluation.mentorName || '' }
-                  ),
-                preparing:
-                  t(
-                    'challenge.toggleRow.status.preparing',
-                    { mentor: excercise.evaluation.mentorName || '' }
-                  )
-              }} />
+        <td className='options'>
+          <div>
+            {item.exercises.map((excercise) => (
+              <Status key={excercise.id}
+                status={getStatusEvaluation(excercise.evaluation)}
+                options={{
+                  opened: 'status.opened',
+                  closed:
+                    t(
+                      'challenge.toggleRow.status.closed',
+                      { mentor: excercise.evaluation.mentorName || '' }
+                    ),
+                  preparing:
+                    t(
+                      'challenge.toggleRow.status.preparing',
+                      { mentor: excercise.evaluation.mentorName || '' }
+                    )
+                }} />
             )
-          }
-          )}
+            )}
+          </div>
+        </td>
+        <td>
           < ActionButton
             text={t('challenge.toggleRow.evaluate')}
             icon={faPen}

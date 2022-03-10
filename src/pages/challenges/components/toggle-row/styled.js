@@ -18,7 +18,7 @@ export const Tr = styled.tr`
     margin-left: 20px;
   }
 
-  .options {
+  div {
     display: flex;
     flex-direction: column;
   }
