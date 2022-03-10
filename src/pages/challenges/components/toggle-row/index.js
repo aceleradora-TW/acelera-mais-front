@@ -80,14 +80,20 @@ const isPreparing = ({ status, currentMentor, actualMentor }) =>
   isPrepared({ status }) && currentMentor !== actualMentor
 
 const getFeedback = (exercises, toggle) => {
-  const feedbacks = []
-  for (let index = 0; index < 3; index++) {
-    const feed = exercises[index] ? exercises[index].evaluation.feedback : null
-    feedbacks.push({ id: index, name: exercises.name, feedback: feed })
-  }
+  const feedbacks = exercises.filter(exercise => exercise.evaluation.feedback)
   return (
     <tr>
-      {feedbacks.map(feed => <td key={feed.id} colSpan='2' className={toggle}>{feed.name}{feed.feedback} </td>)}
+      <td colSpan="5" className={toggle}>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          {feedbacks.map((feedback, index) => (
+            <div key={index}>
+              <strong>{feedback.name}</strong>
+              <div>{feedback.evaluation.feedback} </div>
+            </div>
+          )
+          )}
+        </div>
+      </td>
     </tr>
   )
 }
