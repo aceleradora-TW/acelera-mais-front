@@ -79,6 +79,12 @@ const isClosedOrPreparing = ({ status }) => isPrepared({ status }) || isClosed({
 const isPreparing = ({ status, currentMentor, actualMentor }) =>
   isPrepared({ status }) && currentMentor !== actualMentor
 
+const getNumberChallenge = (exercises) => {
+  const statusEvaluation = exercises.map(exercise => getStatusEvaluation(exercise.evaluation))
+  const closed = statusEvaluation.filter(status => status === statusEnum.CLOSED).length
+  return { closed, total: statusEvaluation.length }
+}
+
 const getFeedback = (exercises, toggle) => {
   const feedbacks = exercises.filter(exercise => exercise.evaluation.feedback)
   return (
@@ -105,8 +111,7 @@ export const ToggleRow = ({ item }) => {
   const [mentorNameLocal] = useState(localStorage.getItem('mentorName'))
   const toggle = checked ? 'toggle-on' : 'toggle-off'
   const status = isClosedOrPreparing({ status: getStatus(item) })
-
-  console.log(item)
+  const countExercise = getNumberChallenge(item.exercises)
 
   const handleClick = () => {
     setChecked(!checked)
@@ -120,14 +125,12 @@ export const ToggleRow = ({ item }) => {
     navigate(`/challenges/${item.id}/hiring-process/${id}`)
   }
 
-  console.log(item)
-
   return (
     <>
       <Tr>
         <td>{item.challenge}</td>
         <td>{item.type || t('challenge.toggleRow.type')}</td>
-        <td>numero</td>
+        <td style={{ color: '#4fac16', fontWeight: 'bold' }}>{countExercise.closed}/{countExercise.total}</td>
         <td className='options'>
           <div>
             {item.exercises.map((excercise) => (
