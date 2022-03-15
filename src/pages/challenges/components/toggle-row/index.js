@@ -7,6 +7,7 @@ import { client } from '../../../../service'
 import { useNavigate } from 'react-router-dom'
 import { Tr } from './styled'
 import { useTranslation } from 'react-i18next'
+import { Feedback } from '../feedback'
 import {
   getNumberChallenge,
   getStatus,
@@ -82,7 +83,7 @@ export const ToggleRow = ({ item }) => {
             icon={faAngleDown} />
         }</td>
       </Tr>
-      {status && hasFeedback(item) ? <getFeedback exercises={item} toggle={item} /> : null}
+      {status && hasFeedback(item) ? <Feedback exercises={item.exercises} toggle={toggle} /> : null}
     </>
   )
 }

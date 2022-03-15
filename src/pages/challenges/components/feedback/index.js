@@ -1,4 +1,4 @@
-export const getFeedback = ({ exercises, toggle }) => {
+export const Feedback = ({ exercises, toggle }) => {
   const feedbacks = exercises.filter(exercise => exercise.evaluation.feedback)
   return (
     <tr>
