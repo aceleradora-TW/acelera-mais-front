@@ -26,7 +26,7 @@ export const ChallengeList = () => {
           <tr>
             <th>{t('challenge.thead.name')} </th>
             <th>{t('challenge.thead.type')}</th>
-            <th colSpan='2'>{t('challenge.thead.evaluator')}</th>
+            <th colSpan='3'>{t('challenge.thead.evaluator')}</th>
             <th>Feedbacks</th>
           </tr>
         </thead>

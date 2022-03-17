@@ -18,6 +18,11 @@ export const Tr = styled.tr`
     margin-left: 20px;
   }
 
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+
   .primary {
     padding: 5px 10px;
   }

@@ -11,6 +11,7 @@ export const StyledSpan = styled(StatusSpan)`
   padding: 10px 15px;
   text-align: center;
   border-radius: 5px;
+  margin: 2px 0;
   
   &.status-opened {
     background-color: #dcfdd4;
