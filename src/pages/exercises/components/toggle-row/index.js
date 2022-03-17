@@ -34,9 +34,7 @@ export const ToggleRow = ({ item }) => {
 
   const handleSubmit = () => {
     const id = window.location.pathname.split('/').pop()
-    item.exercises.forEach((exercise) => {
-      client.patch(`/evaluation/${exercise.evaluation.id}`, { mentorName: mentorNameLocal })
-    })
+    client.patch(`/evaluation/${item.evaluation.id}`, { mentorName: mentorNameLocal })
     navigate(`/challenges/${item.id}/hiring-process/${id}`)
   }
 
@@ -48,24 +46,23 @@ export const ToggleRow = ({ item }) => {
         <td style={{ color: '#4fac16', fontWeight: 'bold' }}>{countExercise.closed}/{countExercise.total}</td>
         <td className='options'>
           <div>
-            {item.exercises.map((excercise) => (
-              <Status key={excercise.id}
-                status={getStatusEvaluation(excercise.evaluation)}
-                options={{
-                  opened: 'status.opened',
-                  closed:
-                    t(
-                      'challenge.toggleRow.status.closed',
-                      { mentor: excercise.evaluation.mentorName || '' }
-                    ),
-                  preparing:
-                    t(
-                      'challenge.toggleRow.status.preparing',
-                      { mentor: excercise.evaluation.mentorName || '' }
-                    )
-                }} />
-            )
-            )}
+
+            <Status key={item.id}
+              status={getStatusEvaluation(item.evaluation)}
+              options={{
+                opened: 'status.opened',
+                closed:
+                  t(
+                    'challenge.toggleRow.status.closed',
+                    { mentor: item.evaluation.mentorName || '' }
+                  ),
+                preparing:
+                  t(
+                    'challenge.toggleRow.status.preparing',
+                    { mentor: item.evaluation.mentorName || '' }
+                  )
+              }} />
+
           </div>
         </td>
         <td>
