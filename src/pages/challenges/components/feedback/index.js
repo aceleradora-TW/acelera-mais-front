@@ -3,7 +3,7 @@ export const Feedback = ({ exercises, toggle }) => {
   return (
     <tr>
       <td colSpan="6" className={toggle}>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
           {feedbacks.map((feedback, index) => (
             <div key={index}>
               <strong>{feedback.name}</strong>
