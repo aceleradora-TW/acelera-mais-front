@@ -7,16 +7,15 @@ import { client } from '../../../../service'
 import { useNavigate } from 'react-router-dom'
 import { Tr } from './styled'
 import { useTranslation } from 'react-i18next'
-import { Feedback } from '../feedback'
+import { Feedback } from '../feedback-new'
 import {
   getStatus,
-  getStatusEvaluation,
   hasFeedback,
   isClosedChallenge,
   isClosedOrPreparing,
   isPreparedChallenge,
   isPreparingOrOpened
-} from '../helper'
+} from './helper'
 
 export const ToggleRow = ({ item }) => {
   const { t } = useTranslation()
@@ -39,37 +38,33 @@ export const ToggleRow = ({ item }) => {
   return (
     <>
       <Tr>
-        <td>{item.challenge}</td>
+        <td>{item.name}</td>
         <td>{item.type || t('challenge.toggleRow.type')}</td>
         <td></td>
         <td className='options'>
-          {item.exercises.map((evaluation, index) => {
-            return (
-              <span key={index}>
-                <Status
-                  status={getStatusEvaluation(item.evaluation)}
-                  options={{
-                    opened: 'status.opened',
-                    closed:
-                      t(
-                        'challenge.toggleRow.status.closed',
-                        { mentor: evaluation.mentorName || '' }
-                      ),
-                    preparing:
-                      t(
-                        'challenge.toggleRow.status.preparing',
-                        { mentor: evaluation.mentorName || '' }
-                      )
-                  }} />
-              </span>)
-          }
-          )}
+          <span>
+            <Status
+              status={getStatus(item)}
+              options={{
+                opened: 'status.opened',
+                closed:
+                  t(
+                    'challenge.toggleRow.status.closed',
+                    { mentor: item.evaluation.mentorName || '' }
+                  ),
+                preparing:
+                  t(
+                    'challenge.toggleRow.status.preparing',
+                    { mentor: item.evaluation.mentorName || '' }
+                  )
+              }} />
+          </span>
         </td>
         <td>
           < ActionButton
             text={t('challenge.toggleRow.evaluate')}
             icon={faPen}
-            disabled={isClosedChallenge(item.exercises) || isPreparedChallenge(item.exercises, mentorNameLocal)}
+            disabled={!(isClosedChallenge(item) || isPreparedChallenge(item, mentorNameLocal))}
             onClick={handleSubmit} />
         </td>
         <td className='avaliator-col'>{
@@ -80,7 +75,7 @@ export const ToggleRow = ({ item }) => {
             icon={faAngleDown} />
         }</td>
       </Tr>
-      {status && hasFeedback(item) ? <Feedback exercises={item.exercises} toggle={toggle} /> : null}
+      {status && hasFeedback(item) ? <Feedback exercise={item} toggle={toggle} /> : null}
     </>
   )
 }

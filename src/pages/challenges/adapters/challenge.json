@@ -1,0 +1,50 @@
+{
+  "message": "Informações encontradas com sucesso.",
+  "data": {
+    "hiringProcessId": "4",
+    "result": [
+      {
+        "id": 100,
+        "idExercise": 106,
+        "evaluation": {
+          "id": 108,
+          "mentorName": "Cibely",
+          "feedback": "Muito bom",
+          "score": 5
+        },
+        "name": "Exercício Biblioteca Ágil",
+        "typeExercise": "Not defined.",
+        "link": "",
+        "type": null
+      },
+      {
+        "id": 101,
+        "idExercise": 107,
+        "evaluation": {
+          "id": 109,
+          "mentorName": null,
+          "feedback": null,
+          "score": null
+        },
+        "name": "Exercício Biblioteca Ágil",
+        "typeExercise": "Not defined.",
+        "link": "",
+        "type": null
+      },
+      {
+        "id": 102,
+        "idExercise": 108,
+        "evaluation": {
+          "id": 110,
+          "mentorName": "Cibely",
+          "feedback": null,
+          "score": null
+        },
+        "name": "Exercício Biblioteca Ágil",
+        "typeExercise": "Not defined.",
+        "link": "",
+        "type": null
+      }
+    ]
+  }
+}
