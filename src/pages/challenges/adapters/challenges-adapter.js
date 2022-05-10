@@ -1,8 +1,23 @@
-export const challengesAdapter = (challenges) => {
-  return challenges.map(challenge => {
-    console.log(challenge)
+const mapExercises = exercises => {
+  return exercises.map(exercise => {
     return {
-      id: challenge.id
+      idExercise: exercise.id,
+      evaluation: {
+        id: exercise.evaluation.id,
+        mentorName: exercise.evaluation.mentorName,
+        feedback: exercise.evaluation.feedback,
+        score: exercise.evaluation.score
+      },
+      name: exercise.name,
+      typeExercise: exercise.type,
+      link: exercise.link
     }
   })
+}
+export const challengesAdapter = (challenges) => {
+  console.log(challenges.map(c => {
+    const { id, type, exercises } = c
+    const exercisesMapped = mapExercises(exercises)
+    return { id, type, exercisesMapped }
+  }))
 }
