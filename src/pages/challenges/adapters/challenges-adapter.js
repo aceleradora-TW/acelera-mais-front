@@ -1,5 +1,8 @@
-import challenge from './challenge.json'
-
 export const challengesAdapter = (challenges) => {
-  return challenge.data.result
+  return challenges.map(challenge => {
+    console.log(challenge)
+    return {
+      id: challenge.id
+    }
+  })
 }

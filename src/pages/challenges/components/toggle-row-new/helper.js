@@ -43,12 +43,10 @@ export const getStatus = (challenge) => {
 } */
 
 export const isClosedChallenge = (exercise) => {
-  console.log(getStatus(exercise))
   return getStatus(exercise) !== statusEnum.CLOSED
 }
 
 export const isPreparedChallenge = (exercise, mentorNameLocal) => {
-  console.log(getStatus(exercise))
   return isPreparing({
     status: getStatus(exercise),
     currentMentor: exercise.mentorName || '',

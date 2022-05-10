@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { ToggleRow } from '../toggle-row-new'
 import { ChallengeTable, Container } from './styled'
 import { useTranslation } from 'react-i18next'
-import challengeBD from './challenges.json'
+import challengeBD from './challenge.json'
 import { challengesAdapter } from '../../adapters/challenges-adapter'
 
 export const ChallengeList = () => {
