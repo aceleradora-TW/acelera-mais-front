@@ -15,13 +15,18 @@ const mapExercises = exercises => {
   })
 }
 export const challengesAdapter = (challenges) => {
-  console.log(challenges)
-  console.log(challenges.map(c => {
+  const challengesMapped = challenges.map(c => {
     const { id, type, exercises } = c
     const exercisesMapped = mapExercises(exercises)
     return exercisesMapped.map(exercise => {
-      return { id, type, exercise }
+      return { id, type, ...exercise }
     })
   })
-  )
+  const arr = []
+  challengesMapped.forEach(challenge => {
+    challenge.forEach(exercise => {
+      arr.push(exercise)
+    })
+  })
+  return arr
 }
