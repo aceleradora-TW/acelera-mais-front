@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { client } from '../../../../service'
-import { ToggleRow } from '../toggle-row-new'
 import { ChallengeTable, Container } from './styled'
 import { useTranslation } from 'react-i18next'
 // import challengeBD from './challenge.json'
 import { challengesAdapter } from '../../adapters/challenges-adapter'
+import { ToggleRowExercise } from '../toggle-row-exercise'
+import { TableBody } from '../table-body'
 
-export const ChallengeList = () => {
+export const Table = () => {
   const { t } = useTranslation()
   const [challenges, setChallenges] = useState([])
 
@@ -34,11 +35,10 @@ export const ChallengeList = () => {
             <th>Feedbacks</th>
           </tr>
         </thead>
-        <tbody>
-          {challenges.map((challenge, key) => {
-            return challenge ? <ToggleRow key={`${key}-test`} item={challenge} /> : null
-          })}
-        </tbody>
+        <TableBody
+          items={challenges}
+          RowComponent={ToggleRowExercise}
+        />
       </ChallengeTable>
     </Container>
   )

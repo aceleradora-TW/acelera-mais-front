@@ -1,0 +1,104 @@
+{
+  "message": "Informações encontradas com sucesso.",
+  "data": {
+    "hiringProcessId": "4",
+    "result": [
+      {
+        "id": 93,
+        "candidate": {
+          "id": 93,
+          "email": "candidata01@gmail.com",
+          "timeStamp": "2021-12-28T11:15:55.000Z",
+          "addressEmail": "candidata01@gmail.com",
+          "name": "candidata01",
+          "phone": "999999999",
+          "birthDate": "1991-12-14T00:00:00.000Z",
+          "genre": "Homem Cisgênero",
+          "skinColor": "Pardo",
+          "instituitionName": "Instituto Federal de Ciência e Tecnologia - Campus Restinga",
+          "courseName": "Técnico em informática",
+          "milestone": "01/2022",
+          "howFound": "Um amigo me recomendou",
+          "expectation": "Poder crescer pessoalmente e poder ter um sustento.",
+          "motivation": "Me preparar para o futuro e ajudar minha família.",
+          "curriculum": "",
+          "okCI": false,
+          "city": "Porto Alegre - Rio Grande do Sul",
+          "sexualOrientation": "Bissexual",
+          "photo": "",
+          "devProfile": "Front-end, Facilitador",
+          "equipment": "Computador/Notebook, Câmera, Headset/Fone de ouvido, Microfone/Fone de ouvido com microfone",
+          "createdAt": "2022-03-18T16:10:09.215Z",
+          "updatedAt": "2022-03-18T16:10:09.215Z"
+        },
+        "exercises": [
+          {
+            "id": 105,
+            "evaluation": {
+              "id": 105,
+              "mentorName": "Eluvya",
+              "feedback": null,
+              "score": null,
+              "createdAt": "2022-03-18T16:10:15.999Z",
+              "updatedAt": "2022-03-18T16:10:15.999Z"
+            },
+            "name": "Exercício Criação de Layout",
+            "type": "Not defined.",
+            "link": "",
+            "createdAt": "2022-03-18T16:10:15.999Z",
+            "updatedAt": "2022-03-18T16:10:15.999Z"
+          },
+          {
+            "id": 104,
+            "evaluation": {
+              "id": 104,
+              "mentorName": "Ju Dantas",
+              "feedback": null,
+              "score": null,
+              "createdAt": "2022-03-18T16:10:15.999Z",
+              "updatedAt": "2022-03-18T16:10:15.999Z"
+            },
+            "name": "Exercício Energéticos Accelerator",
+            "type": "Not defined.",
+            "link": "",
+            "createdAt": "2022-03-18T16:10:15.999Z",
+            "updatedAt": "2022-03-18T16:10:15.999Z"
+          },
+          {
+            "id": 103,
+            "evaluation": {
+              "id": 100,
+              "mentorName": "Cibely",
+              "feedback": null,
+              "score": null,
+              "createdAt": "2022-03-18T16:10:15.999Z",
+              "updatedAt": "2022-03-18T16:10:15.999Z"
+            },
+            "name": "Exercício Biblioteca Ágil",
+            "type": "Not defined.",
+            "link": "",
+            "createdAt": "2022-03-18T16:10:15.999Z",
+            "updatedAt": "2022-03-18T16:10:15.999Z"
+          }
+        ],
+        "timeStamp": "2022-01-08T04:27:32.000Z",
+        "addressEmail": "candidata01@gmail.com",
+        "name": "Candidata01",
+        "phone": "999999999",
+        "challenge": "Exercício Criação de Layout",
+        "fileType": "Arquivo do código em .ZIP",
+        "zip": "",
+        "github": "",
+        "haveComputer": "Sim e consigo programar bem nele",
+        "haveInternet": "Sim e ela é boa",
+        "haveWebcam": null,
+        "canUseWebcam": "Posso abrir quando for necessário.",
+        "exerciseStatement": null,
+        "cityState": null,
+        "type": null,
+        "createdAt": "2022-03-18T16:10:09.215Z",
+        "updatedAt": "2022-03-18T16:10:15.978Z"
+      }
+    ]
+  }
+}

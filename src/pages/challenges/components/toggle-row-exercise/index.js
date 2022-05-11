@@ -17,7 +17,7 @@ import {
   isPreparingOrOpened
 } from './helper'
 
-export const ToggleRow = ({ item }) => {
+export const ToggleRowExercise = ({ item }) => {
   const { t } = useTranslation()
   const [checked, setChecked] = useState(false)
   const navigate = useNavigate()

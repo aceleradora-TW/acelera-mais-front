@@ -1,7 +1,10 @@
-import { ChallengeList } from './components/challenges-list'
+import Table from './components/table/index'
 import Select from '../../components/select'
+import { ToggleRowExercise } from './components/toggle-row-exercise'
+import { TableBody } from './components/table-body/index'
 import showFeature from '../../utils/feature-toggle'
 import { useTranslation } from 'react-i18next'
+import { challengesAdapter } from './adapters/challenges-adapter'
 
 export const ChallengePage = () => {
   const { t } = useTranslation()
@@ -19,7 +22,11 @@ export const ChallengePage = () => {
               ]} placeholder={t('challenge.select.placeholder')} label={t('challenge.select.label')} name="type" onChange={() => { }} />
             </section>)
           : null}
-        <ChallengeList />
+        <Table
+          adapter={challengesAdapter}
+          BodyComponent={TableBody}
+          RowComponent={ToggleRowExercise}
+        />
       </div>
     </>
   )
