@@ -22,11 +22,11 @@ export const challengesAdapter = (challenges) => {
       return { id, type, ...exercise }
     })
   })
-  const arr = []
+  const exercisesMapped = []
   challengesMapped.forEach(challenge => {
     challenge.forEach(exercise => {
-      arr.push(exercise)
+      exercisesMapped.push(exercise)
     })
   })
-  return arr
+  return exercisesMapped
 }
