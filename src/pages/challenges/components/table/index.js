@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 // import challengeBD from './challenge.json'
 import { challengesAdapter } from '../../adapters/challenges-adapter'
 import { ToggleRowExercise } from '../toggle-row-exercise'
-import { TableBody } from '../table-body'
+import { TableBody } from './../table-body/index'
 
 export const Table = () => {
   const { t } = useTranslation()
