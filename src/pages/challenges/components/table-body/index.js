@@ -1,8 +1,8 @@
-export const TableBody = ({ items, Component }) => {
+export const TableBody = ({ items, RowComponent }) => {
   return (
     <tbody>
-      {items.map((challenge, key) => {
-        return challenge ? <Component key={`${key}-test`} item={challenge} /> : null
+      {items.map((item, key) => {
+        return item ? <RowComponent key={`${key}-test`} item={item} /> : null
       })}
     </tbody>
   )

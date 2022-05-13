@@ -5,9 +5,9 @@ import { useTranslation } from 'react-i18next'
 // import challengeBD from './challenge.json'
 import { challengesAdapter } from '../../adapters/challenges-adapter'
 import { ToggleRowExercise } from '../toggle-row-exercise'
-import { TableBody } from './../table-body/index'
+import { TableBody } from '../table-body'
 
-export const Table = () => {
+export const Table = ({ adapter, BodyComponent, RowComponent }) => {
   const { t } = useTranslation()
   const [challenges, setChallenges] = useState([])
 
