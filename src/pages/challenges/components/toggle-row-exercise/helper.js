@@ -33,15 +33,6 @@ export const getStatus = (challenge) => {
   return statusEnum.OPENED
 }
 
-/* export const getStatusEvaluation = (evaluation) => {
-  if (!evaluation) return statusEnum.OPENED
-  const { feedback, mentorName } = evaluation
-  if (mentorName === 'cancelado') return statusEnum.OPENED
-  if (feedback && mentorName) return statusEnum.CLOSED
-  if (mentorName) return statusEnum.PREPARING
-  return statusEnum.OPENED
-} */
-
 export const isClosedChallenge = (exercise) => {
   return getStatus(exercise) !== statusEnum.CLOSED
 }
