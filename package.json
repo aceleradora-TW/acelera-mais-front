@@ -28,7 +28,7 @@
     "storybook": "^6.4.4",
     "styled-components": "^5.3.3",
     "web-vitals": "^1.0.1",
-    "yarn": "^1.22.17"
+    "yarn": "^1.22.18"
   },
   "scripts": {
     "start": "react-dotenv && react-scripts start",
