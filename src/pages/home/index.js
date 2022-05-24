@@ -1,26 +1,19 @@
 import PrimaryButton from '../../components/buttons/primary'
-const HomePage = () => {
 
+export const HomePage = () => {
   const handleSubmit = () => {
     location.reload()
   }
+
   return (
-    <div className="pages-home">
-
+    <div className="Pages-Home">
       <h1>Home page</h1>
-
-      <div className="button-homeclear">
-        <PrimaryButton text={t('Selective process')} onClick={handleSubmit} />
-        <PrimaryButton text={t('Registration of mentors')} onClick={handleSubmit} />
-
+      <div className="button-home">
+        <PrimaryButton text={'Selective process'} onClick={handleSubmit} />
+        <PrimaryButton text={'Registration of mentors'} onClick={handleSubmit} />
+        <PrimaryButton text={'reset your password'} onClick={handleSubmit} />
       </div>
     </div>
+
   )
-
-
-
-
 }
-
-export default HomePage
-
