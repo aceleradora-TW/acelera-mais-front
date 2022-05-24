@@ -1,5 +1,8 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { Modal } from '../../../../components/modal'
+import { InputText } from '../../../../components/inputs/text'
+import PrimaryButton from '../../../../components/buttons/primary'
+
 // import { buttonStyle } from './style'
 
 export const RegisterModal = () => {
@@ -11,8 +14,13 @@ export const RegisterModal = () => {
         title='Cadastrar nova mentora'
         classe='button primary'
         text='Cadastrar uma nova mentora'
+      >
+        <InputText name={'name'} label={'Nome'} />
+        <InputText name={'name'} label={'Telefone'} />
+        <InputText name={'name'} label={'Email'} />
+        <PrimaryButton text='Cadastrar'/>
+      </Modal>
 
-      />
     </div>
   )
 }
