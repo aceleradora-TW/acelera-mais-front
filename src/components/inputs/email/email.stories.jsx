@@ -9,7 +9,6 @@ const Template = args => <InputEmail {...args} />
 
 export const Email = Template.bind({})
 Email.args = {
-  onChange: () => { },
   label: 'Email',
   name: 'email'
 }
