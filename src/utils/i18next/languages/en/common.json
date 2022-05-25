@@ -105,7 +105,13 @@
     },
     "user": {
       "title": "Mentor's List",
-      "backButton": "Back"
+      "backButton": "Back",
+      "newMentor":{
+        "text": "Register New Mentor"
+      }
+    },
+    "search": {
+      "placeholder": "Search"
     }
   }
 }

@@ -1,12 +1,15 @@
-import Icon from '../../icon'
+import { useTranslation } from 'react-i18next'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import Icon from '../../icon'
 import { Input } from '..'
+import './styled.css'
 
-export const InputSearch = (type, placeholder, onChange) => {
+export const InputSearch = () => {
+  const { t } = useTranslation()
   return (
-    <>
-    <Input type="text" placeholder='Pesquisar' onChange='' />
-    <Icon icon={faSearch}/>
-    </>
+    <div className='search'>
+      <Input type="text" placeholder={t('search.placeholder')} onChange='' />
+      <Icon icon={faSearch}/>
+    </div>
   )
 }

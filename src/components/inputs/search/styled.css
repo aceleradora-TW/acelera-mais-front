@@ -1,0 +1,18 @@
+
+.search{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ababab;
+}
+.search label, .search label span{
+  margin-bottom: 0;
+}
+.search svg{
+  justify-content: flex-start;
+}
+.search input{
+  border:none !important;
+  outline:none;
+  width:100%;
+}

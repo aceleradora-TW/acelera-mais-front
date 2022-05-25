@@ -2,21 +2,19 @@ import { useTranslation } from 'react-i18next'
 import PrimaryButton from '../../components/buttons/primary'
 import { InputSearch } from '../../components/inputs/search'
 
-import './style.css'
-
 export const MentorRegistrationPage = () => {
-  const { t } = useTranslation() // não ta funciondo
-  const handleSubmit = 0 // chamada do componente que o Erick e a Let tão fazendo
-  const pageHome = 0 // aguardando page home ser criada
+  const { t } = useTranslation()
+  const handleSubmit = () => { }
+  const pageHome = () => { }
   return (
-    <div className='header'>
+    <div className="page-container">
       <section>
         <h1>{t('user.title')}</h1>
-         <div>
-         <InputSearch/>
-         </div>
-          <PrimaryButton text={t('Cadastrar nova mentora')} onClick={handleSubmit} />
+        <InputSearch/>
+        <div className ='button'>
+          <PrimaryButton text={t('user.newMentor.text')} onClick={handleSubmit} />
           <PrimaryButton text={t('user.backButton')} onClick={pageHome} />
+        </div>
       </section>
     </div>
   )

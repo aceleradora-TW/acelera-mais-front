@@ -106,7 +106,13 @@
     },
     "user": {
       "title": "Lista de Mentoras Avaliadoras",
-      "backButton": "Voltar página inicial"
+      "backButton": "Voltar página inicial",
+      "newMentor":{
+        "text": "Cadastrar Nova Mentora"
+      }
+    },
+    "search": {
+      "placeholder": "Pesquisar"
     }
   }
 }
