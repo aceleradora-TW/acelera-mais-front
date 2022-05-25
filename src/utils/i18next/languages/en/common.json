@@ -102,6 +102,10 @@
         "alert": "Successfully updated!",
         "changeButton": "Change"
       }
+    },
+    "user": {
+      "title": "Mentor's List",
+      "backButton": "Back"
     }
   }
 }

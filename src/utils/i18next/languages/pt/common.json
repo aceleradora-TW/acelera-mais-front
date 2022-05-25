@@ -102,6 +102,11 @@
         "alert": "Atualizado com sucesso!",
         "changeButton": "Alterar"
       }
+   
+    },
+    "user": {
+      "title": "Lista de Mentoras Avaliadoras",
+      "backButton": "Voltar página inicial"
     }
   }
 }
