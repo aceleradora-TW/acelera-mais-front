@@ -1,16 +1,16 @@
 import { InputBox } from '../styled'
 import { Input } from '../index'
 import { useState } from 'react'
-import { validator } from 'validator'
+import validator from 'validator'
 
 export const InputEmail = ({ label, name }) => {
   const [emailError, setEmailError] = useState('')
   const change = (e) => {
     const email = e.target.value
     if (validator.isEmail(email)) {
-      setEmailError('Email valido')
+      setEmailError('')
     } else {
-      setEmailError('O email não é valido!')
+      setEmailError('Email invalido!')
     }
   }
   return (
