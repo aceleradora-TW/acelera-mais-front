@@ -24,13 +24,19 @@ export const StyledButton = styled.div`
   justify-content: space-around;
 `
 export const MentorRegistrationTable = styled(Table)`
-  a {
+ justify-content: center !important;
+ align-items: center;
+ 
+
+
+a {
     font-weight: bold;
     color: #000;
   }
   a:visited {
     color: #ababab;
   }`
+
 // .page-container section {
 // display: flex;
 // justify-content: space-between;

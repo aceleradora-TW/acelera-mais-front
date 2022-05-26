@@ -22,11 +22,11 @@ export const MentorRegistrationPage = () => {
     </div>
     <MentorRegistrationTable>
           <tr>
-            <td>NOME</td>
-            <td>STATUS</td>
-            <td>DATA DE CADASTRO</td>
-            <td>INFORMAÇÃO DE CADASTRO</td>
-            <td>AÇÕES</td>
+            <td>{t('user.descriptionTable.name')}</td>
+            <td>{t('user.descriptionTable.status')}</td>
+            <td>{t('user.descriptionTable.registrationDate')}</td>
+            <td>{t('user.descriptionTable.registrationInformation')}</td>
+            <td>{t('user.descriptionTable.shares')}</td>
           </tr>
         </MentorRegistrationTable>
     </>

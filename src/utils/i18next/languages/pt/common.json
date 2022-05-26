@@ -109,6 +109,13 @@
       "backButton": "Voltar página inicial",
       "newMentor":{
         "text": "Cadastrar Nova Mentora"
+      },
+      "descriptionTable": {
+        "name": "Nome",
+        "status": "Status",
+        "registrationDate": "Data de Cadastro",
+        "registrationInformation": "Informações de cadastro",
+        "shares": "Ações"
       }
     },
     "search": {

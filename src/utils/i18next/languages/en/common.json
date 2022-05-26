@@ -108,6 +108,13 @@
       "backButton": "Back",
       "newMentor":{
         "text": "Register New Mentor"
+      },
+      "descriptionTable": {
+        "name": "Name",
+        "status": "Status",
+        "registrationDate": "Regristraition date",
+        "registrationInformation": "Regristion Information",
+        "shares": "Shares"
       }
     },
     "search": {
