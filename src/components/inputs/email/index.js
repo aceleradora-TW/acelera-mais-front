@@ -7,9 +7,7 @@ export const InputEmail = ({ label, name }) => {
   const [emailError, setEmailError] = useState('')
   const change = (e) => {
     const email = e.target.value
-    if (validator.isEmail(email)) {
-      setEmailError('Email valido!')
-    } else {
+    if (!validator.isEmail(email)) {
       setEmailError('Email invalido!')
     }
   }
