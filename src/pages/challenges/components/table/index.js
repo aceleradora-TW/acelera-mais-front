@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react'
 import { client } from '../../../../service'
-import { ToggleRow } from '../toggle-row'
 import { ChallengeTable, Container } from './styled'
 import { useTranslation } from 'react-i18next'
 
-export const ChallengeList = () => {
+export const Table = ({ adapter, BodyComponent, RowComponent }) => {
   const { t } = useTranslation()
   const [challenges, setChallenges] = useState([])
 
   useEffect(() => {
     const id = window.location.pathname.split('/').pop()
     client.get(`/challenge?hiringProcessId=${id}`)
-      .then(res => setChallenges(res.data.data.result))
+      .then(res => setChallenges(adapter(res.data.data.result)))
       .catch(err => {
         alert(t('challenge.alert'))
         console.log(err)
@@ -30,11 +29,10 @@ export const ChallengeList = () => {
             <th>Feedbacks</th>
           </tr>
         </thead>
-        <tbody>
-          {challenges.map((challenge, key) => {
-            return challenge.exercises.length > 0 ? <ToggleRow key={`${key}-test`} item={challenge} /> : null
-          })}
-        </tbody>
+        <BodyComponent
+          items={challenges}
+          RowComponent={RowComponent}
+        />
       </ChallengeTable>
     </Container>
   )
