@@ -1,4 +1,5 @@
 import PrimaryButton from '../../components/buttons/primary'
+import { ContainerButtons, HomePageContainer } from './styled'
 
 export const HomePage = () => {
   const handleSubmit = () => {
@@ -6,14 +7,14 @@ export const HomePage = () => {
   }
 
   return (
-    <div className="Pages-Home">
+    <HomePageContainer>
       <h1>Home page</h1>
-      <div className="button-home">
+      <ContainerButtons>
         <PrimaryButton text={'Selective process'} onClick={handleSubmit} />
         <PrimaryButton text={'Registration of mentors'} onClick={handleSubmit} />
         <PrimaryButton text={'reset your password'} onClick={handleSubmit} />
-      </div>
-    </div>
+      </ContainerButtons>
+    </HomePageContainer>
 
   )
 }
