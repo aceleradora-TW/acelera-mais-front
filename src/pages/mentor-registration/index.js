@@ -2,14 +2,14 @@ import { useTranslation } from 'react-i18next'
 import PrimaryButton from '../../components/buttons/primary'
 import { InputSearch } from '../../components/inputs/search'
 // import { Table } from '../../components/table/table'
-import { Container, MentorRegistrationTable } from './styled.js'
+import { Responsive, Container, MentorRegistrationTable } from './styled.js'
 
 export const MentorRegistrationPage = () => {
   const { t } = useTranslation()
   const handleSubmit = () => { }
   const pageHome = () => { }
   return (
-    <>
+    <Responsive>
     <div className="page-container">
       <section>
         <h1>{t('user.title')}</h1>
@@ -31,7 +31,7 @@ export const MentorRegistrationPage = () => {
           </tr>
         </MentorRegistrationTable>
       </Container>
-    </>
+      </Responsive>
   )
 }
 export default MentorRegistrationPage
