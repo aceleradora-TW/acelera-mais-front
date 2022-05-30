@@ -9,6 +9,15 @@ export const HomePageContainer = styled.div`
     font-size: 60px;
 `
 export const ContainerButtons = styled.div`
-    text-align: center;
-    textAlignVertical: 'bottom';
+  text-align: center;   
+`
+export const HomePageButton = styled.button`
+  margin: 2000 px;
+  borda-radius: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display-direction: columm
+
+  .flex-container
 `

@@ -1,14 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import { HomePage } from './pages/home/index'
-// import App from './App'
+import App from './App'
 // import reportWebVitals from './reportWebVitals'
 import './utils/i18next'
 
 ReactDOM.render(
   <React.StrictMode>
-    <HomePage />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 )
