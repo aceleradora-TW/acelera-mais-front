@@ -1,11 +1,42 @@
+import { client } from '../../../../service'
+import { useState } from 'react'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { Modal } from '../../../../components/modal'
 import { InputText } from '../../../../components/inputs/text'
 import PrimaryButton from '../../../../components/buttons/primary'
 
-// import { buttonStyle } from './style'
+export const RegisterModal = ({ method = 'POST', callback = () => { } }) => {
+  const [users, setUsers] = useState({
+    name: '',
+    email: '',
+    telephone: '',
+    type: '',
+    password: ''
+  })
 
-export const RegisterModal = () => {
+  const handleChange = (e) => {
+    // const { name } = e.target
+    setUsers({
+      ...users
+
+    })
+  }
+
+  const sendUsers = () => {
+    const data = users
+
+    client('/user',
+
+      {
+        method,
+        data
+      })
+      .then(res => {
+        console.log(res.data)
+        callback(res.data)
+      })
+  }
+
   return (
     <div>
       <Modal
@@ -15,23 +46,12 @@ export const RegisterModal = () => {
         classe='button primary'
         text='Cadastrar uma nova mentora'
       >
-        <InputText name={'name'} label={'Nome'} />
-        <InputText name={'name'} label={'Telefone'} />
-        <InputText name={'name'} label={'Email'} />
-        <PrimaryButton text='Cadastrar'/>
+        <InputText name='name' label={'Nome'} onChange={handleChange} />
+        <InputText name='telephone' label={'Telefone'} onChange={handleChange} />
+        <InputText name='email' label={'Email'} onChange={handleChange} />
+        <PrimaryButton text='Cadastrar' onClick={sendUsers} />
       </Modal>
 
     </div>
   )
 }
-
-/* <form>
-      <InputText name="name" label={t('hiringProcess.form.name')} onChange={handleChange} />
-      <InputDate name="startDate" label={t('hiringProcess.form.startDate')} onChange={handleChange} />
-      <InputDate name="endDate" label={t('hiringProcess.form.endDate')} onChange={handleChange} />
-      <InputText name="description" label={t('hiringProcess.form.description')} onChange={handleChange} />
-      <PrimaryButton text={t('hiringProcess.form.submitButton')} onClick={sendHiringProcess}>
-        Enviar
-      </PrimaryButton>
-    </form>
-*/
