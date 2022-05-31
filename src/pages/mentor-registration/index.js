@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import PrimaryButton from '../../components/buttons/primary'
 import { InputSearch } from '../../components/inputs/search'
-// import { Table } from '../../components/table/table'
-import { Responsive, Container, MentorRegistrationTable } from './styled.js'
+import { Table } from '../../components/table/table'
+import { Responsive, Container } from './styled.js'
 
 export const MentorRegistrationPage = () => {
   const { t } = useTranslation()
@@ -21,7 +21,7 @@ export const MentorRegistrationPage = () => {
       </section>
     </div>
     <Container>
-      <MentorRegistrationTable>
+      <Table>
           <tr>
             <td>{t('user.descriptionTable.name')}</td>
             <td>{t('user.descriptionTable.status')}</td>
@@ -29,7 +29,7 @@ export const MentorRegistrationPage = () => {
             <td>{t('user.descriptionTable.registrationInformation')}</td>
             <td>{t('user.descriptionTable.shares')}</td>
           </tr>
-        </MentorRegistrationTable>
+        </Table>
       </Container>
       </Responsive>
   )

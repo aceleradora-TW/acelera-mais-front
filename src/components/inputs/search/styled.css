@@ -8,9 +8,7 @@
 .search label, .search label span{
   margin-bottom: 0;
 }
-.search svg{
-  justify-content: flex-start;
-}
+
 .search input{
   border:none !important;
   outline:none;
