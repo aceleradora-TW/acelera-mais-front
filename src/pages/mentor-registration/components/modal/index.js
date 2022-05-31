@@ -8,18 +8,15 @@ import PrimaryButton from '../../../../components/buttons/primary'
 export const RegisterModal = ({ method = 'POST', callback = () => { } }) => {
   const [users, setUsers] = useState({
     name: '',
-    email: '',
     telephone: '',
-    type: '',
+    email: '',
+    type: 'evaluator',
     password: ''
   })
 
   const handleChange = (e) => {
-    // const { name } = e.target
-    setUsers({
-      ...users
-
-    })
+    const { name, value } = e.target
+    setUsers({ ...users, [name]: value })
   }
 
   const sendUsers = () => {
