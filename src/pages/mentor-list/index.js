@@ -4,7 +4,7 @@ import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
 import { Responsive, Container } from './styled.js'
 
-export const MentorRegistrationPage = () => {
+export const MentorListPage = () => {
   const { t } = useTranslation()
   const handleSubmit = () => { }
   const pageHome = () => { }
@@ -34,4 +34,4 @@ export const MentorRegistrationPage = () => {
       </Responsive>
   )
 }
-export default MentorRegistrationPage
+export default MentorListPage

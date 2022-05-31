@@ -4,8 +4,6 @@ import HiringProcessPage from '../pages/hiring-process'
 import { IsAuth } from '../components/is-auth/index.js'
 import { ChallengePage } from '../pages/challenges'
 import Evaluation from '../pages/evaluation'
-import MentorRegistrationPage from '../pages/mentor-registration'
-
 const AppRoutes = () => {
   return (
     <BrowserRouter>
@@ -14,7 +12,6 @@ const AppRoutes = () => {
         <Route path="/hiring-process" element={<IsAuth />}>
           <Route path="/hiring-process" element={<HiringProcessPage />} exact />
         </Route>
-        <Route path="/users" element={<MentorRegistrationPage />} exact />
         <Route path="/challenges" element={<IsAuth />}>
           <Route path="/challenges/hiring-process/:id" element={<ChallengePage />} exact />
           <Route path="/challenges/:id/hiring-process/:id" element={<Evaluation />} exact />
