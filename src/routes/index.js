@@ -1,6 +1,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import LoginPage from '../pages/authentication/index'
 import HiringProcessPage from '../pages/hiring-process'
+import { HomePage } from '../pages/home'
 import { IsAuth } from '../components/is-auth/index.js'
 import { ChallengePage } from '../pages/challenges'
 import Evaluation from '../pages/evaluation'
@@ -10,6 +11,7 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginPage />} exact />
+        <Route path="/home" element={<HomePage />} exact />
         <Route path="/hiring-process" element={<IsAuth />}>
           <Route path="/hiring-process" element={<HiringProcessPage />} exact />
         </Route>
