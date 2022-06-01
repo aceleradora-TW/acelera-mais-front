@@ -7,7 +7,7 @@ const MentorRegistrationPage = () => {
   return (
     <div className="page-container">
       <section>
-        <h1>{t('lista de mentoas avaliadoras')}</h1>
+        <h1>{t('lista de mentoras avaliadoras')}</h1>
             <div>
               <Button text={t('cadastrar nova mentora')} onClick={handleSubmit} />
             </div>

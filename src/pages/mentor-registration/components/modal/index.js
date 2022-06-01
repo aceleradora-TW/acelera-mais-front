@@ -37,7 +37,7 @@ export const RegisterModal = ({ method = 'POST', callback = () => { } }) => {
     <div>
       <Modal
         icon={faPlus}
-        label="Importar"
+        label='Importar'
         title='Cadastrar nova mentora'
         classe='button primary'
         text='Cadastrar uma nova mentora'
