@@ -4,6 +4,8 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { Modal } from '../../../../components/modal'
 import { InputText } from '../../../../components/inputs/text'
 import PrimaryButton from '../../../../components/buttons/primary'
+import { InputEmail } from '../../../../components/inputs/email'
+import { InputTelephone } from '../../../../components/inputs/telephone'
 
 export const RegisterModal = ({ method = 'POST', callback = () => { } }) => {
   const [users, setUsers] = useState({
@@ -23,14 +25,10 @@ export const RegisterModal = ({ method = 'POST', callback = () => { } }) => {
   const sendUsers = () => {
     const data = users
 
-    client('/user',
-
-      {
-        method,
-        data
-      })
+    client('/user', { method, data })
       .then(res => {
         console.log(res.data)
+        alert(res.data.message)
         callback(res.data)
       })
   }
@@ -45,8 +43,8 @@ export const RegisterModal = ({ method = 'POST', callback = () => { } }) => {
         text='Cadastrar uma nova mentora'
       >
         <InputText name='name' label={'Nome'} onChange={handleChange} />
-        <InputText name='telephone' label={'Telefone'} onChange={handleChange} />
-        <InputText name='email' label={'Email'} onChange={handleChange} />
+        <InputTelephone name='telephone' label={'Telefone'} onChange={handleChange} />
+        <InputEmail name='email' label={'Email'} onChange={handleChange} />
         <PrimaryButton text='Cadastrar' onClick={sendUsers} />
       </Modal>
 
