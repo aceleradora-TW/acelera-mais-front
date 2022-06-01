@@ -3,11 +3,11 @@ import PrimaryButton from '../../components/buttons/primary'
 import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
 import { Container, Page } from './styled.js'
-import { Link } from 'react-router-dom'
 
 export const MentorListPage = () => {
   const { t } = useTranslation()
   const handleSubmit = () => { }
+  const pageHome = () => { }
   return (
     <>
     <Page>
@@ -16,8 +16,7 @@ export const MentorListPage = () => {
         <InputSearch/>
         <div className ='button'>
           <PrimaryButton text={t('user.newMentor.text')} onClick={handleSubmit} />
-          <Link to={`/challenges/hiring-process/${process.id}`}>{process.name}</Link>
-
+          <PrimaryButton text={t('user.backButton')} onClick={pageHome} />
         </div>
         </section>
     </Page>
