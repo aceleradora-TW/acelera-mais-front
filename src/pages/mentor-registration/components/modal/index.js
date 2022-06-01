@@ -11,7 +11,8 @@ export const RegisterModal = ({ method = 'POST', callback = () => { } }) => {
     telephone: '',
     email: '',
     type: 'evaluator',
-    password: ''
+    password: '',
+    flag: 'first-login'
   })
 
   const handleChange = (e) => {
