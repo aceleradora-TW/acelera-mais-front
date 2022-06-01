@@ -1,14 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-// import App from './App'
+import App from './App'
 // import reportWebVitals from './reportWebVitals'
 import './utils/i18next'
-import MentorListPage from './pages/mentor-list/index'
 
 ReactDOM.render(
   <React.StrictMode>
-    <MentorListPage />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 )
