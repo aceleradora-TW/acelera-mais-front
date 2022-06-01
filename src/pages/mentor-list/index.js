@@ -2,26 +2,28 @@ import { useTranslation } from 'react-i18next'
 import PrimaryButton from '../../components/buttons/primary'
 import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
-import { Responsive, Container } from './styled.js'
+import { Container, Page } from './styled.js'
+import { Link } from 'react-router-dom'
 
 export const MentorListPage = () => {
   const { t } = useTranslation()
   const handleSubmit = () => { }
-  const pageHome = () => { }
   return (
-    <Responsive>
-    <div className="page-container">
+    <>
+    <Page>
       <section>
         <h1>{t('user.title')}</h1>
         <InputSearch/>
         <div className ='button'>
           <PrimaryButton text={t('user.newMentor.text')} onClick={handleSubmit} />
-          <PrimaryButton text={t('user.backButton')} onClick={pageHome} />
+          <Link to={`/challenges/hiring-process/${process.id}`}>{process.name}</Link>
+
         </div>
-      </section>
-    </div>
+        </section>
+    </Page>
     <Container>
       <Table>
+        <tbody>
           <tr>
             <td>{t('user.descriptionTable.name')}</td>
             <td>{t('user.descriptionTable.status')}</td>
@@ -29,9 +31,10 @@ export const MentorListPage = () => {
             <td>{t('user.descriptionTable.registrationInformation')}</td>
             <td>{t('user.descriptionTable.shares')}</td>
           </tr>
+          </tbody>
         </Table>
       </Container>
-      </Responsive>
+      </>
   )
 }
 export default MentorListPage
