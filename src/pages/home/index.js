@@ -8,14 +8,13 @@ export const HomePage = () => {
     <HomePageContainer>
       <h1>Página inicial</h1>
       <HomeContainer>
-        <Link to="/hiring-process">Processo Seletivo
-          <FontAwesomeIcon icon={faChevronCircleRight}/>
+        <Link to="/hiring-process">Processo seletivo
+          < FontAwesomeIcon icon={faChevronCircleRight}/>
         </Link>
-
-        <Link to="/manage-Mentors">Gerenciamento Mentores
+        <Link to="/manage-Mentors">Gerenciamento de mentoras
         <FontAwesomeIcon icon={faChevronCircleRight}/>
         </Link>
-        <Link to="/reset password">Resetar Senha
+        <Link to="/reset password">Resetar senha
         <FontAwesomeIcon icon={faChevronCircleRight}/>
         </Link>
       </HomeContainer>

@@ -11,7 +11,10 @@ export const HomePageContainer = styled.div`
     font-size: 60px;
     }
 
+  
     a{
+      display: flex;       
+      justify-content: space-between;
       font-size: 25px;
       background-color: #0000ff;
       color: white;
@@ -19,10 +22,10 @@ export const HomePageContainer = styled.div`
       margin:20px;
       border-radius: 20px;
       height:110px;
-      width: 400px;
+      width: 500px;
       text-decoration:none;
-
-    }
+      }
+  
 `
 
 export const HomeContainer = styled.div`
