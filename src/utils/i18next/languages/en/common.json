@@ -101,15 +101,16 @@
         "placeholder": "Select an Option",
         "alert": "Successfully updated!",
         "changeButton": "Change"
-      },
-      "mentorRegistration": {
-        "title": "Register New Mentor",
-        "name": "Name",
-        "telephone": "Telephone",
-        "email": "Email",
-        "registerButton": "Register",
-        "fillAlert": "Registered successfully"
       }
+    },
+    "mentorRegistration": {
+      "title": "Register New Mentor",
+      "name": "Name",
+      "telephone": "Telephone",
+      "email": "Email",
+      "registerButton": "Register",
+      "fillAlert": "Registered successfully",
+      "text": "Register a new mentor"
     }
   }
 }

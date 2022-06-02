@@ -101,15 +101,16 @@
         "placeholder": "Escolha uma opção",
         "alert": "Atualizado com sucesso!",
         "changeButton": "Alterar"
-      },
-      "mentorRegistration": {
-        "title": "Cadastrar nova mentora",
-        "name": "Nome",
-        "telephone": "Telefone",
-        "email": "Email",
-        "registerButton": "Cadastrar",
-        "fillAlert": "Cadastrado com Sucesso"
       }
+    },
+    "mentorRegistration": {
+      "title": "Cadastrar nova mentora",
+      "name": "Nome",
+      "telephone": "Telefone",
+      "email": "Email",
+      "registerButton": "Cadastrar",
+      "fillAlert": "Cadastrado com Sucesso",
+      "text": "Cadastrar uma nova mentora"
     }
   }
 }

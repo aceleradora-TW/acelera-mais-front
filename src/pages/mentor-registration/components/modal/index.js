@@ -40,13 +40,13 @@ export const RegisterModal = ({ method = 'POST', callback = () => { } }) => {
       <Modal
         icon={faPlus}
         label='Importar'
-        title='Cadastrar nova mentora'
+        title={t('mentorRegistration.title')}
         classe='button primary'
-        text='Cadastrar uma nova mentora'
+        text={t('mentorRegistration.text')}
       >
         <InputText name='name' label={t('mentorRegistration.name')} onChange={handleChange} />
-        <InputTelephone name='telephone' label={'Telefone'} onChange={handleChange} />
-        <InputEmail name='email' label={'Email'} onChange={handleChange} />
+        <InputTelephone name='telephone' label={t('mentorRegistration.telephone')} onChange={handleChange} />
+        <InputEmail name='email' label={t('mentorRegistration.email')} onChange={handleChange} />
         <PrimaryButton text={t('mentorRegistration.registerButton')} onClick={sendUsers} />
       </Modal>
 
