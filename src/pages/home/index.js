@@ -14,11 +14,7 @@ export const HomePage = () => {
         <Link to="/manage-Mentors">Gerenciamento de mentoras
         <FontAwesomeIcon icon={faChevronCircleRight}/>
         </Link>
-        <Link to="/reset password">Resetar senha
-        <FontAwesomeIcon icon={faChevronCircleRight}/>
-        </Link>
       </HomeContainer>
-
     </HomePageContainer>
   )
 }
