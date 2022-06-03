@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import { RegisterModal } from './pages/mentor-registration/components/modal'
 import './utils/i18next'
+import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
-    <RegisterModal />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 )
