@@ -1,4 +1,5 @@
 import { ToggleRow } from '.'
+import { Router, BrowserRouter } from 'react-router-dom'
 
 export default {
   title: 'ToggleRow',
@@ -7,9 +8,13 @@ export default {
 
 const Template = args => {
   return (
-    <table>
-      <ToggleRow {...args} />
-    </table>
+    <BrowserRouter>
+      <Router>
+        <table>
+          <ToggleRow {...args} />
+        </table>
+      </Router>
+    </BrowserRouter>
   )
 }
 
