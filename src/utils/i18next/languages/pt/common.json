@@ -120,6 +120,10 @@
     },
     "search": {
       "placeholder": "Buscar"
+    },
+    "home": {
+      "title": "Página inicial",
+      "manageMentor": "Gerenciamento de mentoras"
     }
   }
 }

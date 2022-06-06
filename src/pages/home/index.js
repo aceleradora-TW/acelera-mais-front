@@ -8,12 +8,12 @@ export const HomePage = () => {
   const { t } = useTranslation()
   return (
     <HomePageContainer>
-      <h1>{t('user.title')}</h1>
+      <h1>{t('home.title')}</h1>
       <HomeContainer>
-        <Link to="/hiring-process">{t('user.hiring-process')}
+        <Link to="/hiring-process">{t('hiringProcess.title')}
           < FontAwesomeIcon icon={faChevronCircleRight}/>
         </Link>
-        <Link to="/user">Gerenciamento de mentoras{t('user.manage-mentor')}
+        <Link to="/user">{t('home.manageMentor')}
         <FontAwesomeIcon icon={faChevronCircleRight}/>
         </Link>
       </HomeContainer>

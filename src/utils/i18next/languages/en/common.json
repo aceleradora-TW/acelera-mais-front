@@ -119,6 +119,10 @@
     },
     "search": {
       "placeholder": "Search"
+    },
+    "home": {
+      "title": "Home Page",
+      "manageMentor": "Manage Mentors"
     }
   }
 }
