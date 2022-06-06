@@ -110,14 +110,11 @@
       "email": "Email",
       "registerButton": "Register",
       "fillAlert": "Registered successfully",
-      "text": "Register a new mentor"
+      "text": "New mentor"
     },
     "user": {
       "title": "Mentor's List",
       "backButton": "Back",
-      "newMentor": {
-        "text": "Register New Mentor"
-      },
       "descriptionTable": {
         "name": "Name",
         "status": "Status",

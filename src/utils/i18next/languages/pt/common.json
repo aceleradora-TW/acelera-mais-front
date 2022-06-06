@@ -110,14 +110,11 @@
       "email": "Email",
       "registerButton": "Cadastrar",
       "fillAlert": "Cadastrado com Sucesso",
-      "text": "Cadastrar uma nova mentora"
+      "text": "Nova mentora"
     },
     "user": {
       "title": "Lista de Mentoras Avaliadoras",
       "backButton": "Voltar página inicial",
-      "newMentor": {
-        "text": "Cadastrar Nova Mentora"
-      },
       "descriptionTable": {
         "name": "Nome",
         "status": "Status",
