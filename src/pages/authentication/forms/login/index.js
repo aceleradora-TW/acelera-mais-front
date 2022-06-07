@@ -46,7 +46,7 @@ export const Login = () => {
         localStorage.setItem('token', accessToken)
         localStorage.setItem('role', role)
         setTokenInHeaders(accessToken)
-        navigate('/hiring-process')
+        navigate('/home')
       }
     } catch (error) {
       console.log(error)
