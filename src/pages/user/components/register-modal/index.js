@@ -7,9 +7,9 @@ import PrimaryButton from '../../../../components/buttons/primary'
 import { InputEmail } from '../../../../components/inputs/email'
 import { InputTelephone } from '../../../../components/inputs/telephone'
 import { useTranslation } from 'react-i18next'
-import { t } from 'i18next'
 
 export const RegisterModal = ({ method = 'POST', callback = () => { } }) => {
+  const { t } = useTranslation()
   const [users, setUsers] = useState({
     name: '',
     telephone: '',
@@ -25,12 +25,11 @@ export const RegisterModal = ({ method = 'POST', callback = () => { } }) => {
   }
 
   const sendUsers = () => {
-    const { t } = useTranslation()
     const data = users
 
     client('/user', { method, data })
       .then(res => {
-        alert(t(res.data.message))
+        alert(res.data.message)
         callback(res.data)
       })
   }
