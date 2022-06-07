@@ -37,11 +37,11 @@ export const Login = () => {
 
     try {
       const response = await client.post('/login', user)
-      const { data: { accessToken, user: { role, flag } } } = response
+      const { data: { accessToken, auth, user: { role } } } = response
 
       if (accessToken) {
-        if (flag === flags.FIRST_LOGIN) {
-          navigate('/modalPassword')
+        if (!auth) {
+          return navigate('/passwordReset')
         }
         localStorage.setItem('token', accessToken)
         localStorage.setItem('role', role)
