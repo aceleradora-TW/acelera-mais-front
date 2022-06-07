@@ -102,6 +102,23 @@
         "alert": "Successfully updated!",
         "changeButton": "Change"
       }
+    },
+    "user": {
+      "title": "Mentor's List",
+      "backButton": "Back",
+      "newMentor":{
+        "text": "Register New Mentor"
+      },
+      "descriptionTable": {
+        "name": "Name",
+        "status": "Status",
+        "registrationDate": "Regristraition date",
+        "registrationInformation": "Regristion Information",
+        "shares": "Shares"
+      }
+    },
+    "search": {
+      "placeholder": "Search"
     }
   }
 }
