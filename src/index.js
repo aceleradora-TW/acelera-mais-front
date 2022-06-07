@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import EditInfoMentor from './pages/mentor-list/edit-info'
-// import App from './App'
+
+import App from './App'
 // import reportWebVitals from './reportWebVitals'
 import './utils/i18next'
 
 ReactDOM.render(
   <React.StrictMode>
-    <EditInfoMentor />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 )
