@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router'
 import { useTranslation } from 'react-i18next'
 import { client, setTokenInHeaders } from '../../../../service'
 import { LoginForm } from './styles'
+import { ResetPassword } from '../../components/reset-password'
 
 export const Login = () => {
   const { t } = useTranslation()
@@ -64,6 +65,7 @@ export const Login = () => {
         </label>
       </div>
       <button onClick={handlerClick}>{t('login.loginButton')}</button>
+      <ResetPassword />
     </LoginForm >
   )
 }
