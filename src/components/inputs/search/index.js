@@ -8,8 +8,8 @@ export const InputSearch = () => {
   const { t } = useTranslation()
   return (
     <div className='search'>
-      <Input type="text" placeholder={t('search.placeholder')} onChange='' />
-      <Icon icon={faSearch}/>
+      <Input type="text" placeholder={t('search.placeholder')} onChange={() => { }} />
+      <Icon icon={faSearch} />
     </div>
   )
 }
