@@ -120,7 +120,14 @@
     },
     "search": {
       "placeholder": "Buscar"
+    },
+    "descriptionForm": {
+      "name": "Nome",
+      "telephone": "Telefone",
+      "email": "Email"
+    },
+    "popupTitle": {
+      "name": "Editar dados da mentora"
     }
-   
   }
 }

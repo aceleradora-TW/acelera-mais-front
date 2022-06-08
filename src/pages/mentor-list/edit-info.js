@@ -1,15 +1,16 @@
 import { InputText } from '../../components/inputs/text'
 import { useTranslation } from 'react-i18next'
-import { Container } from './styled'
+import { Container } from './styled.js'
+
 export const EditInfoMentor = () => {
   const { t } = useTranslation()
   return (
     <Container>
-      <h1>Editar dados da mentora</h1>
+      <h1>{t('popupTitle.name')}</h1>
       <form>
-        <InputText name="name" label={t('edit.name')}/>
-        <InputText name="telephone" label="telepone"/>
-        <InputText name="email" label="email"/>
+        <InputText name="name" label={t('descriptionForm.name')}/>
+        <InputText name="telephone" label={t('descriptionForm.telephone')}/>
+        <InputText name="email" label={t('descriptionForm.email')}/>
       </form>
     </Container>
   )

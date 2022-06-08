@@ -119,7 +119,14 @@
     },
     "search": {
       "placeholder": "Search"
+    },
+    "descriptionForm": {
+      "name": "Name",
+      "telephone": "Telephone",
+      "email": "Email"
+    },
+    "popupTitle": {
+      "name": "Edit mentor data"
     }
-    
   }
 }
