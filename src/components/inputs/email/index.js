@@ -8,12 +8,13 @@ const MessageError = styled.span`
   font-size: 16px;
   color: #ff3d00
 `
-export const InputEmail = ({ label, name }) => {
+export const InputEmail = ({ label, name, onChange }) => {
   const [emailError, setEmailError] = useState('')
   const change = (e) => {
     const email = e.target.value
     const message = validator.isEmail(email) ? '' : 'Email invalido!'
     setEmailError(message)
+    onChange(e)
   }
   return (
     <InputBox>
