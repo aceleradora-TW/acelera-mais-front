@@ -25,3 +25,12 @@ export const Page = styled.div`
   }
   
 `
+export const PopUp = styled.div`
+border: solid 1px;
+padding:15px;
+justify-content:center;
+`
+export const Title = styled.div`
+background-color: rgb(149, 149, 149);;
+border: solid 2px;
+`
