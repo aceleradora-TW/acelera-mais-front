@@ -1,11 +1,19 @@
+import { BrowserRouter } from 'react-router-dom'
 import { ProcessList } from '.'
+import '../../../../utils/i18next'
 
 export default {
   title: 'ProcessList',
   component: ProcessList
 }
 
-const Template = args => <ProcessList {...args} />
+const Template = args => {
+  return (
+    <BrowserRouter>
+      <ProcessList {...args} />
+    </BrowserRouter>
+  )
+}
 
 export const HiringProcessList = Template.bind({})
 

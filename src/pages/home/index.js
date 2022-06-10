@@ -1,24 +1,17 @@
-import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useTranslation } from 'react-i18next'
 import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons'
 import { HomePageContainer, HomeContainer } from './styled'
+import { Hyperlink } from '../../components/hyperlink'
 
 export const HomePage = () => {
+  const { t } = useTranslation()
   return (
     <HomePageContainer>
-      <h1>Página inicial</h1>
+      <h1>{t('home.title')}</h1>
       <HomeContainer>
-        <Link to="/hiring-process">Processo seletivo
-          < FontAwesomeIcon icon={faChevronCircleRight}/>
-        </Link>
-        <Link to="/manage-Mentors">Gerenciamento de mentoras
-        <FontAwesomeIcon icon={faChevronCircleRight}/>
-        </Link>
-        <Link to="/reset password">Resetar senha
-        <FontAwesomeIcon icon={faChevronCircleRight}/>
-        </Link>
+        <Hyperlink link="/hiring-process" label={t('hiringProcess.title')} icon={faChevronCircleRight} />
+        <Hyperlink link="/user" label={t('home.manageMentor')} icon={faChevronCircleRight} />
       </HomeContainer>
-
     </HomePageContainer>
   )
 }

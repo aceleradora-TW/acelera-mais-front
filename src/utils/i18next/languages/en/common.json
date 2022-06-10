@@ -103,12 +103,18 @@
         "changeButton": "Change"
       }
     },
+    "mentorRegistration": {
+      "title": "Register New Mentor",
+      "name": "Name",
+      "telephone": "Telephone",
+      "email": "Email",
+      "registerButton": "Register",
+      "fillAlert": "Registered successfully",
+      "text": "New mentor"
+    },
     "user": {
       "title": "Mentor's List",
       "backButton": "Back",
-      "newMentor":{
-        "text": "Register New Mentor"
-      },
       "descriptionTable": {
         "name": "Name",
         "status": "Status",
@@ -128,6 +134,10 @@
     },
     "search": {
       "placeholder": "Search"
+    },
+    "home": {
+      "title": "Home Page",
+      "manageMentor": "Manage Mentors"
     }
   }
 }

@@ -102,14 +102,19 @@
         "alert": "Atualizado com sucesso!",
         "changeButton": "Alterar"
       }
-   
+    },
+    "mentorRegistration": {
+      "title": "Cadastrar nova mentora",
+      "name": "Nome",
+      "telephone": "Telefone",
+      "email": "Email",
+      "registerButton": "Cadastrar",
+      "fillAlert": "Cadastrado com Sucesso",
+      "text": "Nova mentora"
     },
     "user": {
       "title": "Lista de Mentoras Avaliadoras",
       "backButton": "Voltar página inicial",
-      "newMentor":{
-        "text": "Cadastrar Nova Mentora"
-      },
       "descriptionTable": {
         "name": "Nome",
         "status": "Status",
@@ -129,6 +134,10 @@
     },
     "search": {
       "placeholder": "Buscar"
+    },
+    "home": {
+      "title": "Página inicial",
+      "manageMentor": "Gerenciamento de mentoras"
     }
   }
 }
