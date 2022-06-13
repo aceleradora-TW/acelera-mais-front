@@ -36,16 +36,17 @@ export const EditModal = ({ method = 'PUT', id = '', callback = () => { } }) => 
       <Modal
         icon={faPlus}
         label='Importar'
-        title={t('mentorRegistration.title')}
+        title={t('editModal.title')}
         classe='button primary'
-        text={t('mentorRegistration.text')}
+        // text={t('mentorRegistration.text')}
       >
-        <InputText name='name' label={t('mentorRegistration.name')} onChange={handleChange} />
-        <InputTelephone name='telephone' label={t('mentorRegistration.telephone')} onChange={handleChange} />
-        <InputEmail name='email' label={t('mentorRegistration.email')} onChange={handleChange} />
-        <PrimaryButton text={t('mentorRegistration.registerButton')} onClick={sendUsers} />
+        <InputText name='name' label={t('editModal.name')} onChange={handleChange} />
+        <InputTelephone name='telephone' label={t('editModal.telephone')} onChange={handleChange} />
+        <InputEmail name='email' label={t('editModal.email')} onChange={handleChange} />
+        <PrimaryButton text={t('editModal.save')} onClick={sendUsers} />
       </Modal>
 
     </div>
   )
 }
+export default EditModal

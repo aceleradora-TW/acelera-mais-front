@@ -129,6 +129,13 @@
     "home": {
       "title": "Página inicial",
       "manageMentor": "Gerenciamento de mentoras"
+    },
+    "editModal":{
+      "title": "Editar dados da mentora",
+      "name": "Nome",
+      "telephone": "Telefone",
+      "email": "Email",
+      "save": "Salvar"
     }
   }
 }

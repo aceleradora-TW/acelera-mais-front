@@ -129,6 +129,13 @@
     "home": {
       "title": "Home Page",
       "manageMentor": "Manage Mentors"
+    },
+    "editModal":{
+      "title": "Edit mentor data",
+      "name": "Name",
+      "telephone": "Telephone",
+      "email": "Email",
+      "save": "Save"
     }
   }
 }
