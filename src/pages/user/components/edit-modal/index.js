@@ -8,9 +8,9 @@ import { InputEmail } from '../../../../components/inputs/email'
 import { InputTelephone } from '../../../../components/inputs/telephone'
 import { useTranslation } from 'react-i18next'
 
-export const EditModal = ({ method = 'PUT', id = '', callback = () => { } }) => {
+export const EditModal = ({ method = 'POST', id = '', callback = () => { } }) => {
   const { t } = useTranslation()
-  const [users, setUsers] = useState({
+  const [users, getUsers] = useState({
     name: '',
     telephone: '',
     email: ''
@@ -18,7 +18,7 @@ export const EditModal = ({ method = 'PUT', id = '', callback = () => { } }) => 
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    setUsers({ ...users, [name]: value })
+    getUsers({ ...users, [name]: value })
   }
 
   const sendUsers = () => {
