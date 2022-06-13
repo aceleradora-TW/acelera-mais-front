@@ -2,8 +2,9 @@ import { useTranslation } from 'react-i18next'
 import PrimaryButton from '../../components/buttons/primary'
 import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
-import { RegisterModal } from './components/register-modal'
+import { UserModal } from './components/user-modal'
 import { Container, Page } from './styled.js'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -15,7 +16,10 @@ export const MentorPage = () => {
           <h1>{t('user.title')}</h1>
           <InputSearch />
           <div className="button-container">
-            <RegisterModal />
+            <UserModal
+              title='mentorRegistration.title'
+              text='mentorRegistration.text'
+              icon={faPlus} />
             <PrimaryButton text={t('user.backButton')} onClick={pageHome} />
           </div>
         </section>
