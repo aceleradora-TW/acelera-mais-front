@@ -1,24 +1,34 @@
-import { ContainerReset, Content, Header, Section } from './styled'
+// import { ContainerReset, Section } from './styled'
+import {
+  Title,
+  Header,
+  Container,
+  Content,
+  ModalBody,
+  Footer
+} from './../../components/modal/style'
 import PrimaryButton from '../../components/buttons/primary'
 export const Reset = () => {
   return (
-    <ContainerReset>
+    <Container>
       <Content>
-        <Header> Redefina sua Senha </Header>
-        <Section>
-          <div className='senha'>
-            <label>insira nova senha</label>
+        <Header>
+          <Title>Redefina sua Senha</Title>
+        </Header>
+        <ModalBody>
+          <div>
+            <label>Insira a nova senha</label>
+            <input type="password" />
+          </div>
+          <div>
+            <label>Repita a senha</label>
             < input type="password" />
           </div>
-          <div className='nova'>
-        <label>repita sua nova senha</label>
-        < input type="password"/>
-      </div>
-          <PrimaryButton text="salvar" onClick />
-        </Section>
-
+          <PrimaryButton text="Salvar" onClick />
+        </ModalBody>
+        <Footer></Footer>
       </Content>
+    </Container>
 
-    </ContainerReset>
   )
 }
