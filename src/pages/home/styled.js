@@ -10,5 +10,13 @@ export const HomePageContainer = styled.div`
 `
 export const ContainerButtons = styled.div`
     text-align: center;
-    textAlignVertical: 'bottom';
+    padding: 200px;
+   
+
+
+
+
+  
+   
+
 `
