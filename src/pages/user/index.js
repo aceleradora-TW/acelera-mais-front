@@ -3,23 +3,16 @@ import PrimaryButton from '../../components/buttons/primary'
 import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
 import { RegisterModal } from './components/register-modal'
-import { Container, Page } from './styled.js'
+import { Container, Page, FlexSpaceBetween, Message } from './styled.js'
 import { useEffect, useState } from 'react'
 import { client } from '../../service'
+import Button from '../../components/buttons/button'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
   const pageHome = () => { }
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
-  const formatDate = (date) => {
-    const addZero = (number) => number <= 9 ? '0' + number : number
-    const newDate = new Date(date)
-    const day = addZero(newDate.getUTCDate().toString())
-    const month = addZero((newDate.getUTCMonth() + 1).toString())
-    const year = newDate.getUTCFullYear()
-    return `${day}/${month}/${year}`
-  }
   useEffect(() => {
     client.get('/user')
       .then(res => {
@@ -61,28 +54,28 @@ export const MentorPage = () => {
                 <tr key={mentor}>
                   <td>{mentor.name}</td>
                   <td>STATUS</td>
-                  <td>{formatDate(mentor.createdAt)}</td>
+                  <td>{mentor.updatedAt}</td>
                   <td>
-                    <div className='styled'>
+                    <FlexSpaceBetween>
                       <td>{mentor.email}</td>
                       <td>{mentor.telephone}</td>
-                    </div>
+                    </FlexSpaceBetween>
                   </td>
                   <td>
-                    <div className='styled'>
-                      <button className='color'>{t('user.button.resend')}</button>
-                      <button className='color'>{t('user.button.edit')}</button>
-                      <button className='disable'>{t('user.button.disable')}</button>
-                    </div>
+                    <FlexSpaceBetween>
+                      <Button className='buttonColor' text={t('user.button.resend')} />
+                      <Button className='buttonColor' text={t('user.button.edit')} />
+                      <Button className='disable' text={t('user.button.disable')} />
+                    </FlexSpaceBetween>
                   </td>
                 </tr>
               )
             }
           </tbody>
         </Table>
-        <div className='warning'>
+        <Message>
           {message}
-        </div>
+        </Message>
       </Container>
     </>
   )
