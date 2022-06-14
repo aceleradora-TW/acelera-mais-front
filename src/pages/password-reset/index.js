@@ -2,10 +2,10 @@ import {
   ContainerReset,
   HeaderTitle,
   Section,
-  ChangePassword,
-  ModalBody
+  ModalBody,
+  Content
 } from './styled'
-import { Header, Content, Footer } from './../../components/modal/style'
+import { Header, Footer } from './../../components/modal/style'
 import PrimaryButton from '../../components/buttons/primary'
 export const Reset = () => {
   return (
@@ -17,9 +17,9 @@ export const Reset = () => {
         <ModalBody>
           <Section>
             <label>Insira a nova senha</label>
-            <ChangePassword>
+            <div>
               <input type="password" />
-            </ChangePassword>
+              </div>
           </Section>
           <Section>
             <label>Repita a senha</label>

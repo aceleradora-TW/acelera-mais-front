@@ -9,28 +9,25 @@ bottom: 0;
 display: flex;
 align-items: center;
 justify-content: center;
+border: 1px solid #000000;
 `
 export const HeaderTitle = style.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
-height: 50px;
-border-top-left-radius: 10px;
-border-top-right-radius: 10px;
-background-color:#e7e7e7 ;
-border-bottom: 1px #aea9bb solid;
 font-weight: bold;
+background-color:#e7e7e7;
 `
 export const Content = style.div`
 min-width: 500px;
-border: 1px solid #aea9bd;
+border: 1px solid #000000;
 background-color: #fff;
 box-sizing: border-box;
 border-radius: 10px;
 `
 export const Section = style.div`
 margin: 0;
-padding: 0;
+padding: 10px;
 border: 0;
 font-size: 100%;
 font-family: Arial, Helvetica, sans-serif;
@@ -38,19 +35,10 @@ display: block;
 font-weight: bold;
 vertical-align: baseline;
 `
-export const ChangePassword = style.div`
-box-sizing: border-box;
-margin-block-end: 20px;
-margin-top: 10px;
-padding-right: 200px;
-padding-bottom: 10px;
-border-radius: 10px;
-`
-
 export const ModalBody = style.div`
-border: 1px solid #aea9bd;
+border: 1px solid #000000;
 margin: 20px 40px 0;
 padding: 20px;
 font-size: 15px;
-font-weight: 500;
+font-weight: 1000;
 `
