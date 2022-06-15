@@ -140,7 +140,8 @@
       "name": "Name",
       "telephone": "Telephone",
       "email": "Email",
-      "save": "Save"
+      "save": "Save",
+      "alertSuccess": "Data edited successfully"
     }
   }
 }

@@ -31,13 +31,16 @@ export const UserForm = ({ method = 'POST', id = '', callback = () => { } }) => 
         callback(res.data)
       })
   }
+  if (sendUsers === true) {
+    return alert(t('editModal.alertsuccess'))
+  }
 
   return (
     <form>
       <InputText name='name' label={t('editModal.name')} onChange={handleChange} />
       <InputTelephone name='telephone' label={t('editModal.telephone')} onChange={handleChange} />
       <InputEmail name='email' label={t('editModal.email')} onChange={handleChange} />
-      <PrimaryButton text={t('editModal.save')} onClick={sendUsers} />
+      <PrimaryButton text={t('editModal.save')} onClick={sendUsers === true} />
     </form>
   )
 }
