@@ -7,10 +7,18 @@ export default {
 
 const Template = args => <Status{...args} />
 
-export const inputStatus = Template.bind({})
+export const StatusGreen = Template.bind({})
+export const StatusRed = Template.bind({})
+export const StatusYellow = Template.bind({})
 
-inputStatus.args = {
-  label: 'Status',
-  onChange: () => { },
-  name: 'Status -Input'
+StatusGreen.args = {
+  status: ['status-opened']
+}
+
+StatusRed.args = {
+  status: 'status-closed'
+}
+
+StatusYellow.args = {
+  status: 'status-preparing'
 }

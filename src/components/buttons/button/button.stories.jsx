@@ -1,5 +1,5 @@
 import Button from '.'
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 // configuração da aba do componente na pagina do storybook
 export default {
@@ -9,19 +9,19 @@ export default {
 
 const Template = args => <Button {...args} />
 
-export const PrimaryButton = Template.bind({})
-export const IconButton = Template.bind({})
+export const ButtonNormal = Template.bind({})
+export const ButtonNormalIcon = Template.bind({})
 
-PrimaryButton.args = {
+ButtonNormal.args = {
   icon: null,
   onClick: () => { },
-  text: 'Botão de confirmação',
-  classe: 'button-new-process'
+  text: 'Button',
+  disabled: false
 }
 
-IconButton.args = {
-  icon: faAngleDown,
+ButtonNormalIcon.args = {
+  icon: faPlus,
   onClick: () => { },
-  text: 'Botão de confirmação',
-  classe: 'button-new-process'
+  text: 'Button with Icon',
+  disabled: false
 }
