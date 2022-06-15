@@ -45,6 +45,7 @@ export const ButtonComponent = styled.button`
   &.info {
     background-color: white;
     color: #003cff;
+    border-color: #003cff;
   }
 
   &.primary {
