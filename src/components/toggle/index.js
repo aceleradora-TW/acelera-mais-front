@@ -1,67 +1,34 @@
-import styled from 'styled-components'
 import { useState } from 'react'
-
-const Button = styled.button`
-  border: 1px solid #d3d3d3;
-  border-radius: 5px;
-  padding: 10px 25px;
-  font-weight: 300px;
-  font-size: 16px;
-  background-color: white;
-  color: rgb(102,102,255);
-  border-color: rgb(102,102,255);
-
-  &:hover {
-    cursor: pointer;
-    opacity: 0.7;
-  }
-`
-
-// const ButtonEnabled = styled.button`
-//   border: 1px solid #d3d3d3;
-//   border-radius: 5px;
-//   padding: 10px 25px;
-//   font-weight: 300px;
-//   font-size: 16px;
-//   color: rgb(102,102,255);
-//   border-color: rgb(102,102,255);
-//   background-color: white;
-
-//   &:hover {
-//     cursor: pointer;
-//     opacity: 0.7;
-//   }
-// `
-// const ButtonDisabled = styled.button`
-//   border: 1px solid #d3d3d3;
-//   border-radius: 5px;
-//   padding: 10px 25px;
-//   font-weight: 300px;
-//   font-size: 16px;
-//   color: red;
-//   border-color: red;
-//   background-color: white;
-
-//   &:hover {
-//     cursor: pointer;
-//     opacity: 0.7;
-//   }
-// `
+import { ButtonEnabled, ButtonDisabled } from './styled'
 
 export const ToggleButton = ({
   label = {
     on: 'On',
-    off: 'Off'
+    off: 'Off',
+    flag: 'user-enabled'
   }
 }) => {
-  const [ischecked, setChecked] = useState(label.on)
+  const [isChecked, setChecked] = useState(true)
+
+  console.log('is checked', isChecked)
+
   const change = () => {
-    setChecked((prevState) => !prevState)
+    if (isChecked === true) {
+      setChecked(confirm('Tem certeza que deseja habilitar essa mentora?'))
+      if (isChecked === true) {
+        setChecked((prevState) => !prevState)
+      }
+    } else {
+      setChecked(confirm('Tem certeza que deseja desabilitar essa mentora?'))
+      if (isChecked === true) {
+        setChecked((prevState) => !prevState)
+      }
+    }
   }
 
   return (
-    <Button onClick={change}>
-      <span>{ischecked ? 'Habilitar' : 'Desabilitar'}</span>
-    </Button>
+    <div onClick={change}>
+      <span>{isChecked ? <ButtonEnabled>Habilitar</ButtonEnabled> : <ButtonDisabled>Desabilitar</ButtonDisabled>}</span>
+    </div>
   )
 }
