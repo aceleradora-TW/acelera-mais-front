@@ -2,7 +2,7 @@ import { Table } from './table'
 import PrimaryButton from '../buttons/primary'
 
 export default {
-  title: 'Table',
+  title: 'General Components/Tables/Table',
   component: Table
 }
 

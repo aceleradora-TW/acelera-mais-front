@@ -2,7 +2,7 @@ import Icon from '.'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 // configuração da aba do componente na pagina do storybook
 export default {
-  title: 'Icon',
+  title: 'General Components/Icons/Icon',
   component: Icon
 }
 

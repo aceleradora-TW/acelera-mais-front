@@ -1,7 +1,7 @@
 import { Status } from '.'
 
 export default {
-  title: 'Status',
+  title: 'General Components/Status/Status',
   component: Status
 }
 

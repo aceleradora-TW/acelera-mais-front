@@ -1,7 +1,7 @@
 import { InputDate } from '.'
 
 export default {
-  title: 'InputDate',
+  title: 'General Components/Inputs/InputDate',
   component: InputDate
 }
 
