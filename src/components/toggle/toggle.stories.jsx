@@ -16,5 +16,5 @@ const Template = args => {
 
 export const Toggle = Template.bind({})
 Toggle.args = {
-  label: 'On'
+  label: 'Off'
 }
