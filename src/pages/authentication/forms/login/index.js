@@ -36,9 +36,12 @@ export const Login = () => {
 
     try {
       const response = await client.post('/login', user)
-      const { data: { accessToken, user: { role } } } = response
+      const { data: { accessToken, auth, user: { role } } } = response
 
       if (accessToken) {
+        if (!auth) {
+          return navigate('/password-reset')
+        }
         localStorage.setItem('token', accessToken)
         localStorage.setItem('role', role)
         setTokenInHeaders(accessToken)

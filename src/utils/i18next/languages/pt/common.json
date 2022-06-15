@@ -63,6 +63,11 @@
       "closed": "Fechado",
       "preparing": "Em preparação"
     },
+    "inputEmail": {
+      "message": {
+        "invalidEmail": "Email inválido!"
+      }
+    },
     "challenge": {
       "title": "Desafios",
       "select": {
