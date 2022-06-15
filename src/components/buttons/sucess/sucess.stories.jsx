@@ -1,16 +1,26 @@
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import Button from '.'
 
 export default {
-  title: 'SucessButton',
+  title: 'Secondary',
   component: Button
 }
 
 const Template = args => <Button {...args} />
 
-export const SucessButton = Template.bind({})
+export const SecondaryButton = Template.bind({})
+export const SecondaryButtonIcon = Template.bind({})
 
-SucessButton.args = {
+SecondaryButton.args = {
   icon: null,
   onClick: () => { },
-  text: 'SucessButton'
+  text: 'Secondary Button',
+  disabled: false
+}
+
+SecondaryButtonIcon.args = {
+  icon: faPlus,
+  onClick: () => { },
+  text: 'Secondary Button with Icon',
+  disabled: false
 }
