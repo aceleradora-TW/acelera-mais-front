@@ -50,15 +50,15 @@ export const MentorPage = () => {
           </thead>
           <tbody>
             {
-              mentors.map((mentor) =>
-                <tr key={mentor}>
+              mentors.map((mentor, key) =>
+                <tr key={key}>
                   <td>{mentor.name}</td>
                   <td>STATUS</td>
                   <td>{mentor.updatedAt}</td>
                   <td>
                     <FlexSpaceBetween>
-                      <td>{mentor.email}</td>
-                      <td>{mentor.telephone}</td>
+                      <p>{mentor.email}</p>
+                      <p>{mentor.telephone}</p>
                     </FlexSpaceBetween>
                   </td>
                   <td>
