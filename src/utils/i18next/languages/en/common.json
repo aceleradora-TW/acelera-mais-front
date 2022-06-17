@@ -126,6 +126,15 @@
         "registrationDate": "Regristraition date",
         "registrationInformation": "Regristion Information",
         "shares": "Shares"
+      },
+      "message":{
+        "500": "There was an internal problem. Wait a few minutes.",
+        "404": "No mentors registered."
+      },
+      "button":{
+        "resend": "Resend E-mail",
+        "edit": "Edit",
+        "disable": "Disable"
       }
     },
     "search": {
