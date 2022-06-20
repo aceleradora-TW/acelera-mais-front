@@ -1,7 +1,7 @@
 import { ToggleRow } from '.'
 
 export default {
-  title: 'ToggleRow',
+  title: 'Page Components/Pages/Challenges/Components/ToggleRow-Exercise',
   component: ToggleRow
 }
 

@@ -2,7 +2,7 @@ import { HiringProcessForm } from '.'
 
 // configuração da aba do componente na pagina do storybook
 export default {
-  title: 'HiringProcessForm',
+  title: 'Page Components/Pages/Hiring Process/Forms/Hiring Process/HiringProcessForm',
   component: HiringProcessForm
 }
 
