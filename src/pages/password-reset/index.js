@@ -9,11 +9,13 @@ import {
 import PrimaryButton from '../../components/buttons/primary'
 import { InputPassword } from '../../components/inputs/password'
 import { useState } from 'react'
+import { client } from '../../service'
 
 export const Reset = () => {
   const [password, setPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [message, setMessage] = useState('')
+  const [flag, setFlag] = useState('')
 
   const handleChangePassword = ({ target }) => {
     setPassword(target.value)
@@ -24,10 +26,24 @@ export const Reset = () => {
 
   const handlerClick = async (event) => {
     event.preventDefault()
+
     if (password === newPassword && password && newPassword) {
+      setFlag('user-enabled')
+
+      const user = {
+        password, flag
+      }
+
+      try {
+        const response = await client.put('/reset-password', user)
+        const { data: { } } } = response
+      } catch (error) {
+        console.log(error)
+      }
+
       return true
     }
-    setMessage('As senhas estão diferentes')
+    setMessage('As senhas estão diferentes ou em branco')
   }
 
   return (
@@ -37,8 +53,8 @@ export const Reset = () => {
           <HeaderTitle>Redefina sua Senha</HeaderTitle>
         </Header>
         <ModalBody>
-          <InputPassword onChange={handleChangePassword} label="Insira sua nova senha" />
-          <InputPassword onChange={handleChangeNewPassword} label="Repita a senha" />
+          <InputPassword onChange={handleChangePassword} value={password} label="Insira sua nova senha" />
+          <InputPassword onChange={handleChangeNewPassword} value={newPassword} label="Repita a senha" />
           <MessageError>{message}</MessageError>
           <PrimaryButton text="Salvar" onClick={handlerClick}></PrimaryButton>
         </ModalBody>
