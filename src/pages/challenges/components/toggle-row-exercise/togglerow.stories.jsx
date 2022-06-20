@@ -1,21 +1,24 @@
-import { ToggleRow } from '.'
+import { BrowserRouter } from 'react-router-dom'
+import { ToggleRowExercise } from '.'
 
 export default {
-  title: 'Page Components/Pages/Challenges/Components/ToggleRow-Exercise',
-  component: ToggleRow
+  title: 'Page Components/Pages/Challenges/ToggleRowExercise',
+  component: ToggleRowExercise
 }
 
 const Template = args => {
   return (
+    <BrowserRouter>
     <table>
-      <ToggleRow {...args} />
+      <ToggleRowExercise {...args} />
     </table>
+    </BrowserRouter>
   )
 }
 
-export const toggleRow = Template.bind({})
+export const ToggleRowExerciseTemplate = Template.bind({})
 
-toggleRow.args = {
+ToggleRowExerciseTemplate.args = {
   item: {
     id: 1,
     name: 'biblioteca',

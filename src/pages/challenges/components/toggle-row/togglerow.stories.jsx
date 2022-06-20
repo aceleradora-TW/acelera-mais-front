@@ -4,7 +4,7 @@ import '../../../../utils/i18next'
 import { Table } from '../../../../components/table/table'
 
 export default {
-  title: 'Page Components/Pages/Challenges/Components/ToggleRow',
+  title: 'Page Components/Pages/Challenges/ToggleRow',
   component: ToggleRow
 }
 
