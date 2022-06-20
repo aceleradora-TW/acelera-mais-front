@@ -3,7 +3,7 @@ import { ProcessList } from '.'
 import '../../../../utils/i18next'
 
 export default {
-  title: 'Page Components/Pages/Hiring Process/Components/Hiring Process List/ProcessList',
+  title: 'Page Components/HiringProcess/ProcessList',
   component: ProcessList
 }
 

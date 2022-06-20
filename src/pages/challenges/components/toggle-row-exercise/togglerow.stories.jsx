@@ -2,7 +2,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { ToggleRowExercise } from '.'
 
 export default {
-  title: 'Page Components/Pages/Challenges/ToggleRowExercise',
+  title: 'Page Components/Challenges/ToggleRowExercise',
   component: ToggleRowExercise
 }
 
