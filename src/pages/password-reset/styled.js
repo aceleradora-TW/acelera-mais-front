@@ -54,3 +54,8 @@ padding: 20px;
 font-size: 15px;
 font-weight: 1000;
 `
+export const MessageError = style.p`
+font-size: 16px;
+color: #ff3d00;
+margin-bottom:15px;
+`
