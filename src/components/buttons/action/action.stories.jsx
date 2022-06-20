@@ -1,4 +1,5 @@
 import Button from '.'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 export default {
   title: 'General Components/Buttons/ActionButton',
@@ -8,9 +9,18 @@ export default {
 const Template = args => <Button {...args} />
 
 export const ActionButton = Template.bind({})
+export const ActionButtonIcon = Template.bind({})
 
 ActionButton.args = {
   icon: null,
   onClick: () => { },
-  text: 'ActionButton'
+  text: 'Action Button',
+  disabled: false
+}
+
+ActionButtonIcon.args = {
+  icon: faPlus,
+  onClick: () => { },
+  text: 'Action Button with Icon',
+  disabled: false
 }
