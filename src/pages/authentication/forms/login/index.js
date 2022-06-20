@@ -8,7 +8,7 @@ export const Login = () => {
   const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [mentorName, setMentorName] = useState('')
+  // const [mentorName, setMentorName] = useState('')
   const navigate = useNavigate()
 
   const handleChangeEmail = ({ target }) => {
@@ -19,10 +19,10 @@ export const Login = () => {
     setPassword(target.value)
   }
 
-  const handleChangeMentorName = ({ target }) => {
-    setMentorName(target.value)
-    localStorage.setItem('mentorName', target.value)
-  }
+  // const handleChangeMentorName = ({ target }) => {
+  //   setMentorName(target.value)
+  //   localStorage.setItem('mentorName', target.value)
+  // }
 
   const handlerClick = async (event) => {
     event.preventDefault()
@@ -36,7 +36,7 @@ export const Login = () => {
 
     try {
       const response = await client.post('/login', user)
-      const { data: { accessToken, auth, user: { role } } } = response
+      const { data: { accessToken, auth, user: { role, name } } } = response
 
       if (accessToken) {
         if (!auth) {
@@ -44,6 +44,7 @@ export const Login = () => {
         }
         localStorage.setItem('token', accessToken)
         localStorage.setItem('role', role)
+        localStorage.setItem('mentorName', name)
         setTokenInHeaders(accessToken)
         navigate('/home')
       }
@@ -61,9 +62,6 @@ export const Login = () => {
         </label>
         <label>
           <input onChange={handleChangePassword} value={password} type="password" placeholder={t('login.password')}></input>
-        </label>
-        <label>
-          <input onChange={handleChangeMentorName} value={mentorName} type="text" placeholder={t('login.mentorName')}></input>
         </label>
       </div>
       <button onClick={handlerClick}>{t('login.loginButton')}</button>
