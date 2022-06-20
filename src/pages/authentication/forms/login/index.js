@@ -8,7 +8,6 @@ export const Login = () => {
   const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  // const [mentorName, setMentorName] = useState('')
   const navigate = useNavigate()
 
   const handleChangeEmail = ({ target }) => {
@@ -18,11 +17,6 @@ export const Login = () => {
   const handleChangePassword = ({ target }) => {
     setPassword(target.value)
   }
-
-  // const handleChangeMentorName = ({ target }) => {
-  //   setMentorName(target.value)
-  //   localStorage.setItem('mentorName', target.value)
-  // }
 
   const handlerClick = async (event) => {
     event.preventDefault()
