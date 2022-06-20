@@ -126,6 +126,13 @@
         "registrationDate": "Data de Cadastro",
         "registrationInformation": "Informações de cadastro",
         "shares": "Ações"
+      },
+      "toggle": {
+        "on": "Habilitar",
+        "off": "Desabilitar",
+        "alert": {
+          "message": "Tem certeza que deseja {{value}} essa mentora?"
+        }
       }
     },
     "search": {

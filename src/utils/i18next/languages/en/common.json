@@ -126,6 +126,13 @@
         "registrationDate": "Regristraition date",
         "registrationInformation": "Regristion Information",
         "shares": "Shares"
+      },
+      "toggle": {
+        "on": "Enabled",
+        "off": "Disabled",
+        "alert": {
+          "message": "Do you want to {{value}} this mentor?"
+        }
       }
     },
     "search": {

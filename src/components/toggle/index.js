@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ButtonEnabled, ButtonDisabled } from './styled'
+import { useTranslation } from 'react-i18next'
 
 export const ToggleButton = ({
   label = {
@@ -9,26 +10,21 @@ export const ToggleButton = ({
   }
 }) => {
   const [isChecked, setChecked] = useState(true)
+  const { t } = useTranslation()
 
-  console.log('is checked', isChecked)
-
-  const change = () => {
-    if (isChecked === true) {
-      setChecked(confirm('Tem certeza que deseja habilitar essa mentora?'))
-      if (isChecked === true) {
-        setChecked((prevState) => !prevState)
-      }
-    } else {
-      setChecked(confirm('Tem certeza que deseja desabilitar essa mentora?'))
-      if (isChecked === true) {
-        setChecked((prevState) => !prevState)
-      }
+  const alert = (msg) => {
+    if (confirm(msg)) {
+      setChecked((prevState) => !prevState)
     }
+  }
+  const change = () => {
+    const word = isChecked ? t('user.toggle.on') : t('user.toggle.off')
+    alert(t('user.toggle.alert.message', { value: word.toLowerCase() }))
   }
 
   return (
     <div onClick={change}>
-      <span>{isChecked ? <ButtonEnabled>Habilitar</ButtonEnabled> : <ButtonDisabled>Desabilitar</ButtonDisabled>}</span>
+      <span>{isChecked ? <ButtonEnabled>{t('user.toggle.on')}</ButtonEnabled> : <ButtonDisabled>{t('user.toggle.off')}</ButtonDisabled>}</span>
     </div>
   )
 }
