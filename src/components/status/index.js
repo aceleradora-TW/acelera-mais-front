@@ -4,28 +4,21 @@ import { useTranslation } from 'react-i18next'
 
 export const Status = ({
   status, options = {
-    status: {
-      green: 'status-opened',
-      red: 'status-closed',
-      yellow: {'status-preparing', 'first-login', 'email-resent'}
-    }
-    label: {
-      green: 'status.opened',
-      red: 'status.closed',
-      yellow: 'status.preparing'
-    }
+    opened: 'status.opened',
+    closed: 'status.closed',
+    preparing: 'status.preparing'
   }
 }) => {
   const { t } = useTranslation()
 
   let label = t(options.closed)
 
-  if (options.status.green.includes(status)) {
-    label = t(options.label.green)
+  if (status === 'status-opened') {
+    label = t(options.opened)
   }
 
-  if (options.status.yellow.includes(status)) {
-    label = t(options.label.yellow)
+  if (status === 'status-preparing') {
+    label = t(options.preparing)
   }
   return (
     <StyledSpan className={status}>{label}</StyledSpan>

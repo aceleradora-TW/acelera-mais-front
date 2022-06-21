@@ -126,6 +126,11 @@
         "registrationDate": "Data de Cadastro",
         "registrationInformation": "Informações de cadastro",
         "shares": "Ações"
+      },
+      "status": {
+        "yellow": "Pendente",
+        "red": "Desabilitado",
+        "green": "Habilitado"
       }
     },
     "search": {

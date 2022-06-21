@@ -126,6 +126,11 @@
         "registrationDate": "Regristraition date",
         "registrationInformation": "Regristion Information",
         "shares": "Shares"
+      },
+      "status": {
+        "yellow": "Pending",
+        "red": "Disabled",
+        "green": "Enabled"
       }
     },
     "search": {
