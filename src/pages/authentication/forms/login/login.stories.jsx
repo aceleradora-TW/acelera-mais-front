@@ -1,7 +1,7 @@
 // import { Login } from '.'
 
 // export default {
-//   title: 'Login',
+//   title: 'Page Components/Authentication/Login',
 //   component: Login
 // }
 
