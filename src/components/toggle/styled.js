@@ -4,6 +4,7 @@ export const ButtonEnabled = styled.button`
 border: 1px solid #d3d3d3;
 border-radius: 5px;
 padding: 10px 25px;
+width: 130px;
 font-weight: 300px;
 font-size: 16px;
 background-color: white;
@@ -19,6 +20,7 @@ export const ButtonDisabled = styled.button`
   border: 1px solid #d3d3d3;
   border-radius: 5px;
   padding: 10px 25px;
+  width: 130px;
   font-weight: 300px;
   font-size: 16px;
   color: red;
