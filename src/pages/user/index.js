@@ -8,8 +8,6 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
 import { client } from '../../service'
 import Button from '../../components/buttons/button'
-import { UserForm } from './forms/user'
-
 export const MentorPage = () => {
   const { t } = useTranslation()
   const pageHome = () => { }
@@ -69,7 +67,12 @@ export const MentorPage = () => {
                   <td>
                     <FlexSpaceBetween>
                       <Button className='buttonColor' text={t('user.button.resend')} />
-                      <Button className='buttonColor' text={t('user.button.edit')} />
+                        <UserModal
+                          id={mentor.id}
+                          method='PUT'
+                          title='editModal.title'
+                          text='editModal.text'
+                           />
                       <Button className='disable' text={t('user.button.disable')} />
                     </FlexSpaceBetween>
                   </td>

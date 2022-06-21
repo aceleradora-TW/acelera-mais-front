@@ -5,7 +5,6 @@ import { InputText } from '../../../../components/inputs/text'
 import { client } from '../../../../service'
 import PrimaryButton from '../../../../components/buttons/primary'
 import { useTranslation } from 'react-i18next'
-
 export const UserForm = ({ method = 'POST', id = '', callback = () => { } }) => {
   const { t } = useTranslation()
 
@@ -22,17 +21,16 @@ export const UserForm = ({ method = 'POST', id = '', callback = () => { } }) => 
     getUsers({ ...users, [name]: value })
   }
 
-  const sendUsers = () => {
+  const sendUsers = (e) => {
+    e.preventDefault()
     const data = users
 
     client(`/user/${id}`, { method, data })
       .then(res => {
         alert(res.data.message)
+        document.location.reload(true)
         callback(res.data)
       })
-  }
-  if (sendUsers === true) {
-    return alert(t('editModal.alertsuccess'))
   }
 
   return (
@@ -40,7 +38,7 @@ export const UserForm = ({ method = 'POST', id = '', callback = () => { } }) => 
       <InputText name='name' label={t('editModal.name')} onChange={handleChange} />
       <InputTelephone name='telephone' label={t('editModal.telephone')} onChange={handleChange} />
       <InputEmail name='email' label={t('editModal.email')} onChange={handleChange} />
-      <PrimaryButton text={t('editModal.save')} onClick={sendUsers === true} />
+      <PrimaryButton text={t('editModal.save')} onClick={sendUsers} />
     </form>
   )
 }

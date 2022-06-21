@@ -145,6 +145,7 @@
       "manageMentor": "Manage Mentors"
     },
     "editModal":{
+      "text": "Edit",
       "title": "Edit mentor data",
       "name": "Name",
       "telephone": "Telephone",

@@ -145,7 +145,8 @@
       "manageMentor": "Gerenciamento de mentoras"
     },
     "editModal":{
-      "title": "Editar dados da mentora",
+      "text": "Editar",
+      "title":"Editar dados da mentora",
       "name": "Nome",
       "telephone": "Telefone",
       "email": "Email",
