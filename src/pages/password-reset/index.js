@@ -11,7 +11,7 @@ import { InputPassword } from '../../components/inputs/password'
 import { useState } from 'react'
 import { client } from '../../service'
 
-export const Reset = () => {
+export const Reset = ({ method = 'PUT', id = '' }) => {
   const [password, setPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [message, setMessage] = useState('')
@@ -29,20 +29,23 @@ export const Reset = () => {
 
     if (password === newPassword && password && newPassword) {
       setFlag('user-enabled')
-
       const user = {
         password, flag
       }
 
       try {
-        const response = await client.put('/reset-password', user)
-        const { data: { } } } = response
-      } catch (error) {
-        console.log(error)
+        await client.put(`/user/${id}`, user)
+          .then(res => {
+            window.location.replace = 'http://localhost:3000/user'
+          })
+        // const { data: { } }
+      } catch {
+        console.log()
       }
 
       return true
     }
+
     setMessage('As senhas estão diferentes ou em branco')
   }
 
