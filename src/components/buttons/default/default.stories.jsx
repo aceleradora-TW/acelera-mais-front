@@ -2,7 +2,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import Button from '.'
 
 export default {
-  title: 'DefaultButton',
+  title: 'General Components/Buttons/DefaultButton',
   component: Button
 }
 

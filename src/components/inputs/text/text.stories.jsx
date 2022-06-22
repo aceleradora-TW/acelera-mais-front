@@ -1,7 +1,7 @@
 import { InputText } from '.'
 
 export default {
-  title: 'InputText',
+  title: 'General Components/Inputs/InputText',
   component: InputText
 }
 
