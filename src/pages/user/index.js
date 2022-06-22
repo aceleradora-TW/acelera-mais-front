@@ -70,8 +70,8 @@ export const MentorPage = () => {
                         <UserModal
                           id={mentor.id}
                           method='PUT'
-                          title='editModal.title'
-                          text='editModal.text'
+                          title='editMentor.title'
+                          text='editMentor.edit'
                            />
                       <Button className='disable' text={t('user.button.disable')} />
                     </FlexSpaceBetween>

@@ -144,14 +144,10 @@
       "title": "Página inicial",
       "manageMentor": "Gerenciamento de mentoras"
     },
-    "editModal":{
-      "text": "Editar",
+    "editMentor":{
       "title":"Editar dados da mentora",
-      "name": "Nome",
-      "telephone": "Telefone",
-      "email": "Email",
       "save": "Salvar",
-      "alertsuccess": "Dados editados com sucesso"
+      "edit":"Editar"
     }
   }
 }

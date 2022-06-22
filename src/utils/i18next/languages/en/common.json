@@ -144,14 +144,10 @@
       "title": "Home Page",
       "manageMentor": "Manage Mentors"
     },
-    "editModal":{
-      "text": "Edit",
+    "editMentor":{
       "title": "Edit mentor data",
-      "name": "Name",
-      "telephone": "Telephone",
-      "email": "Email",
       "save": "Save",
-      "alertSuccess": "Data edited successfully"
+      "edit": "Edit"
     }
   }
 }

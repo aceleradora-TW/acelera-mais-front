@@ -1,7 +1,7 @@
 import Select from '.'
 
 export default {
-  title: 'Select',
+  title: 'General Components/Select',
   component: Select
 }
 

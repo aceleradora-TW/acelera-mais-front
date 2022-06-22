@@ -1,7 +1,7 @@
 import { InputEmail } from '.'
 
 export default {
-  title: 'InputEmail',
+  title: 'General Components/Inputs/InputEmail',
   component: InputEmail
 }
 

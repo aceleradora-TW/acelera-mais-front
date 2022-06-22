@@ -35,10 +35,10 @@ export const UserForm = ({ method = 'POST', id = '', callback = () => { } }) => 
 
   return (
     <form>
-      <InputText name='name' label={t('editModal.name')} onChange={handleChange} />
-      <InputTelephone name='telephone' label={t('editModal.telephone')} onChange={handleChange} />
-      <InputEmail name='email' label={t('editModal.email')} onChange={handleChange} />
-      <PrimaryButton text={t('editModal.save')} onClick={sendUsers} />
+      <InputText name='name' label={t('mentorRegistration.name')} onChange={handleChange} />
+      <InputTelephone name='telephone' label={t('mentorRegistration.telephone')} onChange={handleChange} />
+      <InputEmail name='email' label={t('mentorRegistration.email')} onChange={handleChange} />
+      <PrimaryButton text={t('editMentor.save')} onClick={sendUsers} />
     </form>
   )
 }
