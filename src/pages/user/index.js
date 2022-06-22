@@ -7,6 +7,7 @@ import { Container, Page, FlexSpaceBetween, Message } from './styled.js'
 import { useEffect, useState } from 'react'
 import { client } from '../../service'
 import Button from '../../components/buttons/button'
+import { ToggleButton } from '../../components/toggle'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -65,7 +66,7 @@ export const MentorPage = () => {
                     <FlexSpaceBetween>
                       <Button className='buttonColor' text={t('user.button.resend')} />
                       <Button className='buttonColor' text={t('user.button.edit')} />
-                      <Button className='disable' text={t('user.button.disable')} />
+                      <ToggleButton id={mentor.id} />
                     </FlexSpaceBetween>
                   </td>
                 </tr>

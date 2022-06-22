@@ -3,7 +3,7 @@ import { InputText } from '../inputs/text'
 
 // configuração da aba do componente na pagina do storybook
 export default {
-  title: 'Card',
+  title: 'General Components/Card',
   component: Card
 }
 

@@ -1,20 +1,24 @@
 import { useState } from 'react'
 import { ButtonEnabled, ButtonDisabled } from './styled'
 import { useTranslation } from 'react-i18next'
+import { client } from '../../service'
 
 export const ToggleButton = ({
   label = {
     on: 'On',
-    off: 'Off',
-    flag: 'user-enabled'
-  }
+    off: 'Off'
+  }, id
 }) => {
   const [isChecked, setChecked] = useState(true)
   const { t } = useTranslation()
 
-  const alert = (msg) => {
+  const alert = async (msg) => {
     if (confirm(msg)) {
       setChecked((prevState) => !prevState)
+      const user = {
+        flag: isChecked ? 'user-enabled' : 'user-disabled'
+      }
+      await client.put(`/user/${id}`, user)
     }
   }
   const change = () => {
