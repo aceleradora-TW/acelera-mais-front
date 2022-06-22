@@ -1,6 +1,5 @@
 import { UserForm } from '.'
 
-// configuração da aba do componente na pagina do storybook
 export default {
   title: 'UserForm',
   component: UserForm
