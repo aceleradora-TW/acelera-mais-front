@@ -11,7 +11,7 @@ import { InputPassword } from '../../components/inputs/password'
 import { useState } from 'react'
 import { client } from '../../service'
 
-export const Reset = ({ method = 'PUT', id = '' }) => {
+export const Reset = ({ id = '' }) => {
   const [password, setPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [message, setMessage] = useState('')
@@ -36,7 +36,7 @@ export const Reset = ({ method = 'PUT', id = '' }) => {
       try {
         await client.put(`/user/${id}`, user)
           .then(res => {
-            window.location.replace = 'http://localhost:3000/user'
+            window.location.replace = '/'
           })
         // const { data: { } }
       } catch {
