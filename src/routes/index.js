@@ -12,7 +12,7 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginPage />} exact />
-        <Route path="/password-reset" element={<Reset />} exact />
+        <Route path="/password-reset/:id" element={<Reset />} exact />
         <Route path="/home" element={<HomePage />} exact />
         <Route path="/hiring-process" element={<IsAuth />}>
           <Route path="/hiring-process" element={<HiringProcessPage />} exact />

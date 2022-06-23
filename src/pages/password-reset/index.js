@@ -11,7 +11,7 @@ import { InputPassword } from '../../components/inputs/password'
 import { useState } from 'react'
 import { client } from '../../service'
 
-export const Reset = ({ id = '' }) => {
+export const Reset = () => {
   const [password, setPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [message, setMessage] = useState('')
@@ -26,22 +26,18 @@ export const Reset = ({ id = '' }) => {
 
   const handlerClick = async (event) => {
     event.preventDefault()
-
+    const id = window.location.pathname.split('/').pop()
     if (password === newPassword && password && newPassword) {
       setFlag('user-enabled')
       const user = {
         password, flag
       }
 
-      try {
-        await client.put(`/user/${id}`, user)
-          .then(res => {
-            window.location.replace = '/'
-          })
-        // const { data: { } }
-      } catch {
-        console.log()
-      }
+      await client.put(`/user/${id}`, user)
+        .then(res => {
+          // window.location.replace = '/'
+          return res
+        }).catch(err => console.log(err))
 
       return true
     }
