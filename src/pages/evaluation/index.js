@@ -51,8 +51,11 @@ const EvaluationChallenge = () => {
                   <FontAwesomeIcon icon={faPrint} />
                   Download: {exercise.name}
                 </Anchor>
+                <Anchor href="#" target='_blank' rel='noreferrer'>
+                  <FontAwesomeIcon icon={faPrint} />
+                  Download do enunciado
+                </Anchor>
               </Download>
-
               <Answer exercise={exercise} />
 
               <ContainerButtons>
