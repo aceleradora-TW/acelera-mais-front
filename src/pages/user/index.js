@@ -66,7 +66,7 @@ export const MentorPage = () => {
                     <FlexSpaceBetween>
                       <Button className='buttonColor' text={t('user.button.resend')} />
                       <Button className='buttonColor' text={t('user.button.edit')} />
-                      <ToggleButton id={mentor.id} />
+                      <ToggleButton id={mentor.id} flag={mentor.flag} />
                     </FlexSpaceBetween>
                   </td>
                 </tr>
