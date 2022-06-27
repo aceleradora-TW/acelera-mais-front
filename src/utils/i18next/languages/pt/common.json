@@ -143,6 +143,12 @@
     "home": {
       "title": "Página inicial",
       "manageMentor": "Gerenciamento de mentoras"
+    },
+    "reset":{
+      "title": "Redefina sua Senha",
+      "password": "Insira sua nova senha",
+      "newPassword": "Repita a senha",
+      "button": "Salvar"
     }
   }
 }

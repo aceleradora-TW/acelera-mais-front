@@ -10,6 +10,7 @@ import PrimaryButton from '../../components/buttons/primary'
 import { InputPassword } from '../../components/inputs/password'
 import { useState } from 'react'
 import { client } from '../../service'
+import { t } from 'i18next'
 
 export const Reset = () => {
   const [password, setPassword] = useState('')
@@ -49,13 +50,13 @@ export const Reset = () => {
     <ContainerReset>
       <Content>
         <Header>
-          <HeaderTitle>Redefina sua Senha</HeaderTitle>
+          <HeaderTitle>{t('reset.title')}</HeaderTitle>
         </Header>
         <ModalBody>
-          <InputPassword onChange={handleChangePassword} value={password} label="Insira sua nova senha" />
-          <InputPassword onChange={handleChangeNewPassword} value={newPassword} label="Repita a senha" />
+          <InputPassword onChange={handleChangePassword} value={password} label={t('reset.password')} />
+          <InputPassword onChange={handleChangeNewPassword} value={newPassword} label={t('reset.newPassword')} />
           <MessageError>{message}</MessageError>
-          <PrimaryButton text="Salvar" onClick={handlerClick}></PrimaryButton>
+          <PrimaryButton text={t('reset.button')} onClick={handlerClick}></PrimaryButton>
         </ModalBody>
       </Content>
     </ContainerReset>

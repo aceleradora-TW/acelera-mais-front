@@ -143,6 +143,12 @@
     "home": {
       "title": "Home Page",
       "manageMentor": "Manage Mentors"
+    },
+    "reset":{
+      "title": "Reset your Password",
+      "password": "Enter your new password",
+      "newPassword": "Repeat the password",
+      "button": "Save"
     }
   }
 }
