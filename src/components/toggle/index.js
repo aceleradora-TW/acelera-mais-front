@@ -29,8 +29,8 @@ export const ToggleButton = ({
   }
 
   return (
-    <div onClick={change}>
-      <span>{isChecked ? <ButtonDisabled>{t('user.toggle.off')}</ButtonDisabled> : <ButtonEnabled>{t('user.toggle.on')}</ButtonEnabled>}</span>
+    <div >
+      {isChecked ? <ButtonDisabled onClick={change} >{t('user.toggle.off')}</ButtonDisabled> : <ButtonEnabled onClick={change} >{t('user.toggle.on')}</ButtonEnabled>}
     </div>
   )
 }

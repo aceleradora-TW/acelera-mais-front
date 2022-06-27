@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ButtonEnabled = styled.button`
-border: 1px solid #d3d3d3;
+border: 1px solid;
 border-radius: 5px;
 padding: 10px 25px;
 width: 130px;
@@ -17,7 +17,7 @@ border-color: rgb(102,102,255);
 }
 `
 export const ButtonDisabled = styled.button`
-  border: 1px solid #d3d3d3;
+  border: 1px solid;
   border-radius: 5px;
   padding: 10px 25px;
   width: 130px;
