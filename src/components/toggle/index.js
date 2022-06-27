@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { ButtonEnabled, ButtonDisabled } from './styled'
 import { useTranslation } from 'react-i18next'
 import { client } from '../../service'
+
+const isEnabled = flag => flag === 'user-enabled'
 
 export const ToggleButton = ({
   label = {
@@ -9,15 +11,8 @@ export const ToggleButton = ({
     off: 'Off'
   }, id, flag
 }) => {
-  const [isChecked, setChecked] = useState()
+  const [isChecked, setChecked] = useState(isEnabled(flag))
   const { t } = useTranslation()
-  useEffect(() => {
-    if (flag === 'user-disabled') {
-      setChecked(false)
-    } else if (flag === 'user-enabled') {
-      setChecked(true)
-    }
-  }, [])
 
   const alert = async (msg) => {
     if (confirm(msg)) {
