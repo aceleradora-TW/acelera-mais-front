@@ -127,11 +127,11 @@
         "registrationInformation": "Informações de cadastro",
         "shares": "Ações"
       },
-      "message":{
+      "message": {
         "500": "Houve um problema interno. Aguarde alguns minutos.",
-        "404":"Nenhuma mentora avaliadora cadastrada."
+        "404": "Nenhuma mentora avaliadora cadastrada."
       },
-      "button":{
+      "button": {
         "resend": "Reenviar E-mail",
         "edit": "Editar",
         "disable": "Desabilitar"
@@ -144,11 +144,12 @@
       "title": "Página inicial",
       "manageMentor": "Gerenciamento de mentoras"
     },
-    "reset":{
+    "reset": {
       "title": "Redefina sua Senha",
       "password": "Insira sua nova senha",
       "newPassword": "Repita a senha",
-      "button": "Salvar"
+      "buttonSave": "Salvar",
+      "messageError": "As senhas estão diferentes ou em branco!"
     }
   }
 }

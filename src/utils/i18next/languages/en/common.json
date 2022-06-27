@@ -127,11 +127,11 @@
         "registrationInformation": "Regristion Information",
         "shares": "Shares"
       },
-      "message":{
+      "message": {
         "500": "There was an internal problem. Wait a few minutes.",
         "404": "No mentors registered."
       },
-      "button":{
+      "button": {
         "resend": "Resend E-mail",
         "edit": "Edit",
         "disable": "Disable"
@@ -144,11 +144,12 @@
       "title": "Home Page",
       "manageMentor": "Manage Mentors"
     },
-    "reset":{
+    "reset": {
       "title": "Reset your Password",
       "password": "Enter your new password",
       "newPassword": "Repeat the password",
-      "button": "Save"
+      "buttonSave": "Save",
+      "messageError": "Passwords are different or blank!"
     }
   }
 }
