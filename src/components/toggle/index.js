@@ -9,7 +9,6 @@ export const ToggleButton = ({
     off: 'Off'
   }, id, flag
 }) => {
-  console.log(flag + id)
   const [isChecked, setChecked] = useState()
   const { t } = useTranslation()
   useEffect(() => {
