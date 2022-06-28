@@ -18,6 +18,7 @@ import { Container, HiringProcessTable } from './styles'
 import { hiringProcessAdapter } from '../../adapter/hiring-process-adapter'
 import { isAdmin } from '../../../../utils/isAdmin'
 import { useTranslation } from 'react-i18next'
+const mock = require('../../../user/mock/invalidate-mock.json')
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const { t } = useTranslation()
@@ -126,10 +127,13 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               {isAdmin() && <td>
                 <Modal
                   label="Candidatas Inválidas"
-                  title="Candidatas Inválidas"
+                  title={t('hiringProcess.invalidate.title')}
                   classe="button action"
-                  text="Candidatas Inválidas"
+                  text={t('hiringProcess.invalidate.text')}
                 >
+                  <div>
+                    {mock.map((a) => { return a.email1 })}
+                  </div>
                 </Modal> </td>}
               {isAdmin() && <td>
                 <Modal
@@ -162,6 +166,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
           ))}
         </tbody>
       </HiringProcessTable>
-    </Container>
+    </Container >
   )
 }
