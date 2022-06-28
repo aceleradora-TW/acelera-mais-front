@@ -13,17 +13,17 @@ export const StyledSpan = styled(StatusSpan)`
   border-radius: 5px;
   margin: 2px 0;
   
-  &.status-opened {
+  &.green {
     background-color: #dcfdd4;
     color: #4fac16;
   }
 
-  &.status-closed {
+  &.red {
     background-color: #fdd4d4;
     color: #ac1616;
   }
   
-  &.status-preparing {
+  &.yellow {
     background-color: #fafdd4;
     color: #ac9d16;
   }

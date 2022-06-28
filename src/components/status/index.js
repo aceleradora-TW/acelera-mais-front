@@ -5,14 +5,14 @@ import { useTranslation } from 'react-i18next'
 export const Status = ({
   status, options = {
     status: {
-      green: ['status-opened', 'user-enabled'],
-      red: ['status-closed', 'user-disabled'],
-      yellow: ['status-preparing', 'first-login', 'email-resent']
+      green: ['status-opened'],
+      red: ['status-closed'],
+      yellow: ['status-preparing']
     },
     label: {
-      green: 'user.status.green',
-      red: 'user.status.red',
-      yellow: 'user.status.yellow'
+      green: 'status.opened',
+      red: 'status.closed',
+      yellow: 'status.preparing'
     }
   }
 }) => {
