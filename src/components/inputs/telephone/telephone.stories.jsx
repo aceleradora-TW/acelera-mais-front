@@ -1,7 +1,7 @@
 import { InputTelephone } from '.'
 
 export default {
-  title: 'InputTelephone',
+  title: 'General Components/Inputs/InputTelephone',
   component: InputTelephone
 }
 

@@ -131,6 +131,15 @@
         "yellow": "Pendente",
         "red": "Desabilitado",
         "green": "Habilitado"
+      },
+      "message": {
+        "500": "Houve um problema interno. Aguarde alguns minutos.",
+        "404": "Nenhuma mentora avaliadora cadastrada."
+      },
+      "button": {
+        "resend": "Reenviar E-mail",
+        "edit": "Editar",
+        "disable": "Desabilitar"
       }
     },
     "search": {
