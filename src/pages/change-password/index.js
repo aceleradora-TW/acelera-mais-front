@@ -1,5 +1,5 @@
 import {
-  ContainerReset,
+  ContainerUserChangePasswordPage,
   HeaderTitle,
   ModalBody,
   Content,
@@ -13,7 +13,7 @@ import { client } from '../../service'
 import { t } from 'i18next'
 import { useNavigate } from 'react-router'
 
-export const Reset = () => {
+export const UserChangePasswordPage = () => {
   const [password, setPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [message, setMessage] = useState('')
@@ -44,11 +44,11 @@ export const Reset = () => {
       return true
     }
 
-    setMessage(t('reset.messageError'))
+    setMessage(t('UserChangePasswordPage.messageError'))
   }
 
   return (
-    <ContainerReset>
+    <ContainerUserChangePasswordPage>
       <Content>
         <Header>
           <HeaderTitle>{t('reset.title')}</HeaderTitle>
@@ -60,7 +60,7 @@ export const Reset = () => {
           <PrimaryButton text={t('reset.buttonSave')} onClick={handlerClick}></PrimaryButton>
         </ModalBody>
       </Content>
-    </ContainerReset>
+    </ContainerUserChangePasswordPage>
 
   )
 }

@@ -1,6 +1,6 @@
 import style from 'styled-components'
 
-export const ContainerReset = style.div`
+export const ContainerUserChangePasswordPage = style.div`
 position: fixed;
 left: 0;
 top: 0;
