@@ -5,9 +5,9 @@ import { useTranslation } from 'react-i18next'
 export const Status = ({
   status, options = {
     status: {
-      green: ['status-opened'],
-      red: ['status-closed'],
-      yellow: ['status-preparing']
+      green: 'status-opened',
+      red: 'status-closed',
+      yellow: 'status-preparing'
     },
     label: {
       green: 'status.opened',
@@ -18,7 +18,7 @@ export const Status = ({
 }) => {
   const { t } = useTranslation()
 
-  let label = t(options.closed)
+  let label = t(options.label.red)
 
   if (options.status.green.includes(status)) {
     label = t(options.label.green)
