@@ -26,6 +26,19 @@ export const MentorPage = () => {
         setMessage(t('user.message.500'))
       })
   }, [])
+
+  const isEnabled = flag => flag === 'user-enabled'
+
+  const handleToggleButton = (id) => async (checked, setChecked) => {
+    const word = checked ? t('user.toggle.off') : t('user.toggle.on')
+    const message = t('user.toggle.alert.message', { value: word.toLowerCase() })
+    if (confirm(message)) {
+      setChecked(prevState => !prevState)
+      const flag = checked ? 'user-disabled' : 'user-enabled'
+      await client.put(`/user/${id}`, { flag })
+    }
+  }
+
   return (
     <>
       <Page>
@@ -66,7 +79,14 @@ export const MentorPage = () => {
                     <FlexSpaceBetween>
                       <Button className='buttonColor' text={t('user.button.resend')} />
                       <Button className='buttonColor' text={t('user.button.edit')} />
-                      <ToggleButton id={mentor.id} flag={mentor.flag} />
+                      <ToggleButton
+                        status={isEnabled(mentor.flag)}
+                        label={{
+                          on: t('user.toggle.on'),
+                          off: t('user.toggle.off')
+                        }}
+                        click={handleToggleButton(mentor.id)}
+                      />
                     </FlexSpaceBetween>
                   </td>
                 </tr>

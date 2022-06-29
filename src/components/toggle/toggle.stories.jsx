@@ -2,7 +2,7 @@ import { ToggleButton } from '.'
 import { BrowserRouter } from 'react-router-dom'
 
 export default {
-  title: 'ToggleButton',
+  title: 'General Components/ToggleButton',
   component: ToggleButton
 }
 
@@ -16,5 +16,7 @@ const Template = args => {
 
 export const Toggle = Template.bind({})
 Toggle.args = {
-  label: 'Off'
+  label: { on: 'user.toggle.on', off: 'user.toggle.off' },
+  status: true,
+  onClick: (isChecked, setChecked) => setChecked(prevState => !prevState)
 }
