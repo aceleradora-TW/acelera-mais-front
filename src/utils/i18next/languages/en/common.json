@@ -106,7 +106,8 @@
         "placeholder": "Select an Option",
         "alert": "Successfully updated!",
         "changeButton": "Change"
-      }
+      },
+      "exerciseStatement": "View the exercise statement"
     },
     "mentorRegistration": {
       "title": "Register New Mentor",
