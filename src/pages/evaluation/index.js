@@ -42,7 +42,6 @@ const EvaluationChallenge = () => {
   return (
     <>
       <Container >
-        {console.log(challenge)}
         <h1>{t('evaluation.title')}</h1>
         {challenge.exercises.map((exercise) => {
           return (
