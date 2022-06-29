@@ -37,6 +37,8 @@ const EvaluationChallenge = () => {
 
   if (!challenge) return null
 
+  const exerciseStatement = challenge.exerciseStatement
+
   return (
     <>
       <Container >
@@ -48,13 +50,9 @@ const EvaluationChallenge = () => {
               <Header setDisableEvaluationButton={setDisableEvaluationButton} />
 
               <Download>
-                <Anchor href="#" target='_blank' rel='noreferrer'>
+                <Anchor href={exerciseStatement} target='_blank' rel='noreferrer'>
                   <FontAwesomeIcon icon={faPrint} />
-                  Download: {exercise.name}
-                </Anchor>
-                <Anchor href="#" target='_blank' rel='noreferrer'>
-                  <FontAwesomeIcon icon={faPrint} />
-                  Download do enunciado
+                  {t('evaluation.exerciseStatement')}
                 </Anchor>
               </Download>
               <Answer exercise={exercise} />
