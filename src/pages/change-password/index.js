@@ -44,7 +44,7 @@ export const UserChangePasswordPage = () => {
       return true
     }
 
-    setMessage(t('UserChangePasswordPage.messageError'))
+    setMessage(t('reset.messageError'))
   }
 
   return (
