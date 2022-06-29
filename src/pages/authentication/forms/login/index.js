@@ -34,7 +34,7 @@ export const Login = () => {
 
       if (accessToken) {
         if (!auth) {
-          return navigate(`/password-reset/${id}`)
+          return navigate(`/user/change-password/${id}`)
         }
         localStorage.setItem('token', accessToken)
         localStorage.setItem('role', role)
