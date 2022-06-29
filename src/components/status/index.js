@@ -19,15 +19,19 @@ export const Status = ({
   const { t } = useTranslation()
 
   let label = t(options.label.red)
+  let cssClass = 'red'
 
   if (options.status.green.includes(status)) {
     label = t(options.label.green)
+    cssClass = 'green'
   }
 
   if (options.status.yellow.includes(status)) {
     label = t(options.label.yellow)
+    cssClass = 'yellow'
   }
+
   return (
-    <StyledSpan className={status}>{label}</StyledSpan>
+    <StyledSpan className={cssClass}>{label}</StyledSpan>
   )
 }
