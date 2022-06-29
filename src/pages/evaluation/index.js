@@ -40,6 +40,7 @@ const EvaluationChallenge = () => {
   return (
     <>
       <Container >
+        {console.log(challenge)}
         <h1>{t('evaluation.title')}</h1>
         {challenge.exercises.map((exercise) => {
           return (
@@ -51,7 +52,7 @@ const EvaluationChallenge = () => {
                   <FontAwesomeIcon icon={faPrint} />
                   Download: {exercise.name}
                 </Anchor>
-                <Anchor href={challenge.exerciseStatement} target='_blank' rel='noreferrer'>
+                <Anchor href="#" target='_blank' rel='noreferrer'>
                   <FontAwesomeIcon icon={faPrint} />
                   Download do enunciado
                 </Anchor>
