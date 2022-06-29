@@ -134,6 +134,10 @@
           "message": "Do you want to {{value}} this mentor?"
         }
       },
+      "toggleButton": {
+        "on": "On",
+        "off": "Off"
+      },
       "message": {
         "500": "There was an internal problem. Wait a few minutes.",
         "404": "No mentors registered."

@@ -144,6 +144,10 @@
         "disable": "Desabilitar"
       }
     },
+    "toggleButton": {
+      "on": "On",
+      "off": "Off"
+    },
     "search": {
       "placeholder": "Buscar"
     },

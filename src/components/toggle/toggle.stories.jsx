@@ -16,7 +16,6 @@ const Template = args => {
 
 export const Toggle = Template.bind({})
 Toggle.args = {
-  label: { on: 'user.toggle.on', off: 'user.toggle.off' },
   status: true,
-  onClick: (isChecked, setChecked) => setChecked(prevState => !prevState)
+  click: (isChecked, setChecked) => setChecked(prevState => !prevState)
 }
