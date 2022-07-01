@@ -43,7 +43,7 @@ export const ToggleRowExercise = ({ item }) => {
         <td></td>
         <td className='options'>
           <span>
-            <Status
+            {/* <Status
               status={getStatus(item)}
               options={{
                 opened: 'status.opened',
@@ -57,7 +57,29 @@ export const ToggleRowExercise = ({ item }) => {
                     'challenge.toggleRow.status.preparing',
                     { mentor: item.evaluation.mentorName || '' }
                   )
-              }} />
+              }} /> */}
+
+            <Status
+              status={getStatus(item)}
+              options={
+                {
+                  status: {
+                    green: ['status-opened'],
+                    red: ['status-closed'],
+                    yellow: ['status-preparing']
+                  },
+                  label: {
+                    green: 'status.opened',
+                    red: 'challenge.toggleRow.status.closed',
+                    yellow: 'challenge.toggleRow.status.preparing'
+
+                  }
+
+                }
+
+              }
+            />
+
           </span>
         </td>
         <td>
