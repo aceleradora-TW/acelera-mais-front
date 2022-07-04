@@ -106,7 +106,8 @@
         "placeholder": "Escolha uma opção",
         "alert": "Atualizado com sucesso!",
         "changeButton": "Alterar"
-      }
+      },
+      "exerciseStatement": "Visualizar o enunciado do exercício"
     },
     "mentorRegistration": {
       "title": "Cadastrar nova mentora",
@@ -141,6 +142,10 @@
         "edit": "Editar",
         "disable": "Desabilitar"
       }
+    },
+    "toggleButton": {
+      "on": "On",
+      "off": "Off"
     },
     "search": {
       "placeholder": "Buscar"
