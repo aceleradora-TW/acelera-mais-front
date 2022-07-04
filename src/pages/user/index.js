@@ -7,6 +7,7 @@ import { Container, Page, FlexSpaceBetween, Message } from './styled.js'
 import { useEffect, useState } from 'react'
 import { client } from '../../service'
 import Button from '../../components/buttons/button'
+import { ToggleButton } from '../../components/toggle'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -25,6 +26,19 @@ export const MentorPage = () => {
         setMessage(t('user.message.500'))
       })
   }, [])
+
+  const isEnabled = flag => flag === 'user-enabled'
+
+  const handleToggleButton = (id) => async (checked, setChecked) => {
+    const word = checked ? t('user.toggle.off') : t('user.toggle.on')
+    const message = t('user.toggle.alert.message', { value: word.toLowerCase() })
+    if (confirm(message)) {
+      setChecked(prevState => !prevState)
+      const flag = checked ? 'user-disabled' : 'user-enabled'
+      await client.put(`/user/${id}`, { flag })
+    }
+  }
+
   return (
     <>
       <Page>
@@ -65,7 +79,14 @@ export const MentorPage = () => {
                     <FlexSpaceBetween>
                       <Button className='buttonColor' text={t('user.button.resend')} />
                       <Button className='buttonColor' text={t('user.button.edit')} />
-                      <Button className='disable' text={t('user.button.disable')} />
+                      <ToggleButton
+                        status={isEnabled(mentor.flag)}
+                        label={{
+                          on: t('user.toggle.on'),
+                          off: t('user.toggle.off')
+                        }}
+                        click={handleToggleButton(mentor.id)}
+                      />
                     </FlexSpaceBetween>
                   </td>
                 </tr>
