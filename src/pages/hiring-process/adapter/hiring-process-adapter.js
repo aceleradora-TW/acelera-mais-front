@@ -23,10 +23,10 @@ export const hiringProcessAdapter = (hiringProcesses) => {
     haveWebcam: h.haveWebcam,
     canUseWebcam: h.canUseWebcam,
     cityState: h.cityState,
-    createdAt: h.evaluation.createdAt,
-    feedback: h.evaluation.feedback || '',
-    mentorName: h.evaluation.mentorName || '',
-    score: h.evaluation.score || '',
-    updateAt: h.evaluation.updateAt || ''
+    createdAt: h.evaluation?.createdAt,
+    feedback: h.evaluation?.feedback || '',
+    mentorName: h.evaluation?.mentorName || '',
+    score: h.evaluation?.score || '',
+    updateAt: h.evaluation?.updateAt || ''
   }))
 }
