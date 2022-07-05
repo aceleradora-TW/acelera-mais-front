@@ -16,11 +16,7 @@ export const Status = ({
     }
   }
 }) => {
-  console.log(options)
   const { t } = useTranslation()
-  // let label = options.label.red.color == null
-  //   ? t(options.label.red)
-  //   : t(options.label.red.color, options.label.red.description)
 
   let label = t(options.label.red)
   let cssClass = 'red'
