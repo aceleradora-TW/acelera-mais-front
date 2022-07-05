@@ -67,7 +67,7 @@ export const MentorPage = () => {
               mentors.map((mentor, key) =>
                 <tr key={key}>
                   <td>{mentor.name}</td>
-                  <td>STATUS</td>
+                  <td> STATUS </td>
                   <td>{mentor.updatedAt}</td>
                   <td>
                     <FlexSpaceBetween>
