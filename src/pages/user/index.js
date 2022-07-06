@@ -30,7 +30,6 @@ export const MentorPage = () => {
   }, [])
 
   const isEnabled = flag => flag === 'user-enabled'
-  const pending = flag => flag === 'first-login' || flag === 'email-resent'
 
   const handleToggleButton = (id) => async (checked, setChecked) => {
     const word = checked ? t('user.toggle.off') : t('user.toggle.on')
@@ -38,17 +37,8 @@ export const MentorPage = () => {
     if (confirm(message)) {
       setChecked(prevState => !prevState)
       const flag = checked ? 'user-disabled' : 'user-enabled'
-      await client.put(`/user/${id}`, { flag })
+      await client.put(`/user/${id}`, { flag }).then(res => window.location.reload(true))
     }
-  }
-
-  const getStatus = (flag) => {
-    if (isEnabled(flag)) {
-      return 'status-opened'
-    } else if (pending(flag)) {
-      return 'status-preparing'
-    }
-    return 'status-closed'
   }
 
   return (
@@ -81,13 +71,13 @@ export const MentorPage = () => {
                   <td>{mentor.name}</td>
                   <td>
                     <Status
-                    status={getStatus(mentor.flag)}
+                    status={mentor.flag}
                     options={
                       {
                         status: {
-                          green: ['status-opened'],
-                          red: ['status-closed'],
-                          yellow: ['status-preparing']
+                          green: ['user-enabled'],
+                          red: ['user-disabled'],
+                          yellow: ['first-login', 'email-resent']
                         },
                         label: {
                           green: 'user.status.green',
