@@ -135,6 +135,11 @@
           "message": "Tem certeza que deseja {{value}} essa mentora?"
         }
       },
+      "status": {
+        "yellow": "Pendente",
+        "red": "Desabilitada",
+        "green": "Habilitada"
+      },
       "message": {
         "500": "Houve um problema interno. Aguarde alguns minutos.",
         "404": "Nenhuma mentora avaliadora cadastrada."

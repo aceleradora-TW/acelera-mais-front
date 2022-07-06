@@ -8,12 +8,14 @@ import { useEffect, useState } from 'react'
 import { client } from '../../service'
 import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
+import { Status } from '../../components/status'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
   const pageHome = () => { }
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
+
   useEffect(() => {
     client.get('/user')
       .then(res => {
@@ -35,7 +37,7 @@ export const MentorPage = () => {
     if (confirm(message)) {
       setChecked(prevState => !prevState)
       const flag = checked ? 'user-disabled' : 'user-enabled'
-      await client.put(`/user/${id}`, { flag })
+      await client.put(`/user/${id}`, { flag }).then(res => window.location.reload(true))
     }
   }
 
@@ -67,7 +69,25 @@ export const MentorPage = () => {
               mentors.map((mentor, key) =>
                 <tr key={key}>
                   <td>{mentor.name}</td>
-                  <td>STATUS</td>
+                  <td>
+                    <Status
+                    status={mentor.flag}
+                    options={
+                      {
+                        status: {
+                          green: ['user-enabled'],
+                          red: ['user-disabled'],
+                          yellow: ['first-login', 'email-resent']
+                        },
+                        label: {
+                          green: 'user.status.green',
+                          red: ['user.status.red'],
+                          yellow: ['user.status.yellow']
+                        }
+                      }
+                    }
+                    />
+                  </td>
                   <td>{mentor.updatedAt}</td>
                   <td>
                     <FlexSpaceBetween>
