@@ -12,6 +12,7 @@ export const StyledSpan = styled(StatusSpan)`
   text-align: center;
   border-radius: 5px;
   margin: 2px 0;
+  min-width: 110px;
   
   &.green {
     background-color: #dcfdd4;

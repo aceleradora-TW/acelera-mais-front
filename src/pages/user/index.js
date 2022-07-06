@@ -8,12 +8,14 @@ import { useEffect, useState } from 'react'
 import { client } from '../../service'
 import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
+import { Status } from '../../components/status'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
   const pageHome = () => { }
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
+
   useEffect(() => {
     client.get('/user')
       .then(res => {
@@ -28,6 +30,7 @@ export const MentorPage = () => {
   }, [])
 
   const isEnabled = flag => flag === 'user-enabled'
+  const pending = flag => flag === 'first-login' || flag === 'email-resent'
 
   const handleToggleButton = (id) => async (checked, setChecked) => {
     const word = checked ? t('user.toggle.off') : t('user.toggle.on')
@@ -37,6 +40,15 @@ export const MentorPage = () => {
       const flag = checked ? 'user-disabled' : 'user-enabled'
       await client.put(`/user/${id}`, { flag })
     }
+  }
+
+  const getStatus = (flag) => {
+    if (isEnabled(flag)) {
+      return 'status-opened'
+    } else if (pending(flag)) {
+      return 'status-preparing'
+    }
+    return 'status-closed'
   }
 
   return (
@@ -67,7 +79,25 @@ export const MentorPage = () => {
               mentors.map((mentor, key) =>
                 <tr key={key}>
                   <td>{mentor.name}</td>
-                  <td> STATUS </td>
+                  <td>
+                    <Status
+                    status={getStatus(mentor.flag)}
+                    options={
+                      {
+                        status: {
+                          green: ['status-opened'],
+                          red: ['status-closed'],
+                          yellow: ['status-preparing']
+                        },
+                        label: {
+                          green: 'user.status.green',
+                          red: ['user.status.red'],
+                          yellow: ['user.status.yellow']
+                        }
+                      }
+                    }
+                    />
+                  </td>
                   <td>{mentor.updatedAt}</td>
                   <td>
                     <FlexSpaceBetween>
