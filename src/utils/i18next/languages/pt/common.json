@@ -137,8 +137,8 @@
       },
       "status": {
         "yellow": "Pendente",
-        "red": "Desabilitado",
-        "green": "Habilitado"
+        "red": "Desabilitada",
+        "green": "Habilitada"
       },
       "message": {
         "500": "Houve um problema interno. Aguarde alguns minutos.",

@@ -128,6 +128,13 @@
         "registrationInformation": "Regristion Information",
         "shares": "Shares"
       },
+      "toggle": {
+        "on": "Enabled",
+        "off": "Disabled",
+        "alert": {
+          "message": "Do you want to {{value}} this mentor?"
+        }
+      },
       "status": {
         "yellow": "Pending",
         "red": "Disabled",
@@ -141,7 +148,11 @@
         "resend": "Resend E-mail",
         "edit": "Edit",
         "disable": "Disable"
-      }
+      }     
+    },
+    "toggleButton": {
+      "on": "On",
+      "off": "Off"
     },
     "search": {
       "placeholder": "Search"
