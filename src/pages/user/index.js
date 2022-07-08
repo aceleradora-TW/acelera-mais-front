@@ -8,11 +8,15 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
 import { client } from '../../service'
 import Button from '../../components/buttons/button'
+import { ToggleButton } from '../../components/toggle'
+import { Status } from '../../components/status'
+
 export const MentorPage = () => {
   const { t } = useTranslation()
   const pageHome = () => { }
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
+
   useEffect(() => {
     client.get('/user')
       .then(res => {
@@ -25,6 +29,19 @@ export const MentorPage = () => {
         setMessage(t('user.message.500'))
       })
   }, [])
+
+  const isEnabled = flag => flag === 'user-enabled'
+
+  const handleToggleButton = (id) => async (checked, setChecked) => {
+    const word = checked ? t('user.toggle.off') : t('user.toggle.on')
+    const message = t('user.toggle.alert.message', { value: word.toLowerCase() })
+    if (confirm(message)) {
+      setChecked(prevState => !prevState)
+      const flag = checked ? 'user-disabled' : 'user-enabled'
+      await client.put(`/user/${id}`, { flag }).then(res => window.location.reload(true))
+    }
+  }
+
   return (
     <>
       <Page>
@@ -56,7 +73,25 @@ export const MentorPage = () => {
               mentors.map((mentor, key) =>
                 <tr key={key}>
                   <td>{mentor.name}</td>
-                  <td>STATUS</td>
+                  <td>
+                    <Status
+                      status={mentor.flag}
+                      options={
+                        {
+                          status: {
+                            green: ['user-enabled'],
+                            red: ['user-disabled'],
+                            yellow: ['first-login', 'email-resent']
+                          },
+                          label: {
+                            green: 'user.status.green',
+                            red: ['user.status.red'],
+                            yellow: ['user.status.yellow']
+                          }
+                        }
+                      }
+                    />
+                  </td>
                   <td>{mentor.updatedAt}</td>
                   <td>
                     <FlexSpaceBetween>
@@ -67,13 +102,20 @@ export const MentorPage = () => {
                   <td>
                     <FlexSpaceBetween>
                       <Button className='buttonColor' text={t('user.button.resend')} />
-                        <UserModal
-                          id={mentor.id}
-                          method='PUT'
-                          title='editMentor.title'
-                          text='editMentor.edit'
-                           />
-                      <Button className='disable' text={t('user.button.disable')} />
+                      <UserModal
+                        id={mentor.id}
+                        method='PUT'
+                        title='editMentor.title'
+                        text='editMentor.edit'
+                      />
+                      <ToggleButton
+                        status={isEnabled(mentor.flag)}
+                        label={{
+                          on: t('user.toggle.on'),
+                          off: t('user.toggle.off')
+                        }}
+                        click={handleToggleButton(mentor.id)}
+                      />
                     </FlexSpaceBetween>
                   </td>
                 </tr>
