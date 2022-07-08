@@ -160,6 +160,11 @@
     "home": {
       "title": "Página inicial",
       "manageMentor": "Gerenciamento de mentoras"
+    },
+    "editMentor":{
+      "title":"Editar dados da mentora",
+      "save": "Salvar",
+      "edit":"Editar"
     }
   }
 }

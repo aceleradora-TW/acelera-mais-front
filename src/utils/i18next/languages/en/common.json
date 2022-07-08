@@ -160,6 +160,11 @@
     "home": {
       "title": "Home Page",
       "manageMentor": "Manage Mentors"
+    },
+    "editMentor":{
+      "title": "Edit mentor data",
+      "save": "Save",
+      "edit": "Edit"
     }
   }
 }

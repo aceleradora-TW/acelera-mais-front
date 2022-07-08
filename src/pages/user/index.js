@@ -2,9 +2,10 @@ import { useTranslation } from 'react-i18next'
 import PrimaryButton from '../../components/buttons/primary'
 import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
-import { RegisterModal } from './components/register-modal'
+import { UserModal } from './components/user-modal'
 import { Container, Page, FlexSpaceBetween, Message } from './styled.js'
-import { useEffect, useState } from 'react'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { useState, useEffect } from 'react'
 import { client } from '../../service'
 import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
@@ -48,7 +49,10 @@ export const MentorPage = () => {
           <h1>{t('user.title')}</h1>
           <InputSearch />
           <div className="button-container">
-            <RegisterModal />
+            <UserModal
+              title='mentorRegistration.title'
+              text='mentorRegistration.text'
+              icon={faPlus} />
             <PrimaryButton text={t('user.backButton')} onClick={pageHome} />
           </div>
         </section>
@@ -71,21 +75,21 @@ export const MentorPage = () => {
                   <td>{mentor.name}</td>
                   <td>
                     <Status
-                    status={mentor.flag}
-                    options={
-                      {
-                        status: {
-                          green: ['user-enabled'],
-                          red: ['user-disabled'],
-                          yellow: ['first-login', 'email-resent']
-                        },
-                        label: {
-                          green: 'user.status.green',
-                          red: ['user.status.red'],
-                          yellow: ['user.status.yellow']
+                      status={mentor.flag}
+                      options={
+                        {
+                          status: {
+                            green: ['user-enabled'],
+                            red: ['user-disabled'],
+                            yellow: ['first-login', 'email-resent']
+                          },
+                          label: {
+                            green: 'user.status.green',
+                            red: ['user.status.red'],
+                            yellow: ['user.status.yellow']
+                          }
                         }
                       }
-                    }
                     />
                   </td>
                   <td>{mentor.updatedAt}</td>
@@ -98,7 +102,12 @@ export const MentorPage = () => {
                   <td>
                     <FlexSpaceBetween>
                       <Button className='buttonColor' text={t('user.button.resend')} />
-                      <Button className='buttonColor' text={t('user.button.edit')} />
+                      <UserModal
+                        id={mentor.id}
+                        method='PUT'
+                        title='editMentor.title'
+                        text='editMentor.edit'
+                      />
                       <ToggleButton
                         status={isEnabled(mentor.flag)}
                         label={{
