@@ -106,7 +106,8 @@
         "placeholder": "Select an Option",
         "alert": "Successfully updated!",
         "changeButton": "Change"
-      }
+      },
+      "exerciseStatement": "View the exercise statement"
     },
     "mentorRegistration": {
       "title": "Register New Mentor",
@@ -135,7 +136,11 @@
         "resend": "Resend E-mail",
         "edit": "Edit",
         "disable": "Disable"
-      }
+      }     
+    },
+    "toggleButton": {
+      "on": "On",
+      "off": "Off"
     },
     "search": {
       "placeholder": "Search"
