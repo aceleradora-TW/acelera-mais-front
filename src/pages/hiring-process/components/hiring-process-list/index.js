@@ -28,7 +28,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
       const result = await client.get(`/challenge?hiringProcessId=${id}`)
       const hiringProcessResume = result.data.data.result
       const hiringProcessResult = hiringProcessAdapter(hiringProcessResume)
-      const csv = parse(hiringProcessResult, { delimiter: ';' })
+      const csv = parse(hiringProcessResult)
       setCSV('donwload...')
       window.open('data:text/csv;charset=utf-8,' + escape(csv))
     }

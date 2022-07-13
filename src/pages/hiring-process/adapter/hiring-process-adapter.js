@@ -1,5 +1,6 @@
 export const hiringProcessAdapter = (hiringProcesses) => {
-  const getPropertyFromExercises = (exercises, property) => (exercises.map(exercise => exercise.evaluation[property] || ''))
+  const getPropertyFromExercises = (exercises, property) => (
+    exercises.map(exercise => exercise.evaluation[property] || ''))
 
   return hiringProcesses.map(h => ({
     name: h.name,
