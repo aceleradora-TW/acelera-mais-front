@@ -20,51 +20,49 @@ const EvaluationChallenge = () => {
   useEffect(() => {
     client.get(`/exercise/${exerciseId}`) // traz informacao do back atraves do endpoint
       .then(res => (res.data))
-      .then(res => setExercise(res))
+      .then(res => setExercise(res.exercise))
       .catch(err => {
         console.log(err)
       })
   }, [])
 
   const handleCancel = () => {
-    exercise.exercises.map((exercise) => {
-      return (
-        client.patch(`evaluation/${exercise.id}`, { mentorName: 'cancelado' }),
-        history.back()
-      )
-    })
+    client.patch(`evaluation/${exercise.id}`, { mentorName: 'cancelado' })
+    history.back()
   }
 
   if (!exercise) return null
 
   const exerciseName = exercise.name
-  console.log(exerciseName)
+  const exerciseLink = exercise.link
+
   return (
     <>
       <Container >
         <h1>{t('evaluation.title')}</h1>
-            <div key={exercise.id}>
-              <Header setDisableEvaluationButton={setDisableEvaluationButton} />
+        <div key={exercise.id}>
+          <Header setDisableEvaluationButton={setDisableEvaluationButton} />
 
-              <Download>
-                <Anchor href={exerciseName} target='_blank' rel='noreferrer'>
-                  <FontAwesomeIcon icon={faPrint} />
-                  {t('evaluation.exerciseStatement')}
-                </Anchor>
-              </Download>
-              <Answer exercise={exercise} />
+          <Download>
+            <Anchor href={exerciseLink} target='_blank' rel='noreferrer'>
+              <FontAwesomeIcon icon={faPrint} />
+              Download: {exerciseName}
+            </Anchor>
+          </Download>
 
-              <ContainerButtons>
+          <Answer exercise={exercise} />
 
-                <DefaultButton text={t('evaluation.cancel')} onClick={handleCancel} />
-                <Modal classe={'primary'} text={t('evaluation.evaluate')} title={`${t('evaluation.title')} ${exercise.name}`} disabled={disableEvaluationButton} >
+          <ContainerButtons>
 
-                  <Score exercise={exercise} />
+            <DefaultButton text={t('evaluation.cancel')} onClick={handleCancel} />
+            <Modal classe={'primary'} text={t('evaluation.evaluate')} title={`${t('evaluation.title')} ${exercise.name}`} disabled={disableEvaluationButton} >
 
-                </Modal>
+              <Score exercise={exercise} />
 
-              </ContainerButtons>
-            </div>
+            </Modal>
+
+          </ContainerButtons>
+        </div>
       </Container >
     </>
   )
