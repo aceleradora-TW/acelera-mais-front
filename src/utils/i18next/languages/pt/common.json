@@ -110,7 +110,8 @@
         "placeholder": "Escolha uma opção",
         "alert": "Atualizado com sucesso!",
         "changeButton": "Alterar"
-      }
+      },
+      "exerciseStatement": "Visualizar o enunciado do exercício"
     },
     "mentorRegistration": {
       "title": "Cadastrar nova mentora",
@@ -131,15 +132,31 @@
         "registrationInformation": "Informações de cadastro",
         "shares": "Ações"
       },
-      "message":{
-        "500": "Houve um problema interno. Aguarde alguns minutos.",
-        "404":"Nenhuma mentora avaliadora cadastrada."
+      "toggle": {
+        "on": "Habilitar",
+        "off": "Desabilitar",
+        "alert": {
+          "message": "Tem certeza que deseja {{value}} essa mentora?"
+        }
       },
-      "button":{
+      "status": {
+        "yellow": "Pendente",
+        "red": "Desabilitada",
+        "green": "Habilitada"
+      },
+      "message": {
+        "500": "Houve um problema interno. Aguarde alguns minutos.",
+        "404": "Nenhuma mentora avaliadora cadastrada."
+      },
+      "button": {
         "resend": "Reenviar E-mail",
         "edit": "Editar",
         "disable": "Desabilitar"
       }
+    },
+    "toggleButton": {
+      "on": "On",
+      "off": "Off"
     },
     "search": {
       "placeholder": "Buscar"
@@ -147,6 +164,11 @@
     "home": {
       "title": "Página inicial",
       "manageMentor": "Gerenciamento de mentoras"
+    },
+    "editMentor":{
+      "title":"Editar dados da mentora",
+      "save": "Salvar",
+      "edit":"Editar"
     }
   }
 }
