@@ -1,4 +1,6 @@
 export const hiringProcessAdapter = (hiringProcesses) => {
+  const getPropertyFromExercises = (exercises, property) => (exercises.map(exercise => exercise.evaluation[property] || ''))
+
   return hiringProcesses.map(h => ({
     name: h.name,
     email: h.addressEmail,
@@ -23,10 +25,10 @@ export const hiringProcessAdapter = (hiringProcesses) => {
     haveWebcam: h.haveWebcam,
     canUseWebcam: h.canUseWebcam,
     cityState: h.cityState,
-    createdAt: h.exercises[0]?.evaluation?.createdAt,
-    feedback: h.exercises[0]?.evaluation?.feedback || '',
-    mentorName: h.exercises[0]?.evaluation?.mentorName || '',
-    score: h.exercises[0]?.evaluation?.score || '',
-    updateAt: h.exercises[0]?.evaluation?.updateAt || ''
+    createdAt: h.createdAt,
+    feedback: getPropertyFromExercises(h.exercises, 'feedback'),
+    mentorName: getPropertyFromExercises(h.exercises, 'mentorName'),
+    score: getPropertyFromExercises(h.exercises, 'score'),
+    updateAt: h.updateAt
   }))
 }
