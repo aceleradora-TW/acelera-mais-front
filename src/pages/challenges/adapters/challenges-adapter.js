@@ -9,7 +9,7 @@ const mapExercises = exercises => {
         score: exercise.evaluation.score
       },
       name: exercise.name,
-      typeExercise: exercise.type,
+      exerciseType: exercise.exerciseType,
       link: exercise.link
     }
   })

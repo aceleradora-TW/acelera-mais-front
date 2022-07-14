@@ -18,10 +18,13 @@ import {
 } from './helper'
 
 export const ToggleRowExercise = ({ item }) => {
+  if (item.id === 25) {
+    console.log({ item })
+  }
   const { t } = useTranslation()
   const [checked, setChecked] = useState(false)
   const navigate = useNavigate()
-  const [mentorNameLocal] = useState(localStorage.getItem('mentorName'))
+  const [mentorName] = useState(localStorage.getItem('mentorName'))
   const toggle = checked ? 'toggle-on' : 'toggle-off'
   const status = isClosedOrPreparing({ status: getStatus(item) })
 
@@ -30,16 +33,15 @@ export const ToggleRowExercise = ({ item }) => {
   }
 
   const handleSubmit = () => {
-    const id = window.location.pathname.split('/').pop()
-    client.patch(`/evaluation/${item.evaluation.id}`, { mentorName: mentorNameLocal })
-    navigate(`/challenges/${item.id}/hiring-process/${id}`)
+    client.patch(`/evaluation/${item.evaluation.id}`, { mentorName })
+    navigate(`/exercise/${item.idExercise}`)
   }
 
   return (
     <>
       <Tr>
         <td>{item.name}</td>
-        <td>{item.type || t('challenge.toggleRow.type')}</td>
+        <td>{item.exerciseType || t('challenge.toggleRow.type')}</td>
         <td></td>
         <td className='options'>
           <span>
@@ -66,7 +68,7 @@ export const ToggleRowExercise = ({ item }) => {
           < ActionButton
             text={t('challenge.toggleRow.evaluate')}
             icon={faPen}
-            disabled={!(isClosedChallenge(item) || isPreparedChallenge(item, mentorNameLocal))}
+            disabled={!(isClosedChallenge(item) || isPreparedChallenge(item, mentorName))}
             onClick={handleSubmit} />
         </td>
         <td className='avaliator-col'>{

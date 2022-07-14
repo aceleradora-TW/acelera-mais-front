@@ -13,7 +13,7 @@ export const Type = ({ setDisableEvaluationButton }) => {
   const id = window.location.pathname.split('/')[2]
 
   const handleTypeSubmit = () => {
-    client.patch(`/exercise/${id}`, { exerciseType })
+    client.put(`/exercise/${id}`, { exerciseType })
   }
 
   return (

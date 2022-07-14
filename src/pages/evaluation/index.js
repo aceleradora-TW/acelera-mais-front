@@ -16,18 +16,22 @@ const EvaluationChallenge = () => {
   const { t } = useTranslation()
 
   const exerciseId = window.location.pathname.split('/')[2]
+  console.log(exerciseId)
 
   useEffect(() => {
     client.get(`/exercise/${exerciseId}`) // traz informacao do back atraves do endpoint
       .then(res => (res.data))
-      .then(res => setExercise(res.exercise))
+      .then(res => {
+        setExercise(res.exercise)
+        console.log(res.exercise)
+      })
       .catch(err => {
         console.log(err)
       })
   }, [])
 
   const handleCancel = () => {
-    client.patch(`evaluation/${exercise.id}`, { mentorName: 'cancelado' })
+    client.patch(`/evaluation/${exercise.evaluation.id}`, { mentorName: 'cancelado' })
     history.back()
   }
 
