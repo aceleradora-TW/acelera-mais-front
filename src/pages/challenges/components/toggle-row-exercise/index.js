@@ -18,9 +18,6 @@ import {
 } from './helper'
 
 export const ToggleRowExercise = ({ item }) => {
-  if (item.id === 25) {
-    console.log({ item })
-  }
   const { t } = useTranslation()
   const [checked, setChecked] = useState(false)
   const navigate = useNavigate()

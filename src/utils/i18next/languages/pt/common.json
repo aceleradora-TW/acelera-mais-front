@@ -105,13 +105,15 @@
         "alert": "Atualizado com sucesso!",
         "placeholderTextarea": "Deixe aqui seu feedback."
       },
+      "exerciseStatement": "Visualizar o enunciado do exercício"
+    },
+    "exercise":{
       "type": {
         "title": "Tipo",
         "placeholder": "Escolha uma opção",
         "alert": "Atualizado com sucesso!",
         "changeButton": "Alterar"
-      },
-      "exerciseStatement": "Visualizar o enunciado do exercício"
+      }
     },
     "mentorRegistration": {
       "title": "Cadastrar nova mentora",

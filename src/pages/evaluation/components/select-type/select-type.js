@@ -25,8 +25,8 @@ export const Type = ({ setDisableEvaluationButton }) => {
           setExerciseType(target.value)
           setChallengeTypeSelected(true)
         }}
-        label={t('evaluation.type.title')}
-        placeholder={t('evaluation.type.placeholder')}
+        label={t('exercise.type.title')}
+        placeholder={t('exercise.type.placeholder')}
         options={[
           { label: 'Backend', value: 'Backend' },
           { label: 'Frontend', value: 'Frontend' },
@@ -35,11 +35,11 @@ export const Type = ({ setDisableEvaluationButton }) => {
 
       {
         challengeTypeSelected
-          ? <SucessButton text={t('evaluation.type.changeButton')} onClick={() => {
+          ? <SucessButton text={t('exercise.type.changeButton')} onClick={() => {
             setDisableEvaluationButton(false)
             setChallengeTypeSelected(false)
             handleTypeSubmit()
-            alert(t('evaluation.type.alert'))
+            alert(t('exercise.type.alert'))
           }} />
           : null
       }

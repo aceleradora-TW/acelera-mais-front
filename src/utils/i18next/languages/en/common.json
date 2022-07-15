@@ -105,13 +105,15 @@
         "alert": "Successfully updated!",
         "placeholderTextarea": "Leave your feedback here."
       },
+      "exerciseStatement": "View the exercise statement"
+    },
+    "exercise":{
       "type": {
         "title": "Type",
         "placeholder": "Select an Option",
         "alert": "Successfully updated!",
         "changeButton": "Change"
-      },
-      "exerciseStatement": "View the exercise statement"
+      }
     },
     "mentorRegistration": {
       "title": "Register New Mentor",
