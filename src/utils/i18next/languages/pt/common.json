@@ -128,18 +128,6 @@
         "registrationInformation": "Informações de cadastro",
         "shares": "Ações"
       },
-      "toggle": {
-        "on": "Habilitar",
-        "off": "Desabilitar",
-        "alert": {
-          "message": "Tem certeza que deseja {{value}} essa mentora?"
-        }
-      },
-      "status": {
-        "yellow": "Pendente",
-        "red": "Desabilitada",
-        "green": "Habilitada"
-      },
       "message": {
         "500": "Houve um problema interno. Aguarde alguns minutos.",
         "404": "Nenhuma mentora avaliadora cadastrada."
@@ -161,10 +149,12 @@
       "title": "Página inicial",
       "manageMentor": "Gerenciamento de mentoras"
     },
-    "editMentor":{
-      "title":"Editar dados da mentora",
-      "save": "Salvar",
-      "edit":"Editar"
+    "reset": {
+      "title": "Redefina sua Senha",
+      "password": "Insira sua nova senha",
+      "newPassword": "Repita a senha",
+      "buttonSave": "Salvar",
+      "messageError": "As senhas estão diferentes ou em branco!"
     }
   }
 }
