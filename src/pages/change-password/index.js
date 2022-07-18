@@ -31,7 +31,7 @@ export const UserChangePasswordPage = () => {
     const id = window.location.pathname.split('/').pop()
     if (password === newPassword && password && newPassword) {
       const user = {
-        password, flag: 'user-enabled'
+        password
       }
 
       await client.put(`/user/${id}`, user)
@@ -51,13 +51,13 @@ export const UserChangePasswordPage = () => {
     <ContainerUserChangePasswordPage>
       <Content>
         <Header>
-          <HeaderTitle>{t('reset.title')}</HeaderTitle>
+          <HeaderTitle>{t('resetPassword.title')}</HeaderTitle>
         </Header>
         <ModalBody>
-          <InputPassword onChange={handleChangePassword} value={password} label={t('reset.password')} />
-          <InputPassword onChange={handleChangeNewPassword} value={newPassword} label={t('reset.newPassword')} />
+          <InputPassword onChange={handleChangePassword} value={password} label={t('resetPassword.password')} />
+          <InputPassword onChange={handleChangeNewPassword} value={newPassword} label={t('resetPassword.newPassword')} />
           <MessageError>{message}</MessageError>
-          <PrimaryButton text={t('reset.buttonSave')} onClick={handlerClick}></PrimaryButton>
+          <PrimaryButton text={t('resetPassword.buttonSave')} onClick={handlerClick}></PrimaryButton>
         </ModalBody>
       </Content>
     </ContainerUserChangePasswordPage>

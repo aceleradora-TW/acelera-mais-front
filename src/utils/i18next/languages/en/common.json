@@ -128,6 +128,18 @@
         "registrationInformation": "Regristion Information",
         "shares": "Shares"
       },
+      "toggle": {
+        "on": "Enabled",
+        "off": "Disabled",
+        "alert": {
+          "message": "Do you want to {{value}} this mentor?"
+        }
+      },
+      "status": {
+        "yellow": "Pending",
+        "red": "Disabled",
+        "green": "Enabled"
+      },
       "message": {
         "500": "There was an internal problem. Wait a few minutes.",
         "404": "No mentors registered."
@@ -149,12 +161,16 @@
       "title": "Home Page",
       "manageMentor": "Manage Mentors"
     },
-    "reset": {
-      "title": "Reset your Password",
-      "password": "Enter your new password",
-      "newPassword": "Repeat the password",
-      "buttonSave": "Save",
-      "messageError": "Passwords are different or blank!"
+    "editMentor":{
+      "title": "Edit mentor data",
+      "save": "Save",
+      "edit": "Edit"
+    },
+    "resetPassword":{
+      "title": "Reset your password",
+      "password": "Insert your new password",
+      "newPassword": "Repeat your new password",
+      "buttonSave": "Save"
     }
   }
 }

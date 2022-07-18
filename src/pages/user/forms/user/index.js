@@ -12,8 +12,7 @@ export const UserForm = ({ method = 'POST', id = '', callback = () => { } }) => 
     name: '',
     telephone: '',
     email: '',
-    type: 'mentor',
-    flag: 'first-login'
+    type: 'mentor'
   })
 
   const handleChange = (e) => {
@@ -26,11 +25,14 @@ export const UserForm = ({ method = 'POST', id = '', callback = () => { } }) => 
     const data = users
 
     client(`/user/${id}`, { method, data })
+      .then(res => res.data)
       .then(res => {
-        alert(res.data.message)
+        alert(res.message)
         document.location.reload(true)
-        callback(res.data)
-      })
+        callback(res)
+      }).catch(
+        ({ response }) => alert(response.data.msg)
+      )
   }
 
   return (

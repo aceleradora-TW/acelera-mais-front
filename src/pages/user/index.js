@@ -10,18 +10,19 @@ import { client } from '../../service'
 import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
 import { Status } from '../../components/status'
+import { useNavigate } from 'react-router'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
-  const pageHome = () => { }
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     client.get('/user')
       .then(res => {
-        res.data.length > 0
-          ? setMentors(res.data)
+        res.data.data.length > 0
+          ? setMentors(res.data.data)
           : setMessage(t('user.message.404'))
       })
       .catch(err => {
@@ -53,7 +54,7 @@ export const MentorPage = () => {
               title='mentorRegistration.title'
               text='mentorRegistration.text'
               icon={faPlus} />
-            <PrimaryButton text={t('user.backButton')} onClick={pageHome} />
+            <PrimaryButton text={t('user.backButton')} onClick={() => navigate('/home')} />
           </div>
         </section>
       </Page>
@@ -71,7 +72,7 @@ export const MentorPage = () => {
           <tbody>
             {
               mentors.map((mentor, key) =>
-                <tr key={key}>
+                <tr key={key} >
                   <td>{mentor.name}</td>
                   <td>
                     <Status
@@ -101,7 +102,17 @@ export const MentorPage = () => {
                   </td>
                   <td>
                     <FlexSpaceBetween>
-                      <Button className='buttonColor' text={t('user.button.resend')} />
+                      <Button
+                        classe={'button-default'}
+                        text={t('user.button.resend')}
+                        onClick={() => {
+                          client.put(`/user/${mentor.id}/email_verification`,
+                            { email: mentor.email })
+                            .then(res => res.data)
+                            .then(res => alert(res.message))
+                            .catch(({ response }) => alert(response.data.msg))
+                        }}
+                      />
                       <UserModal
                         id={mentor.id}
                         method='PUT'
