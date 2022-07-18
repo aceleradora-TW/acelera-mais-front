@@ -6,6 +6,7 @@ import { IsAuth } from '../components/is-auth/index.js'
 import { ChallengePage } from '../pages/challenges'
 import Evaluation from '../pages/evaluation'
 import MentorPage from '../pages/user'
+
 const AppRoutes = () => {
   return (
     <BrowserRouter>
@@ -15,7 +16,7 @@ const AppRoutes = () => {
         <Route path="/hiring-process" element={<IsAuth />}>
           <Route path="/hiring-process" element={<HiringProcessPage />} exact />
         </Route>
-        <Route path="/user" element={<IsAuth />}>
+        <Route path="/user" element={<IsAuth mentorType={['admin']} />}>
           <Route path="/user" element={<MentorPage />} exact />
         </Route>
         <Route path="/challenges" element={<IsAuth />}>
