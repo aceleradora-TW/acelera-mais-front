@@ -14,11 +14,10 @@ import {
 import { Link } from 'react-router-dom'
 import { parse } from 'json2csv'
 import showFeature from '../../../../utils/feature-toggle'
-import { Container, HiringProcessTable, ModalCandidateContent } from './styles'
+import { Container, HiringProcessTable } from './styles'
 import { hiringProcessAdapter } from '../../adapter/hiring-process-adapter'
 import { isAdmin } from '../../../../utils/isAdmin'
 import { useTranslation } from 'react-i18next'
-const mock = require('../../../user/mock/invalidate-mock.json')
 
 export const ProcessList = ({ processes, setHiringProcesses }) => {
   const { t } = useTranslation()
@@ -131,9 +130,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   classe="button action"
                   text={t('hiringProcess.invalidate.text')}
                 >
-                  <ModalCandidateContent>
-                    {mock.map((a, key) => (<p key={key}>{a.email}</p>))}
-                  </ModalCandidateContent>
                 </Modal> </td>}
               {isAdmin() && <td>
                 <Modal

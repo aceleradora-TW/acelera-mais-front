@@ -55,10 +55,6 @@
         "text": "Editar",
         "title": "Editar processo seletivo"
       },
-      "invalidate":{
-        "text":"Candidatas Inválidas",
-        "title":"Candidatas Inválidas"
-      },
       "showMore": "Ver mais",
       "delete": "Deseja excluir o item?"
     },

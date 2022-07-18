@@ -14,14 +14,3 @@ export const HiringProcessTable = styled(Table)`
     color: #ababab;
   }
 `
-
-export const ModalCandidateContent = styled.div`
-flex-direction: column;
-max-height: 300px;
-overflow: auto;
-max-width: 200px;
-
-p {
-  padding: 5px; 
-}
-`

@@ -18,7 +18,7 @@ const EvaluationChallenge = () => {
   const exerciseId = window.location.pathname.split('/')[2]
 
   useEffect(() => {
-    client.get(`/exercise/${exerciseId}`) // traz informacao do back atraves do endpoint
+    client.get(`/exercise/${exerciseId}`)
       .then(res => (res.data))
       .then(res => {
         setExercise(res.exercise)
@@ -35,8 +35,11 @@ const EvaluationChallenge = () => {
 
   if (!exercise) return null
 
-  const exerciseName = exercise.name
-  const exerciseLink = exercise.link
+  // const exerciseName = exercise.name
+  // const exerciseLink = exercise.link
+  const exerciseStatement = exercise.exerciseStatement
+
+  console.log(exercise)
 
   return (
     <>
@@ -46,9 +49,9 @@ const EvaluationChallenge = () => {
           <Header setDisableEvaluationButton={setDisableEvaluationButton} />
 
           <Download>
-            <Anchor href={exerciseLink} target='_blank' rel='noreferrer'>
+            <Anchor href={exerciseStatement} target='_blank' rel='noreferrer'>
               <FontAwesomeIcon icon={faPrint} />
-              Download: {exerciseName}
+              {t('evaluation.exerciseStatement')}
             </Anchor>
           </Download>
 

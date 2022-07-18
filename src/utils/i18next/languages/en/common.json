@@ -55,10 +55,6 @@
         "text": "Edit",
         "title": "Edit hiring process"
       },
-      "invalidate":{
-        "text":"Invalid Candidates",
-        "title":"Invalid Candidates"
-      },
       "showMore": "Show more",
       "delete": "Are you sure you want to delete this item?"
     },
