@@ -123,14 +123,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 </Modal>
               </td><td>
                 </td></>}
-              {isAdmin() && <td>
-                <Modal
-                  label="Candidatas Inválidas"
-                  title={t('hiringProcess.invalidate.title')}
-                  classe="button action"
-                  text={t('hiringProcess.invalidate.text')}
-                >
-                </Modal> </td>}
+
               {isAdmin() && <td>
                 <Modal
                   label="Editar"
