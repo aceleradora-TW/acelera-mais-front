@@ -37,8 +37,6 @@ const EvaluationChallenge = () => {
 
   const exerciseStatement = exercise.exerciseStatement
 
-  console.log(exercise)
-
   return (
     <>
       <Container >
