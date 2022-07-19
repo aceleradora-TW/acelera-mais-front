@@ -10,6 +10,7 @@ font-size: 16px;
 background-color: white;
 color: rgb(102,102,255);
 border-color: rgb(102,102,255);
+cursor: pointer;
 `
 export const ButtonDisabled = styled.button`
   border: 1px solid;
@@ -21,4 +22,5 @@ export const ButtonDisabled = styled.button`
   color: red;
   border-color: red;
   background-color: white;
+  cursor: pointer;
 `

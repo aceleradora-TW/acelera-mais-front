@@ -167,6 +167,12 @@
       "title":"Editar dados da mentora",
       "save": "Salvar",
       "edit":"Editar"
+    },
+    "resetPassword":{
+      "title": "Redefina sua senha",
+      "password": "Insira sua nova senha",
+      "newPassword": "Repita sua nova senha",
+      "buttonSave": "Salvar"
     }
   }
 }
