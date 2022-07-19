@@ -35,8 +35,6 @@ const EvaluationChallenge = () => {
 
   if (!exercise) return null
 
-  // const exerciseName = exercise.name
-  // const exerciseLink = exercise.link
   const exerciseStatement = exercise.exerciseStatement
 
   console.log(exercise)
