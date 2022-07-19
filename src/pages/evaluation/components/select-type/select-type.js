@@ -7,13 +7,13 @@ import { useTranslation } from 'react-i18next'
 
 export const Type = ({ setDisableEvaluationButton }) => {
   const [challengeTypeSelected, setChallengeTypeSelected] = useState(false)
-  const [challengeType, setChallengeType] = useState()
+  const [exerciseType, setExerciseType] = useState()
   const { t } = useTranslation()
 
   const id = window.location.pathname.split('/')[2]
 
   const handleTypeSubmit = () => {
-    client.patch(`challenge/${id}`, { type: challengeType })
+    client.put(`/exercise/${id}`, { exerciseType })
   }
 
   return (
@@ -22,11 +22,11 @@ export const Type = ({ setDisableEvaluationButton }) => {
 
       <Select
         onChange={({ target }) => {
-          setChallengeType(target.value)
+          setExerciseType(target.value)
           setChallengeTypeSelected(true)
         }}
-        label={t('evaluation.type.title')}
-        placeholder={t('evaluation.type.placeholder')}
+        label={t('exercise.type.title')}
+        placeholder={t('exercise.type.placeholder')}
         options={[
           { label: 'Backend', value: 'Backend' },
           { label: 'Frontend', value: 'Frontend' },
@@ -35,11 +35,11 @@ export const Type = ({ setDisableEvaluationButton }) => {
 
       {
         challengeTypeSelected
-          ? <SucessButton text={t('evaluation.type.changeButton')} onClick={() => {
+          ? <SucessButton text={t('exercise.type.changeButton')} onClick={() => {
             setDisableEvaluationButton(false)
             setChallengeTypeSelected(false)
             handleTypeSubmit()
-            alert(t('evaluation.type.alert'))
+            alert(t('exercise.type.alert'))
           }} />
           : null
       }

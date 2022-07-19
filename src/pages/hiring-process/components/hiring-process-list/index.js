@@ -123,6 +123,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 </Modal>
               </td><td>
                 </td></>}
+
               {isAdmin() && <td>
                 <Modal
                   label="Editar"
@@ -154,6 +155,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
           ))}
         </tbody>
       </HiringProcessTable>
-    </Container>
+    </Container >
   )
 }
