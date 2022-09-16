@@ -56,7 +56,7 @@ const EvaluationChallenge = () => {
           <ContainerButtons>
 
             <DefaultButton text={t('evaluation.cancel')} onClick={handleCancel} />
-            <Modal classe={'primary'} text={t('evaluation.evaluate')} title={`${t('evaluation.title')} ${exercise.name}`} disabled={disableEvaluationButton} >
+            <Modal className={'primary'} text={t('evaluation.evaluate')} title={`${t('evaluation.title')} ${exercise.name}`} disabled={disableEvaluationButton} >
 
               <Score exercise={exercise} />
 

@@ -36,12 +36,12 @@ const HiringProcessPage = () => {
         <h1>{t('hiringProcess.title')}</h1>
         {showFeature()
           ? (<div>
-            <Button classe="button-filter" text={t('hiringProcess.filter.all')} onClick={handleSubmit} />
-            <Button classe="button-filter" text={t('hiringProcess.filter.open')} onClick={handleSubmit} />
-            <Button classe="button-filter" text={t('hiringProcess.filter.closed')} onClick={handleSubmit} />
+            <Button className="button-filter" text={t('hiringProcess.filter.all')} onClick={handleSubmit} />
+            <Button className="button-filter" text={t('hiringProcess.filter.open')} onClick={handleSubmit} />
+            <Button className="button-filter" text={t('hiringProcess.filter.closed')} onClick={handleSubmit} />
           </div>)
           : null}
-        {isAdmin() && <Modal icon={faPlus} classe='button primary' text={t('hiringProcess.new-process.text')} title={t('hiringProcess.new-process.title')}>
+        {isAdmin() && <Modal icon={faPlus} className='button primary' text={t('hiringProcess.new-process.text')} title={t('hiringProcess.new-process.title')}>
           <HiringProcessForm callback={handleSubmit} />
         </Modal>}
       </section>

@@ -3,7 +3,7 @@ import Button from '../button'
 
 const SucessButton = ({ icon, onClick, text, type }) => {
   return (
-    <Button icon={icon} onClick={onClick} text={text} type={type} classe="sucess" />
+    <Button icon={icon} onClick={onClick} text={text} type={type} className="sucess" />
   )
 }
 

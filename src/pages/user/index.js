@@ -103,7 +103,7 @@ export const MentorPage = () => {
                   <td>
                     <FlexSpaceBetween>
                       <Button
-                        classe={'button-default'}
+                        className={'button-default'}
                         text={t('user.button.resend')}
                         onClick={() => {
                           client.put(`/user/${mentor.id}/email_verification`,

@@ -86,7 +86,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   label="Importar"
                   title={t('hiringProcess.import.candidates.title')}
                   reminder={t('hiringProcess.import.candidates.reminder')}
-                  classe="button default"
+                  className="button default"
                   text={t('hiringProcess.import.candidates.text')}
                 >
                   <ImportGoogleSheet
@@ -101,7 +101,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   label="Importar"
                   title={t('hiringProcess.import.challenges.title')}
                   reminder={t('hiringProcess.import.challenges.reminder')}
-                  classe="button default"
+                  className="button default"
                   text={t('hiringProcess.import.challenges.text')}
                 >
                   <ImportGoogleSheet
@@ -115,7 +115,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   icon={faDownload}
                   label="Download arquivo csv"
                   title={t('hiringProcess.export.download')}
-                  classe="button default"
+                  className="button default"
                   text={t('hiringProcess.export.text')}
                   callback={handleExport(process.id)}
                 >
@@ -128,7 +128,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 <Modal
                   label="Editar"
                   title={t('hiringProcess.edit.title')}
-                  classe="button action"
+                  className="button action"
                   text={t('hiringProcess.edit.text')}>
                   <HiringProcessForm
                     callback={handleEdit}
@@ -140,14 +140,14 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 ? (<td>
                   <DefaultButton
                     icon={faAngleDown}
-                    classe="button default"
+                    className="button default"
                     text={t('hiringProcess.show-more')}
                   />
                 </td>)
                 : null}
               {isAdmin() && <td>
                 <Button icon={faTrashAlt}
-                  classe="button delete"
+                  className="button delete"
                   onClick={() => handleDelete(process.id)}
                 />
               </td>}
