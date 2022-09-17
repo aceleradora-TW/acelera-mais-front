@@ -13,7 +13,7 @@ import {
   faTimes
 } from '@fortawesome/free-solid-svg-icons'
 
-export const Modal = ({ title, children, label, callback, icon, classe, text, reminder, disabled }) => {
+export const Modal = ({ title, children, label, callback, icon, className, text, reminder, disabled }) => {
   const [show, setShow] = useState(false)
 
   const onClose = () => {
@@ -24,19 +24,19 @@ export const Modal = ({ title, children, label, callback, icon, classe, text, re
   }
 
   if (!show) {
-    return <Button disabled={disabled} icon={icon} classe={classe} text={text} onClick={() => setShow(true)}>{label}</Button>
+    return <Button disabled={disabled} icon={icon} className={className} text={text} onClick={() => setShow(true)}>{label}</Button>
   }
 
   return (
     <>
-      <Button icon={icon} classe={classe} text={text}>{label}</Button>
+      <Button icon={icon} className={className} text={text}>{label}</Button>
       <Container onClick={onClose}>
         <Content onClick={(e) => e.stopPropagation()}>
           <Header>
             <Title>{title}</Title>
 
             <Button icon={faTimes}
-              classe="close"
+              className="close"
               onClick={onClose}
             />
           </Header>

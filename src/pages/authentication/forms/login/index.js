@@ -24,7 +24,7 @@ export const Login = () => {
       email, password
     }
 
-    if (email === '' || email === undefined || password === '' || password === undefined) {
+    if (!email || !password) {
       return alert(t('login.fillAlert'))
     }
 

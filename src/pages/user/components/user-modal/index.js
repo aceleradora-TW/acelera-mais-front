@@ -9,7 +9,7 @@ export const UserModal = ({ method = 'POST', id = '', icon, title, text }) => {
       <Modal
         icon={icon}
         title={t(title)}
-        classe='button primary'
+        className='button primary'
         text={t(text)}
       >
         <UserForm method={method} id={id} />

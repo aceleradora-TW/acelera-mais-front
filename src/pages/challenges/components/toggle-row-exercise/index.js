@@ -70,7 +70,7 @@ export const ToggleRowExercise = ({ item }) => {
         </td>
         <td className='avaliator-col'>{
           <Button
-            classe={`${toggle} primary`}
+            className={`${toggle} primary`}
             disabled={isPreparingOrOpened({ status: getStatus(item) })}
             onClick={handleClick}
             icon={faAngleDown} />

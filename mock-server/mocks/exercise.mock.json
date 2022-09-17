@@ -1,0 +1,20 @@
+{
+  "exercise": {
+    "id": 1,
+    "evaluation": {
+      "id": 1,
+      "mentorName": "Fake Mentor",
+      "feedback": null,
+      "score": null,
+      "createdAt": "2022-09-05T18:30:47.164Z",
+      "updatedAt": "2022-09-17T02:49:49.189Z"
+    },
+    "name": "Exercício Energéticos Accelerator",
+    "type": "zip",
+    "exerciseType": null,
+    "exerciseStatement": "https://drive.google.com/file/d/1_WWhZ8SIAHMuSYALXxRCx42QD0YzK0qL/view?usp=sharing",
+    "link": "https://github.com/aceleradora-TW",
+    "createdAt": "2022-09-05T18:30:47.164Z",
+    "updatedAt": "2022-09-05T18:30:47.164Z"
+  }
+}

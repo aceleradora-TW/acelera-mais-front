@@ -1,9 +1,9 @@
 import Icon from '../../icon'
 import { ButtonComponent } from './styled'
 
-const Button = ({ icon, onClick, text, classe, type, disabled = false }) => {
+const Button = ({ icon, onClick, text, className, type, disabled = false }) => {
   return (
-    <ButtonComponent className={classe} type={type} onClick={onClick} disabled={disabled}>{text} <Icon icon={icon} /> </ButtonComponent>
+    <ButtonComponent className={className} type={type} onClick={onClick} disabled={disabled}>{text} <Icon icon={icon} /> </ButtonComponent>
   )
 }
 
