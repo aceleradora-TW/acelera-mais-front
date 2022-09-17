@@ -1,3 +1,9 @@
+import PrimaryButton from '../../components/buttons/primary'
+import { InputPassword } from '../../components/inputs/password'
+import { useState } from 'react'
+import { client } from '../../service'
+import { t } from 'i18next'
+import { useNavigate } from 'react-router'
 import {
   ContainerUserChangePasswordPage,
   HeaderTitle,
@@ -6,30 +12,25 @@ import {
   Header,
   MessageError
 } from './styled'
-import PrimaryButton from '../../components/buttons/primary'
-import { InputPassword } from '../../components/inputs/password'
-import { useState } from 'react'
-import { client } from '../../service'
-import { t } from 'i18next'
-import { useNavigate } from 'react-router'
 
 export const UserChangePasswordPage = () => {
-  const [password, setPassword] = useState('')
-  const [newPassword, setNewPassword] = useState('')
+  const [data, setData] = useState({ password: '', newPassword: '' })
   const [message, setMessage] = useState('')
   const navigate = useNavigate()
 
-  const handleChangePassword = ({ target }) => {
-    setPassword(target.value)
-  }
-  const handleChangeNewPassword = ({ target }) => {
-    setNewPassword(target.value)
+  const handleChange = ({ target }) => {
+    const { value, name } = target
+    setData({
+      [name]: value,
+      ...data
+    })
   }
 
   const handlerClick = async (event) => {
+    const { password, newPassword } = data
     event.preventDefault()
     const id = window.location.pathname.split('/').pop()
-    if (password === newPassword && password && newPassword) {
+    if (password && newPassword && password === newPassword) {
       const user = {
         password
       }
@@ -54,10 +55,23 @@ export const UserChangePasswordPage = () => {
           <HeaderTitle>{t('resetPassword.title')}</HeaderTitle>
         </Header>
         <ModalBody>
-          <InputPassword onChange={handleChangePassword} value={password} label={t('resetPassword.password')} />
-          <InputPassword onChange={handleChangeNewPassword} value={newPassword} label={t('resetPassword.newPassword')} />
+          <InputPassword
+            onChange={handleChange}
+            name="password"
+            value={data.password}
+            label={t('resetPassword.password')} />
+
+          <InputPassword
+            onChange={handleChange}
+            name="newPassword"
+            value={data.newPassword}
+            label={t('resetPassword.newPassword')} />
+
           <MessageError>{message}</MessageError>
-          <PrimaryButton text={t('resetPassword.buttonSave')} onClick={handlerClick}></PrimaryButton>
+          <PrimaryButton
+            text={t('resetPassword.buttonSave')}
+            onClick={handlerClick}
+          />
         </ModalBody>
       </Content>
     </ContainerUserChangePasswordPage>
