@@ -1,0 +1,10 @@
+{
+  "auth": true,
+  "accessToken": "xxx.xxx.xxx",
+  "user": {
+    "name": "Fake Admin",
+    "email": "fake-admin@email.com",
+    "role": "admin",
+    "id": 1
+  }
+}
