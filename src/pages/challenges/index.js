@@ -4,7 +4,6 @@ import { ToggleRowExercise } from './components/toggle-row-exercise'
 import { TableBody } from './components/table-body'
 import showFeature from '../../utils/feature-toggle'
 import { useTranslation } from 'react-i18next'
-import { challengesAdapter } from './adapters/challenges-adapter'
 
 export const ChallengePage = () => {
   const { t } = useTranslation()
@@ -23,7 +22,6 @@ export const ChallengePage = () => {
             </section>)
           : null}
         <Table
-          adapter={challengesAdapter}
           BodyComponent={TableBody}
           RowComponent={ToggleRowExercise}
         />
