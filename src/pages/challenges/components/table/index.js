@@ -3,14 +3,14 @@ import { client } from '../../../../service'
 import { ChallengeTable, Container } from './styled'
 import { useTranslation } from 'react-i18next'
 
-export const Table = ({ adapter, BodyComponent, RowComponent }) => {
+export const Table = ({ BodyComponent, RowComponent }) => {
   const { t } = useTranslation()
   const [challenges, setChallenges] = useState([])
 
   useEffect(() => {
     const id = window.location.pathname.split('/').pop()
     client.get(`/challenge?hiringProcessId=${id}`)
-      .then(res => setChallenges(adapter(res.data.data.result)))
+      .then(res => setChallenges(res.data.data.result))
       .catch(err => {
         alert(t('challenge.alert'))
         console.log(err)
