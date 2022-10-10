@@ -14,16 +14,13 @@ import {
 } from './styled'
 
 export const UserChangePasswordPage = () => {
-  const [data, setData] = useState({ password: '', newPassword: '' })
+  const [data] = useState({ password: '', newPassword: '' })
   const [message, setMessage] = useState('')
   const navigate = useNavigate()
 
   const handleChange = ({ target }) => {
     const { value, name } = target
-    setData({
-      [name]: value,
-      ...data
-    })
+    data[name] = value
   }
 
   const handlerClick = async (event) => {
@@ -34,7 +31,6 @@ export const UserChangePasswordPage = () => {
       const user = {
         password
       }
-
       await client.put(`/user/${id}`, user)
         .then(res => {
           alert(res.data.message)
