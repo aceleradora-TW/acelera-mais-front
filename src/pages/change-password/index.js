@@ -14,13 +14,16 @@ import {
 } from './styled'
 
 export const UserChangePasswordPage = () => {
-  const [data] = useState({ password: '', newPassword: '' })
+  const [data, setData] = useState({ password: '', newPassword: '' })
   const [message, setMessage] = useState('')
   const navigate = useNavigate()
 
   const handleChange = ({ target }) => {
     const { value, name } = target
-    data[name] = value
+    setData({
+      ...data,
+      [name]: value
+    })
   }
 
   const handlerClick = async (event) => {
