@@ -25,7 +25,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   const handleExport = (id) => {
     return async () => {
-      const result = await client.get(`/challenge?hiringProcessId=${id}`)
+      const result = await client.get(`/challenge?hiringProcessId=${id}&csv=true`)
       const hiringProcessResume = result.data.data.result
       const hiringProcessResult = hiringProcessAdapter(hiringProcessResume)
       const csv = parse(hiringProcessResult)
