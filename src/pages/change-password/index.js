@@ -21,8 +21,8 @@ export const UserChangePasswordPage = () => {
   const handleChange = ({ target }) => {
     const { value, name } = target
     setData({
-      [name]: value,
-      ...data
+      ...data,
+      [name]: value
     })
   }
 
@@ -34,7 +34,6 @@ export const UserChangePasswordPage = () => {
       const user = {
         password
       }
-
       await client.put(`/user/${id}`, user)
         .then(res => {
           alert(res.data.message)
