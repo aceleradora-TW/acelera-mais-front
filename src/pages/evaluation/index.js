@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPrint } from '@fortawesome/free-solid-svg-icons'
+import { faPrint, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 import DefaultButton from '../../components/buttons/default'
 import { Modal } from '../../components/modal'
 import { client } from '../../service'
@@ -9,6 +9,7 @@ import { Header } from './components/header/header.js'
 import { Score } from './components/select-note/select-note'
 import { Container, Download, ContainerButtons, Anchor } from './styled'
 import { useTranslation } from 'react-i18next'
+import { ButtonComponent } from '../../components/buttons/button/styled'
 
 const EvaluationChallenge = () => {
   const [exercise, setExercise] = useState(null)
@@ -40,6 +41,9 @@ const EvaluationChallenge = () => {
   return (
     <>
       <Container >
+        <header>
+          <ButtonComponent><FontAwesomeIcon icon={faDoorOpen} /></ButtonComponent>
+        </header>
         <h1>{t('evaluation.title')}</h1>
         <div key={exercise.id}>
           <Header setDisableEvaluationButton={setDisableEvaluationButton} />

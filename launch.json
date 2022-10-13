@@ -1,0 +1,12 @@
+{
+    "name": "Chrome Launch",
+    "type": "chrome",
+    "request": "launch",
+    "url": "https://localhost/mysite/",
+    "webRoot": "${workspaceFolder}",
+    "runtimeArgs": ["--profile-directory=debug-profile"],
+    "resolveSourceMapLocations": [
+      "${workspaceFolder}/**",
+      "!**/node_modules/**"
+    ]
+  }
