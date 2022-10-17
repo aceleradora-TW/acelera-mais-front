@@ -34,15 +34,15 @@ export const getStatus = (challenge) => {
 }
 
 export const isClosedChallenge = (exercise) => {
-  return getStatus(exercise) !== statusEnum.CLOSED
+  return isClosed({ status: getStatus(exercise) })
 }
 
 export const isPreparedChallenge = (exercise, mentorNameLocal) => {
   return isPreparing({
     status: getStatus(exercise),
-    currentMentor: exercise.mentorName || '',
+    currentMentor: exercise.evaluation.mentorName || '',
     actualMentor: mentorNameLocal
-  }) === true
+  })
 }
 
 export const isPrepared = ({ status }) => status === statusEnum.PREPARING
