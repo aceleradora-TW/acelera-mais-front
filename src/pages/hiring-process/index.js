@@ -10,6 +10,7 @@ import { client } from '../../service'
 import showFeature from '../../utils/feature-toggle'
 import { isAdmin } from '../../utils/isAdmin'
 import { useTranslation } from 'react-i18next'
+import PreventPage from '../../components/preventPage'
 
 const HiringProcessPage = () => {
   const { t } = useTranslation()
@@ -44,6 +45,7 @@ const HiringProcessPage = () => {
         {isAdmin() && <Modal icon={faPlus} className='button primary' text={t('hiringProcess.new-process.text')} title={t('hiringProcess.new-process.title')}>
           <HiringProcessForm callback={handleSubmit} />
         </Modal>}
+        <PreventPage text={t('hiringProcess.filter.open')} />
       </section>
       <ProcessList processes={hiringProcesses} setHiringProcesses={setHiringProcesses} />
     </div>
