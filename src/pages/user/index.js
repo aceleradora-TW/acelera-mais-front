@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next'
-import PrimaryButton from '../../components/buttons/primary'
 import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
 import { UserModal } from './components/user-modal'
@@ -10,13 +9,13 @@ import { client } from '../../service'
 import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
 import { Status } from '../../components/status'
-import { useNavigate } from 'react-router'
+import PreventPage from '../../components/preventPage'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   useEffect(() => {
     client.get('/user')
@@ -54,8 +53,8 @@ export const MentorPage = () => {
               title='mentorRegistration.title'
               text='mentorRegistration.text'
               icon={faPlus} />
-            <PrimaryButton text={t('user.backButton')} onClick={() => navigate('/home')} />
           </div>
+          <PreventPage />
         </section>
       </Page>
       <Container>
