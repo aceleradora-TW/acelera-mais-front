@@ -45,7 +45,7 @@ const HiringProcessPage = () => {
         {isAdmin() && <Modal icon={faPlus} className='button primary' text={t('hiringProcess.new-process.text')} title={t('hiringProcess.new-process.title')}>
           <HiringProcessForm callback={handleSubmit} />
         </Modal>}
-        <PreventPage text={t('hiringProcess.filter.open')} />
+        <PreventPage />
       </section>
       <ProcessList processes={hiringProcesses} setHiringProcesses={setHiringProcesses} />
     </div>

@@ -9,6 +9,7 @@ import { Header } from './components/header/header.js'
 import { Score } from './components/select-note/select-note'
 import { Container, Download, ContainerButtons, Anchor } from './styled'
 import { useTranslation } from 'react-i18next'
+import PreventPage from '../../components/preventPage'
 
 const EvaluationChallenge = () => {
   const [exercise, setExercise] = useState(null)
@@ -40,7 +41,10 @@ const EvaluationChallenge = () => {
   return (
     <>
       <Container >
-        <h1>{t('evaluation.title')}</h1>
+        <div className="nav-challengs">
+          <h1>{t('evaluation.title')}</h1>
+          <PreventPage />
+        </div>
         <div key={exercise.id}>
           <Header setDisableEvaluationButton={setDisableEvaluationButton} />
 

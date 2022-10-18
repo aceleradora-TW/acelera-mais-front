@@ -4,13 +4,18 @@ import { ToggleRowExercise } from './components/toggle-row-exercise'
 import { TableBody } from './components/table-body'
 import showFeature from '../../utils/feature-toggle'
 import { useTranslation } from 'react-i18next'
+import PreventPage from '../../components/preventPage'
 
 export const ChallengePage = () => {
   const { t } = useTranslation()
   return (
     <>
       <div className="page-container">
-        <h1>{t('challenge.title')}</h1>
+        <div className="nav-challengs">
+          <h1>{t('challenge.title')}</h1>
+          <PreventPage />
+        </div>
+
         {showFeature()
           ? (
             <section>

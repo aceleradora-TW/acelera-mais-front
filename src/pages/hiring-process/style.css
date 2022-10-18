@@ -23,3 +23,8 @@
 .button-filter {
   background-color: #fff;
 }
+
+.nav-challengs{
+  display: flex;
+  justify-content: space-between;
+}
