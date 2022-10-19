@@ -4,15 +4,14 @@ import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
 import { UserModal } from './components/user-modal'
 import { Container, Page, FlexSpaceBetween, Message } from './styled.js'
-import { faPlus, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
 import { client } from '../../service'
 import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
 import { Status } from '../../components/status'
 import { useNavigate } from 'react-router'
-import { ButtonComponent } from '../../components/buttons/button/styled'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import layout from '../../components/layout'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -48,11 +47,8 @@ export const MentorPage = () => {
   return (
     <>
       <Page>
-        <header>
-          <ButtonComponent><FontAwesomeIcon icon={faDoorOpen} /></ButtonComponent>
-        </header>
         <section>
-
+        {layout()}
           <h1>{t('user.title')}</h1>
           <InputSearch />
           <div className="button-container">
