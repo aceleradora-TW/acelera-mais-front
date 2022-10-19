@@ -4,18 +4,14 @@ import { ToggleRowExercise } from './components/toggle-row-exercise'
 import { TableBody } from './components/table-body'
 import showFeature from '../../utils/feature-toggle'
 import { useTranslation } from 'react-i18next'
-import { ButtonComponent } from '../../components/buttons/button/styled'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDoorOpen } from '@fortawesome/free-solid-svg-icons'
+import layout from '../../components/layout'
 
 export const ChallengePage = () => {
   const { t } = useTranslation()
   return (
     <>
       <div className="page-container">
-        <header>
-          <ButtonComponent><FontAwesomeIcon icon={faDoorOpen} /></ButtonComponent>
-        </header>
+      {layout()}
         <h1>{t('challenge.title')}</h1>
 
         {showFeature()

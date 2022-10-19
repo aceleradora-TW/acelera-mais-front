@@ -3,15 +3,14 @@ import { Modal } from '../../components/modal'
 import { HiringProcessForm } from './forms/hiring-process'
 import { ProcessList } from '../hiring-process/components/hiring-process-list'
 import './style.css'
-import { faPlus, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { client } from '../../service'
 import showFeature from '../../utils/feature-toggle'
 import { isAdmin } from '../../utils/isAdmin'
 import { useTranslation } from 'react-i18next'
-import { ButtonComponent } from '../../components/buttons/button/styled'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import layout from '../../components/layout'
 
 const HiringProcessPage = () => {
   const { t } = useTranslation()
@@ -34,9 +33,7 @@ const HiringProcessPage = () => {
 
   return (
     <div className="page-container">
-      <header>
-        <ButtonComponent ><FontAwesomeIcon icon={faDoorOpen} /></ButtonComponent>
-      </header>
+      {layout()}
       <section>
         <h1>{t('hiringProcess.title')}</h1>
         {showFeature()
