@@ -65,7 +65,7 @@ export const ToggleRowExercise = ({ item }) => {
           < ActionButton
             text={t('challenge.toggleRow.evaluate')}
             icon={faPen}
-            disabled={!(isClosedChallenge(item) || isPreparedChallenge(item, mentorName))}
+            disabled={(isClosedChallenge(item) || isPreparedChallenge(item, mentorName))}
             onClick={handleSubmit} />
         </td>
         <td className='avaliator-col'>{

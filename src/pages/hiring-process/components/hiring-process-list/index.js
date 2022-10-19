@@ -15,7 +15,6 @@ import { Link } from 'react-router-dom'
 import { parse } from 'json2csv'
 import showFeature from '../../../../utils/feature-toggle'
 import { Container, HiringProcessTable } from './styles'
-import { hiringProcessAdapter } from '../../adapter/hiring-process-adapter'
 import { isAdmin } from '../../../../utils/isAdmin'
 import { useTranslation } from 'react-i18next'
 
@@ -25,10 +24,9 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   const handleExport = (id) => {
     return async () => {
-      const result = await client.get(`/challenge?hiringProcessId=${id}`)
+      const result = await client.get(`/challenge?hiringProcessId=${id}&csv=true`)
       const hiringProcessResume = result.data.data.result
-      const hiringProcessResult = hiringProcessAdapter(hiringProcessResume)
-      const csv = parse(hiringProcessResult)
+      const csv = parse(hiringProcessResume)
       setCSV('donwload...')
       window.open('data:text/csv;charset=utf-8,' + escape(csv))
     }
