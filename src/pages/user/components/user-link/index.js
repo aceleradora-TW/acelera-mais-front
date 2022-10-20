@@ -5,7 +5,6 @@ import { client } from '../../../../service'
 
 export const UserLink = ({ method = 'GET', callback = () => { } }) => {
   const { t } = useTranslation()
-
   const [link, setLink] = useState([])
 
   useEffect(() => {
@@ -21,6 +20,6 @@ export const UserLink = ({ method = 'GET', callback = () => { } }) => {
   }, [])
 
   return (
-    <InputText name='link' label={t('linkGeneration.text')} value={link} />
+    <InputText name='link' label={t('linkGeneration.text')} placeholder={link.map(link => link)} />
   )
 }

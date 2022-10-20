@@ -1,6 +1,6 @@
 import { InputBox } from './styled'
 
-export const Input = ({ type, label, onChange, name, placeholder = '' }) => {
+export const Input = ({ type, label, onChange, name, placeholder }) => {
   return (
     <InputBox>
       <span>{label}</span>

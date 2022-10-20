@@ -12,7 +12,7 @@ export const LinkModal = ({ method = 'GET', id = '', icon, title, text }) => {
         className='button primary'
         text={t(text)}
       >
-        <UserLink method={method} id={id} />
+        <UserLink method={method}/>
       </Modal>
 
     </div>
