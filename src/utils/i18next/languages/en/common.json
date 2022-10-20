@@ -103,13 +103,18 @@
       },
       "exerciseStatement": "View the exercise statement"
     },
-    "exercise":{
+    "exercise": {
       "type": {
         "title": "Type",
         "placeholder": "Select an Option",
         "alert": "Successfully updated!",
         "changeButton": "Change"
       }
+    },
+    "linkGeneration": {
+      "tittle": "Generate Link",
+      "text": "Generate Invite",
+      "registerButton": "Copy"
     },
     "mentorRegistration": {
       "title": "Register New Mentor",
@@ -150,7 +155,7 @@
         "resend": "Resend E-mail",
         "edit": "Edit",
         "disable": "Disable"
-      }     
+      }
     },
     "toggleButton": {
       "on": "On",
@@ -163,12 +168,12 @@
       "title": "Home Page",
       "manageMentor": "Manage Mentors"
     },
-    "editMentor":{
+    "editMentor": {
       "title": "Edit mentor data",
       "save": "Save",
       "edit": "Edit"
     },
-    "resetPassword":{
+    "resetPassword": {
       "title": "Reset your password",
       "password": "Insert your new password",
       "newPassword": "Repeat your new password",

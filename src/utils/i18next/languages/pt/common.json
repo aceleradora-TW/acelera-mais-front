@@ -103,13 +103,18 @@
       },
       "exerciseStatement": "Visualizar o enunciado do exercício"
     },
-    "exercise":{
+    "exercise": {
       "type": {
         "title": "Tipo",
         "placeholder": "Escolha uma opção",
         "alert": "Atualizado com sucesso!",
         "changeButton": "Alterar"
       }
+    },
+    "linkGeneration": {
+      "tittle": "Gerar Link",
+      "text": "Gerar Convite",
+      "registerButton": "Copiar"
     },
     "mentorRegistration": {
       "title": "Cadastrar nova mentora",
@@ -163,12 +168,12 @@
       "title": "Página inicial",
       "manageMentor": "Gerenciamento de mentoras"
     },
-    "editMentor":{
-      "title":"Editar dados da mentora",
+    "editMentor": {
+      "title": "Editar dados da mentora",
       "save": "Salvar",
-      "edit":"Editar"
+      "edit": "Editar"
     },
-    "resetPassword":{
+    "resetPassword": {
       "title": "Redefina sua senha",
       "password": "Insira sua nova senha",
       "newPassword": "Repita sua nova senha",

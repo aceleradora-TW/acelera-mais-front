@@ -11,6 +11,7 @@ import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
 import { Status } from '../../components/status'
 import { useNavigate } from 'react-router'
+import { LinkModal } from './components/link-modal'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -50,6 +51,10 @@ export const MentorPage = () => {
           <h1>{t('user.title')}</h1>
           <InputSearch />
           <div className="button-container">
+            <LinkModal
+              title='linkGeneration.tittle'
+              text='linkGeneration.text'
+              icon={faPlus} />
             <UserModal
               title='mentorRegistration.title'
               text='mentorRegistration.text'
