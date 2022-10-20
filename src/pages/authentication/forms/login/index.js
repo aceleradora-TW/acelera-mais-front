@@ -31,15 +31,14 @@ export const Login = () => {
     try {
       const response = await client.post('/login', user)
       const { data: { accessToken, auth, user: { role, name, id } } } = response
-
+      localStorage.setItem('token', accessToken)
+      localStorage.setItem('role', role)
+      localStorage.setItem('mentorName', name)
+      setTokenInHeaders()
       if (accessToken) {
         if (!auth) {
           return navigate(`/user/change-password/${id}`)
         }
-        localStorage.setItem('token', accessToken)
-        localStorage.setItem('role', role)
-        localStorage.setItem('mentorName', name)
-        setTokenInHeaders(accessToken)
         navigate('/home')
       }
     } catch (error) {
