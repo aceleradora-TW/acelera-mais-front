@@ -35,12 +35,10 @@ export const Login = () => {
       localStorage.setItem('role', role)
       localStorage.setItem('mentorName', name)
       setTokenInHeaders()
-      if (accessToken) {
-        if (!auth) {
-          return navigate(`/user/change-password/${id}`)
-        }
-        navigate('/home')
+      if (!auth) {
+        return navigate(`/user/change-password/${id}`)
       }
+      navigate('/home')
     } catch (error) {
       console.log(error)
       alert(t('login.userPwdAlert'))
