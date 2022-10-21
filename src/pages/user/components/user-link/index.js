@@ -2,17 +2,21 @@ import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { InputText } from '../../../../components/inputs/text'
 import { client } from '../../../../service'
+import PrimaryButton from '../../../../components/buttons/primary'
 
-export const UserLink = ({ method = 'GET', callback = () => { } }) => {
+export const UserLink = ({ method = 'GET' }) => {
   const { t } = useTranslation()
   const [link, setLink] = useState([])
 
+  const copy = () => {
+    const clip = navigator.clipboard.writeText(link)
+    alert(t('linkGeneration.copyLink'))
+    return clip
+  }
   useEffect(() => {
     client.get('/user/link')
       .then(res => {
-        res.data.data.length > 0
-          ? setLink(res.data.data)
-          : setLink(t('user.message.404'))
+        setLink(`${window.location.origin}/${res.data.data.link}`)
       })
       .catch(err => {
         console.log(err)
@@ -20,6 +24,13 @@ export const UserLink = ({ method = 'GET', callback = () => { } }) => {
   }, [])
 
   return (
-    <InputText name='link' label={t('linkGeneration.text')} placeholder={link.map(link => link)} />
+    <div>
+      <InputText name='link' label={t('linkGeneration.text')} placeholder={link} />
+      <PrimaryButton
+        icon={null}
+        onClick={copy}
+        text={t('linkGeneration.registerButton')}
+      />
+    </div>
   )
 }

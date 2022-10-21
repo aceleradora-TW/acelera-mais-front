@@ -114,7 +114,8 @@
     "linkGeneration": {
       "tittle": "Gerar Link",
       "text": "Gerar Convite",
-      "registerButton": "Copiar"
+      "registerButton": "Copiar",
+      "copyLink": "copiado"
     },
     "mentorRegistration": {
       "title": "Cadastrar nova mentora",
