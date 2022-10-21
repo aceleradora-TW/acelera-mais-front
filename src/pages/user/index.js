@@ -47,8 +47,8 @@ export const MentorPage = () => {
   return (
     <>
       <Page>
-        <section>
         {layout()}
+        <section>
           <h1>{t('user.title')}</h1>
           <InputSearch />
           <div className="button-container">

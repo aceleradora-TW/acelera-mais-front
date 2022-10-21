@@ -6,7 +6,9 @@ const layout = () => {
   return (
     <>
       <HeaderComponent>
+
         <DefaultButton icon={faDoorOpen} onClick={() => confirm('Deseja fazer o logout?')}></DefaultButton>
+
       </HeaderComponent>
     </>
   )
