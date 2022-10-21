@@ -5,7 +5,7 @@ import { client } from '../../../../service'
 
 export const RecordPage = () => {
   const { token } = useParams()
-  client.get(`/user/link_validation/:${token}`)
+  client.get(`/user/link_validation/${token}`)
     .then(res => {
 
     })
