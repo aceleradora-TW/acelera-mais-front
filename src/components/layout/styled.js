@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-export const HeaderComponent = styled.layout`
+export const HeaderComponent = styled.div`
     display: flex;
-    justify-content:right;
-    padding: 64px 164px;
+    justify-content: right;
+    padding-bottom: 10px;
 `
