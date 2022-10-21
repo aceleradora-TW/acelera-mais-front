@@ -41,7 +41,7 @@ const EvaluationChallenge = () => {
   return (
     <>
       <Container >
-        <div className="nav-challengs">
+        <div className="nav-challengs-between">
           <h1>{t('evaluation.title')}</h1>
           <PreventPage />
         </div>
