@@ -15,7 +15,6 @@ export const MentorPage = () => {
   const { t } = useTranslation()
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
-  // const navigate = useNavigate()
 
   useEffect(() => {
     client.get('/user')
@@ -48,13 +47,15 @@ export const MentorPage = () => {
         <section>
           <h1>{t('user.title')}</h1>
           <InputSearch />
-          <div className="button-container">
-            <UserModal
-              title='mentorRegistration.title'
-              text='mentorRegistration.text'
-              icon={faPlus} />
+          <div className='nav-bar'>
+            <div className="button-container">
+              <UserModal
+                title='mentorRegistration.title'
+                text='mentorRegistration.text'
+                icon={faPlus} />
+            </div>
+            <PreventPage className="prevent-button" />
           </div>
-          <PreventPage />
         </section>
       </Page>
       <Container>

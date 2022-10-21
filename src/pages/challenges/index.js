@@ -11,7 +11,7 @@ export const ChallengePage = () => {
   return (
     <>
       <div className="page-container">
-        <div className="nav-challengs">
+        <div className="nav-challengs-between">
           <h1>{t('challenge.title')}</h1>
           <PreventPage />
         </div>
