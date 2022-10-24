@@ -16,8 +16,6 @@ export const RecordPage = () => {
         console.log(err)
       })
   }, [])
-
-  console.log(verify)
   if (verify === true) {
     return (
       <div>
@@ -27,7 +25,8 @@ export const RecordPage = () => {
   }
   return (
     <div>
-      <h1>Falso</h1>
+      <h1>Link Expirado</h1>
+      <p>Infelizmente o link que você tentou acessar expirou, tente novamente pedindo um novo link para quem lhe forneceu o mesmo</p>
     </div>
   )
 }
