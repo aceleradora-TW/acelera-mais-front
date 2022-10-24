@@ -34,7 +34,7 @@ export const UserChangePasswordPage = () => {
       const user = {
         password
       }
-      await client.put(`/user/reset_password/${id}`, user)
+      await client.put(`user/reset_password/${id}`, user)
         .then(res => {
           alert(res.data.message)
           navigate('/')
