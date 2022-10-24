@@ -13,13 +13,13 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginPage />} exact />
-        <Route path="/home" element={<HomePage />} exact />
+        <Route path="/home" element={<IsAuth mentorType={['mentor', 'admin']}><HomePage /> </IsAuth>} exact />
         <Route path="/hiring-process" element={<IsAuth />}>
           <Route path="/hiring-process" element={<HiringProcessPage />} exact />
         </Route>
-        <Route path="/user" element={<IsAuth mentorType={['admin', 'mentor']} />}>
-          <Route path="/user" element={<><IsAuth mentorType={['admin']} /><MentorPage /></>} exact />
-          <Route path="/user/change-password/:id" element={<><IsAuth mentorType={['mentor', 'admin']} /><UserChangePasswordPage /></>} exact />
+        <Route path="/user">
+          <Route path="/user" element={<IsAuth mentorType={['admin']}><MentorPage /></IsAuth>} exact />
+          <Route path="/user/change-password/:id" element={<IsAuth mentorType={['mentor', 'admin']}><UserChangePasswordPage /></IsAuth>} exact />
         </Route>
         <Route path="/challenges" element={<IsAuth />}>
           <Route path="/challenges/hiring-process/:id" element={<ChallengePage />} exact />
