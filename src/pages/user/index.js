@@ -11,7 +11,6 @@ import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
 import { Status } from '../../components/status'
 import { useNavigate } from 'react-router'
-import layout from '../../components/layout'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -48,7 +47,6 @@ export const MentorPage = () => {
     <>
       <Page>
         <section>
-        {layout()}
           <h1>{t('user.title')}</h1>
           <InputSearch />
           <div className="button-container">

@@ -9,7 +9,6 @@ import { Header } from './components/header/header.js'
 import { Score } from './components/select-note/select-note'
 import { Container, Download, ContainerButtons, Anchor } from './styled'
 import { useTranslation } from 'react-i18next'
-import layout from '../../components/layout'
 
 const EvaluationChallenge = () => {
   const [exercise, setExercise] = useState(null)
@@ -41,7 +40,6 @@ const EvaluationChallenge = () => {
   return (
     <>
       <Container >
-      {layout()}
         <h1>{t('evaluation.title')}</h1>
         <div key={exercise.id}>
           <Header setDisableEvaluationButton={setDisableEvaluationButton} />

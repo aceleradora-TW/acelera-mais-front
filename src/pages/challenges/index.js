@@ -4,14 +4,12 @@ import { ToggleRowExercise } from './components/toggle-row-exercise'
 import { TableBody } from './components/table-body'
 import showFeature from '../../utils/feature-toggle'
 import { useTranslation } from 'react-i18next'
-import layout from '../../components/layout'
 
 export const ChallengePage = () => {
   const { t } = useTranslation()
   return (
     <>
       <div className="page-container">
-      {layout()}
         <h1>{t('challenge.title')}</h1>
 
         {showFeature()
