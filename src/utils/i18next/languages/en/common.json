@@ -115,7 +115,7 @@
       "tittle": "Generate Link",
       "text": "Generate Invite",
       "registerButton": "Copy",
-      "copyLink":"copied"
+      "copyLink":"Copied"
     },
     "mentorRegistration": {
       "title": "Register New Mentor",
