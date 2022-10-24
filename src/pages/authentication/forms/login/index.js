@@ -38,7 +38,9 @@ export const Login = () => {
       localStorage.setItem('role', role)
       localStorage.setItem('mentorName', name)
       setTokenInHeaders()
-
+      if (!auth) {
+        return navigate(`/user/change-password/${id}`)
+      }
       navigate('/home')
     } catch (error) {
       console.log(error)
