@@ -9,7 +9,7 @@ import { client } from '../../service'
 import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
 import { Status } from '../../components/status'
-import PreventPage from '../../components/preventPage'
+import BackButton from '../../components/BackButton'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -54,7 +54,7 @@ export const MentorPage = () => {
                 text='mentorRegistration.text'
                 icon={faPlus} />
             </div>
-            <PreventPage className="prevent-button" />
+            <BackButton className="prevent-button" />
           </div>
         </section>
       </Page>

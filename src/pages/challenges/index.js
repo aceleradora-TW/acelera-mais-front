@@ -4,7 +4,7 @@ import { ToggleRowExercise } from './components/toggle-row-exercise'
 import { TableBody } from './components/table-body'
 import showFeature from '../../utils/feature-toggle'
 import { useTranslation } from 'react-i18next'
-import PreventPage from '../../components/preventPage'
+import BackButton from '../../components/BackButton'
 
 export const ChallengePage = () => {
   const { t } = useTranslation()
@@ -13,7 +13,7 @@ export const ChallengePage = () => {
       <div className="page-container">
         <div className="nav-challengs-between">
           <h1>{t('challenge.title')}</h1>
-          <PreventPage />
+          <BackButton />
         </div>
 
         {showFeature()
