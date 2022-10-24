@@ -10,7 +10,6 @@ import { client } from '../../service'
 import showFeature from '../../utils/feature-toggle'
 import { isAdmin } from '../../utils/isAdmin'
 import { useTranslation } from 'react-i18next'
-import layout from '../../components/layout'
 
 const HiringProcessPage = () => {
   const { t } = useTranslation()
@@ -33,7 +32,6 @@ const HiringProcessPage = () => {
 
   return (
     <div className="page-container">
-      {layout()}
       <section>
         <h1>{t('hiringProcess.title')}</h1>
         {showFeature()
