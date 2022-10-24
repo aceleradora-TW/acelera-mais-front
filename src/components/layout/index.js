@@ -7,15 +7,21 @@ import { useNavigate } from 'react-router'
 const Layout = () => {
   // const { t } = useTranslation()
 
-  const handleClick = () => {
-    localStorage.removeItem('token')
+  const handleClick = (e) => {
+    e.preventDefault()
+    const handleToken = localStorage.token
+    
+    if (handleToken){
+    localStorage.setItem('token', null)
     useNavigate('/')
+    }
+    
   }
 
   return (
     <>
       <HeaderComponent>
-        <DefaultButton icon={faDoorOpen} onClick={handleClick()}></DefaultButton>
+        <DefaultButton icon={faDoorOpen} onClick={handleClick} />
       </HeaderComponent>
     </>
 
