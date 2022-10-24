@@ -17,9 +17,9 @@ const AppRoutes = () => {
         <Route path="/hiring-process" element={<IsAuth />}>
           <Route path="/hiring-process" element={<HiringProcessPage />} exact />
         </Route>
-        <Route path="/user" element={<IsAuth mentorType={['admin', 'mentor']} />}>
-          <Route path="/user" element={<><IsAuth mentorType={['admin']} /><MentorPage /></>} exact />
-          <Route path="/user/change-password/:id" element={<><IsAuth mentorType={['mentor', 'admin']} /><UserChangePasswordPage /></>} exact />
+        <Route path="/user" element={<IsAuth mentorType={['admin']} />}>
+          <Route path="/user" element={<MentorPage />} exact />
+          <Route path="/user/change-password/:id" element={<UserChangePasswordPage />} exact />
         </Route>
         <Route path="/challenges" element={<IsAuth />}>
           <Route path="/challenges/hiring-process/:id" element={<ChallengePage />} exact />
