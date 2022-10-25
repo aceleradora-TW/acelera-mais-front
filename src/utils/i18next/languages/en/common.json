@@ -149,8 +149,7 @@
       "button": {
         "resend": "Resend E-mail",
         "edit": "Edit",
-        "disable": "Disable",
-        "preventPage": "voltar" 
+        "disable": "Disable"
       }     
     },
     "toggleButton": {

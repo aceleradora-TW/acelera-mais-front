@@ -9,7 +9,6 @@ import { Header } from './components/header/header.js'
 import { Score } from './components/select-note/select-note'
 import { Container, Download, ContainerButtons, Anchor } from './styled'
 import { useTranslation } from 'react-i18next'
-import BackButton from '../../components/BackButton'
 
 const EvaluationChallenge = () => {
   const [exercise, setExercise] = useState(null)
@@ -43,7 +42,6 @@ const EvaluationChallenge = () => {
       <Container >
         <div className="nav-challengs-between">
           <h1>{t('evaluation.title')}</h1>
-          <BackButton />
         </div>
         <div key={exercise.id}>
           <Header setDisableEvaluationButton={setDisableEvaluationButton} />

@@ -23,17 +23,3 @@
 .button-filter {
   background-color: #fff;
 }
-
-.nav-bar{
-  display: flex;
-  justify-content: flex-end;
-}
-
-.nav-bar button{
-  margin-left: 50px;
-}
-
-.nav-challengs-between {
-  display: flex;
-  justify-content: space-between;
-}
