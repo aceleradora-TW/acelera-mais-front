@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import { client } from '../../../../service'
 import { UserForm } from '.'
+import { Warning } from '../../styled'
 
 export const RecordPage = () => {
   const { token } = useParams()
@@ -25,8 +26,12 @@ export const RecordPage = () => {
   }
   return (
     <div>
-      <h1>Link Expirado</h1>
-      <p>Infelizmente o link que você tentou acessar expirou, tente novamente pedindo um novo link para quem lhe forneceu o mesmo</p>
+      <Warning>
+        <h1>Erro</h1>
+        <p>Infelizmente o link que você acessou teve sua data expirada. </p>
+        <p>Por favor, se quiser acessar o seguinte ambiente,
+          peço que realize um pedido com quem lhe forneceu o antigo link</p>
+      </Warning>
     </div>
   )
 }
