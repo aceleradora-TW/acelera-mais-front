@@ -1,4 +1,4 @@
-import Button from '../buttons/button'
+import Button from '../button/index'
 import { faReply } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 
