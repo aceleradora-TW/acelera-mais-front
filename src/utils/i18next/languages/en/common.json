@@ -122,6 +122,8 @@
       "name": "Name",
       "telephone": "Telephone",
       "email": "Email",
+      "password": "Password",
+      "repeatPassword": "Repeat your password",
       "registerButton": "Register",
       "fillAlert": "Registered successfully",
       "text": "New mentor"

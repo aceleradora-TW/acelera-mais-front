@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import { client } from '../../../../service'
-import { UserForm } from '.'
+import { Register } from '../../components/registerMentor/registerMentor'
 import { Warning } from '../../styled'
 
 export const RecordPage = () => {
@@ -19,9 +19,9 @@ export const RecordPage = () => {
   }, [])
   if (verify === true) {
     return (
-      <div>
-        <UserForm />
-      </div>
+      <>
+        <Register />
+      </>
     )
   }
   return (

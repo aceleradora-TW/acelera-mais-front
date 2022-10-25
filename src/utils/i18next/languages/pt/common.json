@@ -122,6 +122,8 @@
       "name": "Nome",
       "telephone": "Telefone",
       "email": "Email",
+      "password": "Senha",
+      "repeatPassword": "Repita sua senha",
       "registerButton": "Cadastrar",
       "fillAlert": "Cadastrado com Sucesso",
       "text": "Nova mentora"
