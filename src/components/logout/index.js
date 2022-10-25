@@ -2,7 +2,6 @@ import DefaultButton from '../buttons/default'
 import { faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-// import { HeaderContainer } from '../../pages/evaluation/styled'
 import { HeaderComponent } from './styled'
 
 export const Logout = () => {
