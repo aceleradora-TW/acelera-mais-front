@@ -2,12 +2,18 @@ import styled from 'styled-components'
 
 export const HomePageContainer = styled.div`
 
+
+    .header{
+    margin: 0px;
+    padding: 30px 30px 0px 30px;
+
+    }
+
     h1 {
     color: #959595;
     text-align: justify;
-    padding: 30px;
+    padding: 10px 30px 30px 30px;
     width: 100%;
-    margin-top: 20px;
     font-size: 60px;
     }
 
