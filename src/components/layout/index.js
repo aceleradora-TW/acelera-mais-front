@@ -3,7 +3,7 @@ import { Logout } from '../logout'
 export const Layout = () => {
   return (
     <>
-    <Logout />
+      <Logout />
       <Outlet />
     </>
   )

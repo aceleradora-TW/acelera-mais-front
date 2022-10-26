@@ -29,7 +29,7 @@ const AppRoutes = () => {
           <Route path="/exercise" element={<IsAuth />}>
             <Route path="/exercise/:id" element={<Evaluation />} exact />
           </Route>
-          </Route>
+        </Route>
       </Routes>
     </BrowserRouter >
   )
