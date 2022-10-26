@@ -103,7 +103,7 @@
       },
       "exerciseStatement": "View the exercise statement"
     },
-    "exercise":{
+    "exercise": {
       "type": {
         "title": "Type",
         "placeholder": "Select an Option",
@@ -149,9 +149,14 @@
       "button": {
         "resend": "Resend E-mail",
         "edit": "Edit",
+<<<<<<< HEAD
         "disable": "Disable",
         "backButton": "Back Button"
       }     
+=======
+        "disable": "Disable"
+      }
+>>>>>>> ed0f14af3ede70227ce48d09a7d032d501599a0c
     },
     "toggleButton": {
       "on": "On",
@@ -164,16 +169,19 @@
       "title": "Home Page",
       "manageMentor": "Manage Mentors"
     },
-    "editMentor":{
+    "editMentor": {
       "title": "Edit mentor data",
       "save": "Save",
       "edit": "Edit"
     },
-    "resetPassword":{
+    "resetPassword": {
       "title": "Reset your password",
       "password": "Insert your new password",
       "newPassword": "Repeat your new password",
       "buttonSave": "Save"
+    },
+    "messageLogout": {
+      "confirm": "Do you want to logout?"
     }
   }
 }
