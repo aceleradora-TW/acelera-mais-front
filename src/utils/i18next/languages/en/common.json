@@ -117,6 +117,12 @@
       "registerButton": "Copy",
       "copyLink":"Copied"
     },
+    "UseMessageRegisterError": {
+      "Error": "Error",
+      "expiredLink": "Unfortunately the link you accessed has expired.",
+      "requestLink": "Please, if you want to access the following environment, please place an order with the person who provided you with the old link."
+    },
+
     "mentorRegistration": {
       "title": "Register New Mentor",
       "name": "Name",

@@ -3,7 +3,7 @@ import PrimaryButton from '../../components/buttons/primary'
 import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
 import { UserModal } from './components/user-modal'
-import { Container, Page, FlexSpaceBetween, Message } from './styled.js'
+import { Container, Page, FlexSpaceBetween, Message } from './components/mentor-register/styled.js'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
 import { client } from '../../service'
@@ -11,7 +11,7 @@ import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
 import { Status } from '../../components/status'
 import { useNavigate } from 'react-router'
-import { LinkModal } from './components/link-modal'
+import { CreateLink } from './components/link-modal'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -51,7 +51,7 @@ export const MentorPage = () => {
           <h1>{t('user.title')}</h1>
           <InputSearch />
           <div className="button-container">
-            <LinkModal
+            <CreateLink
               title='linkGeneration.tittle'
               text='linkGeneration.text'
               icon={faPlus} />

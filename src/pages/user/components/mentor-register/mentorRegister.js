@@ -4,6 +4,17 @@ import { Card } from '../../../../components/card'
 import { InputEmail } from '../../../../components/inputs/email'
 import { InputTelephone } from '../../../../components/inputs/telephone'
 import { InputText } from '../../../../components/inputs/text'
+import { Warning } from './styled'
+
+export const UseMessageRegisterError = () => {
+  return (
+    <Warning>
+      <h1>{t('UseMessageRegisterError.Error')}</h1>
+      <p>{t('UseMessageRegisterError.expiredLink')}</p>
+      <p>{t('UseMessageRegisterError.requestLink')}</p>
+    </Warning>
+  )
+}
 
 export const Register = () => {
   return (

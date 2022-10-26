@@ -2,17 +2,17 @@ import { Modal } from '../../../../components/modal'
 import { useTranslation } from 'react-i18next'
 import { UserLink } from '../user-link'
 
-export const LinkModal = ({ method = 'GET', icon, title, text }) => {
+export const CreateLink = ({ method = 'GET', icon }) => {
   const { t } = useTranslation()
   return (
     <div>
       <Modal
         icon={icon}
-        title={t(title)}
+        title={t('Gerar Link')}
         className='button primary'
-        text={t(text)}
+        text={t('Gerar Convite')}
       >
-        <UserLink method={method}/>
+        <UserLink method={method} />
       </Modal>
 
     </div>
