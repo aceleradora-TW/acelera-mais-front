@@ -8,6 +8,7 @@ export const MentorRegisterPage = () => {
   const [verify, setVerify] = useState([])
 
   useEffect(() => {
+    localStorage.removeItem('token')
     setTokenInHeaders(token)
     client.get('/user/link_validation')
       .then(res => {
