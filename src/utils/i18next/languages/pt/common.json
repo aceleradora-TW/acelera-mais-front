@@ -117,6 +117,12 @@
       "registerButton": "Copiar",
       "copyLink": "Copiado"
     },
+    "UseMessageRegisterError": {
+      "Error": "Erro",
+      "expiredLink": "Infelizmente o link que você acessou expirou.",
+      "requestLink": "Por favor, se você deseja acessar o ambiente a seguir, faça um pedido com a pessoa que forneceu o link antigo."
+    },
+
     "mentorRegistration": {
       "title": "Cadastrar nova mentora",
       "name": "Nome",
