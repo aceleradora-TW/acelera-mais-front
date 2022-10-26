@@ -2,7 +2,7 @@ import Button from './../button/index'
 import { faReply } from '@fortawesome/free-solid-svg-icons'
 
 export default {
-  title: 'General Components/Buttons/backbutton',
+  title: 'General Components/Buttons/backButton',
   component: Button
 }
 

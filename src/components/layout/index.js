@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import BackButton from '../buttons/backbutton/index'
+import BackButton from '../buttons/backButton/index'
 import { NavBar } from './style.js'
 export const Layout = () => {
   return (
