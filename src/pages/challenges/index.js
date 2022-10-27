@@ -11,6 +11,7 @@ export const ChallengePage = () => {
     <>
       <div className="page-container">
         <h1>{t('challenge.title')}</h1>
+
         {showFeature()
           ? (
             <section>

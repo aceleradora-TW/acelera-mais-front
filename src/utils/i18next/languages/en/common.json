@@ -187,6 +187,9 @@
       "password": "Insert your new password",
       "newPassword": "Repeat your new password",
       "buttonSave": "Save"
+    },
+    "messageLogout": {
+      "confirm": "Do you want to logout?"
     }
   }
 }
