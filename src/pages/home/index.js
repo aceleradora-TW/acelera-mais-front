@@ -8,12 +8,14 @@ export const HomePage = () => {
   const { t } = useTranslation()
   return (
     <HomePageContainer>
-      <h1>{t('home.title')}</h1>
-      <HomeContainer>
-        <Hyperlink link="/hiring-process" label={t('hiringProcess.title')} icon={faChevronCircleRight} />
-        {isAdmin() &&
-          <Hyperlink link="/user" label={t('home.manageMentor')} icon={faChevronCircleRight} />}
-      </HomeContainer>
+      <div className='header'>
+        <h1>{t('home.title')}</h1>
+        <HomeContainer>
+          <Hyperlink link="/hiring-process" label={t('hiringProcess.title')} icon={faChevronCircleRight} />
+          {isAdmin() &&
+            <Hyperlink link="/user" label={t('home.manageMentor')} icon={faChevronCircleRight} />}
+        </HomeContainer>
+      </div>
     </HomePageContainer>
   )
 }
