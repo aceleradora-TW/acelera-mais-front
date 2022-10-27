@@ -10,13 +10,7 @@ export const ChallengePage = () => {
   return (
     <>
       <div className="page-container">
-<<<<<<< HEAD
-        <div className="nav-challengs-between">
-          <h1>{t('challenge.title')}</h1>
-        </div>
-=======
         <h1>{t('challenge.title')}</h1>
->>>>>>> ed0f14af3ede70227ce48d09a7d032d501599a0c
 
         {showFeature()
           ? (

@@ -149,14 +149,9 @@
       "button": {
         "resend": "Resend E-mail",
         "edit": "Edit",
-<<<<<<< HEAD
         "disable": "Disable",
-        "backButton": "Back Button"
-      }     
-=======
-        "disable": "Disable"
+        "backButton": "Back button"
       }
->>>>>>> ed0f14af3ede70227ce48d09a7d032d501599a0c
     },
     "toggleButton": {
       "on": "On",
