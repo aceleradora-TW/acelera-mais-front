@@ -94,7 +94,7 @@ export const MentorPage = () => {
                       }
                     />
                   </td>
-                  <td>{mentor.updatedAt}</td>
+                  <td>{mentor.date}</td>
                   <td>
                     <FlexSpaceBetween>
                       <p>{mentor.email}</p>
