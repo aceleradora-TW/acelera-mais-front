@@ -22,7 +22,6 @@ const AppRoutes = () => {
           </Route>
           <Route path="/user">
             <Route path="/user" element={<IsAuth mentorType={['admin']}><MentorPage /></IsAuth>} exact />
-            <Route path="/user" element={<MentorPage />} exact />
             <Route path="/user/:token" element={<MentorRegisterPage />} exact />
             <Route path="/user/change-password/:id" element={<IsAuth mentorType={['mentor', 'admin']}><UserChangePasswordPage /></IsAuth>} exact />
           </Route>

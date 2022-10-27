@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import copy from 'copy-to-clipboard'
 import { useTranslation } from 'react-i18next'
 import { InputText } from '../../../../components/inputs/text'
 import { client } from '../../../../service'
@@ -8,8 +9,8 @@ export const UserLink = ({ method = 'GET' }) => {
   const { t } = useTranslation()
   const [link, setLink] = useState([])
 
-  const copy = () => {
-    const clip = navigator.clipboard.writeText(link)
+  const clipboard = () => {
+    const clip = copy(link)
     alert(t('linkGeneration.copyLink'))
     return clip
   }
@@ -28,7 +29,7 @@ export const UserLink = ({ method = 'GET' }) => {
       <InputText name='link' label={t('linkGeneration.text')} placeholder={link} />
       <PrimaryButton
         icon={null}
-        onClick={copy}
+        onClick={clipboard}
         text={t('linkGeneration.registerButton')}
       />
     </div>

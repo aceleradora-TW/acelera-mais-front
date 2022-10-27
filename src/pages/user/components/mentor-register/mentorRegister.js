@@ -19,7 +19,7 @@ export const UseMessageRegisterError = () => {
 export const Register = () => {
   return (
     <>
-      <Card title='Cadastro de Mentor Avaliadora'>
+      <Card title={t('mentorRegistration.title')}>
         <InputText name='name' label={t('mentorRegistration.name')} />
         <InputTelephone name='telephone' label={t('mentorRegistration.telephone')} />
         <InputEmail name='email' label={t('mentorRegistration.email')} />

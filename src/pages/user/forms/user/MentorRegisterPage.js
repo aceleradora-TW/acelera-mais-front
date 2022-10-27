@@ -5,22 +5,24 @@ import { Register, UseMessageRegisterError } from '../../components/mentor-regis
 
 export const MentorRegisterPage = () => {
   const { token } = useParams()
-  const [verify, setVerify] = useState([])
+  const [verified, setVerified] = useState(false)
 
   useEffect(() => {
+    localStorage.removeItem('token')
     setTokenInHeaders(token)
     client.get('/user/link_validation')
       .then(res => {
-        setVerify(res.data.data.verified || false)
+        setVerified(res.data.data.verified || false)
       })
       .catch(err => {
+        setVerified(false)
         console.log(err)
       })
   }, [])
 
   return (
     <>
-      {verify ? <Register /> : <UseMessageRegisterError />}
+      {verified ? <Register /> : <UseMessageRegisterError />}
     </>
   )
 }
