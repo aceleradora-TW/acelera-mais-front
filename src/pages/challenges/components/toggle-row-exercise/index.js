@@ -29,8 +29,8 @@ export const ToggleRowExercise = ({ item }) => {
     setChecked(!checked)
   }
 
-  const handleSubmit = () => {
-    client.patch(`/evaluation/${item.evaluation.id}`, { mentorName })
+  const handleSubmit = async () => {
+    await client.patch(`/evaluation/${item.evaluation.id}`, { mentorName })
     navigate(`/exercise/${item.idExercise}`)
   }
 
