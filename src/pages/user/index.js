@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next'
-import PrimaryButton from '../../components/buttons/primary'
 import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
 import { UserModal } from './components/user-modal'
@@ -10,13 +9,11 @@ import { client } from '../../service'
 import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
 import { Status } from '../../components/status'
-import { useNavigate } from 'react-router'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
-  const navigate = useNavigate()
 
   useEffect(() => {
     client.get('/user')
@@ -49,12 +46,13 @@ export const MentorPage = () => {
         <section>
           <h1>{t('user.title')}</h1>
           <InputSearch />
-          <div className="button-container">
-            <UserModal
-              title='mentorRegistration.title'
-              text='mentorRegistration.text'
-              icon={faPlus} />
-            <PrimaryButton text={t('user.backButton')} onClick={() => navigate('/home')} />
+          <div className='nav-bar'>
+            <div className="button-container">
+              <UserModal
+                title='mentorRegistration.title'
+                text='mentorRegistration.text'
+                icon={faPlus} />
+            </div>
           </div>
         </section>
       </Page>

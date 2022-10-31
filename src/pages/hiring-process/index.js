@@ -41,9 +41,11 @@ const HiringProcessPage = () => {
             <Button className="button-filter" text={t('hiringProcess.filter.closed')} onClick={handleSubmit} />
           </div>)
           : null}
-        {isAdmin() && <Modal icon={faPlus} className='button primary' text={t('hiringProcess.new-process.text')} title={t('hiringProcess.new-process.title')}>
-          <HiringProcessForm callback={handleSubmit} />
-        </Modal>}
+        <div className='nav-bar'>
+          {isAdmin() && <Modal icon={faPlus} className='button primary' text={t('hiringProcess.new-process.text')} title={t('hiringProcess.new-process.title')}>
+            <HiringProcessForm callback={handleSubmit} />
+          </Modal>}
+        </div>
       </section>
       <ProcessList processes={hiringProcesses} setHiringProcesses={setHiringProcesses} />
     </div>

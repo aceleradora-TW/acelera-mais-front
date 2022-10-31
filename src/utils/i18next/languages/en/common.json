@@ -149,7 +149,8 @@
       "button": {
         "resend": "Resend E-mail",
         "edit": "Edit",
-        "disable": "Disable"
+        "disable": "Disable",
+        "backButton": "Back button"
       }
     },
     "toggleButton": {
