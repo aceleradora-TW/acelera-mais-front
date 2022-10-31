@@ -8,9 +8,9 @@ export const CreateLink = ({ method = 'GET', icon }) => {
     <div>
       <Modal
         icon={icon}
-        title={t('Gerar Link')}
+        title={t('linkGeneration.tittle')}
         className='button primary'
-        text={t('Gerar Convite')}
+        text={t('linkGeneration.text')}
       >
         <UserLink method={method} />
       </Modal>
