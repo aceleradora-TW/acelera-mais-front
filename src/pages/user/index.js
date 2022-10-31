@@ -3,7 +3,7 @@ import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
 import { UserModal } from './components/user-modal'
 import { Container, Page, FlexSpaceBetween, Message } from './styled.js'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faSortUp } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
 import { client } from '../../service'
 import Button from '../../components/buttons/button'
@@ -14,6 +14,7 @@ export const MentorPage = () => {
   const { t } = useTranslation()
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
+  const [checked, setChecked] = useState(true)
 
   useEffect(() => {
     client.get('/user')
@@ -39,6 +40,36 @@ export const MentorPage = () => {
       await client.put(`/user/${id}`, { flag }).then(res => window.location.reload(true))
     }
   }
+  const sortButton = () => {
+    let firstMentor
+    let secondMentor
+    if (checked) {
+      (mentors.sort((mentorA, mentorB) => {
+        firstMentor = mentorA.name.toUpperCase()
+        secondMentor = mentorB.name.toUpperCase()
+        if (firstMentor < secondMentor) {
+          return 1
+        }
+        if (firstMentor > secondMentor) {
+          return -1
+        }
+        return 0
+      }))
+      return setChecked(!checked)
+    }
+    (mentors.sort((mentorA, mentorB) => {
+      firstMentor = mentorA.name.toUpperCase()
+      secondMentor = mentorB.name.toUpperCase()
+      if (firstMentor < secondMentor) {
+        return -1
+      }
+      if (firstMentor > secondMentor) {
+        return 1
+      }
+      return 0
+    }))
+    return setChecked(!checked)
+  }
 
   return (
     <>
@@ -61,6 +92,7 @@ export const MentorPage = () => {
           <thead>
             <tr>
               <th>{t('user.descriptionTable.name')}</th>
+              <Button onClick={sortButton} icon={faSortUp} />
               <th>{t('user.descriptionTable.status')}</th>
               <th>{t('user.descriptionTable.registrationDate')}</th>
               <th>{t('user.descriptionTable.registrationInformation')}</th>
