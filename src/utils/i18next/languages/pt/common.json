@@ -116,6 +116,7 @@
       "name": "Nome",
       "telephone": "Telefone",
       "email": "Email",
+      "type": "Tipo",
       "registerButton": "Cadastrar",
       "fillAlert": "Cadastrado com Sucesso",
       "text": "Nova mentora"

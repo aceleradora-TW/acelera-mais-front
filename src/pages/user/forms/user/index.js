@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { InputEmail } from '../../../../components/inputs/email'
 import { InputTelephone } from '../../../../components/inputs/telephone'
 import { InputText } from '../../../../components/inputs/text'
+import { InputType } from '../../../../components/inputs/type'
 import { client } from '../../../../service'
 import PrimaryButton from '../../../../components/buttons/primary'
 import { useTranslation } from 'react-i18next'
@@ -12,7 +13,7 @@ export const UserForm = ({ method = 'POST', id = '', callback = () => { } }) => 
     name: '',
     telephone: '',
     email: '',
-    type: 'mentor'
+    type: ''
   })
 
   const handleChange = (e) => {
@@ -40,6 +41,7 @@ export const UserForm = ({ method = 'POST', id = '', callback = () => { } }) => 
       <InputText name='name' label={t('mentorRegistration.name')} onChange={handleChange} />
       <InputTelephone name='telephone' label={t('mentorRegistration.telephone')} onChange={handleChange} />
       <InputEmail name='email' label={t('mentorRegistration.email')} onChange={handleChange} />
+      <InputType name='type' label={t('mentorRegistration.type')} onChange={handleChange} />
       <PrimaryButton text={t('editMentor.save')} onClick={sendUsers} />
     </form>
   )

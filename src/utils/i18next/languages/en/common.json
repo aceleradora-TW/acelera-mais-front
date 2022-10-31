@@ -116,6 +116,7 @@
       "name": "Name",
       "telephone": "Telephone",
       "email": "Email",
+      "type": "Type",
       "registerButton": "Register",
       "fillAlert": "Registered successfully",
       "text": "New mentor"
