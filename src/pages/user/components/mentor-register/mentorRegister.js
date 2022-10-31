@@ -4,6 +4,7 @@ import { Card } from '../../../../components/card'
 import { InputEmail } from '../../../../components/inputs/email'
 import { InputTelephone } from '../../../../components/inputs/telephone'
 import { InputText } from '../../../../components/inputs/text'
+import { InputPassword } from '../../../../components/inputs/password'
 import { Warning } from './styled'
 
 export const UseMessageRegisterError = () => {
@@ -20,11 +21,11 @@ export const Register = () => {
   return (
     <>
       <Card title={t('mentorRegistration.title')}>
-        <InputText name='name' label={t('mentorRegistration.name')} />
+        <InputText name='name' label={t('mentorRegistration.name')} placeholder={t('')}/>
         <InputTelephone name='telephone' label={t('mentorRegistration.telephone')} />
         <InputEmail name='email' label={t('mentorRegistration.email')} />
-        <InputEmail name='password' label={t('mentorRegistration.password')} />
-        <InputEmail name='password' label={t('mentorRegistration.repeatPassword')} />
+        <InputPassword name='password' label={t('mentorRegistration.password')} />
+        <InputPassword name='password' label={t('mentorRegistration.repeatPassword')} />
         <PrimaryButton text={t('mentorRegistration.registerButton')} />
       </Card>
     </>
