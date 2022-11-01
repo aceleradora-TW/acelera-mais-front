@@ -9,9 +9,13 @@ import { client } from '../../service'
 import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
 import { Status } from '../../components/status'
+import { useNavigate } from 'react-router'
+import { CreateLink } from './components/link-modal'
+import PrimaryButton from '../../components/buttons/primary'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
+  const navigate = useNavigate()
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
   const [checked, setChecked] = useState(true)
@@ -77,13 +81,16 @@ export const MentorPage = () => {
         <section>
           <h1>{t('user.title')}</h1>
           <InputSearch />
-          <div className='nav-bar'>
-            <div className="button-container">
-              <UserModal
-                title='mentorRegistration.title'
-                text='mentorRegistration.text'
-                icon={faPlus} />
-            </div>
+          <div className="button-container">
+            <CreateLink
+              title='linkGeneration.tittle'
+              text='linkGeneration.text'
+              icon={faPlus} />
+            <UserModal
+              title='mentorRegistration.title'
+              text='mentorRegistration.text'
+              icon={faPlus} />
+            <PrimaryButton text={t('user.backButton')} onClick={() => navigate('/home')} />
           </div>
         </section>
       </Page>

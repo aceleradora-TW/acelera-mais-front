@@ -46,3 +46,16 @@ export const Title = styled.div`
 background-color: rgb(149, 149, 149);;
 border: solid 2px;
 `
+export const Warning = styled.div`
+display:flex;
+flex-direction: column;
+align-content: center;
+margin:20% 15% 0 15%;
+border: solid 2px;
+border-color: red;
+padding-top: 5px;
+padding-bottom:5px;
+background-color: rgb(250, 128, 114);
+text-align: center;
+color: rgb(139,0,0)
+`

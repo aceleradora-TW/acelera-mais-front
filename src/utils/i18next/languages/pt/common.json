@@ -111,11 +111,25 @@
         "changeButton": "Alterar"
       }
     },
+    "linkGeneration": {
+      "tittle": "Gerar Link",
+      "text": "Gerar Convite",
+      "registerButton": "Copiar",
+      "copyLink": "Copiado"
+    },
+    "UseMessageRegisterError": {
+      "Error": "Erro",
+      "expiredLink": "Infelizmente o link que você acessou expirou.",
+      "requestLink": "Por favor, se você deseja acessar o ambiente a seguir, faça um pedido com a pessoa que forneceu o link antigo."
+    },
+
     "mentorRegistration": {
-      "title": "Cadastrar nova mentora",
+      "title": "Cadastrar Nova Mentora Avaliadora",
       "name": "Nome",
       "telephone": "Telefone",
       "email": "Email",
+      "password": "Senha",
+      "repeatPassword": "Repita sua senha",
       "registerButton": "Cadastrar",
       "fillAlert": "Cadastrado com Sucesso",
       "text": "Nova mentora"
