@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next'
 import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
 import { UserModal } from './components/user-modal'
-import { Container, Page, FlexSpaceBetween, Message } from './styled.js'
-import { faPlus, faSortUp } from '@fortawesome/free-solid-svg-icons'
+import { Container, Page, FlexSpaceBetween, Message } from './components/mentor-register/styled.js'
+import { faPlus, faSortAlphaDown, faSortAlphaUp, faSortNumericDown, faSortNumericUp } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
 import { client } from '../../service'
 import Button from '../../components/buttons/button'
@@ -12,12 +12,15 @@ import { Status } from '../../components/status'
 import { useNavigate } from 'react-router'
 import { CreateLink } from './components/link-modal'
 import PrimaryButton from '../../components/buttons/primary'
+import { SortButton } from './components/user-table'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
+  const [nameIcon, setNameIcon] = useState(faSortAlphaDown)
+  const [dateIcon, setDateIcon] = useState(faSortNumericDown)
   const [checked, setChecked] = useState(true)
 
   useEffect(() => {
@@ -44,7 +47,23 @@ export const MentorPage = () => {
       await client.put(`/user/${id}`, { flag }).then(res => window.location.reload(true))
     }
   }
-  const sortButton = () => {
+  const updateNameIcon = () => {
+    if (checked === true) {
+      setNameIcon(faSortAlphaUp)
+    }
+    if (checked === false) {
+      setNameIcon(faSortAlphaDown)
+    }
+  }
+  const updateDateIcon = () => {
+    if (checked === true) {
+      setDateIcon(faSortNumericUp)
+    }
+    if (checked === false) {
+      setDateIcon(faSortNumericDown)
+    }
+  }
+  const sortButtonByName = () => {
     let firstMentor
     let secondMentor
     if (checked) {
@@ -59,9 +78,10 @@ export const MentorPage = () => {
         }
         return 0
       }))
+      updateNameIcon()
       return setChecked(!checked)
     }
-    (mentors.sort((mentorA, mentorB) => {
+    mentors.sort((mentorA, mentorB) => {
       firstMentor = mentorA.name.toUpperCase()
       secondMentor = mentorB.name.toUpperCase()
       if (firstMentor < secondMentor) {
@@ -71,7 +91,41 @@ export const MentorPage = () => {
         return 1
       }
       return 0
-    }))
+    })
+    updateNameIcon()
+    return setChecked(!checked)
+  }
+
+  const sortButtonByDate = () => {
+    let firstMentor
+    let secondMentor
+    if (checked) {
+      (mentors.sort((mentorA, mentorB) => {
+        firstMentor = mentorA.createdAt
+        secondMentor = mentorB.createdAt
+        if (firstMentor < secondMentor) {
+          return 1
+        }
+        if (firstMentor > secondMentor) {
+          return -1
+        }
+        return 0
+      }))
+      updateDateIcon()
+      return setChecked(!checked)
+    }
+    mentors.sort((mentorA, mentorB) => {
+      firstMentor = mentorA.createdAt
+      secondMentor = mentorB.createdAt
+      if (firstMentor < secondMentor) {
+        return -1
+      }
+      if (firstMentor > secondMentor) {
+        return 1
+      }
+      return 0
+    })
+    updateDateIcon()
     return setChecked(!checked)
   }
 
@@ -98,10 +152,9 @@ export const MentorPage = () => {
         <Table>
           <thead>
             <tr>
-              <th>{t('user.descriptionTable.name')}</th>
-              <Button onClick={sortButton} icon={faSortUp} />
+              <th><SortButton translate={'user.descriptionTable.name'} onClick={sortButtonByName} icon={nameIcon}/></th>
               <th>{t('user.descriptionTable.status')}</th>
-              <th>{t('user.descriptionTable.registrationDate')}</th>
+              <th><SortButton translate={'user.descriptionTable.registrationDate'} onClick={sortButtonByDate} icon={dateIcon} /></th>
               <th>{t('user.descriptionTable.registrationInformation')}</th>
               <th>{t('user.descriptionTable.shares')}</th>
             </tr>
