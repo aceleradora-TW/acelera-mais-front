@@ -128,12 +128,9 @@
       "name": "Nome",
       "telephone": "Telefone",
       "email": "Email",
-<<<<<<< HEAD
       "type": "Tipo",
-=======
       "password": "Senha",
       "repeatPassword": "Repita sua senha",
->>>>>>> 46ed42932f3d456a4ecbce773d4cee663a539576
       "registerButton": "Cadastrar",
       "fillAlert": "Cadastrado com Sucesso",
       "text": "Nova mentora"
