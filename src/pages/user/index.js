@@ -45,14 +45,10 @@ export const MentorPage = () => {
     }
   }
 
-  const getNavigatorLanguage = () => {
-    return navigator.language.split('-').shift()
-  }
-
   const humanizeDate = (date) => {
     const actualDuration = Date.now() - new Date(date)
     return humanizeDuration(actualDuration, {
-      language: getNavigatorLanguage(),
+      language: navigator.language.split('-').shift(),
       units: ['d'],
       round: true
     })
