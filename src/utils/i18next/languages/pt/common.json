@@ -111,12 +111,29 @@
         "changeButton": "Alterar"
       }
     },
+    "linkGeneration": {
+      "tittle": "Gerar Link",
+      "text": "Gerar Convite",
+      "registerButton": "Copiar",
+      "copyLink": "Copiado"
+    },
+    "UseMessageRegisterError": {
+      "Error": "Erro",
+      "expiredLink": "Infelizmente o link que você acessou expirou.",
+      "requestLink": "Por favor, se você deseja acessar o ambiente a seguir, faça um pedido com a pessoa que forneceu o link antigo."
+    },
+
     "mentorRegistration": {
-      "title": "Cadastrar nova mentora",
+      "title": "Cadastrar Nova Mentora Avaliadora",
       "name": "Nome",
       "telephone": "Telefone",
       "email": "Email",
+<<<<<<< HEAD
       "type": "Tipo",
+=======
+      "password": "Senha",
+      "repeatPassword": "Repita sua senha",
+>>>>>>> 46ed42932f3d456a4ecbce773d4cee663a539576
       "registerButton": "Cadastrar",
       "fillAlert": "Cadastrado com Sucesso",
       "text": "Nova mentora"
@@ -150,7 +167,8 @@
       "button": {
         "resend": "Reenviar E-mail",
         "edit": "Editar",
-        "disable": "Desabilitar"
+        "disable": "Desabilitar",
+        "backButton": "Botão de voltar"
       }
     },
     "toggleButton": {
