@@ -129,12 +129,9 @@
       "name": "Name",
       "telephone": "Telephone",
       "email": "Email",
-<<<<<<< HEAD
       "type": "Type",
-=======
       "password": "Password",
       "repeatPassword": "Repeat your password",
->>>>>>> 46ed42932f3d456a4ecbce773d4cee663a539576
       "registerButton": "Register",
       "fillAlert": "Registered successfully",
       "text": "New mentor"
