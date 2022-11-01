@@ -10,6 +10,8 @@ import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
 import { Status } from '../../components/status'
 import { CreateLink } from './components/link-modal'
+import { useNavigate } from 'react-router'
+import humanizeDuration from 'humanize-duration'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -41,6 +43,18 @@ export const MentorPage = () => {
     }
   }
 
+  const getNavigatorLanguage = () => {
+    return navigator.language.split('-').shift()
+  }
+
+  const humanizeDate = (date) => {
+    const actualDuration = Date.now() - new Date(date)
+    return humanizeDuration(actualDuration, {
+      language: getNavigatorLanguage(),
+      units: ['d'],
+      round: true
+    })
+  }
   return (
     <>
       <Page>
@@ -94,7 +108,7 @@ export const MentorPage = () => {
                       }
                     />
                   </td>
-                  <td>{mentor.date}</td>
+                  <td>{humanizeDate(mentor.createdAt)}</td>
                   <td>
                     <FlexSpaceBetween>
                       <p>{mentor.email}</p>
