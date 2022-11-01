@@ -40,7 +40,9 @@ const EvaluationChallenge = () => {
   return (
     <>
       <Container >
-        <h1>{t('evaluation.title')}</h1>
+        <div className="nav-challengs-between">
+          <h1>{t('evaluation.title')}</h1>
+        </div>
         <div key={exercise.id}>
           <Header setDisableEvaluationButton={setDisableEvaluationButton} />
 

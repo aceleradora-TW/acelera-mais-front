@@ -163,7 +163,8 @@
       "button": {
         "resend": "Reenviar E-mail",
         "edit": "Editar",
-        "disable": "Desabilitar"
+        "disable": "Desabilitar",
+        "backButton": "Botão de voltar"
       }
     },
     "toggleButton": {
