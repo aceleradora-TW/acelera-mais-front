@@ -191,8 +191,10 @@
     "messageLogout": {
       "confirm": "Deseja fazer logout?"
     },
-    "greetingText": {
-      "Greeting": "Seja bem vinde, {{nome}}"
+    "layout": {
+      "greetingText": {
+        "Greeting": "Seja bem vinde, {{nome}}"
+      }
     }
   }
 }
