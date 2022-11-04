@@ -9,6 +9,6 @@ padding-bottom: 10px;
 padding-right: 30px;
 box-shadow: 0 1px 6px 1px #a29f9f;
 button{
-margin-left: 1rem;
+margin-left: 15px;
 }
 `

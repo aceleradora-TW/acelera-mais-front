@@ -67,7 +67,7 @@
       "message": {
         "invalidEmail": "Invalid email!"
       },
-      "exemple":"exemple@email.com"
+      "exemple": "exemple@email.com"
     },
     "challenge": {
       "title": "Challenges",
@@ -116,14 +116,13 @@
       "tittle": "Generate Link",
       "text": "Generate Invite",
       "registerButton": "Copy",
-      "copyLink":"Copied"
+      "copyLink": "Copied"
     },
     "UseMessageRegisterError": {
       "Error": "Error",
       "expiredLink": "Unfortunately the link you accessed has expired.",
       "requestLink": "Please, if you want to access the following environment, please place an order with the person who provided you with the old link."
     },
-
     "mentorRegistration": {
       "title": "Register New Mentor",
       "name": "Name",
@@ -192,6 +191,9 @@
     },
     "messageLogout": {
       "confirm": "Do you want to logout?"
+    },
+    "greetingText": {
+      "Greeting": "Welcome, {{nome}}"
     }
   }
 }
