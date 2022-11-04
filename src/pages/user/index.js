@@ -64,49 +64,27 @@ export const MentorPage = () => {
     }
   }
   const sortButtonByName = () => {
-    let firstMentor
-    let secondMentor
     if (checked) {
-      (mentors.sort((mentorA, mentorB) => {
-        firstMentor = mentorA.name.toUpperCase()
-        secondMentor = mentorB.name.toUpperCase()
-        if (firstMentor < secondMentor) {
-          return 1
-        }
-        if (firstMentor > secondMentor) {
-          return -1
-        }
-        return 0
-      }))
+      mentors.sort((mentorA, mentorB) => {
+        return mentorA.name.toUpperCase().localeCompare(mentorB.name.toUpperCase())
+      })
       updateNameIcon()
       return setChecked(!checked)
     }
     mentors.sort((mentorA, mentorB) => {
-      firstMentor = mentorA.name.toUpperCase()
-      secondMentor = mentorB.name.toUpperCase()
-      if (firstMentor < secondMentor) {
-        return -1
-      }
-      if (firstMentor > secondMentor) {
-        return 1
-      }
-      return 0
+      return mentorB.name.toUpperCase().localeCompare(mentorA.name.toUpperCase())
     })
     updateNameIcon()
     return setChecked(!checked)
   }
 
   const sortButtonByDate = () => {
-    let firstMentor
-    let secondMentor
     if (checked) {
       (mentors.sort((mentorA, mentorB) => {
-        firstMentor = mentorA.createdAt
-        secondMentor = mentorB.createdAt
-        if (firstMentor < secondMentor) {
+        if (new Date(mentorA.createdAt) < new Date(mentorB.createdAt)) {
           return 1
         }
-        if (firstMentor > secondMentor) {
+        if (new Date(mentorA.createdAt) > new Date(mentorB.createdAt)) {
           return -1
         }
         return 0
@@ -115,12 +93,10 @@ export const MentorPage = () => {
       return setChecked(!checked)
     }
     mentors.sort((mentorA, mentorB) => {
-      firstMentor = mentorA.createdAt
-      secondMentor = mentorB.createdAt
-      if (firstMentor < secondMentor) {
+      if (new Date(mentorA.createdAt) < new Date(mentorB.createdAt)) {
         return -1
       }
-      if (firstMentor > secondMentor) {
+      if (new Date(mentorA.createdAt) > new Date(mentorB.createdAt)) {
         return 1
       }
       return 0
