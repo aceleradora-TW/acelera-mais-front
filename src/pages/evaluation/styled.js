@@ -43,7 +43,6 @@ export const Download = styled.div`
   border: 1px solid #ababab;
   border-radius: 5px;
   width: 100%;
-  margin-top: 20px;
   padding: 10px;
   display: flex;
   justify-content: space-between;
