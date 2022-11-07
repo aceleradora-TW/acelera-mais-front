@@ -133,7 +133,10 @@
       "repeatPassword": "Repita sua senha",
       "registerButton": "Cadastrar",
       "fillAlert": "Cadastrado com Sucesso",
-      "text": "Nova mentora"
+      "text": "Nova mentora",
+      "administrator": "Administradora",
+      "mentor": "Mentora",
+      "placeHolder": "Selecione o tipo de usuaria"
     },
     "user": {
       "title": "Lista de Mentoras Avaliadoras",

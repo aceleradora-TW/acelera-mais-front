@@ -134,7 +134,10 @@
       "repeatPassword": "Repeat your password",
       "registerButton": "Register",
       "fillAlert": "Registered successfully",
-      "text": "New mentor"
+      "text": "New mentor",
+      "administrator": "Administrator",
+      "mentor": "Mentor",
+      "placeHolder": "Select user type"
     },
     "user": {
       "title": "Mentor's List",

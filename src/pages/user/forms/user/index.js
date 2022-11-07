@@ -37,8 +37,8 @@ export const UserForm = ({ method = 'POST', id = '', callback = () => { } }) => 
   }
 
   const options = [
-    { label: t('Administradora'), value: 'admin' },
-    { label: t('Mentora'), value: 'mentor' }
+    { label: t('mentorRegistration.administrator'), value: 'admin' },
+    { label: t('mentorRegistration.mentor'), value: 'mentor' }
   ]
 
   return (
@@ -48,7 +48,7 @@ export const UserForm = ({ method = 'POST', id = '', callback = () => { } }) => 
         name="type"
         onChange={handleChange}
         label={t('mentorRegistration.type')}
-        placeholder={t('Selecione o tipo de usuaria')}
+        placeholder={t('mentorRegistration.placeHolder')}
         options={options}
       />
       <InputTelephone name='telephone' label={t('mentorRegistration.telephone')} onChange={handleChange} />
