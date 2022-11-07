@@ -3,7 +3,7 @@ import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
 import { UserModal } from './components/user-modal'
 import { Container, Page, FlexSpaceBetween, Message } from './components/mentor-register/styled.js'
-import { faPlus, faSortAlphaDown, faSortAlphaUp, faSortNumericDown, faSortNumericUp } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faSortAlphaDown, faSortAlphaUp } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
 import { client } from '../../service'
 import Button from '../../components/buttons/button'
@@ -19,9 +19,6 @@ export const MentorPage = () => {
   const navigate = useNavigate()
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
-  const [nameIcon, setNameIcon] = useState(faSortAlphaDown)
-  const [dateIcon, setDateIcon] = useState(faSortNumericDown)
-  const [checked, setChecked] = useState(true)
 
   useEffect(() => {
     client.get('/user')
@@ -47,63 +44,6 @@ export const MentorPage = () => {
       await client.put(`/user/${id}`, { flag }).then(res => window.location.reload(true))
     }
   }
-  const updateNameIcon = () => {
-    if (checked === true) {
-      setNameIcon(faSortAlphaUp)
-    }
-    if (checked === false) {
-      setNameIcon(faSortAlphaDown)
-    }
-  }
-  const updateDateIcon = () => {
-    if (checked === true) {
-      setDateIcon(faSortNumericUp)
-    }
-    if (checked === false) {
-      setDateIcon(faSortNumericDown)
-    }
-  }
-  const sortButtonByName = () => {
-    if (checked) {
-      mentors.sort((mentorA, mentorB) => {
-        return mentorA.name.toUpperCase().localeCompare(mentorB.name.toUpperCase())
-      })
-      updateNameIcon()
-      return setChecked(!checked)
-    }
-    mentors.sort((mentorA, mentorB) => {
-      return mentorB.name.toUpperCase().localeCompare(mentorA.name.toUpperCase())
-    })
-    updateNameIcon()
-    return setChecked(!checked)
-  }
-
-  const sortButtonByDate = () => {
-    if (checked) {
-      (mentors.sort((mentorA, mentorB) => {
-        if (new Date(mentorA.createdAt) < new Date(mentorB.createdAt)) {
-          return 1
-        }
-        if (new Date(mentorA.createdAt) > new Date(mentorB.createdAt)) {
-          return -1
-        }
-        return 0
-      }))
-      updateDateIcon()
-      return setChecked(!checked)
-    }
-    mentors.sort((mentorA, mentorB) => {
-      if (new Date(mentorA.createdAt) < new Date(mentorB.createdAt)) {
-        return -1
-      }
-      if (new Date(mentorA.createdAt) > new Date(mentorB.createdAt)) {
-        return 1
-      }
-      return 0
-    })
-    updateDateIcon()
-    return setChecked(!checked)
-  }
 
   return (
     <>
@@ -128,9 +68,25 @@ export const MentorPage = () => {
         <Table>
           <thead>
             <tr>
-              <th><SortButton translate={'user.descriptionTable.name'} onClick={sortButtonByName} icon={nameIcon}/></th>
+              <th>
+                <SortButton
+                  sort={(a, b) => a.name.toUpperCase().localeCompare(b.name.toUpperCase())}
+                  items={mentors}
+                  iconUp={faSortAlphaUp}
+                  iconDown={faSortAlphaDown}
+                  setItems={setMentors}
+                  label={t('user.descriptionTable.name')}
+                />
+              </th>
               <th>{t('user.descriptionTable.status')}</th>
-              <th><SortButton translate={'user.descriptionTable.registrationDate'} onClick={sortButtonByDate} icon={dateIcon} /></th>
+              <th>
+                <SortButton
+                  label={t('user.descriptionTable.registrationDate')}
+                  sort={(a, b) => new Date(a.createdAt) - new Date(b.createdAt)}
+                  items={mentors}
+                  setItems={setMentors}
+                />
+              </th>
               <th>{t('user.descriptionTable.registrationInformation')}</th>
               <th>{t('user.descriptionTable.shares')}</th>
             </tr>
