@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { StyledSortButton } from '../../../../components/buttons/sort/styled'
-import Icon from '../../../../components/icon'
+import { StyledSortTable } from '../buttons/sort/styled'
+import Icon from '../icon'
 import { faSortNumericDown, faSortNumericUp } from '@fortawesome/free-solid-svg-icons'
-export const SortButton = ({
+export const SortTable = ({
   label,
   sort,
   items,
@@ -28,7 +28,7 @@ export const SortButton = ({
 
   return (
     <div>
-      <StyledSortButton onClick={sortBy}> {label}   <Icon icon={icon} /></StyledSortButton>
+      <StyledSortTable onClick={sortBy}> {label}   <Icon icon={icon} /></StyledSortTable>
     </div>
   )
 }

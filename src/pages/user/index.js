@@ -12,7 +12,7 @@ import { Status } from '../../components/status'
 import { useNavigate } from 'react-router'
 import { CreateLink } from './components/link-modal'
 import PrimaryButton from '../../components/buttons/primary'
-import { SortButton } from './components/user-table'
+import { SortTable } from '../../components/sort-table'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -69,22 +69,22 @@ export const MentorPage = () => {
           <thead>
             <tr>
               <th>
-                <SortButton
+                <SortTable
                   sort={(a, b) => a.name.toUpperCase().localeCompare(b.name.toUpperCase())}
                   items={mentors}
+                  setItems={setMentors}
                   iconUp={faSortAlphaUp}
                   iconDown={faSortAlphaDown}
-                  setItems={setMentors}
                   label={t('user.descriptionTable.name')}
                 />
               </th>
               <th>{t('user.descriptionTable.status')}</th>
               <th>
-                <SortButton
-                  label={t('user.descriptionTable.registrationDate')}
+                <SortTable
                   sort={(a, b) => new Date(a.createdAt) - new Date(b.createdAt)}
                   items={mentors}
                   setItems={setMentors}
+                  label={t('user.descriptionTable.registrationDate')}
                 />
               </th>
               <th>{t('user.descriptionTable.registrationInformation')}</th>

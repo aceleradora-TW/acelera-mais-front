@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StyledSortButton = styled.button`
+export const StyledSortTable = styled.button`
   border: none;
   display: flex;
   margin-left: 35px;
