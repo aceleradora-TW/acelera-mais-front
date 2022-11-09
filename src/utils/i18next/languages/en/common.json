@@ -194,7 +194,7 @@
     },
     "layout": {
       "greetingText": {
-        "Greeting": "Welcome, {{nome}}"
+        "Greeting": "Welcome, {{name}}"
       }
     }
   }

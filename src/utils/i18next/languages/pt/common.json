@@ -193,7 +193,7 @@
     },
     "layout": {
       "greetingText": {
-        "Greeting": "Seja bem vinde, {{nome}}"
+        "Greeting": "Seja bem vinde, {{name}}"
       }
     }
   }
