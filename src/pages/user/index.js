@@ -9,14 +9,11 @@ import { client } from '../../service'
 import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
 import { Status } from '../../components/status'
-import { useNavigate } from 'react-router'
 import { CreateLink } from './components/link-modal'
-import PrimaryButton from '../../components/buttons/primary'
 import { SortTable } from '../../components/sort-table'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
-  const navigate = useNavigate()
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
 
@@ -60,7 +57,6 @@ export const MentorPage = () => {
               title='mentorRegistration.title'
               text='mentorRegistration.text'
               icon={faPlus} />
-            <PrimaryButton text={t('user.backButton')} onClick={() => navigate('/home')} />
           </div>
         </section>
       </Page>
