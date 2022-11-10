@@ -3,13 +3,11 @@ import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons'
 import { HomePageContainer, HomeContainer } from './styled'
 import { Hyperlink } from '../../components/hyperlink'
 import { isAdmin } from '../../utils/isAdmin'
-import { Logo } from '../../components/logo/logo'
 export const HomePage = () => {
   const { t } = useTranslation()
   return (
     <HomePageContainer>
       <div className='header'>
-        <Logo />
         <h1>{t('home.title')}</h1>
         <HomeContainer>
           <Hyperlink link="/hiring-process" label={t('hiringProcess.title')} icon={faChevronCircleRight} />

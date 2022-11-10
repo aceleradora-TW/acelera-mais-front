@@ -1,0 +1,21 @@
+.logoDiv{
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+}
+.logoButton{
+  display: flex;
+  height: 75%;
+  width: 25%;
+background-color: white;
+}
+
+.logoButton:hover{
+  cursor: pointer;
+}
+
+.logo{
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
