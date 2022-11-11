@@ -68,12 +68,11 @@ export const MentorPage = () => {
             <tr>
               <th>
                 < SortTable
-                  setItems={setOrderBy}
-                  setOrient={setOrientation}
+                  onClick={() => setOrderBy('name')}
+                  setOrientation={setOrientation}
                   iconUp={faSortAlphaUp}
                   iconDown={faSortAlphaDown}
                   label={t('user.descriptionTable.name')}
-                  field='name'
                 />
               </th>
               <th>{t('user.descriptionTable.status')}</th>

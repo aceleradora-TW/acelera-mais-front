@@ -4,7 +4,7 @@ import Icon from '../icon'
 import { faSortNumericDown, faSortNumericUp } from '@fortawesome/free-solid-svg-icons'
 export const SortTable = ({
   label,
-  setItems,
+  onClick,
   setOrientation,
   iconUp = faSortNumericUp,
   iconDown = faSortNumericDown
@@ -19,7 +19,8 @@ export const SortTable = ({
 
   const sortBy = () => {
     updateIcon()
-    setOrientation('DESC')
+    onClick()
+    checked ? setOrientation('ASC') : setOrientation('DESC')
     setChecked(!checked)
   }
 
