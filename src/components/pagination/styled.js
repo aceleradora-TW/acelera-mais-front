@@ -5,10 +5,17 @@ display: flex;
 list-style: none;
 width: 50%;
 li{
+  display: flex;
+  align-items: center;
+  justify-content:center;
   padding: 10px;
   margin: 5px;
 }
-
+.icon{
+  display:flex;
+  justify-content: space-between;
+  margin: 5px 5px;
+}
 a {
   text-decoration: none;
   color: black;

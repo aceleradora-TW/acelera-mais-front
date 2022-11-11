@@ -8,6 +8,6 @@ const Template = args => <Pagination {...args} />
 
 export const FormIcon = Template.bind({})
 FormIcon.args = {
-  limitePorPagina: 10,
+  totalUser: 10,
   dados: 45
 }
