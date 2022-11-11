@@ -16,9 +16,11 @@ export const MentorPage = () => {
   const { t } = useTranslation()
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
+  const [orderBy, setOrderBy] = useState('name')
+  const [orientation, setOrientation] = useState('ASC')
 
   useEffect(() => {
-    client.get('/user')
+    client.get(`/user?orderBy=${orderBy}&orientation=${orientation}`)
       .then(res => {
         res.data.data.length > 0
           ? setMentors(res.data.data)
@@ -28,7 +30,7 @@ export const MentorPage = () => {
         console.log(err)
         setMessage(t('user.message.500'))
       })
-  }, [])
+  }, [orderBy, orientation])
 
   const isEnabled = flag => flag === 'user-enabled'
 
@@ -65,23 +67,23 @@ export const MentorPage = () => {
           <thead>
             <tr>
               <th>
-                <SortTable
-                  sort={(a, b) => a.name.toUpperCase().localeCompare(b.name.toUpperCase())}
-                  items={mentors}
-                  setItems={setMentors}
+                < SortTable
+                  setItems={setOrderBy}
+                  setOrient={setOrientation}
                   iconUp={faSortAlphaUp}
                   iconDown={faSortAlphaDown}
                   label={t('user.descriptionTable.name')}
+                  field='name'
                 />
               </th>
               <th>{t('user.descriptionTable.status')}</th>
               <th>
-                <SortTable
+                {/* <SortTable
                   sort={(a, b) => new Date(a.createdAt) - new Date(b.createdAt)}
                   items={mentors}
                   setItems={setMentors}
-                  label={t('user.descriptionTable.registrationDate')}
-                />
+                  label={t('user.descriptionTable.registrationDate')} }
+                /> */}
               </th>
               <th>{t('user.descriptionTable.registrationInformation')}</th>
               <th>{t('user.descriptionTable.shares')}</th>
