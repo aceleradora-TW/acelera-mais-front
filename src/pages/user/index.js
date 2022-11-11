@@ -77,12 +77,11 @@ export const MentorPage = () => {
               </th>
               <th>{t('user.descriptionTable.status')}</th>
               <th>
-                {/* <SortTable
-                  sort={(a, b) => new Date(a.createdAt) - new Date(b.createdAt)}
-                  items={mentors}
-                  setItems={setMentors}
-                  label={t('user.descriptionTable.registrationDate')} }
-                /> */}
+                <SortTable
+                  onClick={() => setOrderBy('createdAt')}
+                  setOrientation={setOrientation}
+                  label={t('user.descriptionTable.registrationDate')}
+                />
               </th>
               <th>{t('user.descriptionTable.registrationInformation')}</th>
               <th>{t('user.descriptionTable.shares')}</th>
