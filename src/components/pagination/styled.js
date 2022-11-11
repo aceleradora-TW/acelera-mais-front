@@ -2,8 +2,10 @@ import styled from 'styled-components'
 
 export const List = styled.ul`
 display: flex; 
+justify-content: center;
+align-items: center;
 list-style: none;
-width: 50%;
+margin-top: 30px;
 li{
   display: flex;
   align-items: center;

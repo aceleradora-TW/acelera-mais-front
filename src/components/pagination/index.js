@@ -2,7 +2,7 @@ import { List } from './styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-export const Pagination = (totalUser) => {
+export const Pagination = (totalUser = 20) => {
   const calculatePages = Math.ceil(totalUser / 20)
   const indices = Array.from({ length: calculatePages })
   console.log(indices)

@@ -11,6 +11,7 @@ import { ToggleButton } from '../../components/toggle'
 import { Status } from '../../components/status'
 import { CreateLink } from './components/link-modal'
 import humanizeDuration from 'humanize-duration'
+import { Pagination } from '../../components/pagination'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -144,6 +145,7 @@ export const MentorPage = () => {
             }
           </tbody>
         </Table>
+        <Pagination />
         <Message>
           {message}
         </Message>
