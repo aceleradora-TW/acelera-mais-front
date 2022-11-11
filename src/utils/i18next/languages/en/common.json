@@ -200,6 +200,10 @@
       "greetingText": {
         "Greeting": "Welcome, {{name}}"
       }
+    },
+    "pagination":{
+      "prev" : "Prev",
+      "next" : "Next"
     }
   }
 }

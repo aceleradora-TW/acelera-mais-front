@@ -199,6 +199,10 @@
       "greetingText": {
         "Greeting": "Seja bem vinde, {{name}}"
       }
+    },
+    "pagination":{
+      "prev" : "Anterior",
+      "next" : "Próx"
     }
   }
 }
