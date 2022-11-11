@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import { client, setTokenInHeaders } from '../../../../service'
 import { Register, UseMessageRegisterError } from '../../components/mentor-register/mentorRegister'
+import { Modal } from './styled'
 
 export const MentorRegisterPage = () => {
   const { token } = useParams()
-  const [verified, setVerified] = useState(false)
+  const [verified, setVerified] = useState(null)
 
   useEffect(() => {
     localStorage.removeItem('token')
@@ -21,8 +22,8 @@ export const MentorRegisterPage = () => {
   }, [])
 
   return (
-    <>
-      {verified ? <Register /> : <UseMessageRegisterError />}
-    </>
+    <Modal>
+      {verified ? <Register /> : <UseMessageRegisterError verify={verified}/>}
+    </Modal>
   )
 }

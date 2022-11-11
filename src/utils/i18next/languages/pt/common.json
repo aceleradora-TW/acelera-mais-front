@@ -135,7 +135,9 @@
       "text": "Nova mentora",
       "administrator": "Administradora",
       "mentor": "Mentora",
-      "placeHolder": "Selecione o tipo de usuaria"
+      "placeHolder": "Selecione o tipo de usuária",
+      "messageRequired": "Todos os campos são obrigatórios",
+      "messageSuccess": "Cadastro realizado com sucesso!"
     },
     "user": {
       "title": "Lista de Mentoras Avaliadoras",

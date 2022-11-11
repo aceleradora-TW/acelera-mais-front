@@ -50,7 +50,7 @@ export const Warning = styled.div`
 display:flex;
 flex-direction: column;
 align-content: center;
-margin:20% 15% 0 15%;
+margin:0 15% 0 15%;
 border: solid 2px;
 border-color: red;
 padding-top: 5px;
