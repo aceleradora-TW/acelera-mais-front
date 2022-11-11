@@ -10,7 +10,6 @@ import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
 import { Status } from '../../components/status'
 import { CreateLink } from './components/link-modal'
-import { useNavigate } from 'react-router'
 import humanizeDuration from 'humanize-duration'
 
 export const MentorPage = () => {
