@@ -12,9 +12,8 @@ export const Pagination = ({ total = 50, limit = 20, page = 1 }) => {
     limit,
     page
   })
-  console.log(calculatePages)
 
-  const [actualPage, setActualPage] = useState(1)
+  const [actualPage, setActualPage] = useState(page)
   const [items, setItems] = useState([])
 
   useEffect(() => {
@@ -22,7 +21,7 @@ export const Pagination = ({ total = 50, limit = 20, page = 1 }) => {
   }, [actualPage])
 
   const updateItems = () => {
-    const newItems = Array.from({ calculatePages }).map((item, index) => ({
+    const newItems = Array.from({ length: calculatePages }).map((_, index) => ({
       active: (index + 1) === actualPage,
       numberPage: index + 1
     }))
@@ -32,7 +31,7 @@ export const Pagination = ({ total = 50, limit = 20, page = 1 }) => {
     return logic <= length && logic > 0 && setActualPage(logic)
   }
 
-  if (calculatePages <= 5) {
+  if (calculatePages) {
     return (
       <List>
         <a href=''><FontAwesomeIcon className='icon' icon={faChevronLeft} />{t('pagination.prev')}</a>
