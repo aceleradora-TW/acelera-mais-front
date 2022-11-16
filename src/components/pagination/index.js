@@ -2,34 +2,57 @@ import { List } from './styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { useTranslation } from 'react-i18next'
-// import { useNavigate } from 'react-router'
+import { useState, useEffect } from 'react'
 
-export const Pagination = ({total}) => {
-  const total = 50
+export const Pagination = ({ total = 50, limit = 20, page = 1 }) => {
   const { t } = useTranslation()
   const calculatePages = Math.ceil(total / limit)
-  const atual = offset ? (offset / limit) + 1 : 1
-  console.log(total)
+  console.log({
+    total,
+    limit,
+    page
+  })
   console.log(calculatePages)
+
+  const [actualPage, setActualPage] = useState(1)
+  const [items, setItems] = useState([])
+
+  useEffect(() => {
+    updateItems()
+  }, [actualPage])
+
+  const updateItems = () => {
+    const newItems = Array.from({ calculatePages }).map((item, index) => ({
+      active: (index + 1) === actualPage,
+      numberPage: index + 1
+    }))
+    setItems([...newItems])
+  }
+  const paginate = (logic) => {
+    return logic <= length && logic > 0 && setActualPage(logic)
+  }
 
   if (calculatePages <= 5) {
     return (
       <List>
         <a href=''><FontAwesomeIcon className='icon' icon={faChevronLeft} />{t('pagination.prev')}</a>
-        {Array.from({ length: calculatePages })
-          .map((_, index) => index + 1)
-          .map((page) => (
-            <a key={page} className={page === atual ? 'active' : null}>{page}</a>
+        {
+          items.map((item, index) => (
+            <a key={index} className={item.active && 'active'} onClick={
+              () => {
+                setActualPage(item.numberPage)
+                updateItems()
+              }}>{item.numberPage}</a>
           ))
         }
-        <a href=''>{t('pagination.next')}<FontAwesomeIcon className='icon' icon={faChevronRight} /></a>
+        <a href=''>{t('pagination.next')}<FontAwesomeIcon className='icon' onClick={() => paginate(actualPage + 1)} icon={faChevronRight} /></a>
       </List>
     )
   } else {
     return (
       <List>
         <a href=''><FontAwesomeIcon className='icon' icon={faChevronLeft} />{t('pagination.prev')}</a>
-        <a href=''>{t('pagination.next')}<FontAwesomeIcon className='icon' icon={faChevronRight} /></a>
+        <a href=''>{t('pagination.next')}<FontAwesomeIcon className='icon' onClick={() => paginate(actualPage - 1)} icon={faChevronRight} /></a>
       </List>
     )
   }
