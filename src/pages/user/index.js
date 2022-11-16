@@ -3,22 +3,25 @@ import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
 import { UserModal } from './components/user-modal'
 import { Container, Page, FlexSpaceBetween, Message } from './components/mentor-register/styled.js'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faSortAlphaDown, faSortAlphaUp } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
 import { client } from '../../service'
 import Button from '../../components/buttons/button'
 import { ToggleButton } from '../../components/toggle'
 import { Status } from '../../components/status'
 import { CreateLink } from './components/link-modal'
+import { SortTable } from '../../components/sort-table'
 import humanizeDuration from 'humanize-duration'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
+  const [orderBy, setOrderBy] = useState('name')
+  const [orientation, setOrientation] = useState('ASC')
 
   useEffect(() => {
-    client.get('/user')
+    client.get(`/user?orderBy=${orderBy}&orientation=${orientation}`)
       .then(res => {
         res.data.data.length > 0
           ? setMentors(res.data.data)
@@ -28,7 +31,7 @@ export const MentorPage = () => {
         console.log(err)
         setMessage(t('user.message.500'))
       })
-  }, [])
+  }, [orderBy, orientation])
 
   const isEnabled = flag => flag === 'user-enabled'
 
@@ -72,9 +75,23 @@ export const MentorPage = () => {
         <Table>
           <thead>
             <tr>
-              <th>{t('user.descriptionTable.name')}</th>
+              <th>
+                < SortTable
+                  onClick={() => setOrderBy('name')}
+                  setOrientation={setOrientation}
+                  iconUp={faSortAlphaUp}
+                  iconDown={faSortAlphaDown}
+                  label={t('user.descriptionTable.name')}
+                />
+              </th>
               <th>{t('user.descriptionTable.status')}</th>
-              <th>{t('user.descriptionTable.registrationDate')}</th>
+              <th>
+                <SortTable
+                  onClick={() => setOrderBy('createdAt')}
+                  setOrientation={setOrientation}
+                  label={t('user.descriptionTable.registrationDate')}
+                />
+              </th>
               <th>{t('user.descriptionTable.registrationInformation')}</th>
               <th>{t('user.descriptionTable.shares')}</th>
             </tr>
