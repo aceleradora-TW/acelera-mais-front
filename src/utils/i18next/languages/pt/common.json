@@ -202,7 +202,7 @@
     },
     "pagination":{
       "prev" : "Anterior",
-      "next" : "Próx"
+      "next" : "Próximo"
     }
   }
 }

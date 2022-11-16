@@ -24,9 +24,5 @@ a{
   background-color: rgb(68, 68, 255);
   color: white;
   border-radius: 5px;
-
-  a {
-    color: white;
-  }
 }
 `
