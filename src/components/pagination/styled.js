@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
-export const List = styled.ul`
+export const List = styled.section`
 display: flex; 
 justify-content: center;
 align-items: center;
-list-style: none;
 margin-top: 30px;
-li{
+a{
+  text-decoration: none;
+  color: black;
   display: flex;
   align-items: center;
   justify-content:center;
@@ -17,10 +18,6 @@ li{
   display:flex;
   justify-content: space-between;
   margin: 5px 5px;
-}
-a {
-  text-decoration: none;
-  color: black;
 }
 
 .active{

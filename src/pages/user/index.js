@@ -145,10 +145,10 @@ export const MentorPage = () => {
             }
           </tbody>
         </Table>
-        <Pagination />
         <Message>
           {message}
         </Message>
+        <Pagination />
       </Container>
     </>
   )
