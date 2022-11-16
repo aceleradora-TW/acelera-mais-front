@@ -1,17 +1,23 @@
-import { useNavigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import { LogoButton, LogoDiv, Logo } from './styled'
 
-export const FunctionLogo = () => {
+export const LogoComponent = () => {
   const navigate = useNavigate()
   const handleClick = () => {
     navigate('/home')
   }
+  const isVisibleForPath = () => {
+    const { pathname } = useLocation()
+    const notVisiblePaths = ['home', 'user/change-password']
+    return notVisiblePaths.some(notVisiblePath => pathname.includes(notVisiblePath))
+  }
   return (
-    <LogoDiv>
+    !isVisibleForPath() &&
+    < LogoDiv >
       <LogoButton onClick={handleClick}>
-        <Logo />
+        <Logo src='/acelera-logo.png' />
       </LogoButton>
-    </LogoDiv>
+    </LogoDiv >
 
   )
 }

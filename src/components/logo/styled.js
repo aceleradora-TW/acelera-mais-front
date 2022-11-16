@@ -1,5 +1,4 @@
 import style from 'styled-components'
-import AceleraLogo from './aceleraLogo.png'
 
 export const LogoDiv = style.div`
   display: flex;
@@ -8,18 +7,18 @@ export const LogoDiv = style.div`
   height: 100%;
 `
 export const LogoButton = style.button`
-  display: flex;
-  height: 75%;
-  width: 25%;
+  height: 75px;
+  width: 135px;
   background-color: white;
   &hover{
   cursor: pointer;
   }
+  &:hover{
+    cursor: pointer;
+  }
   `
 
-export const Logo = style.div`
-  height: 100 %;
-  width: 100 %;
-  background-image: url(${AceleraLogo});
+export const Logo = style.img`
+  height: 60px;
   background-color: white;
   `
