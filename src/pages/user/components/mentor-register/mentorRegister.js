@@ -1,11 +1,11 @@
 import { t } from 'i18next'
 import PrimaryButton from '../../../../components/buttons/primary'
 import { Card } from '../../../../components/card'
-import { InputEmail, MessageError } from '../../../../components/inputs/email'
+import { InputEmail } from '../../../../components/inputs/email'
 import { InputTelephone } from '../../../../components/inputs/telephone'
 import { InputText } from '../../../../components/inputs/text'
 import { InputPassword } from '../../../../components/inputs/password'
-import { Loading, Warning } from './styled'
+import { Loading, Warning, MessageErrorPassword } from './styled'
 import { useState } from 'react'
 import { client } from '../../../../service'
 import { useParams, useNavigate } from 'react-router-dom'
@@ -83,12 +83,17 @@ export const Register = () => {
     const { name, value } = element.target
     setMentor({ ...mentor, [name]: value })
 
-    if (name === 'repeatPassword') {
-      setVerified(handleChangePassword(value))
+    if (name === 'repeatPassword' || name === 'password') {
+      setVerified(handleChangePassword(value, name))
     }
   }
 
-  const handleChangePassword = (repeatPassword) => mentor.password === repeatPassword
+  const handleChangePassword = (value, name) => {
+    if (name === 'password') {
+      return mentor.repeatPassword === value
+    }
+    return mentor.password === value
+  }
 
   return (
     <>
@@ -99,7 +104,7 @@ export const Register = () => {
         <InputEmail name='email' label={t('mentorRegistration.email')} onChange={handleChange} />
         <InputPassword name='password' label={t('mentorRegistration.password')} onChange={handleChange} />
         <InputPassword name='repeatPassword' label={t('mentorRegistration.repeatPassword')} onChange={handleChange} />
-        { verified ? <></> : <MessageError>{t('inputPassword.message.invalidPassword')}</MessageError>}
+        {verified ? <></> : <MessageErrorPassword>{t('inputPassword.message.invalidPassword')}</MessageErrorPassword>}
         <PrimaryButton text={t('mentorRegistration.registerButton')} onClick={handlerClick} />
       </Card>
     </>

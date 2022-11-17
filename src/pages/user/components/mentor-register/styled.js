@@ -62,3 +62,9 @@ color: rgb(139,0,0)
 export const Loading = styled.div`
   text-align: center;
 `
+export const MessageErrorPassword = styled.div`
+font-size: 16px;
+color: #ff3d00;
+font-weight: bold;
+margin-bottom: 10px;
+`

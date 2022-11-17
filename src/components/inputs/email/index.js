@@ -5,11 +5,9 @@ import validator from 'validator'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
-export const MessageError = styled.span`
+const MessageError = styled.span`
   font-size: 16px;
   color: #ff3d00;
-  font-weight: bold;
-  display: block;
   
 `
 export const InputEmail = ({ label, name, onChange }) => {
