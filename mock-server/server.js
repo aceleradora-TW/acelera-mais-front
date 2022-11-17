@@ -42,7 +42,7 @@ app.post('/challenge/hiring_process/:id', (req, res) => res.status(200))
 app.post('/user', (req, res) => res.status(200))
 app.get('/user', (req, res) => {
   const { page } = req.query || 1
-  const userResponse = page > 1 ? userPage2Response : userPage1Response
+  const userResponse = Number(page) > 1 ? userPage2Response : userPage1Response
   res.json(userResponse)
 })
 app.put('/user/:id', (req, res) => res.status(200))
