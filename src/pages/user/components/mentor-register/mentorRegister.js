@@ -5,12 +5,12 @@ import { InputEmail } from '../../../../components/inputs/email'
 import { InputTelephone } from '../../../../components/inputs/telephone'
 import { InputText } from '../../../../components/inputs/text'
 import { InputPassword } from '../../../../components/inputs/password'
-import { Warning } from './styled'
+import { Loading, Warning } from './styled'
 import { useState } from 'react'
 import { client } from '../../../../service'
 import { useParams, useNavigate } from 'react-router-dom'
 
-export const UseMessageRegisterError = async (value) => {
+export const UseMessageRegisterError = (value) => {
   const { verify } = value
   return (
     <>
@@ -30,10 +30,10 @@ const messageError = () => {
 
 const loading = () => {
   return (
-    <>
-    <h1>Carregando...</h1>
-    <progress></progress>
-    </>
+    <Loading>
+      <h1>Carregando...</h1>
+      <progress></progress>
+    </Loading>
   )
 }
 
@@ -81,6 +81,10 @@ export const Register = () => {
   const handleChange = (element) => {
     const { name, value } = element.target
     setMentor({ ...mentor, [name]: value })
+
+    if (name === 'password' || name === 'repeatPassword') {
+      console.log(value)
+    }
   }
 
   return (

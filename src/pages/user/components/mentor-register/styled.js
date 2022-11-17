@@ -59,3 +59,6 @@ background-color: rgb(250, 128, 114);
 text-align: center;
 color: rgb(139,0,0)
 `
+export const Loading = styled.div`
+  text-align: center;
+`
