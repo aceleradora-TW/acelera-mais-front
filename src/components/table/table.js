@@ -6,7 +6,6 @@ export const Table = styled.table`
   border: 1px solid #ababab;
   border-spacing: 0;
   border-radius: 3px;
-
   th, td {
     padding: 10px;
     text-align: center;
