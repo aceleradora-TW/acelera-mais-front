@@ -36,7 +36,7 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
           console.log(res.data)
           callback(res.data)
         })
-      : alert('Data inválida')
+      : alert(t('hiringProcess.form.warning.dateWarning'))
   }
 
   return (

@@ -19,7 +19,10 @@
         "startDate": "Data de início",
         "endDate": "Data de término",
         "description": "Descrição",
-        "submitButton": "Enviar"
+        "submitButton": "Enviar",
+        "warning": {
+          "dateWarning":"Data Inválida"
+        }
       },
       "filter": {
         "all": "Todos",
