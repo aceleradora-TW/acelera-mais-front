@@ -1,7 +1,7 @@
 import { t } from 'i18next'
 import PrimaryButton from '../../../../components/buttons/primary'
 import { Card } from '../../../../components/card'
-import { InputEmail } from '../../../../components/inputs/email'
+import { InputEmail, MessageError } from '../../../../components/inputs/email'
 import { InputTelephone } from '../../../../components/inputs/telephone'
 import { InputText } from '../../../../components/inputs/text'
 import { InputPassword } from '../../../../components/inputs/password'
@@ -40,6 +40,7 @@ const loading = () => {
 export const Register = () => {
   const navigate = useNavigate()
   const params = useParams()
+  const [verified, setVerified] = useState(true)
 
   const [mentor, setMentor] = useState({
     name: '',
@@ -82,10 +83,12 @@ export const Register = () => {
     const { name, value } = element.target
     setMentor({ ...mentor, [name]: value })
 
-    if (name === 'password' || name === 'repeatPassword') {
-      console.log(value)
+    if (name === 'repeatPassword') {
+      setVerified(handleChangePassword(value))
     }
   }
+
+  const handleChangePassword = (repeatPassword) => mentor.password === repeatPassword
 
   return (
     <>
@@ -96,8 +99,8 @@ export const Register = () => {
         <InputEmail name='email' label={t('mentorRegistration.email')} onChange={handleChange} />
         <InputPassword name='password' label={t('mentorRegistration.password')} onChange={handleChange} />
         <InputPassword name='repeatPassword' label={t('mentorRegistration.repeatPassword')} onChange={handleChange} />
+        { verified ? <></> : <MessageError>{t('inputPassword.message.invalidPassword')}</MessageError>}
         <PrimaryButton text={t('mentorRegistration.registerButton')} onClick={handlerClick} />
-        <PrimaryButton text={'teste'} onClick={isRequired} />
       </Card>
     </>
   )

@@ -68,6 +68,11 @@
         "invalidEmail": "Email inválido!"
       }
     },
+    "inputPassword": {
+      "message": {
+        "invalidPassword": "Senhas devem ser iguais"
+      }
+    },
     "challenge": {
       "title": "Desafios",
       "select": {

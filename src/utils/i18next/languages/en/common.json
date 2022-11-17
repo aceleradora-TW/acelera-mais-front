@@ -69,6 +69,11 @@
       },
       "exemple": "exemple@email.com"
     },
+    "inputPassword": {
+      "message": {
+        "invalidPassword": "Passwords must be the same"
+      }
+    },
     "challenge": {
       "title": "Challenges",
       "select": {
