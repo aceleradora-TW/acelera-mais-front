@@ -5,14 +5,16 @@ display: flex;
 justify-content: center;
 align-items: center;
 margin-top: 30px;
-a{
+li{
   text-decoration: none;
+  list-style:none;
   color: black;
   display: flex;
   align-items: center;
   justify-content:center;
   padding: 10px;
   margin: 5px;
+  cursor: pointer;
 }
 .icon{
   display:flex;
