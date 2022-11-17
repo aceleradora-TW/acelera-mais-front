@@ -26,16 +26,17 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
   const sendHiringProcess = () => {
     const data = hiringProcess
 
-    client(`/hiring_process/${id}`,
-
-      {
-        method,
-        data
-      })
-      .then(res => {
-        console.log(res.data)
-        callback(res.data)
-      })
+    data.startDate < data.endDate
+      ? client(`/hiring_process/${id}`,
+        {
+          method,
+          data
+        })
+        .then(res => {
+          console.log(res.data)
+          callback(res.data)
+        })
+      : alert('Data inválida')
   }
 
   return (
