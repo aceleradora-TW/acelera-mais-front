@@ -3,7 +3,6 @@ import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons'
 import { HomePageContainer, HomeContainer } from './styled'
 import { Hyperlink } from '../../components/hyperlink'
 import { isAdmin } from '../../utils/isAdmin'
-
 export const HomePage = () => {
   const { t } = useTranslation()
   return (
