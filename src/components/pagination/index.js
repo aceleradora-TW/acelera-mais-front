@@ -6,6 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { useTranslation } from 'react-i18next'
 import { useState, useEffect } from 'react'
+import { ItemsPage } from './items-page'
 
 export const Pagination = ({
   total = 0,
@@ -49,10 +50,6 @@ export const Pagination = ({
     updateItems()
   }, [actualPage, total])
 
-  const handlerClick = (page) => {
-    onClick(page)
-  }
-
   const updateItems = () => {
     setItems([...createItems()])
   }
@@ -65,18 +62,14 @@ export const Pagination = ({
             <FontAwesomeIcon className="icon" icon={faChevronLeft} />
             {t('pagination.prev')}
           </li>
-          {items.map((item, index) => (
-            <li
-              key={index}
-              className={item.active ? 'active' : null}
-              onClick={() => {
-                handlerClick(item.numberPage)
-                setActualPage(item.numberPage)
-              }}
-            >
-              {item.numberPage}
-            </li>
-          ))}
+          <ItemsPage
+            items={items}
+            page={page}
+            onClick={(x) => {
+              changeActualPage(x)
+            }
+            }
+          />
           <li onClick={() => changeActualPage(actualPage + 1)}>
             {t('pagination.next')}
             <FontAwesomeIcon className="icon" icon={faChevronRight} />
