@@ -40,7 +40,7 @@ const loading = () => {
 export const Register = () => {
   const navigate = useNavigate()
   const params = useParams()
-  const [verified, setVerified] = useState(true)
+  const [isValidPassword, setValidyPassword] = useState(false)
 
   const [mentor, setMentor] = useState({
     name: '',
@@ -84,15 +84,15 @@ export const Register = () => {
     setMentor({ ...mentor, [name]: value })
 
     if (name === 'repeatPassword' || name === 'password') {
-      setVerified(handleChangePassword(value, name))
+      setValidyPassword(handleChangePassword(value, name))
     }
   }
 
   const handleChangePassword = (value, name) => {
     if (name === 'password') {
-      return mentor.repeatPassword === value
+      return mentor.repeatPassword !== value
     }
-    return mentor.password === value
+    return mentor.password !== value
   }
 
   return (
@@ -104,7 +104,7 @@ export const Register = () => {
         <InputEmail name='email' label={t('mentorRegistration.email')} onChange={handleChange} />
         <InputPassword name='password' label={t('mentorRegistration.password')} onChange={handleChange} />
         <InputPassword name='repeatPassword' label={t('mentorRegistration.repeatPassword')} onChange={handleChange} />
-        {verified ? <></> : <MessageErrorPassword>{t('inputPassword.message.invalidPassword')}</MessageErrorPassword>}
+        {isValidPassword && <MessageErrorPassword>{t('inputPassword.message.invalidPassword')}</MessageErrorPassword>}
         <PrimaryButton text={t('mentorRegistration.registerButton')} onClick={handlerClick} />
       </Card>
     </>
