@@ -12,7 +12,6 @@ import { Status } from '../../components/status'
 import { CreateLink } from './components/link-modal'
 import { SortTable } from '../../components/sort-table'
 import humanizeDuration from 'humanize-duration'
-import { Pagination } from '../../components/pagination'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -165,7 +164,6 @@ export const MentorPage = () => {
         <Message>
           {message}
         </Message>
-        <Pagination />
       </Container>
     </>
   )
