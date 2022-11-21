@@ -27,14 +27,13 @@ export const Pagination = ({
   const isActive = (indexPage) => getNumberPage(indexPage) === actualPage
 
   const createItems = () => {
-    Array.from({ length: getTotalPages() })
-      .map((_, indexPage) => (
-        {
-          active: isActive(indexPage),
-          numberPage: getNumberPage(indexPage)
-        }
-      ))
-    return [
+    const numerics = Array.from({ length: getTotalPages() }).map((_, indexPage) => (
+      {
+        active: isActive(indexPage),
+        numberPage: getNumberPage(indexPage)
+      }
+    ))
+    const compontinhos = [
       {
         active: true,
         numberPage: 1
@@ -72,8 +71,8 @@ export const Pagination = ({
         numberPage: 60
       }
     ]
+    return getTotalPages() <= 3 ? numerics : compontinhos
   }
-
   const hasLimitOfPages = (page) => page > 0 && page <= getTotalPages()
 
   const changeActualPage = (page) => {
@@ -83,12 +82,6 @@ export const Pagination = ({
       updateItems()
     }
   }
-  // const verifica = () => {
-  //   if (items.length > 60) {
-  //     return `... ${setItems(items.pop())}`
-  // console.log('aqui esta o item')
-  // }
-  // }
   useEffect(() => {
     updateItems()
   }, [actualPage, total])
