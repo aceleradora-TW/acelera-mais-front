@@ -1,4 +1,4 @@
-export const ItemsPage = ({ onClick, items = [] }) => {
+export const ItemsPage = ({ onClick, items = [], verifica }) => {
   const handlerClick = (page) => {
     onClick(page)
   }

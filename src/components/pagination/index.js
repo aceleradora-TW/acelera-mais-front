@@ -45,7 +45,12 @@ export const Pagination = ({
       updateItems()
     }
   }
-
+  const verifica = () => {
+    if (items.length > 60) {
+      // return `... ${setItems(items.pop())}`
+      console.log('aqui esta o item')
+    }
+  }
   useEffect(() => {
     updateItems()
   }, [actualPage, total])
@@ -67,6 +72,7 @@ export const Pagination = ({
           <ItemsPage
             items={items}
             page={page}
+            verifica = {verifica()}
             onClick={(x) => { changeActualPage(x) }}
           />
           <PrevNext
