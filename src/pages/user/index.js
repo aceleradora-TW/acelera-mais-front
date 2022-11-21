@@ -125,6 +125,7 @@ export const MentorPage = () => {
                     <FlexSpaceBetween>
                       <p>{mentor.email}</p>
                       <p>{mentor.telephone}</p>
+                      <p>{mentor.type}</p>
                     </FlexSpaceBetween>
                   </td>
                   <td>
