@@ -2,6 +2,7 @@ export const ItemsPage = ({ onClick, items = [], verifica }) => {
   const handlerClick = (page) => {
     onClick(page)
   }
+  console.log(items)
   return (
     <>
       {

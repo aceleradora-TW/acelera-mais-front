@@ -18,22 +18,60 @@ export const Pagination = ({
   const [actualPage, setActualPage] = useState(Number(page))
   const [items, setItems] = useState([])
 
-  const hasPages = () => total > 1
-
   const getTotalPages = () => Math.ceil(total / limit)
+
+  const hasPages = () => getTotalPages() > 1
 
   const getNumberPage = (indexPage) => indexPage + 1
 
   const isActive = (indexPage) => getNumberPage(indexPage) === actualPage
 
   const createItems = () => {
-    return Array.from({ length: getTotalPages() })
+    Array.from({ length: getTotalPages() })
       .map((_, indexPage) => (
         {
           active: isActive(indexPage),
           numberPage: getNumberPage(indexPage)
         }
       ))
+    return [
+      {
+        active: true,
+        numberPage: 1
+      },
+      {
+        active: false,
+        numberPage: 2
+      },
+      {
+        active: false,
+        numberPage: '...'
+      },
+      {
+        active: false,
+        numberPage: 4
+      },
+      {
+        active: false,
+        numberPage: 5
+      },
+      {
+        active: false,
+        numberPage: 6
+      },
+      {
+        active: false,
+        numberPage: '...'
+      },
+      {
+        active: false,
+        numberPage: 59
+      },
+      {
+        active: false,
+        numberPage: 60
+      }
+    ]
   }
 
   const hasLimitOfPages = (page) => page > 0 && page <= getTotalPages()
@@ -45,12 +83,12 @@ export const Pagination = ({
       updateItems()
     }
   }
-  const verifica = () => {
-    if (items.length > 60) {
-      // return `... ${setItems(items.pop())}`
-      console.log('aqui esta o item')
-    }
-  }
+  // const verifica = () => {
+  //   if (items.length > 60) {
+  //     return `... ${setItems(items.pop())}`
+  // console.log('aqui esta o item')
+  // }
+  // }
   useEffect(() => {
     updateItems()
   }, [actualPage, total])
@@ -72,7 +110,6 @@ export const Pagination = ({
           <ItemsPage
             items={items}
             page={page}
-            verifica = {verifica()}
             onClick={(x) => { changeActualPage(x) }}
           />
           <PrevNext
