@@ -20,8 +20,8 @@
         "endDate": "Data de término",
         "description": "Descrição",
         "submitButton": "Enviar",
-        "warning": {
-          "dateWarning":"Data Inválida"
+        "error": {
+          "message":"Um erro ocorreu"
         }
       },
       "filter": {
