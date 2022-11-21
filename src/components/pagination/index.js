@@ -1,5 +1,4 @@
 import { List } from './styled'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faChevronLeft,
   faChevronRight
@@ -7,6 +6,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import { useState, useEffect } from 'react'
 import { ItemsPage } from './items-page'
+import { PrevNext } from './prev-next'
 
 export const Pagination = ({
   total = 0,
@@ -58,22 +58,22 @@ export const Pagination = ({
     <>
       {hasPages() && (
         <List>
-          <li onClick={() => changeActualPage(actualPage - 1)}>
-            <FontAwesomeIcon className="icon" icon={faChevronLeft} />
-            {t('pagination.prev')}
-          </li>
+          <PrevNext
+            icon={faChevronLeft}
+            label={t('pagination.prev')}
+            onClick={() => changeActualPage(actualPage - 1)}
+            order={true}
+          />
           <ItemsPage
             items={items}
             page={page}
-            onClick={(x) => {
-              changeActualPage(x)
-            }
-            }
+            onClick={(x) => { changeActualPage(x) }}
           />
-          <li onClick={() => changeActualPage(actualPage + 1)}>
-            {t('pagination.next')}
-            <FontAwesomeIcon className="icon" icon={faChevronRight} />
-          </li>
+          <PrevNext
+            icon={faChevronRight}
+            label={t('pagination.next')}
+            onClick={() => changeActualPage(actualPage + 1)}
+          />
         </List>
       )}
     </>
