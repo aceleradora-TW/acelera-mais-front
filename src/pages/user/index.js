@@ -23,8 +23,8 @@ export const MentorPage = () => {
   useEffect(() => {
     client.get(`/user?orderBy=${orderBy}&orientation=${orientation}`)
       .then(res => {
-        res.data.data.length > 0
-          ? setMentors(res.data.data)
+        res.data.data.users.length > 0
+          ? setMentors(res.data.data.users)
           : setMessage(t('user.message.404'))
       })
       .catch(err => {
