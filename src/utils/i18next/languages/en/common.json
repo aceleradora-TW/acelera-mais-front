@@ -149,6 +149,10 @@
         "registrationInformation": "Regristion Information",
         "shares": "Shares"
       },
+      "types": {
+        "admin": "Administrator",
+        "mentor": "Mentor"
+      },
       "toggle": {
         "on": "Enabled",
         "off": "Disabled",

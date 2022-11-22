@@ -148,6 +148,10 @@
         "registrationInformation": "Informações de cadastro",
         "shares": "Ações"
       },
+      "types": {
+        "admin": "Administradora",
+        "mentor": "Mentora"
+      },
       "toggle": {
         "on": "Habilitar",
         "off": "Desabilitar",

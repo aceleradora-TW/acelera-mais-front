@@ -102,7 +102,7 @@ export const MentorPage = () => {
               mentors.map((mentor, key) =>
                 <tr key={key} >
                   <td>{mentor.name}</td>
-                  <td>{mentor.type}</td>
+                  <td>{t(`user.types.${mentor.type}`)}</td>
                   <td>
                     <Status
                       status={mentor.flag}
