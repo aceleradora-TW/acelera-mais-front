@@ -1,12 +1,12 @@
-import { Pagination } from '.'
+import { Paginator } from '.'
 export default {
   title: 'General Components/Pagination',
-  component: Pagination
+  component: Paginator
 }
 
-const Template = args => <Pagination {...args} />
+const Template = args => <Paginator {...args} />
 
-export const FormIcon = Template.bind({})
-FormIcon.args = {
+export const Pagination = Template.bind({})
+Pagination.args = {
   total: 50
 }

@@ -1,85 +1,23 @@
-import { List } from './styled'
-import {
-  faChevronLeft,
-  faChevronRight
-} from '@fortawesome/free-solid-svg-icons'
-import { useTranslation } from 'react-i18next'
-import { useState, useEffect } from 'react'
-import { ItemsPage } from './items-page'
-import { PrevNext } from './prev-next'
+import { Pagination } from '@mui/material'
 
-export const Pagination = ({
+export const Paginator = ({
   total = 0,
   limit = 20,
   page = 1,
-  onClick = (x) => x
+  onChange = (x) => x
 }) => {
-  const { t } = useTranslation()
-  const [actualPage, setActualPage] = useState(Number(page))
-  const [items, setItems] = useState([])
-
   const getTotalPages = () => Math.ceil(total / limit)
-
-  const hasPages = () => getTotalPages() > 1
-
-  const getNumberPage = (indexPage) => indexPage + 1
-
-  const isActive = (indexPage) => getNumberPage(indexPage) === actualPage
-
-  const createItems = () => {
-    const numerics = Array.from({ length: getTotalPages() }).map((_, indexPage) => (
-      {
-        active: isActive(indexPage),
-        numberPage: getNumberPage(indexPage)
-      }
-    ))
-    const primary = numerics.slice(0, 5)
-    const last = numerics.slice(-2)
-    if (getTotalPages() <= 7) {
-      return numerics
-    }
-    return getTotalPages() >= 7 ? [...primary, ...last] : numerics
-  }// [1, 2, 3, 4, 5 ...50 51 52 ..., 80 81]
-  // [1, 2, ..., 5 , 6, 7]
-  const hasLimitOfPages = (page) => page > 0 && page <= getTotalPages()
-
-  const changeActualPage = (page) => {
-    if (hasLimitOfPages(page)) {
-      setActualPage(page)
-      onClick(page)
-      updateItems()
-    }
-  }
-  useEffect(() => {
-    updateItems()
-  }, [actualPage, total])
-
-  const updateItems = () => {
-    setItems([...createItems()])
-  }
 
   return (
     <>
-      {hasPages() && (
-        <List>
-          <PrevNext
-            icon={faChevronLeft}
-            label={t('pagination.prev')}
-            onClick={() => changeActualPage(actualPage - 1)}
-            order={true}
-          />
-          <ItemsPage
-            items={items}
-            page={page}
-            onClick={(x) => { changeActualPage(x) }}
-          />
-          <PrevNext
-            icon={faChevronRight}
-            label={t('pagination.next')}
-            onClick={() => changeActualPage(actualPage + 1)}
-          />
-        </List>
-      )}
+    { getTotalPages() > 1 &&
+      <Pagination
+        count={getTotalPages()}
+        shape='rounded'
+        onChange={onChange}
+        page={page}
+        />
+    }
     </>
   )
 }

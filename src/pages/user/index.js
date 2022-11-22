@@ -12,7 +12,7 @@ import { Status } from '../../components/status'
 import { CreateLink } from './components/link-modal'
 import { SortTable } from '../../components/sort-table'
 import humanizeDuration from 'humanize-duration'
-import { Pagination } from '../../components/pagination'
+import { Paginator } from '../../components/pagination'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -171,12 +171,12 @@ export const MentorPage = () => {
         <Message>
           {message}
         </Message>
-        <Pagination
+        <Paginator
           total={countUsers}
           page={page}
           limit={2}
-          onClick={
-            (page) => setPage(page)
+          onChange={
+            (event, page) => setPage(page)
           }
         />
       </Container>
