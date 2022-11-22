@@ -1,6 +1,7 @@
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import { useState } from 'react'
+// import { InputDate } from '../../../../components/inputs/date'
 import { InputText } from '../../../../components/inputs/text'
 import { client } from '../../../../service'
 import PrimaryButton from '../../../../components/buttons/primary'
