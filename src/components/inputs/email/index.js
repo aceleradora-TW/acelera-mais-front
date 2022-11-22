@@ -9,7 +9,7 @@ const MessageError = styled.span`
   font-size: 16px;
   color: #ff3d00
 `
-export const InputEmail = ({ label, name, onChange }) => {
+export const InputEmail = ({ value, label, name, onChange }) => {
   const [emailError, setEmailError] = useState('')
   const { t } = useTranslation()
   const change = (e) => {
@@ -21,7 +21,7 @@ export const InputEmail = ({ label, name, onChange }) => {
   return (
     <InputBox>
       <span>{label}</span>
-      <Input type="text" name={name} onChange={change} />
+      <Input value={value} type="text" name={name} onChange={change} />
       <MessageError>{emailError}</MessageError>
     </InputBox>
   )
