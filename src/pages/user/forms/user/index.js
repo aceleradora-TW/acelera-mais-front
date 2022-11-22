@@ -43,16 +43,17 @@ export const UserForm = ({ method = 'POST', id = '', callback = () => { } }) => 
 
   return (
     <form>
-      <InputText name='name' label={t('mentorRegistration.name')} onChange={handleChange} />
+      <InputText value={users.name} name='name' label={t('mentorRegistration.name')} onChange={handleChange} />
       <Select
+        value={users.type}
         name="type"
         onChange={handleChange}
         label={t('mentorRegistration.type')}
         placeholder={t('mentorRegistration.placeHolder')}
         options={options}
       />
-      <InputTelephone name='telephone' label={t('mentorRegistration.telephone')} onChange={handleChange} />
-      <InputEmail name='email' label={t('mentorRegistration.email')} onChange={handleChange} />
+      <InputTelephone value={users.telephone} name='telephone' label={t('mentorRegistration.telephone')} onChange={handleChange} />
+      <InputEmail value={users.email} name='email' label={t('mentorRegistration.email')} onChange={handleChange} />
 
       <PrimaryButton text={t('editMentor.save')} onClick={sendUsers} />
     </form>
