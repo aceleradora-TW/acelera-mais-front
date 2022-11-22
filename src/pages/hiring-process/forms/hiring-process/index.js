@@ -1,7 +1,6 @@
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import { useState } from 'react'
-// import { InputDate } from '../../../../components/inputs/date'
 import { InputText } from '../../../../components/inputs/text'
 import { client } from '../../../../service'
 import PrimaryButton from '../../../../components/buttons/primary'
@@ -17,19 +16,12 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
     key: 'selection'
   }])
 
-  const [hiringProcess, setHiringProcess] = useState(
-    sessionStorage.getItem('form')
-      ? JSON.parse(sessionStorage.getItem('form'))
-      : {
-          name: '',
-          startDate: '',
-          endDate: '',
-          description: ''
-        })
-
-  const setSessionStorage = () => {
-    sessionStorage.setItem('form', JSON.stringify(hiringProcess))
-  }
+  const [hiringProcess, setHiringProcess] = useState({
+    name: '',
+    startDate: '',
+    endDate: '',
+    description: ''
+  })
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -40,7 +32,6 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
   }
 
   const sendHiringProcess = () => {
-    sessionStorage.clear()
     client(`/hiring_process/${id}`,
       {
         method,
@@ -54,7 +45,7 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
 
   return (
     <form>
-      <InputText name="name" value={hiringProcess.name} label={t('hiringProcess.form.name')} onChange={handleChange} onBlur={setSessionStorage}/>
+      <InputText name="name" label={t('hiringProcess.form.name')} onChange={handleChange} />
       <DateRange
         name={'startDate'}
         ranges={datePicker}
@@ -70,9 +61,8 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
         }
         }
         moveRangeOnFirstSelection={false}
-        onBlur={setSessionStorage}
       />
-      <InputText name="description" value={hiringProcess.description} label={t('hiringProcess.form.description')} onChange={handleChange} onBlur={setSessionStorage}/>
+      <InputText name="description" label={t('hiringProcess.form.description')} onChange={handleChange} />
       <PrimaryButton text={t('hiringProcess.form.submitButton')} onClick={sendHiringProcess}>
         Enviar
       </PrimaryButton>
