@@ -143,6 +143,7 @@
       "backButton": "Back",
       "descriptionTable": {
         "name": "Name",
+        "type": "Type",
         "status": "Status",
         "registrationDate": "Regristraition date",
         "registrationInformation": "Regristion Information",

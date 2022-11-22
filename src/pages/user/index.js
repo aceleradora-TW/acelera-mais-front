@@ -84,6 +84,7 @@ export const MentorPage = () => {
                   label={t('user.descriptionTable.name')}
                 />
               </th>
+              <th>{t('user.descriptionTable.type')}</th>
               <th>{t('user.descriptionTable.status')}</th>
               <th>
                 <SortTable
@@ -101,6 +102,7 @@ export const MentorPage = () => {
               mentors.map((mentor, key) =>
                 <tr key={key} >
                   <td>{mentor.name}</td>
+                  <td>{mentor.type}</td>
                   <td>
                     <Status
                       status={mentor.flag}
@@ -125,7 +127,6 @@ export const MentorPage = () => {
                     <FlexSpaceBetween>
                       <p>{mentor.email}</p>
                       <p>{mentor.telephone}</p>
-                      <p>{mentor.type}</p>
                     </FlexSpaceBetween>
                   </td>
                   <td>

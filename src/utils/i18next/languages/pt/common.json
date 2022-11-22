@@ -142,6 +142,7 @@
       "backButton": "Voltar página inicial",
       "descriptionTable": {
         "name": "Nome",
+        "type": "Tipo",
         "status": "Status",
         "registrationDate": "Data de Cadastro",
         "registrationInformation": "Informações de cadastro",
