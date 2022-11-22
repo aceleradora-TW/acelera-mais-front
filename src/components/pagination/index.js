@@ -33,46 +33,14 @@ export const Pagination = ({
         numberPage: getNumberPage(indexPage)
       }
     ))
-    const compontinhos = [
-      {
-        active: true,
-        numberPage: 1
-      },
-      {
-        active: false,
-        numberPage: 2
-      },
-      {
-        active: false,
-        numberPage: '...'
-      },
-      {
-        active: false,
-        numberPage: 4
-      },
-      {
-        active: false,
-        numberPage: 5
-      },
-      {
-        active: false,
-        numberPage: 6
-      },
-      {
-        active: false,
-        numberPage: '...'
-      },
-      {
-        active: false,
-        numberPage: 59
-      },
-      {
-        active: false,
-        numberPage: 60
-      }
-    ]
-    return getTotalPages() <= 3 ? numerics : compontinhos
-  }
+    const primary = numerics.slice(0, 5)
+    const last = numerics.slice(-2)
+    if (getTotalPages() <= 7) {
+      return numerics
+    }
+    return getTotalPages() >= 7 ? [...primary, ...last] : numerics
+  }// [1, 2, 3, 4, 5 ...50 51 52 ..., 80 81]
+  // [1, 2, ..., 5 , 6, 7]
   const hasLimitOfPages = (page) => page > 0 && page <= getTotalPages()
 
   const changeActualPage = (page) => {
