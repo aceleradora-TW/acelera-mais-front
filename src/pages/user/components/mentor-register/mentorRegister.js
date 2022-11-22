@@ -14,11 +14,11 @@ export const UseMessageRegisterError = (value) => {
   const { verify } = value
   return (
     <>
-      {verify === null ? loading() : messageError()}
+      {verify ? MessageLoading() : MessageError()}
     </>
   )
 }
-const messageError = () => {
+const MessageError = () => {
   return (
     <Warning>
       <h1>{t('UseMessageRegisterError.Error')}</h1>
@@ -28,10 +28,10 @@ const messageError = () => {
   )
 }
 
-const loading = () => {
+const MessageLoading = () => {
   return (
     <Loading>
-      <h1>Carregando...</h1>
+      <h1>{t('mentorRegistration.messageLoading')}...</h1>
       <progress></progress>
     </Loading>
   )

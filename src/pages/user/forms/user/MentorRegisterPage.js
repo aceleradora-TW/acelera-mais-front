@@ -6,7 +6,8 @@ import { Modal } from './styled'
 
 export const MentorRegisterPage = () => {
   const { token } = useParams()
-  const [verified, setVerified] = useState(null)
+  const [verified, setVerified] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     localStorage.removeItem('token')
@@ -14,16 +15,18 @@ export const MentorRegisterPage = () => {
     client.get('/user/link_validation')
       .then(res => {
         setVerified(res.data.data.verified || false)
+        setIsLoading(res.data.data.verified || false)
       })
       .catch(err => {
         setVerified(false)
+        setIsLoading(false)
         console.log(err)
       })
   }, [])
 
   return (
     <Modal>
-      {verified ? <Register /> : <UseMessageRegisterError verify={verified}/>}
+      {verified ? <Register /> : <UseMessageRegisterError verify={isLoading}/>}
     </Modal>
   )
 }

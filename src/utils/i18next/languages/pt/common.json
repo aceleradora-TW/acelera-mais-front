@@ -142,7 +142,8 @@
       "mentor": "Mentora",
       "placeHolder": "Selecione o tipo de usuária",
       "messageRequired": "Todos os campos são obrigatórios",
-      "messageSuccess": "Cadastro realizado com sucesso!"
+      "messageSuccess": "Cadastro realizado com sucesso!",
+      "messageLoading": "Carregando"
     },
     "user": {
       "title": "Lista de Mentoras Avaliadoras",

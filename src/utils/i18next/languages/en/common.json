@@ -143,7 +143,8 @@
       "mentor": "Mentor",
       "placeHolder": "Select user type",
       "messageRequired": "All fields are mandatory",
-      "messageSuccess": "Registration successfully completed!"
+      "messageSuccess": "Registration successfully completed!",
+      "messageLoading": "Loading"
     },
     "user": {
       "title": "Mentor's List",
