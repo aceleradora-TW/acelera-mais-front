@@ -1,4 +1,6 @@
 import { t } from 'i18next'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBan } from '@fortawesome/free-solid-svg-icons'
 import PrimaryButton from '../../../../components/buttons/primary'
 import { Card } from '../../../../components/card'
 import { InputEmail } from '../../../../components/inputs/email'
@@ -13,7 +15,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 export const UseMessageRegisterError = () => {
   return (
     <Warning>
-      <h1>{t('UseMessageRegisterError.Error')}</h1>
+      <h1><FontAwesomeIcon icon={faBan} />{t('UseMessageRegisterError.Error')}</h1>
       <p>{t('UseMessageRegisterError.expiredLink')}</p>
       <p>{t('UseMessageRegisterError.requestLink')}</p>
     </Warning>

@@ -47,22 +47,35 @@ background-color: rgb(149, 149, 149);;
 border: solid 2px;
 `
 export const Warning = styled.div`
-display:flex;
-flex-direction: column;
-align-content: center;
-margin:0 15% 0 15%;
-border: solid 2px;
-border-color: red;
-padding-top: 5px;
-padding-bottom:5px;
-background-color: rgb(250, 128, 114);
-text-align: center;
-color: rgb(139,0,0)
+  display:flex;
+  flex-direction: column;
+  align-content: center;
+  margin:0 15% 0 15%;
+  border: 1px solid rgb(139,0,0);
+  border-radius: 5px;
+  padding: 15px 20px;
+  background-color: rgb(250, 128, 114);
+  text-align: center;
+  color: rgb(139,0,0);
+
+  h1 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    text-transform: uppercase;
+
+    svg {
+      margin-right: 10px;
+    }
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
 `
 
 export const MessageErrorPassword = styled.div`
-font-size: 16px;
-color: #ff3d00;
-font-weight: bold;
-margin-bottom: 10px;
+  font-size: 16px;
+  color: #ff3d00;
+  font-weight: bold;
+  margin-bottom: 10px;
 `
