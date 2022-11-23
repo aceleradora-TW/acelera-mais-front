@@ -19,7 +19,10 @@
         "startDate": "Data de início",
         "endDate": "Data de término",
         "description": "Descrição",
-        "submitButton": "Enviar"
+        "submitButton": "Enviar",
+        "error": {
+          "message":"Um erro ocorreu"
+        }
       },
       "filter": {
         "all": "Todos",
