@@ -10,3 +10,6 @@ flex-direction: row;
 justify-content: center;
 align-items: center;
 `
+export const Loading = styled.div`
+  text-align: center;
+`

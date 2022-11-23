@@ -5,35 +5,18 @@ import { InputEmail } from '../../../../components/inputs/email'
 import { InputTelephone } from '../../../../components/inputs/telephone'
 import { InputText } from '../../../../components/inputs/text'
 import { InputPassword } from '../../../../components/inputs/password'
-import { Loading, Warning, MessageErrorPassword } from './styled'
+import { Warning, MessageErrorPassword } from './styled'
 import { useState } from 'react'
 import { client } from '../../../../service'
 import { useParams, useNavigate } from 'react-router-dom'
 
-export const UseMessageRegisterError = (value) => {
-  const { verify } = value
-  return (
-    <>
-      {verify ? MessageLoading() : MessageError()}
-    </>
-  )
-}
-const MessageError = () => {
+export const UseMessageRegisterError = () => {
   return (
     <Warning>
       <h1>{t('UseMessageRegisterError.Error')}</h1>
       <p>{t('UseMessageRegisterError.expiredLink')}</p>
       <p>{t('UseMessageRegisterError.requestLink')}</p>
     </Warning>
-  )
-}
-
-const MessageLoading = () => {
-  return (
-    <Loading>
-      <h1>{t('mentorRegistration.messageLoading')}...</h1>
-      <progress></progress>
-    </Loading>
   )
 }
 

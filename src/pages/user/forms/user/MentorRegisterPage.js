@@ -1,8 +1,9 @@
+import { t } from 'i18next'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import { client, setTokenInHeaders } from '../../../../service'
 import { Register, UseMessageRegisterError } from '../../components/mentor-register/mentorRegister'
-import { Modal } from './styled'
+import { Modal, Loading } from './styled'
 
 export const MentorRegisterPage = () => {
   const { token } = useParams()
@@ -15,7 +16,7 @@ export const MentorRegisterPage = () => {
     client.get('/user/link_validation')
       .then(res => {
         setVerified(res.data.data.verified || false)
-        setIsLoading(res.data.data.verified || false)
+        setIsLoading(false)
       })
       .catch(err => {
         setVerified(false)
@@ -24,9 +25,24 @@ export const MentorRegisterPage = () => {
       })
   }, [])
 
+  const MessageLoading = () => {
+    return (
+      <Loading>
+        <h1>{t('mentorRegistration.messageLoading')}...</h1>
+        <progress></progress>
+      </Loading>
+    )
+  }
+  if (isLoading) {
+    return (
+      <Modal>
+        <MessageLoading />
+      </Modal>
+    )
+  }
   return (
     <Modal>
-      {verified ? <Register /> : <UseMessageRegisterError verify={isLoading}/>}
+      {verified ? <Register /> : <UseMessageRegisterError/>}
     </Modal>
   )
 }
