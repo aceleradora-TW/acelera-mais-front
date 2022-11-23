@@ -7,24 +7,28 @@ import PrimaryButton from '../../../../components/buttons/primary'
 import { useTranslation } from 'react-i18next'
 import { DateRange } from 'react-date-range'
 
-export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => { } }) => {
+export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => { }, hiring }) => {
   const { t } = useTranslation()
-
-  const [datePicker, setDatePicker] = useState([{
-    startDate: new Date(),
-    endDate: null,
-    key: 'selection'
-  }])
+  const [datePicker, setDatePicker] = useState([
+    hiring
+      ? {
+          startDate: new Date(Date.parse(hiring.startDate)),
+          endDate: new Date(Date.parse(hiring.endDate)),
+          key: 'selection'
+        }
+      : {
+          startDate: new Date(),
+          endDate: null,
+          key: 'selection'
+        }])
 
   const [hiringProcess, setHiringProcess] = useState(
-    sessionStorage.getItem('form')
-      ? JSON.parse(sessionStorage.getItem('form'))
-      : {
-          name: '',
-          startDate: '',
-          endDate: '',
-          description: ''
-        })
+    hiring || {
+      name: '',
+      startDate: '',
+      endDate: '',
+      description: ''
+    })
 
   const setSessionStorage = () => {
     sessionStorage.setItem('form', JSON.stringify(hiringProcess))
@@ -59,6 +63,7 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
         ranges={datePicker}
         editableDateInputs={true}
         minDate={new Date()}
+        preview={ { startDate: new Date(Date(hiring.startDate)), endDate: new Date(Date(hiring.endDate)) }}
         onChange={(item) => {
           setDatePicker([item.selection])
           setHiringProcess({
