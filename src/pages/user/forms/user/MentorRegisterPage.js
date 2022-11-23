@@ -1,9 +1,9 @@
-import { t } from 'i18next'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
+import { Loading } from '../../../../components/loading'
 import { client, setTokenInHeaders } from '../../../../service'
 import { Register, UseMessageRegisterError } from '../../components/mentor-register/mentorRegister'
-import { Modal, Loading } from './styled'
+import { Modal } from './styled'
 
 export const MentorRegisterPage = () => {
   const { token } = useParams()
@@ -24,25 +24,17 @@ export const MentorRegisterPage = () => {
         console.log(err)
       })
   }, [])
-
-  const MessageLoading = () => {
-    return (
-      <Loading>
-        <h1>{t('mentorRegistration.messageLoading')}...</h1>
-        <progress></progress>
-      </Loading>
-    )
-  }
-  if (isLoading) {
+  /*   if (isLoading) {
     return (
       <Modal>
-        <MessageLoading />
+        <Loading />
       </Modal>
     )
-  }
+  } */
   return (
     <Modal>
-      {verified ? <Register /> : <UseMessageRegisterError/>}
+      <Loading isVisible={isLoading} />
+      {verified ? <Register /> : <UseMessageRegisterError />}
     </Modal>
   )
 }
