@@ -1,4 +1,4 @@
-// import { Pagination } from '@mui/material'
+import { Pagination } from '@mui/material'
 import { Section } from './styled'
 export const Paginator = ({
   total = 0,
@@ -12,12 +12,12 @@ export const Paginator = ({
     <>
       {getTotalPages() > 1 &&
         <Section>
-          {/* <Pagination
+          <Pagination
             count={getTotalPages()}
             shape='rounded'
             onChange={onChange}
             page={page}
-          /> */}
+          />
         </Section>
       }
     </>

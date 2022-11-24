@@ -176,7 +176,6 @@ export const MentorPage = () => {
         <Paginator
           total={countUsers}
           page={page}
-          limit={2}
           onChange={
             (event, page) => setPage(page)
           }
