@@ -30,10 +30,6 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
       description: ''
     })
 
-  const setSessionStorage = () => {
-    sessionStorage.setItem('form', JSON.stringify(hiringProcess))
-  }
-
   const handleChange = (e) => {
     const { name, value } = e.target
     setHiringProcess({
@@ -57,7 +53,7 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
 
   return (
     <form>
-      <InputText name="name" value={hiringProcess.name} label={t('hiringProcess.form.name')} onChange={handleChange} onBlur={setSessionStorage}/>
+      <InputText name="name" value={hiringProcess.name} label={t('hiringProcess.form.name')} onChange={handleChange} />
       <DateRange
         name={'startDate'}
         ranges={datePicker}
@@ -74,9 +70,8 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
         }
         }
         moveRangeOnFirstSelection={false}
-        onBlur={setSessionStorage}
       />
-      <InputText name="description" value={hiringProcess.description} label={t('hiringProcess.form.description')} onChange={handleChange} onBlur={setSessionStorage}/>
+      <InputText name="description" value={hiringProcess.description} label={t('hiringProcess.form.description')} onChange={handleChange} />
       <PrimaryButton text={t('hiringProcess.form.submitButton')} onClick={sendHiringProcess}>
         Enviar
       </PrimaryButton>
