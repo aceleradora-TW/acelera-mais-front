@@ -59,7 +59,7 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
         ranges={datePicker}
         editableDateInputs={true}
         minDate={new Date()}
-        preview={ { startDate: new Date(Date(hiring.startDate)), endDate: new Date(Date(hiring.endDate)) }}
+        preview={ { startDate: new Date(Date(datePicker.startDate)), endDate: new Date(Date(datePicker.endDate)) }}
         onChange={(item) => {
           setDatePicker([item.selection])
           setHiringProcess({
