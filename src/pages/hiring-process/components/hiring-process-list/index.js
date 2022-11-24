@@ -132,7 +132,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                     callback={handleEdit}
                     method="PATCH"
                     id={process.id}
-                    hiring={process}
+                    process={process}
                     />
                 </Modal>
               </td>}

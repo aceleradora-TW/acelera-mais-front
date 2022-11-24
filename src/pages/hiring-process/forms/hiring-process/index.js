@@ -7,13 +7,23 @@ import PrimaryButton from '../../../../components/buttons/primary'
 import { useTranslation } from 'react-i18next'
 import { DateRange } from 'react-date-range'
 
-export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => { }, hiring }) => {
+export const HiringProcessForm = ({
+  method = 'POST',
+  id = '',
+  callback = () => { },
+  process = {
+    name: '',
+    startDate: '',
+    endDate: '',
+    description: ''
+  }
+}) => {
   const { t } = useTranslation()
   const [datePicker, setDatePicker] = useState([
-    hiring
+    process
       ? {
-          startDate: new Date(Date.parse(hiring.startDate)),
-          endDate: new Date(Date.parse(hiring.endDate)),
+          startDate: new Date(Date.parse(process.startDate)),
+          endDate: new Date(Date.parse(process.endDate)),
           key: 'selection'
         }
       : {
@@ -22,13 +32,7 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
           key: 'selection'
         }])
 
-  const [hiringProcess, setHiringProcess] = useState(
-    hiring || {
-      name: '',
-      startDate: '',
-      endDate: '',
-      description: ''
-    })
+  const [hiringProcess, setHiringProcess] = useState(process)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -39,7 +43,6 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
   }
 
   const sendHiringProcess = () => {
-    sessionStorage.clear()
     client(`/hiring_process/${id}`,
       {
         method,
@@ -59,7 +62,7 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
         ranges={datePicker}
         editableDateInputs={true}
         minDate={new Date()}
-        preview={ { startDate: new Date(Date(datePicker.startDate)), endDate: new Date(Date(datePicker.endDate)) }}
+        preview={{ startDate: new Date(Date(datePicker.startDate)), endDate: new Date(Date(datePicker.endDate)) }}
         onChange={(item) => {
           setDatePicker([item.selection])
           setHiringProcess({
