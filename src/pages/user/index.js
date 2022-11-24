@@ -29,9 +29,11 @@ export const MentorPage = () => {
     client.get(`/user?orderBy=${orderBy}&orientation=${orientation}&page=${page}`)
       .then(res => res.data.data)
       .then(res => {
-        hasMentors(res.users)
-          ? setMentors(res.users)
-          : setMessage(t('user.message.404'))
+        res.data.data.users.length > 0
+          ? setMentors(res.data.data.users)
+          : hasMentors(res.users)
+            ? setMentors(res.users)
+            : setMessage(t('user.message.404'))
         setCountUsers(res.count)
       })
       .catch(err => {
@@ -91,6 +93,7 @@ export const MentorPage = () => {
                   label={t('user.descriptionTable.name')}
                 />
               </th>
+              <th>{t('user.descriptionTable.type')}</th>
               <th>{t('user.descriptionTable.status')}</th>
               <th>
                 <SortTable
@@ -108,6 +111,7 @@ export const MentorPage = () => {
               mentors.map((mentor, key) =>
                 <tr key={key} >
                   <td>{mentor.name}</td>
+                  <td>{t(`user.types.${mentor.type}`)}</td>
                   <td>
                     <Status
                       status={mentor.flag}
