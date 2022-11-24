@@ -24,17 +24,10 @@ export const MentorRegisterPage = () => {
         console.log(err)
       })
   }, [])
-  /*   if (isLoading) {
-    return (
-      <Modal>
-        <Loading />
-      </Modal>
-    )
-  } */
+
   return (
     <Modal>
-      <Loading isVisible={isLoading} />
-      {verified ? <Register /> : <UseMessageRegisterError />}
+      {isLoading ? <Loading isVisible={isLoading} /> : verified ? <Register /> : <UseMessageRegisterError />}
     </Modal>
   )
 }

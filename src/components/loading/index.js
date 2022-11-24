@@ -1,13 +1,14 @@
 import { t } from 'i18next'
+import { LoadingContainer } from './styled'
 
 export const Loading = ({ isVisible = true }) => {
   return (
     <>
       {isVisible &&
-        <Loading>
+        <LoadingContainer>
           <h2>{t('mentorRegistration.messageLoading')}...</h2>
           <progress></progress>
-        </Loading>}
+        </LoadingContainer>}
     </>
   )
 }
