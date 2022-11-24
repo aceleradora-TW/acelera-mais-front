@@ -29,11 +29,9 @@ export const MentorPage = () => {
     client.get(`/user?orderBy=${orderBy}&orientation=${orientation}&page=${page}`)
       .then(res => res.data.data)
       .then(res => {
-        res.data.data.users.length > 0
-          ? setMentors(res.data.data.users)
-          : hasMentors(res.users)
-            ? setMentors(res.users)
-            : setMessage(t('user.message.404'))
+        hasMentors(res.users)
+          ? setMentors(res.users)
+          : setMessage(t('user.message.404'))
         setCountUsers(res.count)
       })
       .catch(err => {
