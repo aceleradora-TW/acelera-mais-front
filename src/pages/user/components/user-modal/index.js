@@ -2,7 +2,7 @@ import { Modal } from '../../../../components/modal'
 import { useTranslation } from 'react-i18next'
 import { UserForm } from '../../forms/user'
 
-export const UserModal = ({ method = 'POST', id = '', icon, title, text }) => {
+export const UserModal = ({ user, method = 'POST', id = '', icon, title, text }) => {
   const { t } = useTranslation()
   return (
     <div>
@@ -12,7 +12,7 @@ export const UserModal = ({ method = 'POST', id = '', icon, title, text }) => {
         className='button primary'
         text={t(text)}
       >
-        <UserForm method={method} id={id} />
+        <UserForm method={method} id={id} user={user} />
       </Modal>
 
     </div>

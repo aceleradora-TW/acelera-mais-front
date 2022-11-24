@@ -6,14 +6,14 @@ import Select from '../../../../components/select'
 import { client } from '../../../../service'
 import PrimaryButton from '../../../../components/buttons/primary'
 import { useTranslation } from 'react-i18next'
-export const UserForm = ({ method = 'POST', id = '', callback = () => { } }) => {
+export const UserForm = ({ user = { name: '', telephone: '', email: '', type: '' }, method = 'POST', id = '', callback = () => { } }) => {
   const { t } = useTranslation()
 
   const [users, getUsers] = useState({
-    name: '',
-    telephone: '',
-    email: '',
-    type: ''
+    name: user.name,
+    telephone: user.telephone,
+    email: user.email,
+    type: user.type
   })
 
   const handleChange = (e) => {

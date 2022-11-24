@@ -142,6 +142,7 @@ export const MentorPage = () => {
                       />
                       <UserModal
                         id={mentor.id}
+                        user={mentor}
                         method='PUT'
                         title='editMentor.title'
                         text='editMentor.edit'
