@@ -23,8 +23,8 @@ export const MentorPage = () => {
   useEffect(() => {
     client.get(`/user?orderBy=${orderBy}&orientation=${orientation}`)
       .then(res => {
-        res.data.data.length > 0
-          ? setMentors(res.data.data)
+        res.data.data.users.length > 0
+          ? setMentors(res.data.data.users)
           : setMessage(t('user.message.404'))
       })
       .catch(err => {
@@ -84,6 +84,7 @@ export const MentorPage = () => {
                   label={t('user.descriptionTable.name')}
                 />
               </th>
+              <th>{t('user.descriptionTable.type')}</th>
               <th>{t('user.descriptionTable.status')}</th>
               <th>
                 <SortTable
@@ -101,6 +102,7 @@ export const MentorPage = () => {
               mentors.map((mentor, key) =>
                 <tr key={key} >
                   <td>{mentor.name}</td>
+                  <td>{t(`user.types.${mentor.type}`)}</td>
                   <td>
                     <Status
                       status={mentor.flag}

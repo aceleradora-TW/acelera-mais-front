@@ -146,10 +146,15 @@
       "backButton": "Back",
       "descriptionTable": {
         "name": "Name",
+        "type": "Type",
         "status": "Status",
         "registrationDate": "Regristraition date",
         "registrationInformation": "Regristion Information",
         "shares": "Shares"
+      },
+      "types": {
+        "admin": "Administrator",
+        "mentor": "Mentor"
       },
       "toggle": {
         "on": "Enabled",
