@@ -7,7 +7,6 @@ export const Paginator = ({
   onChange = (x) => x
 }) => {
   const getTotalPages = () => Math.ceil(total / limit)
-  console.log(getTotalPages())
   return (
     <>
       {getTotalPages() > 1 &&

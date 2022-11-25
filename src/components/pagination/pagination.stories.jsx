@@ -8,5 +8,7 @@ const Template = args => <Paginator {...args} />
 
 export const Pagination = Template.bind({})
 Pagination.args = {
-  total: 50
+  total: 50,
+  page: 1,
+  onChange: (_, page) => console.log(page)
 }
