@@ -71,6 +71,11 @@
         "invalidEmail": "Email inválido!"
       }
     },
+    "inputPassword": {
+      "message": {
+        "invalidPassword": "Senhas devem ser iguais"
+      }
+    },
     "challenge": {
       "title": "Desafios",
       "select": {
@@ -138,7 +143,10 @@
       "text": "Nova mentora",
       "administrator": "Administradora",
       "mentor": "Mentora",
-      "placeHolder": "Selecione o tipo de usuaria"
+      "placeHolder": "Selecione o tipo de usuária",
+      "messageRequired": "Todos os campos são obrigatórios",
+      "messageSuccess": "Cadastro realizado com sucesso!",
+      "messageLoading": "Carregando"
     },
     "user": {
       "title": "Lista de Mentoras Avaliadoras",
