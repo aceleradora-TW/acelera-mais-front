@@ -8,6 +8,7 @@ const {
   loginResponse,
   userResponse,
   emailVerificationResponse,
+  userLinkVerificationResponse,
   hiringProcessResponse,
   challengeResponse,
   exerciseResponse
@@ -41,6 +42,7 @@ app.post('/challenge/hiring_process/:id', (req, res) => res.status(200))
 app.post('/user', (req, res) => res.status(200))
 app.get('/user', (req, res) => res.json(userResponse))
 app.put('/user/:id', (req, res) => res.status(200))
+app.get('/user/link_validation', (req, res) => res.json(userLinkVerificationResponse))
 app.put('/user/:id/email_verification', (req, res) => res.json(emailVerificationResponse))
 app.delete('/user/:id', (req, res) => res.status(200))
 

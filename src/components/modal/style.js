@@ -40,6 +40,7 @@ export const ModalBody = style.div`
   margin: 10px 40px 0;
   padding: 20px;
   font-size: 15px;
+  text-align: left;
   font-weight: 500;
 `
 export const Title = style.h4`

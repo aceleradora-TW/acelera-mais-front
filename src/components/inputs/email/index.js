@@ -7,7 +7,8 @@ import { useTranslation } from 'react-i18next'
 
 const MessageError = styled.span`
   font-size: 16px;
-  color: #ff3d00
+  color: #ff3d00;
+  
 `
 export const InputEmail = ({ value, label, name, onChange }) => {
   const [emailError, setEmailError] = useState('')

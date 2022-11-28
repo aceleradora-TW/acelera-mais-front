@@ -71,6 +71,11 @@
         "invalidEmail": "Email inválido!"
       }
     },
+    "inputPassword": {
+      "message": {
+        "invalidPassword": "Senhas devem ser iguais"
+      }
+    },
     "challenge": {
       "title": "Desafios",
       "select": {
@@ -138,17 +143,25 @@
       "text": "Nova mentora",
       "administrator": "Administradora",
       "mentor": "Mentora",
-      "placeHolder": "Selecione o tipo de usuaria"
+      "placeHolder": "Selecione o tipo de usuária",
+      "messageRequired": "Todos os campos são obrigatórios",
+      "messageSuccess": "Cadastro realizado com sucesso!",
+      "messageLoading": "Carregando"
     },
     "user": {
       "title": "Lista de Mentoras Avaliadoras",
       "backButton": "Voltar página inicial",
       "descriptionTable": {
         "name": "Nome",
+        "type": "Tipo",
         "status": "Status",
         "registrationDate": "Data de Cadastro",
         "registrationInformation": "Informações de cadastro",
         "shares": "Ações"
+      },
+      "types": {
+        "admin": "Administradora",
+        "mentor": "Mentora"
       },
       "toggle": {
         "on": "Habilitar",

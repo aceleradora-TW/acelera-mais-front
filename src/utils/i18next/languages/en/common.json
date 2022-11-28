@@ -72,6 +72,11 @@
       },
       "exemple": "exemple@email.com"
     },
+    "inputPassword": {
+      "message": {
+        "invalidPassword": "Passwords must be the same"
+      }
+    },
     "challenge": {
       "title": "Challenges",
       "select": {
@@ -139,17 +144,25 @@
       "text": "New mentor",
       "administrator": "Administrator",
       "mentor": "Mentor",
-      "placeHolder": "Select user type"
+      "placeHolder": "Select user type",
+      "messageRequired": "All fields are mandatory",
+      "messageSuccess": "Registration successfully completed!",
+      "messageLoading": "Loading"
     },
     "user": {
       "title": "Mentor's List",
       "backButton": "Back",
       "descriptionTable": {
         "name": "Name",
+        "type": "Type",
         "status": "Status",
         "registrationDate": "Regristraition date",
         "registrationInformation": "Regristion Information",
         "shares": "Shares"
+      },
+      "types": {
+        "admin": "Administrator",
+        "mentor": "Mentor"
       },
       "toggle": {
         "on": "Enabled",
