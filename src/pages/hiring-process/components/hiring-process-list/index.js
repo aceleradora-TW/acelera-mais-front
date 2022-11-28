@@ -109,15 +109,14 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 </Modal>
               </td>}
               {isAdmin() && <><td>
-                  <Button
+                <Button
                   icon={faDownload}
-                  label="Download arquivo csv"
-                  title={t('hiringProcess.export.download')}
+                  label={t('hiringProcess.export.download')}
                   className="button default"
                   text={t('hiringProcess.export.text')}
                   onClick={handleExport(process.id)}>
                   {csv}
-                  </Button>
+                </Button>
               </td><td>
                 </td></>}
 
