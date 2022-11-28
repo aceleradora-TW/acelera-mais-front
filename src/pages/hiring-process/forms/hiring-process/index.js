@@ -13,24 +13,18 @@ export const HiringProcessForm = ({
   callback = () => { },
   process = {
     name: '',
-    startDate: '',
-    endDate: '',
+    startDate: new Date(),
+    endDate: new Date(),
     description: ''
   }
 }) => {
   const { t } = useTranslation()
   const [datePicker, setDatePicker] = useState([
-    process
-      ? {
-          startDate: new Date(Date.parse(process.startDate)),
-          endDate: new Date(Date.parse(process.endDate)),
-          key: 'selection'
-        }
-      : {
-          startDate: new Date(),
-          endDate: null,
-          key: 'selection'
-        }])
+    {
+      startDate: new Date(process.startDate),
+      endDate: new Date(process.endDate),
+      key: 'selection'
+    }])
 
   const [hiringProcess, setHiringProcess] = useState(process)
 
@@ -62,7 +56,7 @@ export const HiringProcessForm = ({
         ranges={datePicker}
         editableDateInputs={true}
         minDate={new Date()}
-        preview={{ startDate: new Date(Date(datePicker.startDate)), endDate: new Date(Date(datePicker.endDate)) }}
+        preview={{ startDate: new Date(datePicker.startDate), endDate: new Date(datePicker.endDate) }}
         onChange={(item) => {
           setDatePicker([item.selection])
           setHiringProcess({
