@@ -111,7 +111,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
               {isAdmin() && <><td>
                 <Button
                   icon={faDownload}
-                  label={t('hiringProcess.export.download')}
                   className="button default"
                   text={t('hiringProcess.export.text')}
                   onClick={handleExport(process.id)}>

@@ -48,7 +48,6 @@
         }
       },
       "export": {
-        "download": "Download arquivo csv",
         "text": "Exportar dados"
       },
       "edit": {
