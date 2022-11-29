@@ -131,7 +131,9 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   <HiringProcessForm
                     callback={handleEdit}
                     method="PATCH"
-                    id={process.id} />
+                    id={process.id}
+                    process={process}
+                    />
                 </Modal>
               </td>}
               {showFeature()
