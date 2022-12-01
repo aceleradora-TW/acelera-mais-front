@@ -7,7 +7,7 @@ import PrimaryButton from '../../../../components/buttons/primary'
 import { useTranslation } from 'react-i18next'
 import { DateRange } from 'react-date-range'
 
-export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => { } }) => {
+export const HiringProcessForm = ({ method = 'PATCH', id = '', callback = () => { } }) => {
   const { t } = useTranslation()
 
   const [datePicker, setDatePicker] = useState([{
