@@ -24,7 +24,12 @@ export const Modal = ({ title, children, label, callback, icon, className, text,
   }
 
   if (!show) {
-    return <Button disabled={disabled} icon={icon} className={className} text={text} onClick={() => setShow(true)}>{label}</Button>
+    return <Button
+      disabled={disabled}
+      icon={icon}
+      className={className}
+      text={text}
+      onClick={() => setShow(true)}>{label}</Button>
   }
 
   return (

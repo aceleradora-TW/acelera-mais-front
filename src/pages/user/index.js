@@ -12,6 +12,7 @@ import { Status } from '../../components/status'
 import { CreateLink } from './components/link-modal'
 import { SortTable } from '../../components/sort-table'
 import humanizeDuration from 'humanize-duration'
+import { Paginator } from '../../components/pagination'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -19,19 +20,25 @@ export const MentorPage = () => {
   const [message, setMessage] = useState([])
   const [orderBy, setOrderBy] = useState('name')
   const [orientation, setOrientation] = useState('ASC')
+  const [page, setPage] = useState(1)
+  const [countUsers, setCountUsers] = useState(0)
+
+  const hasMentors = ({ length }) => length > 0
 
   useEffect(() => {
-    client.get(`/user?orderBy=${orderBy}&orientation=${orientation}`)
+    client.get(`/user?orderBy=${orderBy}&orientation=${orientation}&page=${page}`)
+      .then(res => res.data.data)
       .then(res => {
-        res.data.data.length > 0
-          ? setMentors(res.data.data)
+        hasMentors(res.users)
+          ? setMentors(res.users)
           : setMessage(t('user.message.404'))
+        setCountUsers(res.count)
       })
       .catch(err => {
         console.log(err)
         setMessage(t('user.message.500'))
       })
-  }, [orderBy, orientation])
+  }, [orderBy, orientation, page])
 
   const isEnabled = flag => flag === 'user-enabled'
 
@@ -84,6 +91,7 @@ export const MentorPage = () => {
                   label={t('user.descriptionTable.name')}
                 />
               </th>
+              <th>{t('user.descriptionTable.type')}</th>
               <th>{t('user.descriptionTable.status')}</th>
               <th>
                 <SortTable
@@ -101,6 +109,7 @@ export const MentorPage = () => {
               mentors.map((mentor, key) =>
                 <tr key={key} >
                   <td>{mentor.name}</td>
+                  <td>{t(`user.types.${mentor.type}`)}</td>
                   <td>
                     <Status
                       status={mentor.flag}
@@ -142,6 +151,7 @@ export const MentorPage = () => {
                       />
                       <UserModal
                         id={mentor.id}
+                        user={mentor}
                         method='PUT'
                         title='editMentor.title'
                         text='editMentor.edit'
@@ -164,6 +174,13 @@ export const MentorPage = () => {
         <Message>
           {message}
         </Message>
+        <Paginator
+          total={countUsers}
+          page={page}
+          onChange={
+            (event, page) => setPage(page)
+          }
+        />
       </Container>
     </>
   )

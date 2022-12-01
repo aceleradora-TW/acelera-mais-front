@@ -1,19 +1,32 @@
+import 'react-date-range/dist/styles.css'
+import 'react-date-range/dist/theme/default.css'
 import { useState } from 'react'
-import { InputDate } from '../../../../components/inputs/date'
 import { InputText } from '../../../../components/inputs/text'
 import { client } from '../../../../service'
 import PrimaryButton from '../../../../components/buttons/primary'
 import { useTranslation } from 'react-i18next'
+import { DateRange } from 'react-date-range'
 
-export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => { } }) => {
-  const { t } = useTranslation()
-
-  const [hiringProcess, setHiringProcess] = useState({
+export const HiringProcessForm = ({
+  method = 'POST',
+  id = '',
+  callback = () => { },
+  process = {
     name: '',
-    startDate: '',
-    endDate: '',
+    startDate: new Date(),
+    endDate: new Date(),
     description: ''
-  })
+  }
+}) => {
+  const { t } = useTranslation()
+  const [datePicker, setDatePicker] = useState([
+    {
+      startDate: new Date(process.startDate),
+      endDate: new Date(process.endDate),
+      key: 'selection'
+    }])
+
+  const [hiringProcess, setHiringProcess] = useState(process)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -24,26 +37,38 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
   }
 
   const sendHiringProcess = () => {
-    const data = hiringProcess
-
     client(`/hiring_process/${id}`,
-
       {
         method,
-        data
+        data: hiringProcess
       })
       .then(res => {
-        console.log(res.data)
         callback(res.data)
       })
+      .catch(err => { alert(t('hiringProcess.form.error.message', err)) })
   }
 
   return (
     <form>
-      <InputText name="name" label={t('hiringProcess.form.name')} onChange={handleChange} />
-      <InputDate name="startDate" label={t('hiringProcess.form.startDate')} onChange={handleChange} />
-      <InputDate name="endDate" label={t('hiringProcess.form.endDate')} onChange={handleChange} />
-      <InputText name="description" label={t('hiringProcess.form.description')} onChange={handleChange} />
+      <InputText name="name" value={hiringProcess.name} label={t('hiringProcess.form.name')} onChange={handleChange} />
+      <DateRange
+        name={'startDate'}
+        ranges={datePicker}
+        editableDateInputs={true}
+        minDate={new Date()}
+        preview={{ startDate: new Date(datePicker.startDate), endDate: new Date(datePicker.endDate) }}
+        onChange={(item) => {
+          setDatePicker([item.selection])
+          setHiringProcess({
+            ...hiringProcess,
+            startDate: item.selection.startDate,
+            endDate: item.selection.endDate
+          })
+        }
+        }
+        moveRangeOnFirstSelection={false}
+      />
+      <InputText name="description" value={hiringProcess.description} label={t('hiringProcess.form.description')} onChange={handleChange} />
       <PrimaryButton text={t('hiringProcess.form.submitButton')} onClick={sendHiringProcess}>
         Enviar
       </PrimaryButton>

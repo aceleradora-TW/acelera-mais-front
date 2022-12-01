@@ -43,7 +43,7 @@ const HiringProcessPage = () => {
           : null}
         <div className='nav-bar'>
           {isAdmin() && <Modal icon={faPlus} className='button primary' text={t('hiringProcess.new-process.text')} title={t('hiringProcess.new-process.title')}>
-            <HiringProcessForm callback={handleSubmit} />
+            <HiringProcessForm callback={handleSubmit}/>
           </Modal>}
         </div>
       </section>

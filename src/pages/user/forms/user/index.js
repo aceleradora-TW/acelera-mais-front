@@ -6,14 +6,14 @@ import Select from '../../../../components/select'
 import { client } from '../../../../service'
 import PrimaryButton from '../../../../components/buttons/primary'
 import { useTranslation } from 'react-i18next'
-export const UserForm = ({ method = 'POST', id = '', callback = () => { } }) => {
+export const UserForm = ({ user = { name: '', telephone: '', email: '', type: '' }, method = 'POST', id = '', callback = () => { } }) => {
   const { t } = useTranslation()
 
   const [users, getUsers] = useState({
-    name: '',
-    telephone: '',
-    email: '',
-    type: ''
+    name: user.name,
+    telephone: user.telephone,
+    email: user.email,
+    type: user.type
   })
 
   const handleChange = (e) => {
@@ -43,16 +43,17 @@ export const UserForm = ({ method = 'POST', id = '', callback = () => { } }) => 
 
   return (
     <form>
-      <InputText name='name' label={t('mentorRegistration.name')} onChange={handleChange} />
+      <InputText value={users.name} name='name' label={t('mentorRegistration.name')} onChange={handleChange} />
       <Select
+        value={users.type}
         name="type"
         onChange={handleChange}
         label={t('mentorRegistration.type')}
         placeholder={t('mentorRegistration.placeHolder')}
         options={options}
       />
-      <InputTelephone name='telephone' label={t('mentorRegistration.telephone')} onChange={handleChange} />
-      <InputEmail name='email' label={t('mentorRegistration.email')} onChange={handleChange} />
+      <InputTelephone value={users.telephone} name='telephone' label={t('mentorRegistration.telephone')} onChange={handleChange} />
+      <InputEmail value={users.email} name='email' label={t('mentorRegistration.email')} onChange={handleChange} />
 
       <PrimaryButton text={t('editMentor.save')} onClick={sendUsers} />
     </form>
