@@ -36,9 +36,8 @@ export const Score = ({ exercise }) => {
     <ScoreContainer>
       <Select
         label={t('evaluation.score.title')}
-      placeholder={t('evaluation.score.placeholder')}
+        placeholder={t('evaluation.score.placeholder')}
         onChange={handleScore}
-       // required={true}
         options={[
           { label: 0, value: 0 },
           { label: 1, value: 1 },
@@ -55,7 +54,6 @@ export const Score = ({ exercise }) => {
         id="message-text"
         onChange={handleTextArea}
       >
-
       </textarea>
 
       <PrimaryButton
