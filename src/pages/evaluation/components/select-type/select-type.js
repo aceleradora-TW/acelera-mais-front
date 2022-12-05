@@ -5,9 +5,9 @@ import SucessButton from '../../../../components/buttons/sucess'
 import { TypeContainer } from '../../styled'
 import { useTranslation } from 'react-i18next'
 
-export const Type = ({ setDisableEvaluationButton }) => {
+export const Type = ({ setDisableEvaluationButton, defaultType }) => {
   const [challengeTypeSelected, setChallengeTypeSelected] = useState(false)
-  const [exerciseType, setExerciseType] = useState()
+  const [exerciseType, setExerciseType] = useState(defaultType)
   const { t } = useTranslation()
 
   const id = window.location.pathname.split('/')[2]
@@ -21,6 +21,7 @@ export const Type = ({ setDisableEvaluationButton }) => {
     <TypeContainer>
 
       <Select
+        value={exerciseType}
         onChange={({ target }) => {
           setExerciseType(target.value)
           setChallengeTypeSelected(true)

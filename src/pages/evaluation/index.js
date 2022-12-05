@@ -44,7 +44,7 @@ const EvaluationChallenge = () => {
           <h1>{`${t('evaluation.title')} ${exercise.name}`}</h1>
         </div>
         <div key={exercise.id}>
-          <Header setDisableEvaluationButton={setDisableEvaluationButton} />
+          <Header setDisableEvaluationButton={setDisableEvaluationButton} defaultType={exercise.exerciseType}/>
 
           <Download>
             <Anchor href={exerciseStatement} target='_blank' rel='noreferrer'>
