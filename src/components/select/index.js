@@ -1,8 +1,5 @@
 import { StyledSelectContainer } from './select'
 const Select = ({ value, options, onChange, placeholder, name, label, onSelect }) => {
-  // const isDisabled = () => {
-  //   return !options.some(option => option.value === placeholder)
-  // }
   return (
     <StyledSelectContainer>
       <label>{label}</label>
