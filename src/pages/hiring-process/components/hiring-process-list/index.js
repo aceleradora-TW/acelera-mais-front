@@ -65,7 +65,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
             <th>{t('hiringProcess.thead.title')}</th>
             <th>Status</th>
             <th>{t('hiringProcess.thead.start')}</th>
-            <th colSpan="6">{t('hiringProcess.thead.actions')}</th>
+            {isAdmin() && <th colSpan="6">{t('hiringProcess.thead.actions')}</th>}
           </tr>
         </thead>
         <tbody>
