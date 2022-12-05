@@ -9,7 +9,7 @@ import { client } from '../../../../service'
 import {
   faAngleDown,
   faDownload,
-  faUpload, faTrashAlt
+  faUpload
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { parse } from 'json2csv'
@@ -36,17 +36,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
     location.reload()
   }
 
-  const handleDelete = async (id) => {
-    try {
-      const answer = confirm(t('hiringProcess.delete'))
-      if (answer === false) return
-      client.delete(`/hiring_process/${id}`)
-      const newProcesses = processes.filter(process => process.id !== id)
-      setHiringProcesses(newProcesses)
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  const isHiringProcessOpen = (status) => status === 'status-opened'
 
   const formatDate = (date) => {
     const addZero = (number) => number <= 9 ? '0' + number : number
@@ -124,7 +114,8 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   label="Editar"
                   title={t('hiringProcess.edit.title')}
                   className="button action"
-                  text={t('hiringProcess.edit.text')}>
+                  text={t('hiringProcess.edit.text')}
+                  disabled={!isHiringProcessOpen(process.status)}>
                   <HiringProcessForm
                     callback={handleEdit}
                     method="PATCH"
@@ -142,12 +133,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   />
                 </td>)
                 : null}
-              {isAdmin() && <td>
-                <Button icon={faTrashAlt}
-                  className="button delete"
-                  onClick={() => handleDelete(process.id)}
-                />
-              </td>}
             </tr>
           ))}
         </tbody>
