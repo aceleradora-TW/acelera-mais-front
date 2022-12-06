@@ -26,14 +26,14 @@ export const MentorPage = () => {
 
   const hasMentors = ({ length }) => length > 0
 
-  const paramsObj = {
+  const getParams = {
     orderBy,
     orientation,
     page,
     search
   }
 
-  const searchParams = new URLSearchParams(paramsObj)
+  const searchParams = new URLSearchParams(getParams)
 
   useEffect(() => {
     client.get(`/user?${searchParams.toString()}`)
