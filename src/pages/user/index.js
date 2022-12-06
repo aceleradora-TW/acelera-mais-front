@@ -26,8 +26,17 @@ export const MentorPage = () => {
 
   const hasMentors = ({ length }) => length > 0
 
+  const paramsObj = {
+    orderBy,
+    orientation,
+    page,
+    search
+  }
+
+  const searchParams = new URLSearchParams(paramsObj)
+
   useEffect(() => {
-    client.get(`/user?orderBy=${orderBy}&orientation=${orientation}&page=${page}&search=${search}`)
+    client.get(`/user?${searchParams.toString()}`)
       .then(res => res.data.data)
       .then(res => {
         hasMentors(res.users)
@@ -67,8 +76,8 @@ export const MentorPage = () => {
         <section>
           <h1>{t('user.title')}</h1>
           <InputSearch
-          onChange={(e) => setSearch(e.target.value)}
-           />
+            onChange={(e) => setSearch(e.target.value)}
+          />
           <div className="button-container">
             <CreateLink
               title='linkGeneration.tittle'
