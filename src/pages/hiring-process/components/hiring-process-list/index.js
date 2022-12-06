@@ -18,7 +18,7 @@ import { Container, HiringProcessTable } from './styles'
 import { isAdmin } from '../../../../utils/isAdmin'
 import { useTranslation } from 'react-i18next'
 
-export const ProcessList = ({ processes, setHiringProcesses }) => {
+export const ProcessList = ({ processes }) => {
   const { t } = useTranslation()
   const [csv, setCSV] = useState('')
 
@@ -36,7 +36,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
     location.reload()
   }
 
-  const isHiringProcessOpen = (status) => status === 'status-opened'
+  const isHiringProcessClosed = (status) => status === 'status-closed'
 
   const formatDate = (date) => {
     const addZero = (number) => number <= 9 ? '0' + number : number
@@ -115,7 +115,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   title={t('hiringProcess.edit.title')}
                   className="button action"
                   text={t('hiringProcess.edit.text')}
-                  disabled={!isHiringProcessOpen(process.status)}>
+                  disabled={isHiringProcessClosed(process.status)}>
                   <HiringProcessForm
                     callback={handleEdit}
                     method="PATCH"
