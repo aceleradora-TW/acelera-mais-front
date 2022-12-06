@@ -65,7 +65,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
             <th>{t('hiringProcess.thead.title')}</th>
             <th>Status</th>
             <th>{t('hiringProcess.thead.start')}</th>
-            <th colSpan="6">{t('hiringProcess.thead.actions')}</th>
+            {isAdmin() && <th colSpan="6">{t('hiringProcess.thead.actions')}</th>}
           </tr>
         </thead>
         <tbody>
@@ -109,16 +109,13 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 </Modal>
               </td>}
               {isAdmin() && <><td>
-                <Modal
+                <Button
                   icon={faDownload}
-                  label="Download arquivo csv"
-                  title={t('hiringProcess.export.download')}
                   className="button default"
                   text={t('hiringProcess.export.text')}
-                  callback={handleExport(process.id)}
-                >
+                  onClick={handleExport(process.id)}>
                   {csv}
-                </Modal>
+                </Button>
               </td><td>
                 </td></>}
 
@@ -131,7 +128,9 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   <HiringProcessForm
                     callback={handleEdit}
                     method="PATCH"
-                    id={process.id} />
+                    id={process.id}
+                    process={process}
+                    />
                 </Modal>
               </td>}
               {showFeature()

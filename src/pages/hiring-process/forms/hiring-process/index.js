@@ -7,21 +7,26 @@ import PrimaryButton from '../../../../components/buttons/primary'
 import { useTranslation } from 'react-i18next'
 import { DateRange } from 'react-date-range'
 
-export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => { } }) => {
-  const { t } = useTranslation()
-
-  const [datePicker, setDatePicker] = useState([{
-    startDate: new Date(),
-    endDate: null,
-    key: 'selection'
-  }])
-
-  const [hiringProcess, setHiringProcess] = useState({
+export const HiringProcessForm = ({
+  method = 'POST',
+  id = '',
+  callback = () => { },
+  process = {
     name: '',
-    startDate: '',
-    endDate: '',
+    startDate: new Date(),
+    endDate: new Date(),
     description: ''
-  })
+  }
+}) => {
+  const { t } = useTranslation()
+  const [datePicker, setDatePicker] = useState([
+    {
+      startDate: new Date(process.startDate),
+      endDate: new Date(process.endDate),
+      key: 'selection'
+    }])
+
+  const [hiringProcess, setHiringProcess] = useState(process)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -45,12 +50,13 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
 
   return (
     <form>
-      <InputText name="name" label={t('hiringProcess.form.name')} onChange={handleChange} />
+      <InputText name="name" value={hiringProcess.name} label={t('hiringProcess.form.name')} onChange={handleChange} />
       <DateRange
         name={'startDate'}
         ranges={datePicker}
         editableDateInputs={true}
         minDate={new Date()}
+        preview={{ startDate: new Date(datePicker.startDate), endDate: new Date(datePicker.endDate) }}
         onChange={(item) => {
           setDatePicker([item.selection])
           setHiringProcess({
@@ -62,7 +68,7 @@ export const HiringProcessForm = ({ method = 'POST', id = '', callback = () => {
         }
         moveRangeOnFirstSelection={false}
       />
-      <InputText name="description" label={t('hiringProcess.form.description')} onChange={handleChange} />
+      <InputText name="description" value={hiringProcess.description} label={t('hiringProcess.form.description')} onChange={handleChange} />
       <PrimaryButton text={t('hiringProcess.form.submitButton')} onClick={sendHiringProcess}>
         Enviar
       </PrimaryButton>
