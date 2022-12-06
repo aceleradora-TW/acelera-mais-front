@@ -34,7 +34,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   const handleEdit = async () => {
     location.reload()
-    console.log('hwsh')
   }
 
   const handleDelete = async (id) => {
@@ -66,7 +65,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
             <th>{t('hiringProcess.thead.title')}</th>
             <th>Status</th>
             <th>{t('hiringProcess.thead.start')}</th>
-            {isAdmin() && <th colSpan="6">{t('hiringProcess.thead.actions')}</th>}
+            <th colSpan="6">{t('hiringProcess.thead.actions')}</th>
           </tr>
         </thead>
         <tbody>
@@ -110,13 +109,16 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 </Modal>
               </td>}
               {isAdmin() && <><td>
-                <Button
+                <Modal
                   icon={faDownload}
+                  label="Download arquivo csv"
+                  title={t('hiringProcess.export.download')}
                   className="button default"
                   text={t('hiringProcess.export.text')}
-                  onClick={handleExport(process.id)}>
+                  callback={handleExport(process.id)}
+                >
                   {csv}
-                </Button>
+                </Modal>
               </td><td>
                 </td></>}
 
@@ -129,9 +131,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   <HiringProcessForm
                     callback={handleEdit}
                     method="PATCH"
-                    id={process.id}
-                    process={process}
-                    />
+                    id={process.id} />
                 </Modal>
               </td>}
               {showFeature()
