@@ -34,6 +34,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
 
   const handleEdit = async () => {
     location.reload()
+    console.log('hwsh')
   }
 
   const handleDelete = async (id) => {
