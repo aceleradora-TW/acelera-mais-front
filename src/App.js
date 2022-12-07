@@ -4,7 +4,7 @@ import AppRoutes from './routes'
 const App = () => {
   return (
     <>
-      <GlobalStyle />,
+      <GlobalStyle />
       <AppRoutes />
     </>
   )
