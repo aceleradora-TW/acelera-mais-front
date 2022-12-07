@@ -13,6 +13,7 @@ import { CreateLink } from './components/link-modal'
 import { SortTable } from '../../components/sort-table'
 import humanizeDuration from 'humanize-duration'
 import { Paginator } from '../../components/pagination'
+import { getParams } from '../../utils/index'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -25,8 +26,6 @@ export const MentorPage = () => {
   const [countUsers, setCountUsers] = useState(0)
 
   const hasMentors = ({ length }) => length > 0
-
-  const getParams = (params) => new URLSearchParams(params).toString()
 
   useEffect(() => {
     client.get(`/user?${getParams({ orderBy, orientation, page, search })}`)
