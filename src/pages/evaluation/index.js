@@ -11,31 +11,33 @@ import { Container, Download, ContainerButtons, Anchor } from './styled'
 import { useTranslation } from 'react-i18next'
 
 const EvaluationChallenge = () => {
-  const [exercise, setExercise] = useState(null)
+  const [exercise, setExercise] = useState({
+    exerciseStatement: 'aloo', name: 'oi'
+  })
   const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
   const { t } = useTranslation()
 
-  const exerciseId = window.location.pathname.split('/')[2]
+  const getExercise = async (id) => {
+    const exerciseResult = await client.get(`/exercise/${id}`)
+      .then(res => (res.data))
+      .then(res => res.exercise)
+      .catch(err => {
+        return err
+      })
+    console.log(exerciseResult)
+    setExercise({ ...exerciseResult })
+  }
 
   useEffect(() => {
-    client.get(`/exercise/${exerciseId}`)
-      .then(res => (res.data))
-      .then(res => {
-        setExercise(res.exercise)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    const exerciseId = window.location.pathname.split('/')[2]
+    console.log(exerciseId)
+    getExercise(exerciseId)
   }, [])
 
   const handleCancel = () => {
     client.patch(`/evaluation/${exercise.evaluation.id}`, { mentorName: 'cancelado' })
     history.back()
   }
-
-  if (!exercise) return null
-
-  const exerciseStatement = exercise.exerciseStatement
 
   return (
     <>
@@ -47,7 +49,7 @@ const EvaluationChallenge = () => {
           <Header setDisableEvaluationButton={setDisableEvaluationButton} />
 
           <Download>
-            <Anchor href={exerciseStatement} target='_blank' rel='noreferrer'>
+            <Anchor href={exercise.exerciseStatement} target='_blank' rel='noreferrer'>
               <FontAwesomeIcon icon={faPrint} />
               {t('evaluation.exerciseStatement')}
             </Anchor>
