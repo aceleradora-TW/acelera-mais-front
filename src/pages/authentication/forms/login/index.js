@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { useTranslation } from 'react-i18next'
 import { client, setTokenInHeaders } from '../../../../service'
-import { LoginForm } from './styles'
-import { Link } from 'react-router-dom'
+import {
+  LoginForm
+} from './styles'
+import { ForgetPassword } from '../../../../components/forgetPasswordModal'
 
 export const Login = () => {
   const { t } = useTranslation()
@@ -55,7 +57,7 @@ export const Login = () => {
         <label>
           <input onChange={handleChangePassword} value={password} type="password" placeholder={t('login.password')}></input>
         </label>
-        <Link>Esqueci minha senha</Link>
+        <ForgetPassword />
       </div>
       <button onClick={handlerClick}>{t('login.loginButton')}</button>
     </LoginForm >
