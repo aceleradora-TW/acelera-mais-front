@@ -17,11 +17,14 @@ const EvaluationChallenge = () => {
 
   const exerciseId = window.location.pathname.split('/')[2]
 
+  const hasExerciseType = ({ exerciseType }) => !exerciseType
+
   useEffect(() => {
     client.get(`/exercise/${exerciseId}`)
       .then(res => (res.data))
       .then(res => {
         setExercise(res.exercise)
+        setDisableEvaluationButton(hasExerciseType(res.exercise))
       })
       .catch(err => {
         console.log(err)
@@ -44,7 +47,10 @@ const EvaluationChallenge = () => {
           <h1>{`${t('evaluation.title')} ${exercise.name}`}</h1>
         </div>
         <div key={exercise.id}>
-          <Header setDisableEvaluationButton={setDisableEvaluationButton} defaultType={exercise.exerciseType}/>
+          <Header
+            setDisableEvaluationButton={setDisableEvaluationButton}
+            defaultType={exercise.exerciseType}
+          />
 
           <Download>
             <Anchor href={exerciseStatement} target='_blank' rel='noreferrer'>
@@ -58,7 +64,12 @@ const EvaluationChallenge = () => {
           <ContainerButtons>
 
             <DefaultButton text={t('evaluation.cancel')} onClick={handleCancel} />
-            <Modal className={'primary'} text={t('evaluation.evaluate')} title={`${t('evaluation.title')} ${exercise.name}`} disabled={disableEvaluationButton} >
+            <Modal
+              className={'primary'}
+              text={t('evaluation.evaluate')}
+              title={`${t('evaluation.title')} ${exercise.name}`}
+              disabled={disableEvaluationButton}
+            >
 
               <Score exercise={exercise} />
 
