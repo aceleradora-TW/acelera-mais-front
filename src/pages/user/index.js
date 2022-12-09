@@ -26,9 +26,15 @@ export const MentorPage = () => {
   const [countUsers, setCountUsers] = useState(0)
 
   const hasMentors = ({ length }) => length > 0
+  const payload = {
+    orderBy,
+    orientation,
+    page: search ? 0 : page,
+    search
+  }
 
   useEffect(() => {
-    client.get(`/user?${getParams({ orderBy, orientation, page, search })}`)
+    client.get(`/user?${getParams(payload)}`)
       .then(res => res.data.data)
       .then(res => {
         hasMentors(res.users)
