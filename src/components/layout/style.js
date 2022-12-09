@@ -2,7 +2,7 @@ import style from 'styled-components'
 
 export const NavBar = style.div`
 display: flex;
-justify-content: flex-end;
+justify-content: ${({ pathname }) => pathname.pathname === '/home' ? 'flex-end' : 'space-between'};
 background-color: #dcdcdc;
 padding-top: 10px;
 padding-bottom: 10px;
@@ -15,4 +15,6 @@ button{
 
 export const Navigation = style.div`
 display: flex;
+justify-content: flex-end;
+align-items: center
 `
