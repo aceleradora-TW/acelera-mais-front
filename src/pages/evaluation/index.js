@@ -11,9 +11,7 @@ import { Container, Download, ContainerButtons, Anchor } from './styled'
 import { useTranslation } from 'react-i18next'
 
 const EvaluationChallenge = () => {
-  const [exercise, setExercise] = useState({
-    exerciseStatement: 'aloo', name: 'oi'
-  })
+  const [exercise, setExercise] = useState({})
   const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
   const { t } = useTranslation()
 
@@ -36,7 +34,7 @@ const EvaluationChallenge = () => {
     client.get(`/exercise/${exerciseId}`)
       .then(res => (res.data))
       .then(res => {
-        setExercise(res.exercise)
+        setExercise(res.data.exercise)
         setDisableEvaluationButton(hasExerciseType(res.exercise))
       })
       .catch(err => {
