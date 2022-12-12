@@ -1,23 +1,25 @@
 import style from 'styled-components'
 
-export const Header = style.div`
+export const Section = style.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 50px;
+  max-width: 600px;
   padding-left: 40px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  padding-right: 40px;
+  position: absolute;
   background-color: #e7e7e7;
-  border-bottom: 1px #aea9bb solid;
+  border-bottom: 2px #aea9bb solid;
+  border-height: 0px;
 `
-export const Title = style.h4`
+export const Label = style.h4`
   color: #626262;
-  font-size: 20px;
+  font-size: 18px;
   text-align: left;
   font-weight: 700;
   margin-right: 20px;
 `
-export const Input = style.div`
-border-radius: 10%
+export const Input = style.input`
+  border-radius: 10%;
 `
