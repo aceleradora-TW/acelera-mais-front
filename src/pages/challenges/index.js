@@ -19,7 +19,13 @@ export const ChallengePage = () => {
                 { value: 'backend', label: 'Backend' },
                 { value: 'frontend', label: 'Frontend' },
                 { value: 'fullstack', label: 'Fullstack' }
-              ]} placeholder={t('challenge.select.placeholder')} label={t('challenge.select.label')} name="type" onChange={() => { }} />
+              ]} placeholder={
+                t('challenge.select.placeholder')}
+                label={t('challenge.select.label')}
+                name="type"
+                onChange={() => { }
+              }
+                />
             </section>)
           : null}
         <Table

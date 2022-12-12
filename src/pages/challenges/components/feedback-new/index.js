@@ -7,7 +7,8 @@ export const Feedback = ({ exercise, toggle }) => {
         <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
           <div>
             <strong>{exercise.name}</strong>
-            <div>{evaluation.feedback} </div>
+            <div>Nota: {evaluation.score}</div>
+            <div>FeedBack: {evaluation.feedback} </div>
           </div>
         </div>
       </td>
