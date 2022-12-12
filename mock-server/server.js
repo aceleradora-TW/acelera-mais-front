@@ -6,7 +6,8 @@ const port = 9000
 
 const {
   loginResponse,
-  userResponse,
+  userPage1Response,
+  userPage2Response,
   emailVerificationResponse,
   userLinkVerificationResponse,
   hiringProcessResponse,
@@ -40,7 +41,11 @@ app.patch('/challenge/:id', (req, res) => res.status(200))
 app.post('/challenge/hiring_process/:id', (req, res) => res.status(200))
 
 app.post('/user', (req, res) => res.status(200))
-app.get('/user', (req, res) => res.json(userResponse))
+app.get('/user', (req, res) => {
+  const { page } = req.query || 1
+  const userResponse = Number(page) > 1 ? userPage2Response : userPage1Response
+  res.json(userResponse)
+})
 app.put('/user/:id', (req, res) => res.status(200))
 app.get('/user/link_validation', (req, res) => res.json(userLinkVerificationResponse))
 app.put('/user/:id/email_verification', (req, res) => res.json(emailVerificationResponse))

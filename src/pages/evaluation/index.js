@@ -28,10 +28,20 @@ const EvaluationChallenge = () => {
     setExercise({ ...exerciseResult })
   }
 
+  const hasExerciseType = ({ exerciseType }) => !exerciseType
+
   useEffect(() => {
     const exerciseId = window.location.pathname.split('/')[2]
-    console.log(exerciseId)
     getExercise(exerciseId)
+    client.get(`/exercise/${exerciseId}`)
+      .then(res => (res.data))
+      .then(res => {
+        setExercise(res.exercise)
+        setDisableEvaluationButton(hasExerciseType(res.exercise))
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }, [])
 
   const handleCancel = () => {
@@ -43,10 +53,13 @@ const EvaluationChallenge = () => {
     <>
       <Container >
         <div className="nav-challengs-between">
-          <h1>{t('evaluation.title')}</h1>
+          <h1>{`${t('evaluation.title')} ${exercise.name}`}</h1>
         </div>
         <div key={exercise.id}>
-          <Header setDisableEvaluationButton={setDisableEvaluationButton} />
+          <Header
+            setDisableEvaluationButton={setDisableEvaluationButton}
+            defaultType={exercise.exerciseType}
+          />
 
           <Download>
             <Anchor href={exercise.exerciseStatement} target='_blank' rel='noreferrer'>
@@ -60,7 +73,12 @@ const EvaluationChallenge = () => {
           <ContainerButtons>
 
             <DefaultButton text={t('evaluation.cancel')} onClick={handleCancel} />
-            <Modal className={'primary'} text={t('evaluation.evaluate')} title={`${t('evaluation.title')} ${exercise.name}`} disabled={disableEvaluationButton} >
+            <Modal
+              className={'primary'}
+              text={t('evaluation.evaluate')}
+              title={`${t('evaluation.title')} ${exercise.name}`}
+              disabled={disableEvaluationButton}
+            >
 
               <Score exercise={exercise} />
 

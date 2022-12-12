@@ -1,10 +1,10 @@
 import { StyledSelectContainer } from './select'
-const Select = ({ options, onChange, placeholder, name, label, onSelect }) => {
+const Select = ({ value, options, onChange, placeholder, name, label, onSelect }) => {
   return (
     <StyledSelectContainer>
       <label>{label}</label>
-      <select name={name} onChange={onChange} onSelect={onSelect}>
-        <option>{placeholder}</option>
+      <select value={value} name={name} onChange={onChange} onSelect={onSelect}>
+        <option disabled selected>{placeholder}</option>
         {options.map((option, key) => (<option key={key} value={option.value}> {option.label} </option>))}
       </select>
     </StyledSelectContainer>

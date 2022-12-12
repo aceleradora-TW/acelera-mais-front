@@ -51,7 +51,6 @@
         }
       },
       "export": {
-        "download": "Download csv file",
         "text": "Export data"
       },
       "edit": {
@@ -99,7 +98,7 @@
       }
     },
     "evaluation": {
-      "title": "Exercises answers",
+      "title": "Evaluate:",
       "answer": "Submitted answers:",
       "cancel": "Cancel",
       "evaluate": "Evaluate",
@@ -216,6 +215,10 @@
       "greetingText": {
         "Greeting": "Welcome, {{name}}"
       }
+    },
+    "pagination":{
+      "prev" : "Prev",
+      "next" : "Next"
     }
   }
 }

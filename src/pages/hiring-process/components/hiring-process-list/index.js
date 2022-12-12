@@ -9,7 +9,7 @@ import { client } from '../../../../service'
 import {
   faAngleDown,
   faDownload,
-  faUpload, faTrashAlt
+  faUpload
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { parse } from 'json2csv'
@@ -18,7 +18,7 @@ import { Container, HiringProcessTable } from './styles'
 import { isAdmin } from '../../../../utils/isAdmin'
 import { useTranslation } from 'react-i18next'
 
-export const ProcessList = ({ processes, setHiringProcesses }) => {
+export const ProcessList = ({ processes }) => {
   const { t } = useTranslation()
   const [csv, setCSV] = useState('')
 
@@ -36,17 +36,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
     location.reload()
   }
 
-  const handleDelete = async (id) => {
-    try {
-      const answer = confirm(t('hiringProcess.delete'))
-      if (answer === false) return
-      client.delete(`/hiring_process/${id}`)
-      const newProcesses = processes.filter(process => process.id !== id)
-      setHiringProcesses(newProcesses)
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  const isHiringProcessClosed = (status) => status === 'status-closed'
 
   const formatDate = (date) => {
     const addZero = (number) => number <= 9 ? '0' + number : number
@@ -65,7 +55,7 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
             <th>{t('hiringProcess.thead.title')}</th>
             <th>Status</th>
             <th>{t('hiringProcess.thead.start')}</th>
-            <th colSpan="6">{t('hiringProcess.thead.actions')}</th>
+            {isAdmin() && <th colSpan="6">{t('hiringProcess.thead.actions')}</th>}
           </tr>
         </thead>
         <tbody>
@@ -109,16 +99,13 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                 </Modal>
               </td>}
               {isAdmin() && <><td>
-                <Modal
+                <Button
                   icon={faDownload}
-                  label="Download arquivo csv"
-                  title={t('hiringProcess.export.download')}
                   className="button default"
                   text={t('hiringProcess.export.text')}
-                  callback={handleExport(process.id)}
-                >
+                  onClick={handleExport(process.id)}>
                   {csv}
-                </Modal>
+                </Button>
               </td><td>
                 </td></>}
 
@@ -127,11 +114,14 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   label="Editar"
                   title={t('hiringProcess.edit.title')}
                   className="button action"
-                  text={t('hiringProcess.edit.text')}>
+                  text={t('hiringProcess.edit.text')}
+                  disabled={isHiringProcessClosed(process.status)}>
                   <HiringProcessForm
                     callback={handleEdit}
                     method="PATCH"
-                    id={process.id} />
+                    id={process.id}
+                    process={process}
+                    />
                 </Modal>
               </td>}
               {showFeature()
@@ -143,12 +133,6 @@ export const ProcessList = ({ processes, setHiringProcesses }) => {
                   />
                 </td>)
                 : null}
-              {isAdmin() && <td>
-                <Button icon={faTrashAlt}
-                  className="button delete"
-                  onClick={() => handleDelete(process.id)}
-                />
-              </td>}
             </tr>
           ))}
         </tbody>
