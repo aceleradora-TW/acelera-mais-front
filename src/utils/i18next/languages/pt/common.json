@@ -105,7 +105,9 @@
         "title": "Nota",
         "placeholder": "Escolha uma Nota",
         "sendButton": "Enviar Avaliação",
+        "saveButton": "Salvar Avaliação",
         "alert": "Atualizado com sucesso!",
+        "alertSave":"Sua avaliação será Salva e poderá ser editada depois",
         "placeholderTextarea": "Deixe aqui seu feedback."
       },
       "exerciseStatement": "Visualizar o enunciado do exercício"

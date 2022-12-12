@@ -106,7 +106,9 @@
         "title": "Note",
         "placeholder": "Select a Note",
         "sendButton": "Send Evaluation",
+        "saveButton": "Save Evaluation",
         "alert": "Successfully updated!",
+        "alertSave": "Your review will be Saved and can be edited later",
         "placeholderTextarea": "Leave your feedback here."
       },
       "exerciseStatement": "View the exercise statement"

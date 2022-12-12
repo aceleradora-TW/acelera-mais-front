@@ -2,7 +2,7 @@ import { React, useState } from 'react'
 import Select from '../../../../components/select'
 import { client } from '../../../../service'
 import PrimaryButton from '../../../../components/buttons/primary'
-import { ScoreContainer } from '../../styled'
+import { ScoreContainer, StylesButton } from '../../styled'
 import { useTranslation } from 'react-i18next'
 
 export const Score = ({ exercise }) => {
@@ -29,7 +29,9 @@ export const Score = ({ exercise }) => {
     alert(t('evaluation.score.alert'))
     history.back()
   }
-
+  const handleSave = () => {
+    alert(t('evaluation.score.alertSave'))
+  }
   const isANumber = () => Number.isNaN(Number(score))
 
   return (
@@ -55,12 +57,17 @@ export const Score = ({ exercise }) => {
         onChange={handleTextArea}
       >
       </textarea>
+      <StylesButton>
+        <PrimaryButton
+          text={t('evaluation.score.sendButton')}
+          onClick={handleSubmit}
+          disabled={isANumber() || !feedback} />
+        <PrimaryButton
+          text={t('evaluation.score.saveButton')}
+          onClick={handleSave}
+        />
+      </StylesButton>
 
-      <PrimaryButton
-        text={t('evaluation.score.sendButton')}
-        onClick={handleSubmit}
-        disabled={isANumber() || !feedback}
-      />
     </ScoreContainer>
   )
 }

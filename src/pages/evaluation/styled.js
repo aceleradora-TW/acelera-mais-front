@@ -95,3 +95,7 @@ export const ScoreContainer = styled.div`
     height: 80px;
   }
 `
+export const StylesButton = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
