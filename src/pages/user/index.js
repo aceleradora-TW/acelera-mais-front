@@ -115,8 +115,8 @@ export const MentorPage = () => {
             </tr>
           </thead>
           <tbody>
-            {
-              mentors.map((mentor, key) =>
+            {mentors
+              ? mentors.map((mentor, key) =>
                 <tr key={key} >
                   <td>{mentor.name}</td>
                   <td>{t(`user.types.${mentor.type}`)}</td>
@@ -178,6 +178,9 @@ export const MentorPage = () => {
                   </td>
                 </tr>
               )
+              : <tr>
+                  <td>Carregando...</td>
+                </tr>
             }
           </tbody>
         </Table>
