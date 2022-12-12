@@ -13,6 +13,7 @@ import { CreateLink } from './components/link-modal'
 import { SortTable } from '../../components/sort-table'
 import humanizeDuration from 'humanize-duration'
 import { Paginator } from '../../components/pagination'
+import { getParams } from '../../utils/index'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
@@ -21,12 +22,19 @@ export const MentorPage = () => {
   const [orderBy, setOrderBy] = useState('name')
   const [orientation, setOrientation] = useState('ASC')
   const [page, setPage] = useState(1)
+  const [search, setSearch] = useState('')
   const [countUsers, setCountUsers] = useState(0)
 
   const hasMentors = ({ length }) => length > 0
+  const payload = {
+    orderBy,
+    orientation,
+    page: search ? 0 : page,
+    search
+  }
 
   useEffect(() => {
-    client.get(`/user?orderBy=${orderBy}&orientation=${orientation}&page=${page}`)
+    client.get(`/user?${getParams(payload)}`)
       .then(res => res.data.data)
       .then(res => {
         hasMentors(res.users)
@@ -38,7 +46,7 @@ export const MentorPage = () => {
         console.log(err)
         setMessage(t('user.message.500'))
       })
-  }, [orderBy, orientation, page])
+  }, [orderBy, orientation, page, search])
 
   const isEnabled = flag => flag === 'user-enabled'
 
@@ -65,7 +73,9 @@ export const MentorPage = () => {
       <Page>
         <section>
           <h1>{t('user.title')}</h1>
-          <InputSearch />
+          <InputSearch
+            onChange={(e) => setSearch(e.target.value)}
+          />
           <div className="button-container">
             <CreateLink
               title='linkGeneration.tittle'
