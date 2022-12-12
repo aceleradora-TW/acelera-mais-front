@@ -2,7 +2,8 @@ import { useTranslation } from 'react-i18next'
 import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
 import { UserModal } from './components/user-modal'
-import { Container, Page, FlexSpaceBetween, Message } from './components/mentor-register/styled.js'
+import { Container, Page, FlexSpaceBetween } from './components/mentor-register/styled.js'
+import { Message } from '../../components/message/styled.js'
 import { faPlus, faSortAlphaDown, faSortAlphaUp } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
 import { client } from '../../service'
@@ -34,6 +35,7 @@ export const MentorPage = () => {
   }
 
   useEffect(() => {
+    setMessage(t('user.message.loading'))
     client.get(`/user?${getParams(payload)}`)
       .then(res => res.data.data)
       .then(res => {
@@ -41,6 +43,7 @@ export const MentorPage = () => {
           ? setMentors(res.users)
           : setMessage(t('user.message.404'))
         setCountUsers(res.count)
+        setMessage([])
       })
       .catch(err => {
         console.log(err)
@@ -115,73 +118,68 @@ export const MentorPage = () => {
             </tr>
           </thead>
           <tbody>
-            {mentors
-              ? mentors.map((mentor, key) =>
-                <tr key={key} >
-                  <td>{mentor.name}</td>
-                  <td>{t(`user.types.${mentor.type}`)}</td>
-                  <td>
-                    <Status
-                      status={mentor.flag}
-                      options={
-                        {
-                          status: {
-                            green: ['user-enabled'],
-                            red: ['user-disabled'],
-                            yellow: ['first-login', 'email-resent']
-                          },
-                          label: {
-                            green: 'user.status.green',
-                            red: ['user.status.red'],
-                            yellow: ['user.status.yellow']
-                          }
+            {mentors.map((mentor, key) =>
+              <tr key={key} >
+                <td>{mentor.name}</td>
+                <td>{t(`user.types.${mentor.type}`)}</td>
+                <td>
+                  <Status
+                    status={mentor.flag}
+                    options={
+                      {
+                        status: {
+                          green: ['user-enabled'],
+                          red: ['user-disabled'],
+                          yellow: ['first-login', 'email-resent']
+                        },
+                        label: {
+                          green: 'user.status.green',
+                          red: ['user.status.red'],
+                          yellow: ['user.status.yellow']
                         }
                       }
+                    }
+                  />
+                </td>
+                <td>{humanizeDate(mentor.createdAt)}</td>
+                <td>
+                  <FlexSpaceBetween>
+                    <p>{mentor.email}</p>
+                    <p>{mentor.telephone}</p>
+                  </FlexSpaceBetween>
+                </td>
+                <td>
+                  <FlexSpaceBetween>
+                    <Button
+                      className={'button-default'}
+                      text={t('user.button.resend')}
+                      onClick={() => {
+                        client.put(`/user/${mentor.id}/email_verification`,
+                          { email: mentor.email })
+                          .then(res => res.data)
+                          .then(res => alert(res.message))
+                          .catch(({ response }) => alert(response.data.msg))
+                      }}
                     />
-                  </td>
-                  <td>{humanizeDate(mentor.createdAt)}</td>
-                  <td>
-                    <FlexSpaceBetween>
-                      <p>{mentor.email}</p>
-                      <p>{mentor.telephone}</p>
-                    </FlexSpaceBetween>
-                  </td>
-                  <td>
-                    <FlexSpaceBetween>
-                      <Button
-                        className={'button-default'}
-                        text={t('user.button.resend')}
-                        onClick={() => {
-                          client.put(`/user/${mentor.id}/email_verification`,
-                            { email: mentor.email })
-                            .then(res => res.data)
-                            .then(res => alert(res.message))
-                            .catch(({ response }) => alert(response.data.msg))
-                        }}
-                      />
-                      <UserModal
-                        id={mentor.id}
-                        user={mentor}
-                        method='PUT'
-                        title='editMentor.title'
-                        text='editMentor.edit'
-                      />
-                      <ToggleButton
-                        status={isEnabled(mentor.flag)}
-                        label={{
-                          on: t('user.toggle.on'),
-                          off: t('user.toggle.off')
-                        }}
-                        click={handleToggleButton(mentor.id)}
-                      />
-                    </FlexSpaceBetween>
-                  </td>
-                </tr>
-              )
-              : <tr>
-                  <td>Carregando...</td>
-                </tr>
-            }
+                    <UserModal
+                      id={mentor.id}
+                      user={mentor}
+                      method='PUT'
+                      title='editMentor.title'
+                      text='editMentor.edit'
+                    />
+                    <ToggleButton
+                      status={isEnabled(mentor.flag)}
+                      label={{
+                        on: t('user.toggle.on'),
+                        off: t('user.toggle.off')
+                      }}
+                      click={handleToggleButton(mentor.id)}
+                    />
+                  </FlexSpaceBetween>
+                </td>
+              </tr>
+            )}
           </tbody>
         </Table>
         <Message>

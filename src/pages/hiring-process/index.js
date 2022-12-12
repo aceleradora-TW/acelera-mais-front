@@ -10,15 +10,21 @@ import { client } from '../../service'
 import showFeature from '../../utils/feature-toggle'
 import { isAdmin } from '../../utils/isAdmin'
 import { useTranslation } from 'react-i18next'
+import { Message } from '../../components/message/styled.js'
 
 const HiringProcessPage = () => {
   const { t } = useTranslation()
   const [hiringProcesses, setHiringProcesses] = useState([])
+  const [message, setMessage] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
+    setMessage(t('user.message.loading'))
     client.get('/hiring_process')
-      .then(res => setHiringProcesses(res.data))
+      .then(res => {
+        setHiringProcesses(res.data)
+        setMessage([])
+      })
       .catch(err => {
         console.log(err)
         setHiringProcesses([])
@@ -48,6 +54,7 @@ const HiringProcessPage = () => {
         </div>
       </section>
       <ProcessList processes={hiringProcesses} setHiringProcesses={setHiringProcesses} />
+      <Message>{message}</Message>
     </div>
   )
 }

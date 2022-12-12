@@ -177,7 +177,8 @@
       },
       "message": {
         "500": "There was an internal problem. Wait a few minutes.",
-        "404": "No mentors registered."
+        "404": "No mentors registered.",
+        "loading": "Loading..."
       },
       "button": {
         "resend": "Resend E-mail",

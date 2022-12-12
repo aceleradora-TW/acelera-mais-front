@@ -176,7 +176,8 @@
       },
       "message": {
         "500": "Houve um problema interno. Aguarde alguns minutos.",
-        "404": "Nenhuma mentora avaliadora cadastrada."
+        "404": "Nenhuma mentora avaliadora cadastrada.",
+        "loading": "Carregando..."
       },
       "button": {
         "resend": "Reenviar E-mail",
