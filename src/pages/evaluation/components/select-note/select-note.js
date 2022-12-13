@@ -30,7 +30,10 @@ export const Score = ({ exercise }) => {
     history.back()
   }
   const handleSave = () => {
+    const id = exercise.evaluation.id
+    client.put(`evaluation/${id}`, evaluation)
     alert(t('evaluation.score.alertSave'))
+    history.back()
   }
   const isANumber = () => Number.isNaN(Number(score))
 
