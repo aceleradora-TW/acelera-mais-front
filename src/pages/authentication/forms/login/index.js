@@ -13,6 +13,7 @@ export const Login = () => {
   const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [mentors] = useState([])
   const navigate = useNavigate()
 
   const handleChangeEmail = ({ target }) => {
@@ -50,6 +51,16 @@ export const Login = () => {
     }
   }
 
+  const resendPassword = () => {
+    mentors.map(mentor =>
+      client.put('/login/email_verification',
+        { email: mentor.email })
+        .then(res => res.data)
+        .then(res => alert(res.message))
+        .catch(({ response }) => alert(response.data.msg))
+    )
+  }
+
   return (
     <LoginForm>
       <div className='teste'>
@@ -62,7 +73,7 @@ export const Login = () => {
         <Modal className={'modal'} title={'Esqueci minha senha'} text={'esqueci senha'}>
           <InputEmail label={'Informe seu email abaixo'} />
           <div className='enviar'>
-            <Button className={'primary'} text={'Enviar'} />
+            <Button className={'primary'} text={'Enviar'} onClick={resendPassword} />
           </div>
         </Modal>
       </div>
