@@ -27,7 +27,7 @@ export const LoginForm = styled.div`
   width: 400px;
   height: 400px;
 
-  div {
+  .teste {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -43,7 +43,7 @@ export const LoginForm = styled.div`
     height: 30px;
   }
 
-  button {
+  .botao {
     width: 200px;
     height: 30px;
     background-color: black;
@@ -51,4 +51,15 @@ export const LoginForm = styled.div`
     color: white;
     cursor: pointer;
   }  
+
+  .modal {
+    background: none;
+    border: none;
+    text-decoration: underline;
+  }
+
+  .enviar {
+    display: flex;
+    justify-content: center;
+  }
 `

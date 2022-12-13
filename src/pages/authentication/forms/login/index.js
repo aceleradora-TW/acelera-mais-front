@@ -5,7 +5,9 @@ import { client, setTokenInHeaders } from '../../../../service'
 import {
   LoginForm
 } from './styles'
-import { ForgetPassword } from '../../../../components/forgetPasswordModal'
+import { Modal } from '../../../../components/modal'
+import Button from '../../../../components/buttons/button'
+import { InputEmail } from '../../../../components/inputs/email'
 
 export const Login = () => {
   const { t } = useTranslation()
@@ -50,16 +52,21 @@ export const Login = () => {
 
   return (
     <LoginForm>
-      <div>
+      <div className='teste'>
         <label>
           <input onChange={handleChangeEmail} value={email} type="email" placeholder="Email@email.com"></input>
         </label>
         <label>
           <input onChange={handleChangePassword} value={password} type="password" placeholder={t('login.password')}></input>
         </label>
-        <ForgetPassword />
+        <Modal className={'modal'} title={'Esqueci minha senha'} text={'esqueci senha'}>
+          <InputEmail label={'Informe seu email abaixo'} />
+          <div className='enviar'>
+            <Button className={'primary'} text={'Enviar'} />
+          </div>
+        </Modal>
       </div>
-      <button onClick={handlerClick}>{t('login.loginButton')}</button>
+      <button className='botao' onClick={handlerClick}>{t('login.loginButton')}</button>
     </LoginForm >
   )
 }
