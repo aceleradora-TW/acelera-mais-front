@@ -9,8 +9,8 @@ export const Feedback = ({ exercise, toggle }) => {
         <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
           <div>
             <strong>{exercise.name}</strong>
-            <p>{t('translation.exercise.evaluate.score')}{evaluation.score}</p>
-            <p>{t('translation.exercise.evaluate.feedback')}{evaluation.feedback} </p>
+            <p>{t('exercise.evaluate.score')} {evaluation.score}</p>
+            <p>{t('exercise.evaluate.feedback')} {evaluation.feedback} </p>
           </div>
         </div>
       </td>
