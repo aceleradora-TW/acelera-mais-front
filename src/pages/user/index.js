@@ -15,11 +15,13 @@ import { SortTable } from '../../components/sort-table'
 import humanizeDuration from 'humanize-duration'
 import { Paginator } from '../../components/pagination'
 import { getParams } from '../../utils/index'
+import { Loading } from '../../components/loading'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
   const [orderBy, setOrderBy] = useState('name')
   const [orientation, setOrientation] = useState('ASC')
   const [page, setPage] = useState(1)
@@ -35,7 +37,7 @@ export const MentorPage = () => {
   }
 
   useEffect(() => {
-    setMessage(t('user.message.loading'))
+    setIsLoading(true)
     client.get(`/user?${getParams(payload)}`)
       .then(res => res.data.data)
       .then(res => {
@@ -43,7 +45,7 @@ export const MentorPage = () => {
           ? setMentors(res.users)
           : setMessage(t('user.message.404'))
         setCountUsers(res.count)
-        setMessage([])
+        setIsLoading(false)
       })
       .catch(err => {
         console.log(err)
@@ -182,6 +184,7 @@ export const MentorPage = () => {
             )}
           </tbody>
         </Table>
+        <Loading isVisible={isLoading} />
         <Message>
           {message}
         </Message>
