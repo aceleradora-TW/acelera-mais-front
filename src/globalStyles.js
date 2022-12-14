@@ -1,7 +1,6 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+import { createGlobalStyle } from 'styled-components'
+
+export const GlobalStyle = createGlobalStyle`
 
 * {
   box-sizing: border-box;
@@ -32,7 +31,6 @@ html, body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -58,4 +56,4 @@ q:before, q:after {
 
 table {
   border-spacing: 0;
-}
+}`
