@@ -111,6 +111,10 @@
       "exerciseStatement": "Visualizar o enunciado do exercício"
     },
     "exercise": {
+      "evaluate": {
+       "score": "Nota:",
+       "feedback":"Feedback:"
+      },
       "type": {
         "title": "Tipo",
         "placeholder": "Escolha uma opção",

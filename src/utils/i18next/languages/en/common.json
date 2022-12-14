@@ -112,6 +112,10 @@
       "exerciseStatement": "View the exercise statement"
     },
     "exercise": {
+      "evaluate": {
+        "score": "Score:",
+        "feedback":"Feedback:"
+       },
       "type": {
         "title": "Type",
         "placeholder": "Select an Option",
