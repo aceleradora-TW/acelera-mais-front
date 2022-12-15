@@ -1,11 +1,13 @@
 import style from 'styled-components'
 
 export const LogoContainer = style.div`
-display: flex;
-width: 100px;
-margin-right: 1400px;
+display:flex;
+left:0;
+top:0;
+margin-left:15px;
 .image {
-    height:75px;
+    height:55px;
+    margin-top:3px;
     border:1px solid;
     &:hover {
       cursor: pointer;
