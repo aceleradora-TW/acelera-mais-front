@@ -14,11 +14,7 @@ export const FlexSpaceBetween = styled.div`
   display: flex;
   justify-content: space-between;
 `
-export const Message = styled.p`
-  display: flex;
-  justify-content: center;
-  padding-top: 10px;
-`
+
 export const Page = styled.div`
   text-align: justify;
   padding:20px;
