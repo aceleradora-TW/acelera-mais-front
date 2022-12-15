@@ -60,7 +60,6 @@ export const Login = () => {
         .catch(({ response }) => alert(response.data.msg))
     )
   }
-
   return (
     <LoginForm>
       <div className='teste'>
@@ -71,7 +70,7 @@ export const Login = () => {
           <input onChange={handleChangePassword} value={password} type="password" placeholder={t('login.password')}></input>
         </label>
         <Modal className={'modal'} title={'Esqueci minha senha'} text={'esqueci senha'}>
-          <InputEmail label={'Informe seu email abaixo'} />
+          <InputEmail onChange={handleChangeEmail} value={email} label={'Informe seu email abaixo'} />
           <div className='enviar'>
             <Button className={'primary'} text={'Enviar'} onClick={resendPassword} />
           </div>
