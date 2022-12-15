@@ -10,15 +10,21 @@ import { client } from '../../service'
 import showFeature from '../../utils/feature-toggle'
 import { isAdmin } from '../../utils/isAdmin'
 import { useTranslation } from 'react-i18next'
+import { Loading } from '../../components/loading'
 
 const HiringProcessPage = () => {
   const { t } = useTranslation()
   const [hiringProcesses, setHiringProcesses] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
+    setIsLoading(true)
     client.get('/hiring_process')
-      .then(res => setHiringProcesses(res.data))
+      .then(res => {
+        setHiringProcesses(res.data)
+        setIsLoading(false)
+      })
       .catch(err => {
         console.log(err)
         setHiringProcesses([])
@@ -48,6 +54,7 @@ const HiringProcessPage = () => {
         </div>
       </section>
       <ProcessList processes={hiringProcesses} setHiringProcesses={setHiringProcesses} />
+      <Loading isVisible={isLoading} />
     </div>
   )
 }
