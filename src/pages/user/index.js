@@ -2,7 +2,8 @@ import { useTranslation } from 'react-i18next'
 import { InputSearch } from '../../components/inputs/search'
 import { Table } from '../../components/table/table'
 import { UserModal } from './components/user-modal'
-import { Container, Page, FlexSpaceBetween, Message } from './components/mentor-register/styled.js'
+import { Container, Page, FlexSpaceBetween } from './components/mentor-register/styled.js'
+import { Message } from '../../components/message/styled.js'
 import { faPlus, faSortAlphaDown, faSortAlphaUp } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
 import { client } from '../../service'
@@ -13,32 +14,44 @@ import { CreateLink } from './components/link-modal'
 import { SortTable } from '../../components/sort-table'
 import humanizeDuration from 'humanize-duration'
 import { Paginator } from '../../components/pagination'
+import { getParams } from '../../utils/index'
+import { Loading } from '../../components/loading'
 
 export const MentorPage = () => {
   const { t } = useTranslation()
   const [mentors, setMentors] = useState([])
   const [message, setMessage] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
   const [orderBy, setOrderBy] = useState('name')
   const [orientation, setOrientation] = useState('ASC')
   const [page, setPage] = useState(1)
+  const [search, setSearch] = useState('')
   const [countUsers, setCountUsers] = useState(0)
 
   const hasMentors = ({ length }) => length > 0
+  const payload = {
+    orderBy,
+    orientation,
+    page: search ? 0 : page,
+    search
+  }
 
   useEffect(() => {
-    client.get(`/user?orderBy=${orderBy}&orientation=${orientation}&page=${page}`)
+    setIsLoading(true)
+    client.get(`/user?${getParams(payload)}`)
       .then(res => res.data.data)
       .then(res => {
         hasMentors(res.users)
           ? setMentors(res.users)
           : setMessage(t('user.message.404'))
         setCountUsers(res.count)
+        setIsLoading(false)
       })
       .catch(err => {
         console.log(err)
         setMessage(t('user.message.500'))
       })
-  }, [orderBy, orientation, page])
+  }, [orderBy, orientation, page, search])
 
   const isEnabled = flag => flag === 'user-enabled'
 
@@ -65,7 +78,9 @@ export const MentorPage = () => {
       <Page>
         <section>
           <h1>{t('user.title')}</h1>
-          <InputSearch />
+          <InputSearch
+            onChange={(e) => setSearch(e.target.value)}
+          />
           <div className="button-container">
             <CreateLink
               title='linkGeneration.tittle'
@@ -105,72 +120,71 @@ export const MentorPage = () => {
             </tr>
           </thead>
           <tbody>
-            {
-              mentors.map((mentor, key) =>
-                <tr key={key} >
-                  <td>{mentor.name}</td>
-                  <td>{t(`user.types.${mentor.type}`)}</td>
-                  <td>
-                    <Status
-                      status={mentor.flag}
-                      options={
-                        {
-                          status: {
-                            green: ['user-enabled'],
-                            red: ['user-disabled'],
-                            yellow: ['first-login', 'email-resent']
-                          },
-                          label: {
-                            green: 'user.status.green',
-                            red: ['user.status.red'],
-                            yellow: ['user.status.yellow']
-                          }
+            {mentors.map((mentor, key) =>
+              <tr key={key} >
+                <td>{mentor.name}</td>
+                <td>{t(`user.types.${mentor.type}`)}</td>
+                <td>
+                  <Status
+                    status={mentor.flag}
+                    options={
+                      {
+                        status: {
+                          green: ['user-enabled'],
+                          red: ['user-disabled'],
+                          yellow: ['first-login', 'email-resent']
+                        },
+                        label: {
+                          green: 'user.status.green',
+                          red: ['user.status.red'],
+                          yellow: ['user.status.yellow']
                         }
                       }
+                    }
+                  />
+                </td>
+                <td>{humanizeDate(mentor.createdAt)}</td>
+                <td>
+                  <FlexSpaceBetween>
+                    <p>{mentor.email}</p>
+                    <p>{mentor.telephone}</p>
+                  </FlexSpaceBetween>
+                </td>
+                <td>
+                  <FlexSpaceBetween>
+                    <Button
+                      className={'button-default'}
+                      text={t('user.button.resend')}
+                      onClick={() => {
+                        client.put(`/user/${mentor.id}/email_verification`,
+                          { email: mentor.email })
+                          .then(res => res.data)
+                          .then(res => alert(res.message))
+                          .catch(({ response }) => alert(response.data.msg))
+                      }}
                     />
-                  </td>
-                  <td>{humanizeDate(mentor.createdAt)}</td>
-                  <td>
-                    <FlexSpaceBetween>
-                      <p>{mentor.email}</p>
-                      <p>{mentor.telephone}</p>
-                    </FlexSpaceBetween>
-                  </td>
-                  <td>
-                    <FlexSpaceBetween>
-                      <Button
-                        className={'button-default'}
-                        text={t('user.button.resend')}
-                        onClick={() => {
-                          client.put(`/user/${mentor.id}/email_verification`,
-                            { email: mentor.email })
-                            .then(res => res.data)
-                            .then(res => alert(res.message))
-                            .catch(({ response }) => alert(response.data.msg))
-                        }}
-                      />
-                      <UserModal
-                        id={mentor.id}
-                        user={mentor}
-                        method='PUT'
-                        title='editMentor.title'
-                        text='editMentor.edit'
-                      />
-                      <ToggleButton
-                        status={isEnabled(mentor.flag)}
-                        label={{
-                          on: t('user.toggle.on'),
-                          off: t('user.toggle.off')
-                        }}
-                        click={handleToggleButton(mentor.id)}
-                      />
-                    </FlexSpaceBetween>
-                  </td>
-                </tr>
-              )
-            }
+                    <UserModal
+                      id={mentor.id}
+                      user={mentor}
+                      method='PUT'
+                      title='editMentor.title'
+                      text='editMentor.edit'
+                    />
+                    <ToggleButton
+                      status={isEnabled(mentor.flag)}
+                      label={{
+                        on: t('user.toggle.on'),
+                        off: t('user.toggle.off')
+                      }}
+                      click={handleToggleButton(mentor.id)}
+                    />
+                  </FlexSpaceBetween>
+                </td>
+              </tr>
+            )}
           </tbody>
         </Table>
+        <Loading isVisible={isLoading} />
         <Message>
           {message}
         </Message>
