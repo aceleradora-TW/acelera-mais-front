@@ -15,8 +15,10 @@ export const ImportGoogleSheet = ({ id = '', endpoint = '' }) => {
     client.post(`${endpoint}/hiring_process/${id}`, dataGoogleSheet)
       .then(resp => {
         alert(t('hiringProcess.importGoogleSheet.saveMensage', { value: resp.data.data.count }))
+        location.reload()
       }).catch(error => {
         alert(error.response.data.msg)
+        location.reload()
       })
   }
 

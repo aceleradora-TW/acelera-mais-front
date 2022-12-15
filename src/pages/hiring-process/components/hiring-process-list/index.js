@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Button from '../../../../components/buttons/button'
 import DefaultButton from '../../../../components/buttons/default'
 import { Status } from '../../../../components/status'
 import { Modal } from '../../../../components/modal'
@@ -55,7 +54,7 @@ export const ProcessList = ({ processes }) => {
             <th>{t('hiringProcess.thead.title')}</th>
             <th>Status</th>
             <th>{t('hiringProcess.thead.start')}</th>
-            {isAdmin() && <th colSpan="6">{t('hiringProcess.thead.actions')}</th>}
+            <th colSpan="6">{t('hiringProcess.thead.actions')}</th>
           </tr>
         </thead>
         <tbody>
@@ -99,13 +98,16 @@ export const ProcessList = ({ processes }) => {
                 </Modal>
               </td>}
               {isAdmin() && <><td>
-                <Button
+                <Modal
                   icon={faDownload}
+                  label="Download arquivo csv"
+                  title={t('hiringProcess.export.download')}
                   className="button default"
                   text={t('hiringProcess.export.text')}
-                  onClick={handleExport(process.id)}>
+                  callback={handleExport(process.id)}
+                >
                   {csv}
-                </Button>
+                </Modal>
               </td><td>
                 </td></>}
 
