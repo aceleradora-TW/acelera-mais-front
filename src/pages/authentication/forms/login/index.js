@@ -54,7 +54,7 @@ export const Login = () => {
     client.put('/login/email_verification',
       { email: email })
       .then(res => res.data)
-      .then(res => alert(res))
+      .then(res => alert(res.message))
       .catch(({ response }) => alert(response))
   }
   return (
