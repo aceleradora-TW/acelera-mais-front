@@ -13,7 +13,6 @@ export const Login = () => {
   const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [mentors] = useState([])
   const navigate = useNavigate()
 
   const handleChangeEmail = ({ target }) => {
@@ -52,13 +51,11 @@ export const Login = () => {
   }
 
   const resendPassword = () => {
-    mentors.map(mentor =>
-      client.put('/login/email_verification',
-        { email: mentor.email })
-        .then(res => res.data)
-        .then(res => alert(res.message))
-        .catch(({ response }) => alert(response.data.msg))
-    )
+    client.put('/login/email_verification',
+      { email: email })
+      .then(res => res.data)
+      .then(res => alert(res))
+      .catch(({ response }) => alert(response))
   }
   return (
     <LoginForm>
