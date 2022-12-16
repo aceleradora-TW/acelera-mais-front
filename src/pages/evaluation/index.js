@@ -9,18 +9,21 @@ import { Header } from './components/header/header.js'
 import { Score } from './components/select-note/select-note'
 import { Container, Download, ContainerButtons, Anchor } from './styled'
 import { useTranslation } from 'react-i18next'
+import { Loading } from '../../components/loading'
 
 const EvaluationChallenge = () => {
   const [exercise, setExercise] = useState({})
   const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
+  const [isLoading, setLoading] = useState(true)
   const { t } = useTranslation()
 
   const getExercise = async (id) => {
     const exerciseResult = await client.get(`/exercise/${id}`)
+      .then(res => res.data)
       .then(res => {
-        return res.data
+        setLoading(false)
+        return res.exercise
       })
-      .then(res => res.exercise)
       .catch(err => {
         return err
       })
@@ -35,11 +38,13 @@ const EvaluationChallenge = () => {
     getExercise(exerciseId)
   }, [])
 
-  //
-
   const handleCancel = () => {
     client.patch(`/evaluation/${exercise.evaluation.id}`, { mentorName: 'cancelado' })
     history.back()
+  }
+
+  if (isLoading) {
+    return <Loading />
   }
 
   return (
