@@ -9,26 +9,33 @@ import { Header } from './components/header/header.js'
 import { Score } from './components/select-note/select-note'
 import { Container, Download, ContainerButtons, Anchor } from './styled'
 import { useTranslation } from 'react-i18next'
+import { Loading } from '../../components/loading'
 
 const EvaluationChallenge = () => {
-  const [exercise, setExercise] = useState(null)
+  const [exercise, setExercise] = useState({})
   const [disableEvaluationButton, setDisableEvaluationButton] = useState(true)
+  const [isLoading, setLoading] = useState(true)
   const { t } = useTranslation()
 
-  const exerciseId = window.location.pathname.split('/')[2]
+  const getExercise = async (id) => {
+    const exerciseResult = await client.get(`/exercise/${id}`)
+      .then(res => res.data)
+      .then(res => {
+        setLoading(false)
+        return res.exercise
+      })
+      .catch(err => {
+        return err
+      })
+    setExercise({ ...exerciseResult })
+    setDisableEvaluationButton(hasExerciseType(exerciseResult))
+  }
 
   const hasExerciseType = ({ exerciseType }) => !exerciseType
 
+  const exerciseId = window.location.pathname.split('/')[2]
   useEffect(() => {
-    client.get(`/exercise/${exerciseId}`)
-      .then(res => (res.data))
-      .then(res => {
-        setExercise(res.exercise)
-        setDisableEvaluationButton(hasExerciseType(res.exercise))
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    getExercise(exerciseId)
   }, [])
 
   const handleCancel = () => {
@@ -36,9 +43,9 @@ const EvaluationChallenge = () => {
     history.back()
   }
 
-  if (!exercise) return null
-
-  const exerciseStatement = exercise.exerciseStatement
+  if (isLoading) {
+    return <Loading />
+  }
 
   return (
     <>
@@ -53,7 +60,7 @@ const EvaluationChallenge = () => {
           />
 
           <Download>
-            <Anchor href={exerciseStatement} target='_blank' rel='noreferrer'>
+            <Anchor href={exercise.exerciseStatement} target='_blank' rel='noreferrer'>
               <FontAwesomeIcon icon={faPrint} />
               {t('evaluation.exerciseStatement')}
             </Anchor>
