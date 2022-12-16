@@ -17,30 +17,25 @@ const EvaluationChallenge = () => {
 
   const getExercise = async (id) => {
     const exerciseResult = await client.get(`/exercise/${id}`)
-      .then(res => (res.data))
+      .then(res => {
+        return res.data
+      })
       .then(res => res.exercise)
       .catch(err => {
         return err
       })
-    console.log(exerciseResult)
     setExercise({ ...exerciseResult })
+    setDisableEvaluationButton(hasExerciseType(exerciseResult))
   }
 
   const hasExerciseType = ({ exerciseType }) => !exerciseType
 
+  const exerciseId = window.location.pathname.split('/')[2]
   useEffect(() => {
-    const exerciseId = window.location.pathname.split('/')[2]
     getExercise(exerciseId)
-    client.get(`/exercise/${exerciseId}`)
-      .then(res => (res.data))
-      .then(res => {
-        setExercise(res.data.exercise)
-        setDisableEvaluationButton(hasExerciseType(res.exercise))
-      })
-      .catch(err => {
-        console.log(err)
-      })
   }, [])
+
+  //
 
   const handleCancel = () => {
     client.patch(`/evaluation/${exercise.evaluation.id}`, { mentorName: 'cancelado' })
