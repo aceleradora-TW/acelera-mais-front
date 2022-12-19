@@ -159,8 +159,8 @@
         "name": "Name",
         "type": "Type",
         "status": "Status",
-        "registrationDate": "Regristraition date",
-        "registrationInformation": "Regristion Information",
+        "registrationDate": "Registration date",
+        "registrationInformation": "Registration Information",
         "shares": "Shares"
       },
       "types": {
