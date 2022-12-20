@@ -223,6 +223,11 @@
     "pagination":{
       "prev" : "Prev",
       "next" : "Next"
+    },
+    "page404": {
+      "h1": "Oops!",
+      "warning": "This page does not exist!",
+      "back": "Return"
     }
   }
 }

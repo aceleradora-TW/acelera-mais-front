@@ -222,6 +222,11 @@
     "pagination":{
       "prev" : "Anterior",
       "next" : "Próximo"
+    },
+    "page404": {
+      "h1": "Ops!",
+      "warning": "Esta página não existe!",
+      "back": "Voltar"
     }
   }
 }

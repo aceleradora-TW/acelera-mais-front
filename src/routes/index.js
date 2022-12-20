@@ -9,11 +9,13 @@ import Evaluation from '../pages/evaluation'
 import MentorPage from '../pages/user'
 import { MentorRegisterPage } from '../pages/user/forms/user/MentorRegisterPage'
 import { Layout } from '../components/layout'
+import PageNotFound from '../pages/not-found'
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="*" element={<PageNotFound />} />
         <Route path="/" element={<LoginPage />} exact />
         <Route path="/user/:token" element={<MentorRegisterPage />} exact />
         <Route path="/user/change-password/:id" element={<IsAuth mentorType={['mentor', 'admin']}><UserChangePasswordPage /></IsAuth>} exact />
