@@ -16,6 +16,7 @@ import showFeature from '../../../../utils/feature-toggle'
 import { Container, HiringProcessTable } from './styles'
 import { isAdmin } from '../../../../utils/isAdmin'
 import { useTranslation } from 'react-i18next'
+import Button from '../../../../components/buttons/button'
 
 export const ProcessList = ({ processes }) => {
   const { t } = useTranslation()
@@ -54,7 +55,7 @@ export const ProcessList = ({ processes }) => {
             <th>{t('hiringProcess.thead.title')}</th>
             <th>Status</th>
             <th>{t('hiringProcess.thead.start')}</th>
-            <th colSpan="6">{t('hiringProcess.thead.actions')}</th>
+            {isAdmin() && <th colSpan="6">{t('hiringProcess.thead.actions')}</th>}
           </tr>
         </thead>
         <tbody>
@@ -98,16 +99,14 @@ export const ProcessList = ({ processes }) => {
                 </Modal>
               </td>}
               {isAdmin() && <><td>
-                <Modal
+                <Button
                   icon={faDownload}
-                  label="Download arquivo csv"
-                  title={t('hiringProcess.export.download')}
                   className="button default"
                   text={t('hiringProcess.export.text')}
-                  callback={handleExport(process.id)}
+                  onClick={handleExport(process.id)}
                 >
                   {csv}
-                </Modal>
+                </Button>
               </td><td>
                 </td></>}
 
@@ -123,7 +122,7 @@ export const ProcessList = ({ processes }) => {
                     method="PATCH"
                     id={process.id}
                     process={process}
-                    />
+                  />
                 </Modal>
               </td>}
               {showFeature()
